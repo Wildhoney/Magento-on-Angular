@@ -1,0 +1,16 @@
+<block type="core/template" name="root" output="toHtml">
+   <action method="setTemplate">
+      <template>page.phtml</template>
+   </action>
+   <block type="core/text_list" name="left" as="left"/>
+   <block type="core/text_list" name="content" as="content"/>
+</block>
+<block type="install/db_main" name="database" as="database"/>
+<block type="core/template" name="root" output="toHtml">
+   <action method="setTemplate">
+      <template>page.phtml</template>
+   </action>
+   <block type="core/text_list" name="left" as="left"/>
+   <block type="core/text_list" name="content" as="content"/>
+</block>
+<block type="install/db_main" name="database" as="database"/>
