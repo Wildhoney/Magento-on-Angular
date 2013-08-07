@@ -1,2 +1,0 @@
-Magento-on-Angular
-==================
