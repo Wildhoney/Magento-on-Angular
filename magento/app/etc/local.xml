@@ -28,10 +28,10 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Tue, 06 Aug 2013 18:47:45 +0000]]></date>
+            <date><![CDATA[Wed, 07 Aug 2013 20:59:17 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[bob]]></key>
+            <key><![CDATA[bob2]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
