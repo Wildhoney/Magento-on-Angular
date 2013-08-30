@@ -1,8 +1,5 @@
 /.idea
-.idea
 /.DS_Store
-.DS_Store
 /.gitignore
-.gitignore
 /node_modules
-node_modules
+/magento/var/cache/*
