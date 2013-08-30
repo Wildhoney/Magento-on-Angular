@@ -4,9 +4,10 @@ Specification
 ---------
 
  * Angular.js front-end for one-page functionality;
+ * Laravel API for interacting with Magento;
  * Simplified PHP back-end REST API;
  * Implement Spreedly as the payment gateway;
- * Front-end and back-end with >90% unit-test code coverage;
+ * Front-end and back-end tests with >90% unit-test code coverage;
  * Abides by the rules to make it Google crawlable;
  * Socket.io (WebSockets) for instant product availability;
  * Standardised modules: Facebook Connect, Gift Wrapping, et cetera...;
