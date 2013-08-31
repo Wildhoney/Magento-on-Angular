@@ -1,5 +1,7 @@
 The time for making your typical Magento stores is over! Now you will be able to create actual Magento-based one-page applications.
 
+<img src="http://i.imgur.com/PP6l6G9.jpg" alt="Angular, Magento, Laravel" />
+
 Unit Testing
 ---------
 
