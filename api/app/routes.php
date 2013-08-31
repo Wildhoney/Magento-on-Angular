@@ -12,7 +12,8 @@
 */
 
 //Route::get('/', 'HomeController@showWelcome');
-Route::get('/products/all', 'ProductsController@all');
+Route::get('/product/{id}', 'ProductController@getProduct');
+Route::get('/products', 'ProductsController@getProducts');
 //Route::get('/', function()
 //{
 ////	return View::make('hello');
