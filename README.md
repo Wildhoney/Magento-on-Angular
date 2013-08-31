@@ -12,5 +12,6 @@ Specification
  * Socket.io (WebSockets) for instant product availability;
  * Standardised modules: Facebook Connect, Gift Wrapping, et cetera...;
  * GZipped data packages from back-end API;
+ * Real-time currency converter using Google Calculator API;
  * Crossfilter for super-fast filtering across all models;
  * (Future) Fallback to lazy-loading models for mobiles/tablets;

@@ -2,9 +2,9 @@
 
 class ProductsControllerTest extends TestCase {
 
-	public function testBasicExample()
+	public function testProducts()
 	{
-		$crawler = $this->client->request('GET', '/products/all');
+		$crawler = $this->client->request('GET', '/products');
 		$this->assertTrue($this->client->getResponse()->isOk());
 	}
 
