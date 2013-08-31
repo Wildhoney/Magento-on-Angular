@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<head>
+<html>
+    <head>
 
-</head>
-<body>
+        <title>Mao</title>
+        <link rel="stylesheet" type="text/css" href="css/default.css" />
+        <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
 
+        <script type="text/javascript" src="js/vendor/angular-1.0.7.js"></script>
 
+        <script type="text/javascript" src="js/Application.js"></script>
+        <script type="text/javascript" src="js/controllers/NavigationController.js"></script>
+        <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
 
-</body>
+    </head>
+    <body ng-app="maoApp">
+
+        <section class="container">
+
+            <header>
+                <h1>Mao.</h1>
+                <sub>magento's angular overdose.</sub>
+            </header>
+
+            <!--<nav>-->
+                <!--<ul ng-controller="NavigationController">-->
+                    <!--<li></li>-->
+                <!--</ul>-->
+            <!--</nav>-->
+
+            <section class="products" ng-controller="ProductsController">
+
+                <div class="displaying">
+                    Displaying {{products.length}} of {{products.length}} products.
+                </div>
+
+                <ul>
+                    <li ng-repeat="product in products">
+
+                        <img ng-src="{{product.image}}" alt="{{product.name}}" />
+                        <h3>{{product.name}}</h3>
+                        <h4>&pound;{{product.price}}</h4>
+
+                    </li>
+                </ul>
+
+            </section>
+
+            <!--<section class="sidebar">-->
+                <!--<h2>Navigation</h2>-->
+            <!--</section>-->
+
+        </section>
+
+    </body>
 </html>

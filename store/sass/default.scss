@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  text-align: center;
+  //border-top: 4px solid cadetblue;
+  border-top: 4px solid palevioletred;
+}
+
+@mixin lato {
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+}
+
+@mixin times-new-roman {
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  letter-spacing: 0.125em;
+  font-weight: normal;
+}
+
+section.container {
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  padding: 10px 20px;
+
+  header {
+    background: transparent url('./../images/logo.png') no-repeat left top;
+    height: 64px;
+    padding-left: 60px;
+    @include lato;
+    padding-bottom: 75px;
+
+    h1 {
+      font-size: 32px;
+      height: 34px;
+      padding-top: 6px;
+    }
+
+    sub {
+      @include times-new-roman;
+    }
+  }
+}
+
+section.products {
+  div.displaying {
+    @include lato;
+    color: #a9a9a9;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.175em;
+  }
+
+  ul {
+    overflow: hidden;
+    list-style-type: none;
+    margin-top: 15px;
+
+    li {
+      float: left;
+      overflow: hidden;
+      width: 20%;
+      height: 180px;
+      padding: 5px;
+
+      h3 {
+        @include lato;
+        font-size: 14px;
+      }
+
+      h4 {
+        @include times-new-roman;
+        font-size: 12px;
+        font-style: normal;
+        color: hotpink;
+      }
+    }
+  }
+}
