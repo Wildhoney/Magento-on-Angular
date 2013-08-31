@@ -1,5 +1,13 @@
 The time for making your typical Magento stores is over! Now you will be able to create actual Magento-based one-page applications.
 
+Unit Testing
+---------
+
+All unit tests for both JavaScript and PHP can be run from the terminal: `grunt test`.
+
+PHP specific unit tests are available with the `phpunit` command from the `/api/` directory.
+
+
 Specification
 ---------
 

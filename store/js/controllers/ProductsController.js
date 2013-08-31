@@ -18,7 +18,6 @@
 
         request.success(function(response) {
             $scope.products = response;
-            console.log(response);
         });
 
     }]);

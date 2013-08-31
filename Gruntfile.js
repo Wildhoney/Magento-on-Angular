@@ -11,11 +11,19 @@ module.exports = function(grunt) {
                 bootstrap: 'api/bootstrap/autoload.php',
                 colors: true
             }
-        }
+        },
+        jshint: {
+            all: ['store/js/Application.js', 'store/js/controllers/*.js'],
+            options: {
+                jshintrc: '.jshintrc'
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-phpunit');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    grunt.registerTask('default', ['phpunit']);
+    grunt.registerTask('test', ['phpunit', 'jshint']);
+    grunt.registerTask('default', ['phpunit', 'jshint']);
 
 };

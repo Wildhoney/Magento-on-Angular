@@ -13,6 +13,7 @@
     "jasmine-node": "~1.11.0",
     "crossfilter": "~1.2.0",
     "socket.io": "~0.9.16",
-    "grunt-phpunit": "~0.3.0"
+    "grunt-phpunit": "~0.3.0",
+    "grunt-contrib-jshint": "~0.6.4"
   }
 }
