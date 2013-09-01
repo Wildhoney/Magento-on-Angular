@@ -13,7 +13,7 @@ class ProductsController extends MageController {
                 'id'    => $product->getId(),
                 'name'  => $product->getName(),
                 'price' => $product->getPrice(),
-                'image' => $product->getThumbnailUrl()
+                'image' => basename($product->getThumbnailUrl())
             );
 
         }

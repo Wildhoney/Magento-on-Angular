@@ -34,7 +34,8 @@ header {
     font-weight: normal; }
 
 nav {
-  background-color: #ddd;
+  background: #efefef;
+  background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
   height: 40px;
   width: 100%;
   margin-bottom: 20px; }
