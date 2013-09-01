@@ -13,11 +13,11 @@ PHP specific unit tests are available with the `phpunit` command from the `/api/
 Laravel API
 ---------
 
-If you prefer to use another JS framework such as Ember or Meteor, then you're more than free to use the API in isolation. Below we've documented the URLs and their purposes:
+If you prefer to use another JS framework such as Ember or Meteor, then you're more than welcome to use the API in isolation. Below we've documented the URLs and their purposes:
 
  * `/products` &ndash; fetch all the products;
  * `/product/5` &ndash; fetch a product with the ID of 5;
- * `/categories` &dash; fetch all the categories and their sub-categories;
+ * `/categories` &ndash; fetch all the categories and their sub-categories;
 
 Specification
 ---------
