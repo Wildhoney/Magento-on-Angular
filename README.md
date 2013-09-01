@@ -1,7 +1,7 @@
 Mao
 =========
 
-Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Us too!
+Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Mao brings Magento into the 21st century.
 
 <img src="http://i.imgur.com/PP6l6G9.jpg" alt="Angular, Magento, Laravel" />
 <img src="https://travis-ci.org/Wildhoney/Magento-on-Angular.png?branch=master" />
@@ -11,7 +11,10 @@ Unit Testing
 
 All unit tests for both JavaScript and PHP can be run from the terminal: `grunt test`.
 
-PHP specific unit tests are available with the `phpunit` command from the `/api/` directory.
+ * Run PHPUnit tests only: `grunt php-test`
+ * Run Jasmine tests only: `grunt js-test`
+ * PHP specific unit tests are available with the `phpunit` command from the `/api/` directory;
+ * JavaScript specific unit tests are available via the URL `/store/tests/`;
 
 Laravel API
 ---------

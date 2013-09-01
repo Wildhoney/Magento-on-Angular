@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
 
         <title>Mao</title>
@@ -13,15 +14,20 @@
         <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
 
     </head>
+
     <body ng-app="maoApp">
 
+        <!-- Begin Container -->
         <section class="container">
 
+            <!-- Begin Header -->
             <header>
                 <h1>Mao.</h1>
                 <sub>magento's angular overdose.</sub>
             </header>
+            <!-- End Header -->
 
+            <!-- Begin Categories -->
             <nav ng-controller="CategoriesController">
 
                 <ul>
@@ -36,7 +42,9 @@
                 </ul>
 
             </nav>
+            <!-- End Categories -->
 
+            <!-- Begin Products -->
             <section class="products" ng-controller="ProductsController">
 
                 <div class="displaying">
@@ -54,12 +62,11 @@
                 </ul>
 
             </section>
-
-            <!--<section class="sidebar">-->
-                <!--<h2>Navigation</h2>-->
-            <!--</section>-->
+            <!-- End Products -->
 
         </section>
+        <!-- End Container -->
 
     </body>
+
 </html>

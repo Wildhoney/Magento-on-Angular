@@ -36,15 +36,27 @@ module.exports = function(grunt) {
                     'dist/<%= pkg.buildName %>-<%= pkg.version %>.css': 'store/sass/default.scss'
                 }
             }
+        },
+        jasmine: {
+            pivotal: {
+                src: ['store/js/Application.js', 'store/js/controllers/*'],
+                options: {
+                    specs: 'store/tests/spec.js',
+                    helpers: ['store/js/vendor/*.js']
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-phpunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('test', ['phpunit', 'jshint']);
-    grunt.registerTask('default', ['phpunit', 'jshint', 'sass', 'uglify']);
+    grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
+    grunt.registerTask('js-test', ['jasmine', 'jshint']);
+    grunt.registerTask('php-test', ['phpunit']);
+    grunt.registerTask('default', ['phpunit', 'jasmine', 'jshint', 'sass', 'uglify']);
 
 };
