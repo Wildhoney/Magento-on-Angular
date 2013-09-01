@@ -1,5 +1,5 @@
 Mao
----------
+=========
 
 Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Us too!
 
