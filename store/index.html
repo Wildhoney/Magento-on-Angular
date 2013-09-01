@@ -48,7 +48,7 @@
 
                         <img ng-src="{{product.image}}" alt="{{product.name}}" />
                         <h3>{{product.name}}</h3>
-                        <h4>&pound;{{product.price}}</h4>
+                        <h4>&pound;{{product.price | number: 2}}</h4>
 
                     </li>
                 </ul>
