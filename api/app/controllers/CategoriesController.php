@@ -24,7 +24,11 @@ class CategoriesController extends MageController {
             $category = Mage::getModel('catalog/category')->load($category->getId());
 
             // Begin constructing the response by placing the name of the category into the array.
-            $current = array('name' => $category->getName(), 'children' => array());
+            $current = array(
+                'id'        => (int) $category->getId(),
+                'name'      => $category->getName(),
+                'children'  => array()
+            );
 
             // Discover the category's sub-categories.
             $subCategoryIds = explode(',', $category->getChildren());
@@ -33,12 +37,19 @@ class CategoriesController extends MageController {
 
                 // Load the sub-categories one-by-one, pushing them into the array.
                 $subCategory = Mage::getModel('catalog/category')->load($subCategoryId);
-                $current['children'][]['name'] = $subCategory->getName();
+
+                // Prepare the model for appending to the collection.
+                $model = array(
+                    'id'    => (int) $subCategory->getId(),
+                    'name'  => $subCategory->getName()
+                );
+
+                $current['children'][] = $model;
 
             }
 
             // Finally we can place the category in the list of categories.
-            $collection[$category->getId()] = $current;
+            $collection[] = $current;
 
         }
 

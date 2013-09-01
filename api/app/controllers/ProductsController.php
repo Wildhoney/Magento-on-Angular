@@ -10,10 +10,11 @@ class ProductsController extends MageController {
         foreach ($products as $product) {
 
             $collection[] = array(
-                'id'    => $product->getId(),
-                'name'  => $product->getName(),
-                'price' => $product->getPrice(),
-                'image' => basename($product->getThumbnailUrl())
+                'id'            => $product->getId(),
+                'name'          => $product->getName(),
+                'price'         => $product->getPrice(),
+                'image'         => basename($product->getThumbnailUrl()),
+                'categories'    => $product->getCategoryIds()
             );
 
         }
