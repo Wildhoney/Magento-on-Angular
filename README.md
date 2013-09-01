@@ -1,3 +1,6 @@
+Mao
+---------
+
 Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Us too!
 
 <img src="http://i.imgur.com/PP6l6G9.jpg" alt="Angular, Magento, Laravel" />
