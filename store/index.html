@@ -9,7 +9,7 @@
         <script type="text/javascript" src="js/vendor/angular-1.0.7.js"></script>
 
         <script type="text/javascript" src="js/Application.js"></script>
-        <script type="text/javascript" src="js/controllers/NavigationController.js"></script>
+        <script type="text/javascript" src="js/controllers/CategoriesController.js"></script>
         <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
 
     </head>
@@ -22,11 +22,20 @@
                 <sub>magento's angular overdose.</sub>
             </header>
 
-            <!--<nav>-->
-                <!--<ul ng-controller="NavigationController">-->
-                    <!--<li></li>-->
-                <!--</ul>-->
-            <!--</nav>-->
+            <nav ng-controller="CategoriesController">
+
+                <ul>
+                    <li class="category" ng-repeat="category in categories">
+                        {{category.name}}
+                        <ul>
+                            <li class="sub-category" ng-repeat="subCategory in category.children | orderBy: 'name'">
+                                {{subCategory.name}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
 
             <section class="products" ng-controller="ProductsController">
 

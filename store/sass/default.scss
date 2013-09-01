@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   text-align: center;
   //border-top: 4px solid cadetblue;
-  border-top: 4px solid palevioletred;
+  border-top: 4px solid #dd4b39;
 }
 
 @mixin lato {
@@ -30,22 +30,83 @@ section.container {
   height: 100%;
   max-width: 1000px;
   padding: 10px 20px;
+}
 
-  header {
-    background: transparent url('./../images/logo.png') no-repeat left top;
-    height: 64px;
-    padding-left: 60px;
-    @include lato;
-    padding-bottom: 75px;
+header {
+  background: transparent url('./../images/logo.png') no-repeat left top;
+  height: 64px;
+  padding-left: 60px;
+  @include lato;
+  padding-bottom: 75px;
 
-    h1 {
-      font-size: 32px;
-      height: 34px;
-      padding-top: 6px;
-    }
+  h1 {
+    font-size: 32px;
+    height: 34px;
+    padding-top: 6px;
+  }
 
-    sub {
-      @include times-new-roman;
+  sub {
+    @include times-new-roman;
+  }
+}
+
+nav {
+  $height: 40px;
+
+  background-color: #ddd;
+  height: $height;
+  width: 100%;
+  margin-bottom: 20px;
+
+  ul {
+    list-style-type: none;
+
+    li.category {
+      float: left;
+      padding: 0 15px;
+      overflow: visible;
+      @include lato;
+      cursor: pointer;
+      color: #888;
+      height: $height;
+      line-height: $height;
+      transition: all .35s;
+      position: relative;
+
+      &:hover {
+        color: black;
+        background-color: #ccc;
+
+        ul {
+          display: block;
+        }
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        z-index: 3;
+        background-color: white;
+        top: $height;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
+        left: 0;
+        padding: 10px 0;
+
+        li.sub-category {
+          background-color: white;
+          color: #dd4b39;
+          width: 200px;
+          padding: 0 15px;
+          font-size: 12px;
+          transition: all .35s;
+          height: $height / 1.5;
+          line-height: $height / 1.5;
+
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
     }
   }
 }
@@ -80,7 +141,7 @@ section.products {
         @include times-new-roman;
         font-size: 12px;
         font-style: normal;
-        color: hotpink;
+        color: #dd4b39;
       }
     }
   }
