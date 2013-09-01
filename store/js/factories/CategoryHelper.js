@@ -31,7 +31,13 @@
             return name;
         };
 
-
+        /**
+         * @on loadedCategories
+         * @param event {Object}
+         * @param categories {Array}
+         * Invoked when the categories have been loaded by the `CategoriesController`.
+         * Responsible for resolving the promise.
+         */
         $rootScope.$on('loadedCategories', function(event, categories) {
 
             // Store the categories, and resolve our promise!
