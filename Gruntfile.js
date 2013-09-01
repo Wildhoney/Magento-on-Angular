@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             },
             build: {
                 src: ['store/js/Application.js', 'store/js/controllers/*.js'],
-                dest: 'store/js/mao.js'
+                dest: 'dist/<%= pkg.buildName %>-<%= pkg.version %>.js'
             }
         },
         sass: {
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                     style: 'nested'
                 },
                 files: {
-                    'store/css/default.css': 'store/sass/default.scss'
+                    'dist/<%= pkg.buildName %>-<%= pkg.version %>.css': 'store/sass/default.scss'
                 }
             }
         }

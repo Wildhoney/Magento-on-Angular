@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  text-align: center;
+  border-top: 4px solid #dd4b39; }
+
+section.container {
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  padding: 10px 20px; }
+
+header {
+  background: transparent url("./../images/logo.png") no-repeat left top;
+  height: 64px;
+  padding-left: 60px;
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  padding-bottom: 75px; }
+  header h1 {
+    font-size: 32px;
+    height: 34px;
+    padding-top: 6px; }
+  header sub {
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    letter-spacing: 0.125em;
+    font-weight: normal; }
+
+nav {
+  background-color: #ddd;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 20px; }
+  nav ul {
+    list-style-type: none; }
+    nav ul li.category {
+      float: left;
+      padding: 0 15px;
+      overflow: visible;
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      cursor: pointer;
+      color: #888;
+      height: 40px;
+      line-height: 40px;
+      transition: all .35s;
+      position: relative; }
+      nav ul li.category:hover {
+        color: black;
+        background-color: #ccc; }
+        nav ul li.category:hover ul {
+          display: block; }
+      nav ul li.category ul {
+        display: none;
+        position: absolute;
+        z-index: 3;
+        background-color: white;
+        top: 40px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        left: 0;
+        padding: 10px 0; }
+        nav ul li.category ul li.sub-category {
+          background-color: white;
+          color: #dd4b39;
+          width: 200px;
+          padding: 0 15px;
+          font-size: 12px;
+          transition: all .35s;
+          height: 26.66667px;
+          line-height: 26.66667px; }
+          nav ul li.category ul li.sub-category:hover {
+            background-color: #eee; }
+
+section.products div.displaying {
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  color: #a9a9a9;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.175em; }
+section.products ul {
+  overflow: hidden;
+  list-style-type: none;
+  margin-top: 15px; }
+  section.products ul li {
+    float: left;
+    overflow: hidden;
+    width: 20%;
+    height: 180px;
+    padding: 5px; }
+    section.products ul li h3 {
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      font-size: 14px; }
+    section.products ul li h4 {
+      font-family: "Times New Roman", serif;
+      font-style: italic;
+      letter-spacing: 0.125em;
+      font-weight: normal;
+      font-size: 12px;
+      font-style: normal;
+      color: #dd4b39; }

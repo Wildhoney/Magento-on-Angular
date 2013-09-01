@@ -1,7 +1,7 @@
 {
-  "name": "MagentoOnAngular",
-  "buildName": "magento-on-angular",
-  "version": "0.1.0",
+  "name": "Mao",
+  "buildName": "mao",
+  "version": "0.0.1",
   "author": "Adam Timberlake",
   "repository": {
     "type": "git",
