@@ -18,6 +18,15 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                src: ['store/js/Application.js', 'store/js/controllers/*.js'],
+                dest: 'store/js/mao.js'
+            }
+        },
         sass: {
             dist: {
                 options: {
@@ -33,8 +42,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-phpunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('test', ['phpunit', 'jshint']);
-    grunt.registerTask('default', ['phpunit', 'jshint', 'sass']);
+    grunt.registerTask('default', ['phpunit', 'jshint', 'sass', 'uglify']);
 
 };
