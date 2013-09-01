@@ -18,12 +18,23 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+        sass: {
+            dist: {
+                options: {
+                    style: 'nested'
+                },
+                files: {
+                    'store/css/default.css': 'store/sass/default.scss'
+                }
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-phpunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('test', ['phpunit', 'jshint']);
-    grunt.registerTask('default', ['phpunit', 'jshint']);
+    grunt.registerTask('default', ['phpunit', 'jshint', 'sass']);
 
 };
