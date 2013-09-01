@@ -26,6 +26,7 @@ class CategoriesController extends MageController {
             // Begin constructing the response by placing the name of the category into the array.
             $current = array(
                 'id'        => (int) $category->getId(),
+                'ident'     => $this->_createIdent($category->getName()),
                 'name'      => $category->getName(),
                 'children'  => array()
             );
@@ -41,6 +42,7 @@ class CategoriesController extends MageController {
                 // Prepare the model for appending to the collection.
                 $model = array(
                     'id'    => (int) $subCategory->getId(),
+                    'ident' => $this->_createIdent($subCategory->getName()),
                     'name'  => $subCategory->getName()
                 );
 
@@ -54,6 +56,15 @@ class CategoriesController extends MageController {
         }
 
         return Response::json($collection);
+
+    }
+
+    private function _createIdent($name) {
+
+        $name   = strtolower($name);
+        $name   = str_replace(' ', '-', $name);
+
+        return $name;
 
     }
 

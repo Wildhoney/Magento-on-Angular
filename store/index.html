@@ -9,12 +9,15 @@
         <link rel="stylesheet" type="text/css" href="css/default.css" />
         <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
 
+        <script type="text/javascript" src="js/vendor/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="js/vendor/angular-1.0.7.js"></script>
 
         <script type="text/javascript" src="js/Application.js"></script>
         <script type="text/javascript" src="js/controllers/HomeController.js"></script>
         <script type="text/javascript" src="js/controllers/CategoriesController.js"></script>
+        <script type="text/javascript" src="js/controllers/CategoryController.js"></script>
         <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
+        <script type="text/javascript" src="js/factories/CategoryHelper.js"></script>
 
     </head>
 
@@ -26,7 +29,7 @@
             <!-- Begin Header -->
             <header>
                 <h1>Mao.</h1>
-                <sub>magento's angular overdose.</sub>
+                <sub>Reinvigorating Magento.</sub>
             </header>
             <!-- End Header -->
 
@@ -34,11 +37,13 @@
             <nav ng-controller="CategoriesController">
 
                 <ul>
-                    <li class="category" ng-repeat="category in categories">
-                        {{category.name}}
+                    <li class="tab"><a href="#!">Home</a></li>
+
+                    <li class="tab" ng-repeat="category in categories">
+                        <a ng-href="#!/category/{{category.ident}}">{{category.name}}</a>
                         <ul>
                             <li class="sub-category" ng-repeat="subCategory in category.children | orderBy: 'name'">
-                                {{subCategory.name}}
+                                <a ng-href="#!/category/{{category.ident}}/{{subCategory.ident}}">{{subCategory.name}}</a>
                             </li>
                         </ul>
                     </li>
