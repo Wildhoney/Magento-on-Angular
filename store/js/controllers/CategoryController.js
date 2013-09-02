@@ -8,9 +8,9 @@
      */
     $m.controller('CategoryController',
 
-        ['$rootScope', '$scope', '$routeParams', '$categoryHelper', '$timeout',
+        ['$rootScope', '$scope', '$routeParams', '$categoryHelper',
 
-        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper, $timeout) {
+        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper) {
 
         $categoryHelper.hasLoaded().then(function() {
 
