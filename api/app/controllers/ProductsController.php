@@ -9,12 +9,18 @@ class ProductsController extends MageController {
 
         foreach ($products as $product) {
 
+            $ids = array();
+
+            foreach ($product->getCategoryIds() as $id) {
+                array_push($ids, (int) $id);
+            }
+
             $collection[] = array(
                 'id'            => $product->getId(),
                 'name'          => $product->getName(),
                 'price'         => $product->getPrice(),
                 'image'         => basename($product->getThumbnailUrl()),
-                'categories'    => $product->getCategoryIds()
+                'categories'    => $ids
             );
 
         }

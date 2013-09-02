@@ -7,4 +7,20 @@
         </h2>
     </section>
 
+    <section class="products" ng-controller="ProductsController">
+
+        <div class="loading" ng-class="{loaded: hasLoaded}">
+            Please wait one moment...
+        </div>
+
+        Displaying {{products.length}} products.
+
+        <div class="product" ng-repeat="product in products">
+
+            {{product.name}}
+
+        </div>
+
+    </section>
+
 </section>

@@ -134,3 +134,17 @@ section.content {
       font-family: "Lato", sans-serif;
       font-weight: normal;
       font-size: 16px; }
+
+section.page.category div.loading {
+  padding-left: 24px;
+  margin: 5px 0;
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  letter-spacing: 0.125em;
+  font-weight: normal;
+  opacity: 1;
+  font-size: 12px;
+  background: white url("./../images/loading.gif") no-repeat center left;
+  transition: all .45s; }
+  section.page.category div.loading.loaded {
+    opacity: 0; }

@@ -76,7 +76,6 @@ nav {
 
       &:hover {
         color: black;
-        //background-color: #eee;
         background: -webkit-linear-gradient(top, #eee 0%, #ccc 100%);
 
         ul {
@@ -183,6 +182,22 @@ section.content {
         @include lato;
         font-size: 16px;
       }
+    }
+  }
+}
+
+section.page.category {
+  div.loading {
+    padding-left: 24px;
+    margin: 5px 0;
+    @include times-new-roman;
+    opacity: 1;
+    font-size: 12px;
+    background: white url('./../images/loading.gif') no-repeat center left;
+    transition: all .45s;
+
+    &.loaded {
+      opacity: 0;
     }
   }
 }
