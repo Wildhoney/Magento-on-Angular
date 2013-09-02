@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: ['store/js/Application.js', 'store/js/controllers/*.js'],
+                src: ['store/js/Application.js', 'store/js/factories/*.js', 'store/js/controllers/*.js'],
                 dest: 'dist/<%= pkg.buildName %>-<%= pkg.version %>.js'
             }
         },

@@ -6,8 +6,8 @@
      * @controller HomeController
      * @contributors Adam Timberlake
      */
-    $m.controller('HomeController', ['$scope', function HomeController($scope) {
+    $m.controller('HomeController', function HomeController() {
 
-    }]);
+    });
 
 })(window.mao);
