@@ -67,13 +67,11 @@ nav {
     li.tab {
       border-right: 1px solid #ccc;
       float: left;
-      padding: 0 15px;
       overflow: visible;
       @include lato;
       cursor: pointer;
       color: #888;
       height: $height;
-      line-height: $height;
       position: relative;
 
       &:hover {
@@ -88,6 +86,11 @@ nav {
 
       a {
         color: #888;
+        float: left;
+        width: 100%;
+        height: $height;
+        line-height: $height;
+        padding: 0 15px;
         text-decoration: none;
 
         &:hover {
@@ -107,10 +110,10 @@ nav {
         li.sub-category {
           color: black;
           width: 200px;
-          padding: 0 15px;
           font-size: 14px;
           border-bottom: 1px solid #ccc;
           transition: all .35s;
+          overflow: hidden;
           height: $height - 10;
           line-height: $height - 10;
 
@@ -119,7 +122,12 @@ nav {
           }
 
           a {
+            height: $height - 10;
+            line-height: $height - 10;
             color: black;
+            padding: 0 15px;
+            float: left;
+            width: 100%;
             text-decoration: none;
           }
         }

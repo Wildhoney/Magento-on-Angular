@@ -46,14 +46,12 @@ nav {
     nav ul li.tab {
       border-right: 1px solid #ccc;
       float: left;
-      padding: 0 15px;
       overflow: visible;
       font-family: "Lato", sans-serif;
       font-weight: normal;
       cursor: pointer;
       color: #888;
       height: 40px;
-      line-height: 40px;
       position: relative; }
       nav ul li.tab:hover {
         color: black;
@@ -62,6 +60,11 @@ nav {
           display: block; }
       nav ul li.tab a {
         color: #888;
+        float: left;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 15px;
         text-decoration: none; }
         nav ul li.tab a:hover {
           color: black; }
@@ -76,16 +79,21 @@ nav {
         nav ul li.tab ul li.sub-category {
           color: black;
           width: 200px;
-          padding: 0 15px;
           font-size: 14px;
           border-bottom: 1px solid #ccc;
           transition: all .35s;
+          overflow: hidden;
           height: 30px;
           line-height: 30px; }
           nav ul li.tab ul li.sub-category:hover {
             background-color: #ddd; }
           nav ul li.tab ul li.sub-category a {
+            height: 30px;
+            line-height: 30px;
             color: black;
+            padding: 0 15px;
+            float: left;
+            width: 100%;
             text-decoration: none; }
 
 section.products div.displaying {
