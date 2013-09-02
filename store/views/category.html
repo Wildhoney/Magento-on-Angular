@@ -1,7 +1,10 @@
-<section class="category" ng-controller="CategoryController">
+<section class="category page" ng-controller="CategoryController">
 
     <section class="title">
-        <h2>{{category}}</h2>
+        <h2>
+            <span>{{category.name}}</span>
+            <span ng-show="subCategory">/ {{subCategory.name}}</span>
+        </h2>
     </section>
 
 </section>

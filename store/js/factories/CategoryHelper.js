@@ -24,11 +24,27 @@
 
         /**
          * @method find
-         * @param name {String}
-         * @return {String}
+         * @param $category {String}
+         * @param $subCategory {String}
+         * @return {Object}
          */
-        service.find = function find(name) {
-            return name;
+        service.find = function find($category, $subCategory) {
+
+            // Find the category based on its ident.
+            var category = service.categories.filter(function(category) {
+                return category.ident === $category;
+            })[0];
+
+            if ($subCategory) {
+
+                // Attempt to find the sub-category if we've got one.
+                var subCategory = category.children.filter(function(subCategory) {
+                    return subCategory.ident === $subCategory;
+                })[0];
+
+            }
+
+            return { category: category, subCategory: subCategory };
         };
 
         /**

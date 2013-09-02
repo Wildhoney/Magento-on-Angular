@@ -15,8 +15,13 @@
              * @type {String}
              */
             $categoryHelper.hasLoaded().then(function() {
-                var name        = $routeParams.subCategory || $routeParams.category;
-                $scope.category = $categoryHelper.find(name);
+
+                var subCategory = $routeParams.subCategory || null,
+                    details     = $categoryHelper.find($routeParams.category, subCategory);
+
+                $scope.category     = details.category;
+                $scope.subCategory  = details.subCategory;
+
             });
 
     }]);
