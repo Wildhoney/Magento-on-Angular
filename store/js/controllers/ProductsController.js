@@ -25,22 +25,6 @@
          */
         $scope.hasLoaded = false;
 
-        var request = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'});
-
-        request.success(function(response) {
-
-            // Initiate our Crossfilter object.
-            $crossfilterHelper.create(response);
-
-            // Create all of the necessary dimensions.
-            $crossfilterHelper.addDimension('id');
-            $crossfilterHelper.addDimension('categories');
-
-            // Let everybody know we've loaded the products!
-            $scope.$emit('loadedProducts');
-
-        });
-
         $scope.$on('switchedCategory', function(event, id) {
 
             $productHelper.hasLoaded().then(function() {

@@ -6,9 +6,33 @@
      * @factory $productHelper
      * @contributors Adam Timberlake
      */
-    $m.factory('$productHelper', ['$rootScope', function($rootScope) {
+    $m.factory('$productHelper',
 
+        ['$rootScope', '$http', '$crossfilterHelper',
+
+        function ProductHelper($rootScope, $http, $crossfilterHelper) {
+
+        /**
+         * @property service
+         * @type {Object}
+         */
         var service = {};
+
+        var request = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'});
+
+        request.success(function(response) {
+
+            // Initiate our Crossfilter object.
+            $crossfilterHelper.create(response);
+
+            // Create all of the necessary dimensions.
+            $crossfilterHelper.addDimension('id');
+            $crossfilterHelper.addDimension('categories');
+
+            // Let everybody know we've loaded the products!
+            $rootScope.$broadcast('loadedProducts');
+
+        });
 
         // Resolved when the products are loaded.
         var deferred = $j.Deferred();
