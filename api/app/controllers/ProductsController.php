@@ -12,7 +12,16 @@ class ProductsController extends MageController {
             $ids = array();
 
             foreach ($product->getCategoryIds() as $id) {
+
                 array_push($ids, (int) $id);
+
+                // Add any parent IDs as well.
+                $category = Mage::getModel('catalog/category')->load($id);
+
+                if ($category->parent_id) {
+                    array_push($ids, (int) $category->parent_id);
+                }
+                
             }
 
             $collection[] = array(
