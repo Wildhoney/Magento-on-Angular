@@ -21,7 +21,7 @@ class ProductsController extends MageController {
                 if ($category->parent_id) {
                     array_push($ids, (int) $category->parent_id);
                 }
-                
+
             }
 
             $collection[] = array(

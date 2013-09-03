@@ -8,14 +8,16 @@
      */
     $m.controller('CategoryController',
 
-        ['$rootScope', '$scope', '$routeParams', '$categoryHelper',
+        ['$rootScope', '$scope', '$routeParams', '$categoryHelper', '$productHelper',
 
-        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper) {
+        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper, $productHelper) {
 
         $categoryHelper.hasLoaded().then(function() {
 
             var subCategory = $routeParams.subCategory || null,
                 details     = $categoryHelper.find($routeParams.category, subCategory);
+
+//            console.log($routeParams);
 
             $scope.category     = details.category;
             $scope.subCategory  = details.subCategory;

@@ -18,24 +18,25 @@
          */
         var service = {};
 
-        var request = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'});
+        // Create our request and our promise which will be reolved when the AJAX
+        // request is successful.
+        var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
+            deferred    = $j.Deferred();
 
         request.success(function(response) {
 
             // Initiate our Crossfilter object.
-            $crossfilterHelper.create(response);
+            var crossfilter = $crossfilterHelper.create(response);
 
             // Create all of the necessary dimensions.
             $crossfilterHelper.addDimension('id');
             $crossfilterHelper.addDimension('categories');
 
-            // Let everybody know we've loaded the products!
-            $rootScope.$broadcast('loadedProducts');
+            // Store the products, and resolve our promise!
+            service.products = crossfilter;
+            deferred.resolve();
 
         });
-
-        // Resolved when the products are loaded.
-        var deferred = $j.Deferred();
 
         /**
          * @method hasLoaded
@@ -46,6 +47,25 @@
             return deferred.promise();
         };
 
+        service.fetch = function fetch() {
+
+            return $crossfilterHelper.get('id').top(Infinity);
+
+        };
+
+        service.setCategoryId = function setCategoryId(id) {
+
+            var dimension = $crossfilterHelper.get('categories');
+//
+            // Clear the filter before we apply another category.
+            dimension.filterAll();
+
+            dimension.filterFunction(function(ids) {
+                return ($j.inArray(id, ids) !== -1);
+            });
+
+        };
+
         /**
          * @on loadedProducts
          * @param event {Object}
@@ -53,13 +73,13 @@
          * Invoked when the products have been loaded by the `ProductsController`.
          * Responsible for resolving the promise.
          */
-        $rootScope.$on('loadedProducts', function(event, products) {
-
-            // Store the products, and resolve our promise!
-            service.products = products;
-            deferred.resolve();
-
-        });
+//        $rootScope.$on('loadedProducts', function(event, products) {
+//
+//            // Store the products, and resolve our promise!
+//            service.products = products;
+//            deferred.resolve();
+//
+//        });
 
         return service;
 

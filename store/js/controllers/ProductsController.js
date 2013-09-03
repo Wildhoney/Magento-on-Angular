@@ -8,9 +8,9 @@
      */
     $m.controller('ProductsController',
 
-        ['$rootScope', '$scope', '$http', '$crossfilterHelper', '$productHelper',
+        ['$rootScope', '$scope', '$http', '$productHelper',
 
-        function ProductsController($rootScope, $scope, $http, $crossfilterHelper, $productHelper) {
+        function ProductsController($rootScope, $scope, $http, $productHelper) {
 
         /**
          * @property products
@@ -25,20 +25,18 @@
          */
         $scope.hasLoaded = false;
 
+        /**
+         * @on switchedCategory
+         * Responsible for switching the category.
+         * @return {void}
+         */
         $scope.$on('switchedCategory', function(event, id) {
 
             $productHelper.hasLoaded().then(function() {
 
-                var dimension = $crossfilterHelper.get('categories');
+                $productHelper.setCategoryId(id);
 
-                // Clear the filter before we apply another category.
-                dimension.filterAll();
-
-                dimension.filterFunction(function(ids) {
-                    return ($j.inArray(id, ids) !== -1);
-                });
-
-                $scope.products     = dimension.top(Infinity);
+                $scope.products     = $productHelper.fetch();
                 $scope.hasLoaded    = true;
 
             });
