@@ -47,16 +47,23 @@
             return deferred.promise();
         };
 
+        /**
+         * @method fetch
+         * @return {Array}
+         */
         service.fetch = function fetch() {
-
             return $crossfilterHelper.get('id').top(Infinity);
-
         };
 
+        /**
+         * @method setCategoryId
+         * @param id {Number}
+         * @return {void}
+         */
         service.setCategoryId = function setCategoryId(id) {
 
             var dimension = $crossfilterHelper.get('categories');
-//
+
             // Clear the filter before we apply another category.
             dimension.filterAll();
 
