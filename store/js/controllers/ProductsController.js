@@ -13,6 +13,43 @@
         function ProductsController($rootScope, $scope, $http, $productHelper, $routeParams) {
 
         /**
+         * @method _getPageNumber
+         * @param params {Object}
+         * @return {Number}
+         * @private
+         */
+        $scope._getPageNumber = function _getPageNumber(params) {
+
+            if (!params.pageNumber && !params.subCategory) {
+                return 1;
+            }
+
+            if (params.pageNumber) {
+
+                // If the page number has been set then it's probably fine, because we're
+                // more than likely on the subCategory page.
+                return params.pageNumber;
+
+            }
+
+            var pageNumber  = 1,
+                isNumber    = (params.subCategory) && params.subCategory.match(/^\d+$/);
+
+            if (isNumber) {
+
+                // Because the Angular routing isn't so great as to distinguish between
+                // different types of URL params, we'll have to detect if the subCategory
+                // is in fact the page number for the category page.
+                pageNumber = params.subCategory;
+                delete params.subCategory;
+
+            }
+
+            return pageNumber;
+
+        };
+
+        /**
          * @property products
          * @type {Array}
          */
@@ -28,7 +65,7 @@
          * @property currentPage
          * @type {Number}
          */
-        $scope.currentPage = $routeParams.pageNumber;
+        $scope.currentPage = $scope._getPageNumber($routeParams);
 
         /**
          * @property pagination
