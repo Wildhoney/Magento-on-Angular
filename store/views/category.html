@@ -9,17 +9,30 @@
 
     <section class="products" ng-controller="ProductsController">
 
+        <ul class="pagination">
+            <li class="title">Page {{currentPage}} of {{pages.length}}</li>
+            <li class="pageNumber" ng-repeat="page in pages">
+
+                <a ng-hide="subCategory" href="#!/category/{{category.ident}}/{{page}}">
+                    {{page}}
+                </a>
+
+                <a ng-show="subCategory" href="#!/category/{{category.ident}}/{{subCategory.ident}}/{{page}}">
+                    {{page}}
+                </a>
+
+            </li>
+        </ul>
+
         <div class="loading" ng-class="{loaded: hasLoaded}">
             Please wait one moment...
         </div>
 
-        Displaying {{products.length}} products.
-
-        <div class="product" ng-repeat="product in products">
-
-            {{product.name}}
-
-        </div>
+        <ul class="products">
+            <li ng-repeat="product in products">
+                {{product.name}}
+            </li>
+        </ul>
 
     </section>
 

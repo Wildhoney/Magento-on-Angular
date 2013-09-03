@@ -8,9 +8,9 @@
      */
     $m.controller('ProductsController',
 
-        ['$rootScope', '$scope', '$http', '$productHelper',
+        ['$rootScope', '$scope', '$http', '$productHelper', '$routeParams',
 
-        function ProductsController($rootScope, $scope, $http, $productHelper) {
+        function ProductsController($rootScope, $scope, $http, $productHelper, $routeParams) {
 
         /**
          * @property products
@@ -19,11 +19,35 @@
         $scope.products = [];
 
         /**
+         * @property perPage
+         * @type {Number}
+         */
+        $scope.perPage = 10;
+
+        /**
+         * @property currentPage
+         * @type {Number}
+         */
+        $scope.currentPage = $routeParams.pageNumber;
+
+        /**
+         * @property pagination
+         * @type {Array}
+         */
+        $scope.pagination = [];
+
+        /**
          * @property hasLoaded
          * @type {Boolean}
          * @default false
          */
         $scope.hasLoaded = false;
+
+        /**
+         * @property pages
+         * @type {Array}
+         */
+        $scope.pages = [];
 
         /**
          * @on switchedCategory
@@ -36,8 +60,17 @@
 
                 $productHelper.setCategoryId(id);
 
-                $scope.products     = $productHelper.fetch();
+                var offset      = ($scope.currentPage * $scope.perPage) - $scope.perPage,
+                    products    = $productHelper.fetch(),
+                    totalPages  = Math.ceil(products.length / $scope.perPage);
+
+                $scope.products     = products.slice(offset, $scope.perPage + offset);
                 $scope.hasLoaded    = true;
+
+                for (var index = 0; index < totalPages; index++) {
+                    // Populate the pages array with the page range.
+                    $scope.pages[index] = (index + 1);
+                }
 
             });
 

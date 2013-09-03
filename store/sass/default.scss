@@ -135,42 +135,6 @@ nav {
   }
 }
 
-section.products {
-  div.displaying {
-    @include lato;
-    color: #a9a9a9;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.175em;
-  }
-
-  ul {
-    overflow: hidden;
-    list-style-type: none;
-    margin-top: 15px;
-
-    li {
-      float: left;
-      overflow: hidden;
-      width: 20%;
-      height: 180px;
-      padding: 5px;
-
-      h3 {
-        @include lato;
-        font-size: 14px;
-      }
-
-      h4 {
-        @include times-new-roman;
-        font-size: 12px;
-        font-style: normal;
-        color: #dd4b39;
-      }
-    }
-  }
-}
-
 section.content {
   overflow: hidden;
 
@@ -198,6 +162,68 @@ section.page.category {
 
     &.loaded {
       opacity: 0;
+    }
+  }
+
+  section.products {
+    ul.pagination {
+      margin: 20px 0;
+      list-style-type: none;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      padding: 1px;
+      float: left;
+
+      li {
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+
+        &.title {
+          width: 100px;
+          background-color: #ddd;
+          color: #333;
+          font-size: 10px;
+          height: 100%;
+          text-transform: uppercase;
+          @include times-new-roman;
+        }
+
+        &.pageNumber {
+          width: 25px;
+          background-color: #eee;
+          font-size: 12px;
+          transition: all .35s;
+          @include lato;
+
+          a {
+            color: #0088cc;
+            text-decoration: none;
+            font-size: 11px;
+            float: left;
+            width: 100%;
+            text-align: center;
+          }
+
+          &:hover {
+            background-color: #ddd;
+          }
+
+          &:first-of-type a {
+            padding-left: 5px;
+          }
+
+          &:last-of-type a {
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+
+    ul.products {
+      clear: both;
+      overflow: hidden;
     }
   }
 }
