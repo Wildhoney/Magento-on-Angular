@@ -8,9 +8,9 @@
      */
     $m.factory('$productHelper',
 
-        ['$rootScope', '$http', '$crossfilterHelper',
+        ['$rootScope', '$http', '$q', '$crossfilterHelper',
 
-        function ProductHelper($rootScope, $http, $crossfilterHelper) {
+        function ProductHelper($rootScope, $http, $q, $crossfilterHelper) {
 
         /**
          * @property service
@@ -23,7 +23,7 @@
         // Create our request and our promise which will be resolved when the AJAX
         // request is successful.
         var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
-            deferred    = $j.Deferred();
+            deferred    = $q.defer();
 
         request.success(function(response) {
 
@@ -47,7 +47,7 @@
          * @return {Object}
          */
         service.hasLoaded = function hasLoaded() {
-            return deferred.promise();
+            return deferred.promise;
         };
 
         /**

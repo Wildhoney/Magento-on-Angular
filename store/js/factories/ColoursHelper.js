@@ -6,14 +6,14 @@
      * @factory $coloursHelper
      * @contributors Adam Timberlake
      */
-    $m.factory('$coloursHelper', ['$http', function($http) {
+    $m.factory('$coloursHelper', ['$http', '$q', function($http, $q) {
 
         var service = {};
 
         // Create our request and our promise which will be resolved when the AJAX
         // request is successful.
         var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/attributes/color'}),
-            deferred    = $j.Deferred();
+            deferred    = $q.defer();
 
         request.success(function(response) {
             deferred.resolve(response);
@@ -25,7 +25,7 @@
          * @return {Object}
          */
         service.hasLoaded = function hasLoaded() {
-            return deferred.promise();
+            return deferred.promise;
         };
 
         return service;

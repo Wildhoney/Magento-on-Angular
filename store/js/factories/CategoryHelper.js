@@ -6,12 +6,12 @@
      * @factory $categoryHelper
      * @contributors Adam Timberlake
      */
-    $m.factory('$categoryHelper', ['$rootScope', function($rootScope) {
+    $m.factory('$categoryHelper', ['$rootScope', '$q', function($rootScope, $q) {
 
         var service = {};
 
         // Resolved when the categories are loaded.
-        var deferred = $j.Deferred();
+        var deferred = $q.defer();
 
         /**
          * @method hasLoaded
@@ -19,7 +19,7 @@
          * @return {Object}
          */
         service.hasLoaded = function hasLoaded() {
-            return deferred.promise();
+            return deferred.promise;
         };
 
         /**
