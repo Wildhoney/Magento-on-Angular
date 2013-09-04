@@ -10,7 +10,18 @@ class AttributesController extends MageController {
             $options = $attribute->getSource()->getAllOptions(false);
         }
 
-        return Response::json($options);
+        $response = array();
+
+        foreach ($options as $option) {
+
+            $response[] = array(
+                'id'    => (int) $option['value'],
+                'label' => $option['label']
+            );
+
+        }
+
+        return Response::json($response);
 
     }
 

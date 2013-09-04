@@ -105,6 +105,8 @@
                 products    = $productHelper.fetch(),
                 totalPages  = Math.ceil(products.length / $scope.perPage);
 
+            console.log(products.length);
+
             $scope.productCount = products.length;
             $scope.products     = products.slice(offset, $scope.perPage + offset);
             $scope.hasLoaded    = true;
@@ -134,6 +136,15 @@
          */
         $scope.toggleColour = function toggleColour(id) {
             $productHelper.addRemoveById('colour', id);
+        }
+
+        /**
+         * @method toggleManufacturer
+         * @param id {Number}
+         * @return {void}
+         */
+        $scope.toggleManufacturer = function toggleManufacturer(id) {
+            $productHelper.addRemoveById('manufacturer', id);
         }
 
     }]);

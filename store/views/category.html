@@ -11,14 +11,23 @@
 
         <div class="left">
 
-            <section class="colours" ng-controller="ColoursController">
+            <section class="colours" ng-controller="AttributesController">
+
                 <h3>Colours</h3>
                 <ul>
-                    <li ng-click="toggleColour(colour.value)" ng-repeat="colour in colours | orderBy: 'label'">
+                    <li ng-click="toggleColour(colour.id)" ng-repeat="colour in colours | orderBy: 'label'">
                         <div class="icon" style="background-color: {{colour.label}};"></div>
                         <div class="name">{{colour.label}}</div>
                     </li>
                 </ul>
+
+                <h3>Manufacturers</h3>
+                <ul>
+                    <li ng-click="toggleManufacturer(manufacturer.id)" ng-repeat="manufacturer in manufacturers | orderBy: 'label'">
+                        <div class="name">{{manufacturer.label}}</div>
+                    </li>
+                </ul>
+
             </section>
 
         </div>

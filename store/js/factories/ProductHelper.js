@@ -18,7 +18,8 @@
          */
         var service = {};
 
-        service.colour = [];
+        service.colour          = [];
+        service.manufacturer    = [];
 
         // Create our request and our promise which will be resolved when the AJAX
         // request is successful.
@@ -34,6 +35,7 @@
             $crossfilterHelper.addDimension('id');
             $crossfilterHelper.addDimension('categories');
             $crossfilterHelper.addDimension('colour');
+            $crossfilterHelper.addDimension('manufacturer');
 
             // Store the products, and resolve our promise!
             service.products = crossfilter;
@@ -97,6 +99,7 @@
             var dimension = $crossfilterHelper.get(type);
 
             dimension.filterFunction(function(id) {
+                console.log($j.inArray(id, list) === -1);
                 return ($j.inArray(id, list) === -1);
             });
 
