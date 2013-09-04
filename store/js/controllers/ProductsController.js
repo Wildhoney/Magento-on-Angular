@@ -59,7 +59,7 @@
          * @property perPage
          * @type {Number}
          */
-        $scope.perPage = 100000;
+        $scope.perPage = 10;
 
         /**
          * @property currentPage
