@@ -1,4 +1,4 @@
-(function($m, $j) {
+(function($m) {
 
     "use strict";
 
@@ -115,4 +115,4 @@
 
     }]);
 
-})(window.mao, window.jQuery);
+})(window.mao);
