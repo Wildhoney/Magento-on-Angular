@@ -99,7 +99,6 @@
             var dimension = $crossfilterHelper.get(type);
 
             dimension.filterFunction(function(id) {
-                console.log($j.inArray(id, list) === -1);
                 return ($j.inArray(id, list) === -1);
             });
 

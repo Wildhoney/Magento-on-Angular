@@ -105,8 +105,6 @@
                 products    = $productHelper.fetch(),
                 totalPages  = Math.ceil(products.length / $scope.perPage);
 
-            console.log(products.length);
-
             $scope.productCount = products.length;
             $scope.products     = products.slice(offset, $scope.perPage + offset);
             $scope.hasLoaded    = true;
