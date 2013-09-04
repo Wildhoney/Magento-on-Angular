@@ -18,7 +18,7 @@
          */
         var service = {};
 
-        // Create our request and our promise which will be reolved when the AJAX
+        // Create our request and our promise which will be resolved when the AJAX
         // request is successful.
         var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
             deferred    = $j.Deferred();
