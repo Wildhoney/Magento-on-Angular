@@ -45,12 +45,12 @@
             <!-- Begin Categories -->
             <nav ng-controller="CategoriesController">
 
-                <ul>
+                <ul class="unstyled">
                     <li class="tab"><a href="#!">Home</a></li>
 
                     <li class="tab" ng-repeat="category in categories">
                         <a ng-href="#!/category/{{category.ident}}">{{category.name}}</a>
-                        <ul>
+                        <ul class="unstyled">
                             <li class="sub-category" ng-repeat="subCategory in category.children | orderBy: 'name'">
                                 <a ng-href="#!/category/{{category.ident}}/{{subCategory.ident}}">{{subCategory.name}}</a>
                             </li>
