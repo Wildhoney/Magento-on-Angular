@@ -155,18 +155,19 @@ section.page.category {
     padding-left: 24px;
     margin: 5px 0;
     @include times-new-roman;
-    opacity: 1;
+    display: block;
     font-size: 12px;
     background: white url('./../images/loading.gif') no-repeat center left;
     transition: all .45s;
 
     &.loaded {
-      opacity: 0;
+      display: none;
     }
   }
 
   section.products {
     ul.pagination {
+      clear: both;
       margin: 20px 0;
       list-style-type: none;
       overflow: hidden;
@@ -250,6 +251,43 @@ section.page.category {
           @include times-new-roman;
           font-size: 16px;
           text-align: center;
+        }
+      }
+    }
+  }
+
+  section.colours {
+    label {
+      float: left;
+      overflow: hidden;
+      @include lato;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      float: left;
+
+      li {
+        float: left;
+        overflow: hidden;
+        cursor: pointer;
+
+        div.icon {
+          float: left;
+          width: 12px;
+          height: 12px;
+          margin: 4px 3px 0 10px;
+          border: 1px solid lightgray;
+        }
+
+        div.name {
+          @include lato;
+          font-size: 10px;
+          text-transform: uppercase;
+          float: left;
         }
       }
     }

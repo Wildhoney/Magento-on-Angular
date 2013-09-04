@@ -59,7 +59,7 @@
          * @property perPage
          * @type {Number}
          */
-        $scope.perPage = 10;
+        $scope.perPage = 100000;
 
         /**
          * @property currentPage
@@ -87,31 +87,50 @@
         $scope.pages = [];
 
         /**
+         * @on contentUpdated
+         * Responsible for updating the array when the content has been changed.
+         * @return {void}
+         */
+        $scope.$on('contentUpdated', function contentUpdated(event) {
+
+            var offset      = ($scope.currentPage * $scope.perPage) - $scope.perPage,
+                products    = $productHelper.fetch(),
+                totalPages  = Math.ceil(products.length / $scope.perPage);
+
+            $scope.products     = products.slice(offset, $scope.perPage + offset);
+            $scope.hasLoaded    = true;
+
+            for (var index = 0; index < totalPages; index++) {
+                // Populate the pages array with the page range.
+                $scope.pages[index] = (index + 1);
+            }
+
+        });
+
+        /**
          * @on switchedCategory
          * Responsible for switching the category.
          * @return {void}
          */
-        $scope.$on('switchedCategory', function(event, id) {
-
+        $scope.$on('switchedCategory', function switchedCategory(event, id) {
             $productHelper.hasLoaded().then(function() {
-
                 $productHelper.setCategoryId(id);
-
-                var offset      = ($scope.currentPage * $scope.perPage) - $scope.perPage,
-                    products    = $productHelper.fetch(),
-                    totalPages  = Math.ceil(products.length / $scope.perPage);
-
-                $scope.products     = products.slice(offset, $scope.perPage + offset);
-                $scope.hasLoaded    = true;
-
-                for (var index = 0; index < totalPages; index++) {
-                    // Populate the pages array with the page range.
-                    $scope.pages[index] = (index + 1);
-                }
-
             });
-
         });
+
+        $scope.toggleColour = function toggleColour(id) {
+
+            var excludedColours = $productHelper.getColours(),
+                positionIndex   = excludedColours.indexOf(id);
+
+            if (positionIndex !== -1) {
+                excludedColours.splice(positionIndex, 1);
+            } else {
+                excludedColours.push(id);
+            }
+
+            $productHelper.setColours(excludedColours);
+        }
 
     }]);
 

@@ -112,13 +112,14 @@ section.page.category div.loading {
   font-style: italic;
   letter-spacing: 0.125em;
   font-weight: normal;
-  opacity: 1;
+  display: block;
   font-size: 12px;
   background: white url("./../images/loading.gif") no-repeat center left;
   transition: all .45s; }
   section.page.category div.loading.loaded {
-    opacity: 0; }
+    display: none; }
 section.page.category section.products ul.pagination {
+  clear: both;
   margin: 20px 0;
   list-style-type: none;
   overflow: hidden;
@@ -188,3 +189,30 @@ section.page.category section.products ul.products {
       font-weight: normal;
       font-size: 16px;
       text-align: center; }
+section.page.category section.colours label {
+  float: left;
+  overflow: hidden;
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  font-size: 11px;
+  text-transform: uppercase; }
+section.page.category section.colours ul {
+  list-style-type: none;
+  margin: 0;
+  float: left; }
+  section.page.category section.colours ul li {
+    float: left;
+    overflow: hidden;
+    cursor: pointer; }
+    section.page.category section.colours ul li div.icon {
+      float: left;
+      width: 12px;
+      height: 12px;
+      margin: 4px 3px 0 10px;
+      border: 1px solid lightgray; }
+    section.page.category section.colours ul li div.name {
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      font-size: 10px;
+      text-transform: uppercase;
+      float: left; }

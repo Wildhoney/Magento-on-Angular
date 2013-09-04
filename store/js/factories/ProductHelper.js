@@ -18,6 +18,8 @@
          */
         var service = {};
 
+        service.colours = [];
+
         // Create our request and our promise which will be resolved when the AJAX
         // request is successful.
         var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
@@ -31,6 +33,7 @@
             // Create all of the necessary dimensions.
             $crossfilterHelper.addDimension('id');
             $crossfilterHelper.addDimension('categories');
+            $crossfilterHelper.addDimension('colour');
 
             // Store the products, and resolve our promise!
             service.products = crossfilter;
@@ -70,6 +73,23 @@
             dimension.filterFunction(function(ids) {
                 return ($j.inArray(id, ids) !== -1);
             });
+
+            $rootScope.$broadcast('contentUpdated');
+
+        };
+
+        service.getColours = function getColours() {
+            return service.colours;
+        };
+
+        service.setColours = function setColours(colourIds) {
+
+            var dimension = $crossfilterHelper.get('colour');
+            dimension.filterFunction(function(id) {
+                return ($j.inArray(id, colourIds) === -1);
+            });
+
+            $rootScope.$broadcast('contentUpdated');
 
         };
 

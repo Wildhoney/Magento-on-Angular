@@ -9,6 +9,18 @@
 
     <section class="products" ng-controller="ProductsController">
 
+        {{products.length}} Products!
+
+        <section class="colours" ng-controller="ColoursController">
+            <label>Colour:</label>
+            <ul>
+                <li ng-click="toggleColour(colour.value)" ng-repeat="colour in colours | orderBy: 'label'">
+                    <div class="icon" style="background-color: {{colour.label}};"></div>
+                    <div class="name">{{colour.label}}</div>
+                </li>
+            </ul>
+        </section>
+
         <ul class="pagination">
             <li class="title">Page {{currentPage}} of {{pages.length}}</li>
             <li class="pageNumber" ng-repeat="page in pages">
