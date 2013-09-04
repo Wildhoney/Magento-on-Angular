@@ -56,6 +56,14 @@
         $scope.products = [];
 
         /**
+         * @property productCount
+         * @type {Number}
+         * @default 0
+         * Number of products before the pagination slicing takes over.
+         */
+        $scope.productCount = 0;
+
+        /**
          * @property perPage
          * @type {Number}
          */
@@ -97,6 +105,7 @@
                 products    = $productHelper.fetch(),
                 totalPages  = Math.ceil(products.length / $scope.perPage);
 
+            $scope.productCount = products.length;
             $scope.products     = products.slice(offset, $scope.perPage + offset);
             $scope.hasLoaded    = true;
 
@@ -118,18 +127,13 @@
             });
         });
 
+        /**
+         * @method toggleColour
+         * @param id {Number}
+         * @return {void}
+         */
         $scope.toggleColour = function toggleColour(id) {
-
-            var excludedColours = $productHelper.getColours(),
-                positionIndex   = excludedColours.indexOf(id);
-
-            if (positionIndex !== -1) {
-                excludedColours.splice(positionIndex, 1);
-            } else {
-                excludedColours.push(id);
-            }
-
-            $productHelper.setColours(excludedColours);
+            $productHelper.addRemoveById('colour', id);
         }
 
     }]);

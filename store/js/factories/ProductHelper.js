@@ -18,7 +18,7 @@
          */
         var service = {};
 
-        service.colours = [];
+        service.colour = [];
 
         // Create our request and our promise which will be resolved when the AJAX
         // request is successful.
@@ -78,15 +78,26 @@
 
         };
 
-        service.getColours = function getColours() {
-            return service.colours;
-        };
+        service.addRemoveById = function addRemoveById(type, id) {
 
-        service.setColours = function setColours(colourIds) {
+            // Obtain the current list for the type, and determine if it exists
+            // in the list already.
+            var list            = service[type],
+                positionIndex   = list.indexOf(id);
 
-            var dimension = $crossfilterHelper.get('colour');
+            if (positionIndex !== -1) {
+                // We'll need to remove it from the list, because it already exists!
+                list.splice(positionIndex, 1);
+            } else {
+                // Otherwise we'll add it because it's not there already.
+                list.push(id);
+            }
+
+            // Find the dimension that relates to the current type.
+            var dimension = $crossfilterHelper.get(type);
+
             dimension.filterFunction(function(id) {
-                return ($j.inArray(id, colourIds) === -1);
+                return ($j.inArray(id, list) === -1);
             });
 
             $rootScope.$broadcast('contentUpdated');
