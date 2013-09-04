@@ -14,3 +14,4 @@
 Route::get('/product/{id}', 'ProductController@getProduct');
 Route::get('/products', 'ProductsController@getProducts');
 Route::get('/categories', 'CategoriesController@getCategories');
+Route::get('/attributes/{name}', 'AttributesController@getOptions');
