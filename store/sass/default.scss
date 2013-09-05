@@ -256,18 +256,25 @@ section.page.category {
           background-size: contain;
           width: 100%;
           height: 100px;
+          border: 1px solid lightgray;
+          box-shadow: 0 0 5px rgba(0, 0, 0, .15);
         }
 
         div.name {
           @include lato;
           font-size: 12px;
           text-align: center;
+          height: 50px;
+          overflow: hidden;
+          text-overflow: ellipsis;
           padding: 8px 0 5px 0;
         }
 
         div.price {
-          @include times-new-roman;
-          font-size: 16px;
+          @include lato;
+          font-weight: bold;
+          color: #dd4b39;
+          font-size: 14px;
           text-align: center;
         }
       }
