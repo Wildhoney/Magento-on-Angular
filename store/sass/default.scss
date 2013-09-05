@@ -322,6 +322,11 @@ section.page.category {
           cursor: pointer;
           padding: 5px 8px;
           border-bottom: 1px solid lightgray;
+          transition: .35s opacity;
+
+          &.inactive {
+            opacity: .25;
+          }
 
           div.icon {
             float: left;

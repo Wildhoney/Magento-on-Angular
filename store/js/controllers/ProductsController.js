@@ -76,6 +76,20 @@
         $scope.currentPage = $scope._getPageNumber($routeParams);
 
         /**
+         * @property inactiveColours
+         * List of colour IDs that have been disabled.
+         * @type {Array}
+         */
+        $scope.inactiveColours = $productHelper.colour;
+
+        /**
+         * @property inactiveManufacturers
+         * List of manufacturer IDs that have been disabled.
+         * @type {Array}
+         */
+        $scope.inactiveManufacturers = $productHelper.manufacturer;
+
+        /**
          * @property pagination
          * @type {Array}
          */
@@ -133,8 +147,8 @@
          * @return {void}
          */
         $scope.toggleColour = function toggleColour(id) {
-            $productHelper.addRemoveById('colour', id);
-        }
+            $scope.inactiveColours = $productHelper.addRemoveById('colour', id);
+        };
 
         /**
          * @method toggleManufacturer
@@ -142,8 +156,8 @@
          * @return {void}
          */
         $scope.toggleManufacturer = function toggleManufacturer(id) {
-            $productHelper.addRemoveById('manufacturer', id);
-        }
+            $scope.inactiveManufacturers = $productHelper.addRemoveById('manufacturer', id);
+        };
 
     }]);
 

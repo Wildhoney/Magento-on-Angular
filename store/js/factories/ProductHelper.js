@@ -103,6 +103,7 @@
             });
 
             $rootScope.$broadcast('contentUpdated');
+            return list;
 
         };
 

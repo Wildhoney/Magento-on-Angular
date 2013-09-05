@@ -239,7 +239,10 @@ section.page.category section.attributes div.group {
       overflow: hidden;
       cursor: pointer;
       padding: 5px 8px;
-      border-bottom: 1px solid lightgray; }
+      border-bottom: 1px solid lightgray;
+      transition: .35s opacity; }
+      section.page.category section.attributes div.group ul li.inactive {
+        opacity: .25; }
       section.page.category section.attributes div.group ul li div.icon {
         float: left;
         width: 20px;
