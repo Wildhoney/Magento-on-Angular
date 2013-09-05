@@ -67,7 +67,7 @@
             <ul class="products unstyled">
                 <li ng-repeat="product in products">
 
-                    <div class="image"></div>
+                    <div class="image" style="background-image: url('{{product.image}}');"></div>
                     <div class="name">{{product.name}}</div>
                     <div class="price">&pound;{{product.price | number: 2}}</div>
 

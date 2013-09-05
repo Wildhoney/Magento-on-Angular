@@ -183,7 +183,8 @@ section.page.category section.products ul.products {
     overflow: hidden;
     padding: 15px; }
     section.page.category section.products ul.products li div.image {
-      background: transparent url("http://4.bp.blogspot.com/-NH8zB4tmSQU/Ttp60-gsUsI/AAAAAAAAGzs/HfVIupw1tno/s1600/princess-pink-shoes-68595.jpg") no-repeat center center;
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: contain;
       width: 100%;
       height: 100px; }

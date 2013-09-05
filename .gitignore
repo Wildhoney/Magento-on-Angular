@@ -4,3 +4,4 @@
 /.sass-cache
 /node_modules
 /magento/var/cache/*
+/magento/media/catalog/product/cache/*
