@@ -153,13 +153,19 @@ section.page.category {
 
   div.left {
     float: left;
-    width: 20%;
+    width: 25%;
     padding-right: 20px;
   }
 
   div.right {
     float: left;
-    width: 80%;
+    width: 75%;
+
+    div.displaying {
+      font-size: 11px;
+      text-transform: uppercase;
+      @include lato;
+    }
   }
 
   div.loading {
@@ -267,43 +273,55 @@ section.page.category {
     }
   }
 
-  section.colours {
-    h3 {
-      overflow: hidden;
-      @include lato;
-      font-size: 11px;
-      text-transform: uppercase;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
-      line-height: auto !important;
-    }
+  section.attributes {
 
-    ul {
-      list-style-type: none;
-      margin: 0;
+    div.group {
+      padding-bottom: 15px;
 
-      li {
+      h3 {
+        background-color: #dedede;
         overflow: hidden;
-        cursor: pointer;
-        padding: 5px 0;
-        border-bottom: 1px solid lightgray;
+        @include lato;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 0;
+        padding: 0 8px;
+        height: 25px;
+        line-height: 25px;
+      }
 
-        div.icon {
-          float: left;
-          width: 20px;
-          height: 20px;
-          margin-right: 6px;
-          border: 1px solid lightgray;
-        }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        max-height: 160px;
+        overflow-y: scroll;
+        border: 1px solid lightgray;
+        padding: 3px 5px;
+        box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, .25), inset 0 10px 10px -10px rgba(0, 0, 0, .25);
 
-        div.name {
-          @include lato;
-          font-size: 10px;
-          text-transform: uppercase;
-          float: left;
+        li {
+          overflow: hidden;
+          cursor: pointer;
+          padding: 5px 8px;
+          border-bottom: 1px solid lightgray;
+
+          div.icon {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+            border: 1px solid lightgray;
+          }
+
+          div.name {
+            @include lato;
+            font-size: 11px;
+            float: left;
+          }
         }
       }
     }
+
   }
 }
