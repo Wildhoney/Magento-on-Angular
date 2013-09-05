@@ -12,6 +12,12 @@
 
         function CategoryController($rootScope, $scope, $routeParams, $categoryHelper) {
 
+        /**
+         * @property manufacturer
+         * @type {String}
+         */
+        $scope.manufacturer = '';
+
         $categoryHelper.hasLoaded().then(function() {
 
             var subCategory = $routeParams.subCategory || null,

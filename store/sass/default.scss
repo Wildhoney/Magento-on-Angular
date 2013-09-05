@@ -291,6 +291,15 @@ section.page.category {
         line-height: 25px;
       }
 
+      input.filter {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        margin-bottom: 0;
+        padding-left: 25px;
+        background: transparent url('./../images/filter.png') no-repeat 6px center;
+      }
+
       ul {
         list-style-type: none;
         margin: 0;

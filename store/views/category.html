@@ -28,8 +28,9 @@
                 <div class="group">
 
                     <h3>Manufacturers</h3>
+                    <input type="text" class="filter" ng-model="manufacturer" />
                     <ul>
-                        <li ng-click="toggleManufacturer(manufacturer.id)" ng-repeat="manufacturer in manufacturers | orderBy: 'label'">
+                        <li ng-click="toggleManufacturer(manufacturer.id)" ng-repeat="manufacturer in manufacturers | orderBy: 'label' | filter:manufacturer">
                             <div class="name">{{manufacturer.label}}</div>
                         </li>
                     </ul>

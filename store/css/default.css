@@ -214,6 +214,13 @@ section.page.category section.attributes div.group {
     padding: 0 8px;
     height: 25px;
     line-height: 25px; }
+  section.page.category section.attributes div.group input.filter {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding-left: 25px;
+    background: transparent url("./../images/filter.png") no-repeat 6px center; }
   section.page.category section.attributes div.group ul {
     list-style-type: none;
     margin: 0;
