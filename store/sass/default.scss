@@ -169,12 +169,12 @@ section.page.category {
   }
 
   div.loading {
-    padding-left: 24px;
+    padding-left: 30px;
     margin: 5px 0;
     @include times-new-roman;
     display: block;
     font-size: 12px;
-    background: white url('./../images/loading.gif') no-repeat center left;
+    background: white url('./../images/loading.gif') no-repeat 8px center;
     transition: all .45s;
 
     &.loaded {

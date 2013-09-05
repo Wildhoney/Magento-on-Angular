@@ -117,7 +117,7 @@ section.page.category div.right {
     font-family: "Lato", sans-serif;
     font-weight: normal; }
 section.page.category div.loading {
-  padding-left: 24px;
+  padding-left: 30px;
   margin: 5px 0;
   font-family: "Times New Roman", serif;
   font-style: italic;
@@ -125,7 +125,7 @@ section.page.category div.loading {
   font-weight: normal;
   display: block;
   font-size: 12px;
-  background: white url("./../images/loading.gif") no-repeat center left;
+  background: white url("./../images/loading.gif") no-repeat 8px center;
   transition: all .45s; }
   section.page.category div.loading.loaded {
     display: none; }
