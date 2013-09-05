@@ -99,7 +99,7 @@
          * Responsible for updating the array when the content has been changed.
          * @return {void}
          */
-        $scope.$on('contentUpdated', function contentUpdated(event) {
+        $scope.$on('contentUpdated', function contentUpdated() {
 
             var offset      = ($scope.currentPage * $scope.perPage) - $scope.perPage,
                 products    = $productHelper.fetch(),
