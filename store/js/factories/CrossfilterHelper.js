@@ -39,13 +39,14 @@
 
         /**
          * @method addDimension
-         * @param field {String}
+         * @param name {String}
+         * @param property {String}
          * @return {Object}
          */
-        service.addDimension = function dimension(field) {
+        service.addDimension = function dimension(name, property) {
 
-            return (service.dimensions[field] = service.crossfilter.dimension(function(d) {
-                return d[field];
+            return (service.dimensions[name] = service.crossfilter.dimension(function(d) {
+                return d[property];
             }));
 
         };

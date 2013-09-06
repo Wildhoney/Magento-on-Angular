@@ -8,36 +8,86 @@
      */
     $m.controller('CategoryController',
 
-        ['$rootScope', '$scope', '$routeParams', '$categoryHelper',
+        ['$scope', '$routeParams', '$categoryHelper', '$productHelper', '$attributeHelper',
 
-        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper) {
+        function CategoryController($scope, $routeParams, $categoryHelper, $productHelper, $attributeHelper) {
 
-        /**
-         * @property manufacturer
-         * @type {String}
-         */
-        $scope.manufacturer = '';
+            /**
+             * @property products
+             * @type {Array}
+             */
+            $scope.products = [];
 
-        $categoryHelper.hasLoaded().then(function() {
+            /**
+             * @property colours
+             * @type {Array}
+             */
+            $scope.colours = [];
 
-            var subCategory = $routeParams.subCategory || null,
-                details     = $categoryHelper.find($routeParams.category, subCategory);
+            /**
+             * @property manufacturers
+             * @type {Array}
+             */
+            $scope.manufacturers = [];
 
-            $scope.category     = details.category;
-            $scope.subCategory  = details.subCategory;
+            /**
+             * @property manufacturersFilter
+             * Responsible for filtering down the list of manufacturers.
+             * @type {String}
+             */
+            $scope.manufacturersFilter = '';
 
-            // Find whether we're after the sub-category ID or the category ID.
-            var id = (!$scope.subCategory) ? $scope.category.id : $scope.subCategory.id;
+            /**
+             * @method toggle
+             * Responsible for toggling attributes.
+             * @return {Boolean}
+             */
+            $scope.toggle = $attributeHelper.toggle;
 
-            $scope.$watch('$viewContentLoaded', function() {
-
-                // Broadcast the event once the content has loaded to ensure the event
-                // to handle the broadcast has been set-up.
-                $scope.$broadcast('switchedCategory', id);
-
+            /**
+             * @on contentUpdated
+             * Responsible for updating the content whenever the $productHelper service
+             * tells us that it's been updated.
+             */
+            $scope.$on('contentUpdated', function(event, products) {
+                $scope.products = products;
             });
 
-        });
+            // Once the categories have been loaded then we'll perform some actions.
+            $categoryHelper.hasLoaded().then(function() {
+
+                // We'll first find the category and subCategory from the URL parameters.
+                var subCategory = $routeParams.subCategory || null,
+                    details     = $categoryHelper.find($routeParams.category, subCategory);
+
+                // And assign them to the scope variables.
+                $scope.category     = details.category;
+                $scope.subCategory  = details.subCategory;
+
+                // We'll then find the ID to filter products on, where subCategory ID takes
+                // precedence over the category ID because the subCategory ID is more specific.
+                var id = (!$scope.subCategory) ? $scope.category.id : $scope.subCategory.id;
+
+                // We'll then wait until the products have been loaded.
+                $productHelper.hasLoaded().then(function() {
+
+                    // And find all of the products by the ID we resolved earlier.
+                    $productHelper.setCategoryId(id);
+                    $scope.products = $productHelper.getProducts();
+
+                });
+
+                // We'll also wait for the colours to load, and then assign them to the scope variable.
+                $attributeHelper.hasLoaded('colours').then(function() {
+                    $scope.colours = $attributeHelper.getColours();
+                });
+
+                // We'll do the same with manufacturers as we did with colours.
+                $attributeHelper.hasLoaded('manufacturers').then(function() {
+                    $scope.manufacturers = $attributeHelper.getManufacturers();
+                });
+
+            });
 
     }]);
 

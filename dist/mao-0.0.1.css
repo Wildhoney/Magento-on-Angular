@@ -117,7 +117,7 @@ section.page.category div.right {
     font-family: "Lato", sans-serif;
     font-weight: normal; }
 section.page.category div.loading {
-  padding-left: 24px;
+  padding-left: 30px;
   margin: 5px 0;
   font-family: "Times New Roman", serif;
   font-style: italic;
@@ -125,7 +125,7 @@ section.page.category div.loading {
   font-weight: normal;
   display: block;
   font-size: 12px;
-  background: white url("./../images/loading.gif") no-repeat center left;
+  background: white url("./../images/loading.gif") no-repeat 8px center;
   transition: all .45s; }
   section.page.category div.loading.loaded {
     display: none; }
@@ -183,22 +183,28 @@ section.page.category section.products ul.products {
     overflow: hidden;
     padding: 15px; }
     section.page.category section.products ul.products li div.image {
-      background: transparent url("http://4.bp.blogspot.com/-NH8zB4tmSQU/Ttp60-gsUsI/AAAAAAAAGzs/HfVIupw1tno/s1600/princess-pink-shoes-68595.jpg") no-repeat center center;
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: contain;
       width: 100%;
-      height: 100px; }
+      height: 100px;
+      border: 1px solid lightgray;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
     section.page.category section.products ul.products li div.name {
       font-family: "Lato", sans-serif;
       font-weight: normal;
       font-size: 12px;
       text-align: center;
+      height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
       padding: 8px 0 5px 0; }
     section.page.category section.products ul.products li div.price {
-      font-family: "Times New Roman", serif;
-      font-style: italic;
-      letter-spacing: 0.125em;
+      font-family: "Lato", sans-serif;
       font-weight: normal;
-      font-size: 16px;
+      font-weight: bold;
+      color: #dd4b39;
+      font-size: 14px;
       text-align: center; }
 section.page.category section.attributes div.group {
   padding-bottom: 15px; }
@@ -233,7 +239,10 @@ section.page.category section.attributes div.group {
       overflow: hidden;
       cursor: pointer;
       padding: 5px 8px;
-      border-bottom: 1px solid lightgray; }
+      border-bottom: 1px solid lightgray;
+      transition: .35s opacity; }
+      section.page.category section.attributes div.group ul li.inactive {
+        opacity: .25; }
       section.page.category section.attributes div.group ul li div.icon {
         float: left;
         width: 20px;

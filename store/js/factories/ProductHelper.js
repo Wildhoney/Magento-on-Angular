@@ -8,106 +8,111 @@
      */
     $m.factory('$productHelper',
 
-        ['$rootScope', '$http', '$q', '$crossfilterHelper',
+        ['$rootScope', '$crossfilterHelper', '$http', '$q',
 
-        function ProductHelper($rootScope, $http, $q, $crossfilterHelper) {
+        function ProductHelper($rootScope, $crossfilterHelper, $http, $q) {
 
-        /**
-         * @property service
-         * @type {Object}
-         */
-        var service = {};
+            var $service = {};
 
-        service.colour          = [];
-        service.manufacturer    = [];
+            /**
+             * @property products
+             * @type {Array}
+             * @default []
+             */
+            $service.products = [];
 
-        // Create our request and our promise which will be resolved when the AJAX
-        // request is successful.
-        var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
-            deferred    = $q.defer();
 
-        request.success(function(response) {
+            /**
+             * @property loaded
+             * @type {Boolean}
+             * @default false
+             */
+            $service.loaded = false;
 
-            // Initiate our Crossfilter object.
-            var crossfilter = $crossfilterHelper.create(response);
+            // Create our request and our promise which will be resolved when the AJAX
+            // request is successful.
+            var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
+                deferred    = $q.defer();
 
-            // Create all of the necessary dimensions.
-            $crossfilterHelper.addDimension('id');
-            $crossfilterHelper.addDimension('categories');
-            $crossfilterHelper.addDimension('colour');
-            $crossfilterHelper.addDimension('manufacturer');
+            request.success(function(response) {
 
-            // Store the products, and resolve our promise!
-            service.products = crossfilter;
-            deferred.resolve();
+                // Initiate our Crossfilter object.
+                var crossfilter = $crossfilterHelper.create(response);
 
-        });
+                // Create all of the necessary dimensions.
+                $crossfilterHelper.addDimension('id', 'id');
+                $crossfilterHelper.addDimension('categories', 'categories');
+                $crossfilterHelper.addDimension('colours', 'colour');
+                $crossfilterHelper.addDimension('manufacturers', 'manufacturer');
 
-        /**
-         * @method hasLoaded
-         * Determines whether the products have been loaded yet.
-         * @return {Object}
-         */
-        service.hasLoaded = function hasLoaded() {
-            return deferred.promise;
-        };
+                // Resolve our promise!
+                deferred.resolve();
 
-        /**
-         * @method fetch
-         * @return {Array}
-         */
-        service.fetch = function fetch() {
-            return $crossfilterHelper.get('id').top(Infinity);
-        };
+                $service.loaded = true;
 
-        /**
-         * @method setCategoryId
-         * @param id {Number}
-         * @return {void}
-         */
-        service.setCategoryId = function setCategoryId(id) {
-
-            var dimension = $crossfilterHelper.get('categories');
-
-            // Clear the filter before we apply another category.
-            dimension.filterAll();
-
-            dimension.filterFunction(function(ids) {
-                return ($j.inArray(id, ids) !== -1);
             });
 
-            $rootScope.$broadcast('contentUpdated');
+            /**
+             * @on attributeUpdated
+             * @broadcasts contentUpdated
+             * Responsible for updating the products based on any attribute that has
+             * been changed by anything anywhere.
+             */
+            $rootScope.$on('attributeUpdated', function(event, type, ids) {
 
-        };
+                // Find the dimension from the type of the attribute.
+                var dimension = $crossfilterHelper.get(type);
 
-        service.addRemoveById = function addRemoveById(type, id) {
+                // Update the filter based on the active IDs that have been passed through.
+                dimension.filterFunction(function attributeDimension(id) {
+                    return ($j.inArray(id, ids) === -1);
+                });
 
-            // Obtain the current list for the type, and determine if it exists
-            // in the list already.
-            var list            = service[type],
-                positionIndex   = list.indexOf(id);
+                // Finally we can let everybody know that we've updated the content.
+                $rootScope.$broadcast('contentUpdated', $service.getProducts());
 
-            if (positionIndex !== -1) {
-                // We'll need to remove it from the list, because it already exists!
-                list.splice(positionIndex, 1);
-            } else {
-                // Otherwise we'll add it because it's not there already.
-                list.push(id);
-            }
-
-            // Find the dimension that relates to the current type.
-            var dimension = $crossfilterHelper.get(type);
-
-            dimension.filterFunction(function(id) {
-                return ($j.inArray(id, list) === -1);
             });
 
-            $rootScope.$broadcast('contentUpdated');
-            return list;
+            /**
+             * @method hasLoaded
+             * Determines whether the products have been loaded yet.
+             * @return {Object}
+             */
+            $service.hasLoaded = function hasLoaded() {
+                return deferred.promise;
+            };
 
-        };
+            /**
+             * @method getProducts
+             * @return {Array}
+             */
+            $service.getProducts = function getProducts() {
+                return $crossfilterHelper.get('id').top(Infinity);
+            };
 
-        return service;
+            /**
+             * @method setCategoryId
+             * @broadcasts contentUpdated
+             * @param id {Number}
+             * @return {void}
+             */
+            $service.setCategoryId = function setCategoryId(id) {
+
+                // Find the dimension that's responsible for managing the categories.
+                var dimension = $crossfilterHelper.get('categories');
+
+                // We can then filter the products based on the category ID that we've
+                // passed through.
+                dimension.filterFunction(function(ids) {
+                    return ($j.inArray(id, ids) !== -1);
+                });
+
+                // Let all the folks know we've updated thecontent.
+                $rootScope.$broadcast('contentUpdated', $service.getProducts());
+
+            };
+
+            return $service;
 
     }]);
 
