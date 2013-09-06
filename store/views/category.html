@@ -16,9 +16,13 @@
                 <h3>Colours</h3>
                 <div class="loading" ng-hide="colours.length">Loading&hellip;</div>
                 <ul>
-                    <li ng-class="{inactive: colour._meta.active}" ng-click="toggle(colour)" ng-repeat="colour in colours | orderBy: 'label'">
+                    <li ng-class="{inactive: colour._meta.active}"
+                        ng-click="toggle(colour)"
+                        ng-repeat="colour in colours | orderBy: 'label'">
+
                         <div class="icon" style="background-color: {{colour.label}};"></div>
                         <div class="name">{{colour.label}}</div>
+
                     </li>
                 </ul>
 
@@ -30,8 +34,12 @@
                 <input type="text" class="filter" ng-model="manufacturersFilter" />
                 <div class="loading" ng-hide="manufacturers.length">Loading&hellip;</div>
                 <ul>
-                    <li ng-class="{inactive: manufacturer._meta.active}" ng-click="toggle(manufacturer)" ng-repeat="manufacturer in manufacturers | orderBy: 'label' | filter: manufacturersFilter">
+                    <li ng-class="{inactive: manufacturer._meta.active}"
+                        ng-click="toggle(manufacturer)"
+                        ng-repeat="manufacturer in manufacturers | orderBy: 'label' | filter: manufacturersFilter">
+
                         <div class="name">{{manufacturer.label}}</div>
+
                     </li>
                 </ul>
 
