@@ -287,13 +287,16 @@ section.page.category {
       padding-bottom: 15px;
 
       h3 {
-        background-color: #dedede;
+        background: #adadad;
+        background: -webkit-linear-gradient(top,  #adadad 0%,#939393 100%);
+        border-radius: 5px 5px 0 0;
         overflow: hidden;
+        text-transform: uppercase;
         @include lato;
         font-size: 11px;
-        text-transform: uppercase;
-        font-weight: bold;
+        font-weight: normal;
         margin: 0;
+        color: white;
         padding: 0 8px;
         height: 25px;
         line-height: 25px;
