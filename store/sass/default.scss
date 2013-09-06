@@ -326,6 +326,7 @@ section.page.category {
           padding: 5px 8px;
           border-bottom: 1px solid lightgray;
           transition: .35s opacity;
+          position: relative;
 
           &.inactive {
             opacity: .25;
@@ -343,6 +344,21 @@ section.page.category {
             @include lato;
             font-size: 11px;
             float: left;
+          }
+
+          label.count {
+            position: absolute;
+            font-size: 11px;
+            background: #efefef;
+            color: #777;
+            background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
+            padding: 0 8px;
+            line-height: 16px;
+            border-radius: 20px;
+            min-width: 30px;
+            text-align: center;
+            right: 8px;
+            top: 7px;
           }
         }
       }

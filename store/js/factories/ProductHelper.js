@@ -21,7 +21,6 @@
              */
             $service.products = [];
 
-
             /**
              * @property loaded
              * @type {Boolean}
@@ -107,7 +106,7 @@
                     return ($j.inArray(id, ids) !== -1);
                 });
 
-                // Let all the folks know we've updated thecontent.
+                // Let all the folks know we've updated the content.
                 $rootScope.$broadcast('contentUpdated', $service.getProducts());
 
             };

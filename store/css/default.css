@@ -243,7 +243,8 @@ section.page.category section.attributes div.group {
       cursor: pointer;
       padding: 5px 8px;
       border-bottom: 1px solid lightgray;
-      transition: .35s opacity; }
+      transition: .35s opacity;
+      position: relative; }
       section.page.category section.attributes div.group ul li.inactive {
         opacity: .25; }
       section.page.category section.attributes div.group ul li div.icon {
@@ -257,3 +258,16 @@ section.page.category section.attributes div.group {
         font-weight: normal;
         font-size: 11px;
         float: left; }
+      section.page.category section.attributes div.group ul li label.count {
+        position: absolute;
+        font-size: 11px;
+        background: #efefef;
+        color: #777;
+        background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
+        padding: 0 8px;
+        line-height: 16px;
+        border-radius: 20px;
+        min-width: 30px;
+        text-align: center;
+        right: 8px;
+        top: 7px; }

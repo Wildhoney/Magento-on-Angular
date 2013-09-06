@@ -21,7 +21,10 @@
                         ng-repeat="colour in colours | orderBy: 'label'">
 
                         <div class="icon" style="background-color: {{colour.label}};"></div>
-                        <div class="name">{{colour.label}}</div>
+                        <div class="name">
+                            {{colour.label}}
+                            <label class="count">{{colour._meta.modelCount | number}}</label>
+                        </div>
 
                     </li>
                 </ul>
@@ -38,7 +41,10 @@
                         ng-click="toggle(manufacturer)"
                         ng-repeat="manufacturer in manufacturers | orderBy: 'label' | filter: manufacturersFilter">
 
-                        <div class="name">{{manufacturer.label}}</div>
+                        <div class="name">
+                            {{manufacturer.label}}
+                            <label class="count">{{manufacturer._meta.modelCount | number}}</label>
+                        </div>
 
                     </li>
                 </ul>

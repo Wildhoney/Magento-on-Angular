@@ -49,6 +49,31 @@
             };
 
             /**
+             * @on contentUpdated
+             * Responsible for updating the model count for each filter type.
+             * @todo Refactor into being a Crossfilter method, and make it more dynamic.
+             */
+            $rootScope.$on('contentUpdated', function(event, content) {
+
+                $service.hasLoaded('colours').then(function() {
+                    $service.colours.cache.forEach(function(colourModel) {
+                        colourModel._meta.modelCount = content.filter(function(productModel) {
+                            return (productModel.colour === colourModel.id);
+                        }).length;
+                    });
+                });
+
+                $service.hasLoaded('manufacturers').then(function() {
+                    $service.manufacturers.cache.forEach(function(manufacturerModel) {
+                        manufacturerModel._meta.modelCount = content.filter(function(productModel) {
+                            return (productModel.manufacturer === manufacturerModel.id);
+                        }).length;
+                    });
+                });
+
+            });
+
+            /**
              * @method _injectInto
              * @param models {Array}
              * @param data {Object}
@@ -75,12 +100,12 @@
             };
 
             $service.request($service.colours.url, $service.colours.defer, function(response) {
-                _injectInto(response, { type: 'colours', active: false });
+                _injectInto(response, { type: 'colours', active: false, modelCount: 0 });
                 $service.colours.cache = response;
             });
 
             $service.request($service.manufacturers.url, $service.manufacturers.defer, function(response) {
-                _injectInto(response, { type: 'manufacturers', active: false });
+                _injectInto(response, { type: 'manufacturers', active: false, modelCount: 0 });
                 $service.manufacturers.cache = response;
             });
 
