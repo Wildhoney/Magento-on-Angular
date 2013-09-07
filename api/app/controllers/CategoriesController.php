@@ -7,7 +7,6 @@ class CategoriesController extends MageController {
         $categories = Mage::helper('catalog/category')->getStoreCategories();
         $collection = array();
 
-//        echo '<pre>';
         foreach ($categories as $category) {
 
             // Determine if the category is currently active.
@@ -56,15 +55,6 @@ class CategoriesController extends MageController {
         }
 
         return Response::json($collection);
-
-    }
-
-    private function _createIdent($name) {
-
-        $name   = strtolower($name);
-        $name   = str_replace(' ', '-', $name);
-
-        return $name;
 
     }
 

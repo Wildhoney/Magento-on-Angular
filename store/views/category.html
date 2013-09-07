@@ -92,13 +92,18 @@
             </div>
 
             <ul class="products unstyled">
+
                 <li ng-repeat="product in products">
 
-                    <div class="image" style="background-image: url('{{product.image}}');"></div>
+                    <a href="#!/product/{{product.ident}}">
+                        <div class="image" style="background-image: url('{{product.image}}');"></div>
+                    </a>
+
                     <div class="name">{{product.name}}</div>
                     <div class="price">&pound;{{product.price | number: 2}}</div>
 
                 </li>
+
             </ul>
 
         </section>
