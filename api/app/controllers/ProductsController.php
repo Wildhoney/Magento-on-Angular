@@ -26,8 +26,8 @@ class ProductsController extends MageController {
 
             $collection[] = array(
                 'id'            => $product->getId(),
-                'name'          => $product->getName(),
-                'price'         => $product->getPrice(),
+                'name'          => trim($product->getName()),
+                'price'         => (float) $product->getPrice(),
                 'image'         => $product->getThumbnailUrl(),
                 'colour'        => (int) $product->getData('color'),
                 'manufacturer'  => (int) $product->getData('manufacturer'),

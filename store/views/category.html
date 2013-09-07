@@ -74,8 +74,21 @@
                 <!--</li>-->
             <!--</ul>-->
 
-            <div class="displaying">
-                Displaying {{products.length}} of {{productCount}} products.
+            <div class="options">
+
+                <span class="displaying">Displaying {{products.length}} of {{productCount}} products.</span>
+
+                <div class="btn-group">
+                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                        Sort Products By&hellip;
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a ng-click="sortBy('name')">Name</a></li>
+                        <li><a ng-click="sortBy('price')">Price</a></li>
+                    </ul>
+                </div>
+
             </div>
 
             <ul class="products unstyled">

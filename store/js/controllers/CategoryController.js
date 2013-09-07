@@ -39,10 +39,19 @@
 
             /**
              * @method toggle
+             * @param model {Object}
              * Responsible for toggling attributes.
              * @return {Boolean}
              */
             $scope.toggle = $attributeHelper.toggle;
+
+            /**
+             * @method sortBy
+             * @param property {String}
+             * Responsible for sorting the products by any given property.
+             * @return {Boolean}
+             */
+            $scope.sortBy = $productHelper.sortBy;
 
             /**
              * @on contentUpdated

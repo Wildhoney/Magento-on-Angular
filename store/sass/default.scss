@@ -161,10 +161,25 @@ section.page.category {
     float: left;
     width: 75%;
 
-    div.displaying {
-      font-size: 11px;
-      text-transform: uppercase;
-      @include lato;
+    div.options {
+      width: 100%;
+      float: left;
+
+      span.displaying {
+        font-size: 11px;
+        text-transform: uppercase;
+        @include lato;
+        float: left;
+        padding-top: 4px;
+      }
+
+      div.btn-group {
+        float: right;
+
+        ul.dropdown-menu a {
+          cursor: pointer;
+        }
+      }
     }
   }
 

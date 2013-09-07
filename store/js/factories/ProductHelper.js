@@ -12,6 +12,17 @@
 
         function ProductHelper($rootScope, $crossfilterHelper, $http, $q) {
 
+            /**
+             * @property _defaultDimension
+             * @type {String}
+             * @default 'id'
+             */
+            var _defaultDimension = 'name';
+
+            /**
+             * @property $service
+             * @type {Object}
+             */
             var $service = {};
 
             /**
@@ -40,6 +51,8 @@
 
                 // Create all of the necessary dimensions.
                 $crossfilterHelper.addDimension('id', 'id');
+                $crossfilterHelper.addDimension('name', 'name');
+                $crossfilterHelper.addDimension('price', 'price');
                 $crossfilterHelper.addDimension('categories', 'categories');
                 $crossfilterHelper.addDimension('colours', 'colour');
                 $crossfilterHelper.addDimension('manufacturers', 'manufacturer');
@@ -73,6 +86,27 @@
             });
 
             /**
+             * @method sortBy
+             * @param property {String}
+             * Responsible for sorting the products by any given property.
+             * @return {Boolean}
+             */
+            $service.sortBy = function sortBy(property) {
+
+                // Since Crossfilter orders by the dimension in which you obtain the `top` (or `bottom)
+                // from, we can simply update that variable which determines the default dimension, and
+                // whenever Crossfilter attempts to obtain the `top` it will automatically be ordered
+                // by that property.
+                _defaultDimension = property;
+
+                // Broadcast the `contentUpdated` event using the updated default dimension property.
+                $rootScope.$broadcast('contentUpdated', $service.getProducts());
+
+                return true;
+
+            };
+
+            /**
              * @method hasLoaded
              * Determines whether the products have been loaded yet.
              * @return {Object}
@@ -86,7 +120,7 @@
              * @return {Array}
              */
             $service.getProducts = function getProducts() {
-                return $crossfilterHelper.get('id').top(Infinity);
+                return $crossfilterHelper.get(_defaultDimension).top(Infinity).reverse();
             };
 
             /**

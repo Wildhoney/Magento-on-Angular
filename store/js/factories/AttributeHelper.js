@@ -137,7 +137,7 @@
             /**
              * @method toggle
              * @broadcasts attributeUpdated
-             * @param model
+             * @param model {Object}
              * @return {Boolean}
              */
             $service.toggle = function toggle(model) {

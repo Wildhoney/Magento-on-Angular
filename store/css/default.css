@@ -111,11 +111,20 @@ section.page.category div.left {
 section.page.category div.right {
   float: left;
   width: 75%; }
-  section.page.category div.right div.displaying {
-    font-size: 11px;
-    text-transform: uppercase;
-    font-family: "Lato", sans-serif;
-    font-weight: normal; }
+  section.page.category div.right div.options {
+    width: 100%;
+    float: left; }
+    section.page.category div.right div.options span.displaying {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      float: left;
+      padding-top: 4px; }
+    section.page.category div.right div.options div.btn-group {
+      float: right; }
+      section.page.category div.right div.options div.btn-group ul.dropdown-menu a {
+        cursor: pointer; }
 section.page.category div.loading {
   padding-left: 30px;
   margin: 5px 0;
