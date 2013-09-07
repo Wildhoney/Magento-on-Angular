@@ -9,8 +9,10 @@
     $m.controller('CategoryController',
 
         ['$scope', '$routeParams', '$categoryHelper', '$productHelper', '$attributeHelper',
+         '$pagination',
 
-        function CategoryController($scope, $routeParams, $categoryHelper, $productHelper, $attributeHelper) {
+        function CategoryController($scope, $routeParams, $categoryHelper, $productHelper,
+                                    $attributeHelper, $pagination) {
 
             /**
              * @property products
@@ -60,12 +62,50 @@
             $scope.sortBy = $productHelper.sortBy;
 
             /**
+             * @property currentPage
+             * @type {Number}
+             * @default 1
+             */
+            $scope.currentPage = $pagination.getPageNumber();
+
+            /**
+             * @property pages
+             * @type {Array}
+             */
+            $scope.pages = [];
+
+            /**
+             * @property perPage
+             * @type {Number}
+             * @default 10
+             */
+            $scope.perPage = 10;
+
+            /**
+             * @property paginateProducts
+             * Responsible for taking the content and paginating them based on the page number,
+             * and the total amount of products.
+             * @return {Array}
+             */
+            $scope.paginateProducts = function paginateProducts() {
+
+                var products            = $productHelper.getProducts();
+                $scope.totalProducts    = products.length;
+                $scope.pages            = _.range(1, products.length / $scope.perPage);
+
+                var offset = ($scope.currentPage * $scope.perPage) - $scope.perPage;
+
+                return products.slice(offset, offset + $scope.perPage);
+
+            };
+
+            /**
              * @on contentUpdated
              * Responsible for updating the content whenever the $productHelper service
              * tells us that it's been updated.
              */
             $scope.$on('contentUpdated', function onContentUpdated(event, products) {
-                $scope.products = products;
+                $scope.products = $scope.paginateProducts();
             });
 
             /**
@@ -98,7 +138,7 @@
 
                     // And find all of the products by the ID we resolved earlier.
                     $productHelper.setCategoryId(id);
-                    $scope.products = $productHelper.getProducts();
+                    $scope.products = $scope.paginateProducts();
 
                 });
 

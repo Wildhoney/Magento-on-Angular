@@ -13,19 +13,19 @@
      */
     $m.factory('$crossfilterHelper', ['$rootScope', function($rootScope) {
 
-        var service = {};
+        var $service = {};
 
         /**
          * @property crossfilter
          * @type {Object}
          */
-        service.crossfilter = {};
+        $service.crossfilter = {};
 
         /**
          * @property dimensions
          * @type {Array}
          */
-        service.dimensions = [];
+        $service.dimensions = [];
 
         /**
          * @method create
@@ -33,8 +33,8 @@
          * Responsible for creating the Crossfilter from the data supplied.
          * @return {Object}
          */
-        service.create = function create(data) {
-            return (service.crossfilter = crossfilter(data));
+        $service.create = function create(data) {
+            return ($service.crossfilter = crossfilter(data));
         };
 
         /**
@@ -43,9 +43,9 @@
          * @param property {String}
          * @return {Object}
          */
-        service.addDimension = function addDimension(name, property) {
+        $service.addDimension = function addDimension(name, property) {
 
-            return (service.dimensions[name] = service.crossfilter.dimension(function(d) {
+            return ($service.dimensions[name] = $service.crossfilter.dimension(function(d) {
                 return d[property];
             }));
 
@@ -56,11 +56,11 @@
          * @param field {String}
          * @return {Object}
          */
-        service.get = function get(field) {
-            return service.dimensions[field];
+        $service.get = function get(field) {
+            return $service.dimensions[field];
         };
 
-        return service;
+        return $service;
 
     }]);
 

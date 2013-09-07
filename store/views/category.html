@@ -63,24 +63,24 @@
 
         <section class="products">
 
-            <!--<ul class="pagination unstyled">-->
-                <!--<li class="title">Page {{currentPage}} of {{pages.length}}</li>-->
-                <!--<li class="pageNumber" ng-repeat="page in pages">-->
+            <ul class="pagination unstyled">
+                <li class="title">Page {{currentPage}} of {{pages[pages.length - 1] || 1}}</li>
+                <li class="pageNumber" ng-repeat="page in pages">
 
-                    <!--<a ng-hide="subCategory" href="#!/category/{{category.ident}}/{{page}}">-->
-                        <!--{{page}}-->
-                    <!--</a>-->
+                    <a ng-hide="subCategory" href="#!/category/{{category.ident}}/{{page}}">
+                        {{page}}
+                    </a>
 
-                    <!--<a ng-show="subCategory" href="#!/category/{{category.ident}}/{{subCategory.ident}}/{{page}}">-->
-                        <!--{{page}}-->
-                    <!--</a>-->
+                    <a ng-show="subCategory" href="#!/category/{{category.ident}}/{{subCategory.ident}}/{{page}}">
+                        {{page}}
+                    </a>
 
-                <!--</li>-->
-            <!--</ul>-->
+                </li>
+            </ul>
 
             <div class="options">
 
-                <span class="displaying">Displaying {{products.length}} of {{productCount}} products.</span>
+                <span class="displaying">Displaying {{products.length}} of {{totalProducts}} products.</span>
 
                 <div class="btn-group">
                     <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
