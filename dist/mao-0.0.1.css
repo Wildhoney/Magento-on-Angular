@@ -111,11 +111,20 @@ section.page.category div.left {
 section.page.category div.right {
   float: left;
   width: 75%; }
-  section.page.category div.right div.displaying {
-    font-size: 11px;
-    text-transform: uppercase;
-    font-family: "Lato", sans-serif;
-    font-weight: normal; }
+  section.page.category div.right div.options {
+    width: 100%;
+    float: left; }
+    section.page.category div.right div.options span.displaying {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      float: left;
+      padding-top: 4px; }
+    section.page.category div.right div.options div.btn-group {
+      float: right; }
+      section.page.category div.right div.options div.btn-group ul.dropdown-menu a {
+        cursor: pointer; }
 section.page.category div.loading {
   padding-left: 30px;
   margin: 5px 0;
@@ -209,14 +218,17 @@ section.page.category section.products ul.products {
 section.page.category section.attributes div.group {
   padding-bottom: 15px; }
   section.page.category section.attributes div.group h3 {
-    background-color: #dedede;
+    background: #adadad;
+    background: -webkit-linear-gradient(top, #adadad 0%, #939393 100%);
+    border-radius: 5px 5px 0 0;
     overflow: hidden;
+    text-transform: uppercase;
     font-family: "Lato", sans-serif;
     font-weight: normal;
     font-size: 11px;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-weight: normal;
     margin: 0;
+    color: white;
     padding: 0 8px;
     height: 25px;
     line-height: 25px; }
@@ -240,7 +252,8 @@ section.page.category section.attributes div.group {
       cursor: pointer;
       padding: 5px 8px;
       border-bottom: 1px solid lightgray;
-      transition: .35s opacity; }
+      transition: .35s opacity;
+      position: relative; }
       section.page.category section.attributes div.group ul li.inactive {
         opacity: .25; }
       section.page.category section.attributes div.group ul li div.icon {
@@ -254,3 +267,16 @@ section.page.category section.attributes div.group {
         font-weight: normal;
         font-size: 11px;
         float: left; }
+      section.page.category section.attributes div.group ul li label.count {
+        position: absolute;
+        font-size: 11px;
+        background: #efefef;
+        color: #777;
+        background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
+        padding: 0 8px;
+        line-height: 16px;
+        border-radius: 20px;
+        min-width: 30px;
+        text-align: center;
+        right: 8px;
+        top: 7px; }
