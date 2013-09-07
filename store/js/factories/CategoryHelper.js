@@ -54,7 +54,7 @@
          * Invoked when the categories have been loaded by the `CategoriesController`.
          * Responsible for resolving the promise.
          */
-        $rootScope.$on('loadedCategories', function(event, categories) {
+        $rootScope.$on('loadedCategories', function onLoadedCategories(event, categories) {
 
             // Store the categories, and resolve our promise!
             service.categories = categories;

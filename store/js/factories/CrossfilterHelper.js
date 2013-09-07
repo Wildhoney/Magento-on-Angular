@@ -43,7 +43,7 @@
          * @param property {String}
          * @return {Object}
          */
-        service.addDimension = function dimension(name, property) {
+        service.addDimension = function addDimension(name, property) {
 
             return (service.dimensions[name] = service.crossfilter.dimension(function(d) {
                 return d[property];

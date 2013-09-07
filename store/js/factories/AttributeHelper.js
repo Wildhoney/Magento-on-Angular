@@ -53,7 +53,7 @@
              * Responsible for updating the model count for each filter type.
              * @todo Refactor into being a Crossfilter method, and make it more dynamic.
              */
-            $rootScope.$on('contentUpdated', function(event, content) {
+            $rootScope.$on('contentUpdated', function onContentUpdated(event, content) {
 
                 $service.hasLoaded('colours').then(function() {
                     $service.colours.cache.forEach(function(colourModel) {

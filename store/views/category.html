@@ -1,10 +1,14 @@
 <section class="category page" ng-controller="CategoryController">
 
     <section class="title">
+
         <h2>
             <span>{{category.name}}</span>
             <span ng-show="subCategory">/ {{subCategory.name}}</span>
         </h2>
+
+        <input type="text" ng-model="query" class="query" />
+
     </section>
 
     <div class="left">

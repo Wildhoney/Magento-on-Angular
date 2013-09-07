@@ -44,7 +44,7 @@
             var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
                 deferred    = $q.defer();
 
-            request.success(function(response) {
+            request.success(function ajaxSuccess(response) {
 
                 // Initiate our Crossfilter object.
                 var crossfilter = $crossfilterHelper.create(response);
@@ -70,7 +70,7 @@
              * Responsible for updating the products based on any attribute that has
              * been changed by anything anywhere.
              */
-            $rootScope.$on('attributeUpdated', function(event, type, ids) {
+            $rootScope.$on('attributeUpdated', function onAttributeUpdated(event, type, ids) {
 
                 // Find the dimension from the type of the attribute.
                 var dimension = $crossfilterHelper.get(type);
@@ -124,6 +124,59 @@
             };
 
             /**
+             * @method _applyDimension
+             * @param name {String}
+             * @param $block {Function}
+             * @private
+             */
+            var _applyDimension = function _applyDimension(name, $block) {
+
+                // Find the dimension that pertains to the name passed.
+                var dimension = $crossfilterHelper.get(name);
+
+                if (!dimension) {
+                    return;
+                }
+
+                // Apply the Crossfilter based on the block.
+                $block.apply(dimension);
+
+                // Let all the folks know we've updated the content.
+                $rootScope.$broadcast('contentUpdated', $service.getProducts());
+
+            };
+
+            /**
+             * @method setQuery
+             * @broadcasts contentUpdated
+             * @param query {String}
+             * Responsible for updating the products based on their name matching against the
+             * user query.
+             * @return {void}
+             */
+            $service.setQuery = function setQuery(query) {
+
+                if (!query) {
+                    // If there is no query then it's a simple `filterAll`!
+                    _applyDimension('name', function() {
+                        this.filterAll();
+                    });
+                    return;
+                }
+
+                var regExp = new RegExp(query, 'i');
+
+                // Otherwise it's a regular expression match.
+                _applyDimension('name', function() {
+
+                    this.filterFunction(function(name) {
+                        return name.match(regExp);
+                    });
+                });
+
+            };
+
+            /**
              * @method setCategoryId
              * @broadcasts contentUpdated
              * @param id {Number}
@@ -131,18 +184,13 @@
              */
             $service.setCategoryId = function setCategoryId(id) {
 
-                // Find the dimension that's responsible for managing the categories.
-                var dimension = $crossfilterHelper.get('categories');
+                _applyDimension('categories', function(d) {
 
-                // We can then filter the products based on the category ID that we've
-                // passed through.
-                dimension.filterFunction(function(ids) {
-                    return ($j.inArray(id, ids) !== -1);
+                    this.filterFunction(function(ids) {
+                        return ($j.inArray(id, ids) !== -1);
+                    });
+
                 });
-
-                // Let all the folks know we've updated the content.
-                $rootScope.$broadcast('contentUpdated', $service.getProducts());
-
             };
 
             return $service;

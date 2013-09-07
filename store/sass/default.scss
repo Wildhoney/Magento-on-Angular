@@ -151,7 +151,27 @@ section.content {
 
 section.page.category {
 
+  section.title {
+    h2 {
+      float: left;
+      overflow: hidden;
+    }
+
+    input.query {
+      float: right;
+      width: 300px;
+      margin-top: 17px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 0;
+      padding-left: 25px;
+      background: transparent url('./../images/filter.png') no-repeat 6px center;
+      overflow: hidden;
+    }
+  }
+
   div.left {
+    clear: both;
     float: left;
     width: 25%;
     padding-right: 20px;

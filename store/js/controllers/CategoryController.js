@@ -31,6 +31,12 @@
             $scope.manufacturers = [];
 
             /**
+             * @property query
+             * @type {String}
+             */
+            $scope.query = '';
+
+            /**
              * @property manufacturersFilter
              * Responsible for filtering down the list of manufacturers.
              * @type {String}
@@ -58,12 +64,22 @@
              * Responsible for updating the content whenever the $productHelper service
              * tells us that it's been updated.
              */
-            $scope.$on('contentUpdated', function(event, products) {
+            $scope.$on('contentUpdated', function onContentUpdated(event, products) {
                 $scope.products = products;
             });
 
+            /**
+             * @watch query
+             * Responsible for updating the products based on what the user enters into
+             * the search box.
+             * @return {void}
+             */
+            $scope.$watch('query', function queryChanged() {
+                $productHelper.setQuery($scope.query);
+            });
+
             // Once the categories have been loaded then we'll perform some actions.
-            $categoryHelper.hasLoaded().then(function() {
+            $categoryHelper.hasLoaded().then(function categoriesLoaded() {
 
                 // We'll first find the category and subCategory from the URL parameters.
                 var subCategory = $routeParams.subCategory || null,
@@ -78,7 +94,7 @@
                 var id = (!$scope.subCategory) ? $scope.category.id : $scope.subCategory.id;
 
                 // We'll then wait until the products have been loaded.
-                $productHelper.hasLoaded().then(function() {
+                $productHelper.hasLoaded().then(function productsLoaded() {
 
                     // And find all of the products by the ID we resolved earlier.
                     $productHelper.setCategoryId(id);
@@ -87,12 +103,12 @@
                 });
 
                 // We'll also wait for the colours to load, and then assign them to the scope variable.
-                $attributeHelper.hasLoaded('colours').then(function() {
+                $attributeHelper.hasLoaded('colours').then(function coloursLoaded() {
                     $scope.colours = $attributeHelper.getColours();
                 });
 
                 // We'll do the same with manufacturers as we did with colours.
-                $attributeHelper.hasLoaded('manufacturers').then(function() {
+                $attributeHelper.hasLoaded('manufacturers').then(function manufacturersLoaded() {
                     $scope.manufacturers = $attributeHelper.getManufacturers();
                 });
 
