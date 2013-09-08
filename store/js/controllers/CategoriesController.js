@@ -6,9 +6,9 @@
      * @controller CategoriesController
      * @contributors Adam Timberlake
      */
-    $m.controller('CategoriesController', ['$scope', '$http', '$categoryHelper',
+    $m.controller('CategoriesController', ['$scope', '$categoryHelper', '$http',
 
-        function CategoriesController($scope, $http, $categoryHelper) {
+        function CategoriesController($scope, $categoryHelper, $http) {
 
             /**
              * @property categories
