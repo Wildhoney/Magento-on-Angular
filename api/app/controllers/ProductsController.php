@@ -44,7 +44,7 @@ class ProductsController extends MageController {
                 'image'         => $product->getThumbnailUrl(),
                 'colour'        => (int) $product->getData('color'),
                 'manufacturer'  => (int) $product->getData('manufacturer'),
-                'categories'    => $ids
+                'categories'    => array_unique($ids)
             );
 
         }

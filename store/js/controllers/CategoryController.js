@@ -110,7 +110,7 @@
             $scope.paginateProducts = function paginateProducts() {
 
                 var products            = $productHelper.getProducts();
-                $scope.pages            = _.range(1, products.length / $scope.perPage);
+                $scope.pages            = _.range(1, products.length / $scope.perPage + 1);
 
                 var offset = ($scope.currentPage * $scope.perPage) - $scope.perPage;
 
@@ -124,7 +124,7 @@
              * tells us that it's been updated.
              */
             $scope.$on('contentUpdated', function onContentUpdated(event, products) {
-                $scope.products = products;
+                $scope.products = $scope.paginateProducts(products);
             });
 
             /**
