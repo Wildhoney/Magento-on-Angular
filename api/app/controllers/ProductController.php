@@ -10,7 +10,9 @@ class ProductController extends MageController {
             'id'            => $product->getId(),
             'sku'           => $product->getSku(),
             'name'          => $product->getName(),
-            'description'   => trim($product->getDescription())
+            'description'   => trim($product->getDescription()),
+            'similar'       => $product->getRelatedProductIds(),
+            'gallery'       => $product->getMediaGalleryImages()
         );
 
         return Response::json($model);

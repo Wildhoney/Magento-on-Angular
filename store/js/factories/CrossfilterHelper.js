@@ -1,9 +1,8 @@
 /**
  * @param $m {Object} Mao
- * @param $j {Function} jQuery
  * @param $c {Function} Crossfilter
  */
-(function($m, $j, $c) {
+(function($m, $c) {
 
     "use strict";
 
@@ -22,6 +21,14 @@
         $service.crossfilter = {};
 
         /**
+         * @property simple
+         * Responsible for managing only simple Crossfilters, such as the selecting of
+         * models by the ID irrespective of other filters.
+         * @type {}
+         */
+        $service.simple = { crossfilter: {}, dimensions: {} };
+
+        /**
          * @property dimensions
          * @type {Array}
          */
@@ -34,7 +41,15 @@
          * @return {Object}
          */
         $service.create = function create(data) {
-            return ($service.crossfilter = crossfilter(data));
+
+            // Create the Crossfilter that's responsible for the plucking of items by their ID.
+            $service.simple.crossfilter     = $c(data);
+            $service.simple.dimensions.id   = $service.simple.crossfilter.dimension(function(d) {
+                return d.ident;
+            });
+
+            return ($service.crossfilter = $c(data));
+
         };
 
         /**
@@ -60,8 +75,21 @@
             return $service.dimensions[field];
         };
 
+        /**
+         * @method getById
+         * @param id {Number}
+         * @return {Object}
+         */
+        $service.getById = function getById(id) {
+
+            var dimension = $service.simple.dimensions.id;
+            dimension.filterExact(id);
+            return dimension.top(1)[0];
+
+        };
+
         return $service;
 
     }]);
 
-})(window.mao, window.jQuery, window.crossfilter);
+})(window.mao, window.crossfilter);

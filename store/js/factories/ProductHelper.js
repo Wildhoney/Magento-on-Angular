@@ -233,6 +233,16 @@
 
             };
 
+            /**
+             * @method pluck
+             * Responsible for plucking a product from the vast array by its ID/ident.
+             * @param id {Number}
+             * @return {}
+             */
+            $service.pluck = function pluck(id) {
+                return $crossfilterHelper.getById(id);
+            };
+
             return $service;
 
     }]);
