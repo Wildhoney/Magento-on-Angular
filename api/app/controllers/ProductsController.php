@@ -4,8 +4,13 @@ class ProductsController extends MageController {
 
     public function getProducts() {
 
-        $products   = Mage::getModel('catalog/product')->getCollection()->addAttributeToSelect('*');
         $collection = array();
+
+        $products = Mage::getResourceModel('catalog/product_collection');
+        $products->addAttributeToSelect('*');
+        $products->addAttributeToFilter('visibility', array('neq' => 1));
+        $products->addAttributeToFilter('status', 1);
+        $products->load();
 
         foreach ($products as $product) {
 
@@ -19,6 +24,13 @@ class ProductsController extends MageController {
                 $category = Mage::getModel('catalog/category')->load($id);
 
                 if ($category->parent_id) {
+
+                    $parentCategory = Mage::getModel('catalog/category')->load($category->parent_id);
+
+                    if ($parentCategory->parent_id) {;
+                        array_push($ids, (int) $parentCategory->parent_id);
+                    }
+
                     array_push($ids, (int) $category->parent_id);
                 }
 

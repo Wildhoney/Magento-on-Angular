@@ -19,15 +19,28 @@ class CategoriesController extends MageController {
 
             }
 
+            $productCount = function($categoryId) {
+
+                $products = Mage::getModel('catalog/category')->load($categoryId)
+                    ->getProductCollection()
+                    ->addAttributeToSelect('entity_id')
+                    ->addAttributeToFilter('status', 1)
+                    ->addAttributeToFilter('visibility', 4);
+
+                return count($products);
+
+            };
+
             // Load the category's model because it's active.
             $category = Mage::getModel('catalog/category')->load($category->getId());
 
             // Begin constructing the response by placing the name of the category into the array.
             $current = array(
-                'id'        => (int) $category->getId(),
-                'ident'     => $this->_createIdent($category->getName()),
-                'name'      => $category->getName(),
-                'children'  => array()
+                'id'            => (int) $category->getId(),
+                'ident'         => $this->_createIdent($category->getName()),
+                'name'          => $category->getName(),
+                'productCount'  => $productCount($category->getId()),
+                'children'      => array()
             );
 
             // Discover the category's sub-categories.
@@ -40,9 +53,10 @@ class CategoriesController extends MageController {
 
                 // Prepare the model for appending to the collection.
                 $model = array(
-                    'id'    => (int) $subCategory->getId(),
-                    'ident' => $this->_createIdent($subCategory->getName()),
-                    'name'  => $subCategory->getName()
+                    'id'            => (int) $subCategory->getId(),
+                    'ident'         => $this->_createIdent($subCategory->getName()),
+                    'name'          => $subCategory->getName(),
+                    'productCount'  => $productCount($subCategory->getId()),
                 );
 
                 $current['children'][] = $model;

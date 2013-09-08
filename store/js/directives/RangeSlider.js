@@ -26,7 +26,6 @@
                  */
                 var _renderSlider = function _renderSlide() {
 
-                    console.log('Render');
                     $element.slider({
                         range   : true,
                         min     : $scope.minimumPrice,
@@ -35,7 +34,6 @@
                         slide   : function(event, ui) {
                             $scope.setPriceRange(ui.values[0], ui.values[1]);
                             $scope.$apply();
-
                         }
                     });
 

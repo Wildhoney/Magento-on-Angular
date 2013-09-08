@@ -110,7 +110,6 @@
             $scope.paginateProducts = function paginateProducts() {
 
                 var products            = $productHelper.getProducts();
-                $scope.totalProducts    = products.length;
                 $scope.pages            = _.range(1, products.length / $scope.perPage);
 
                 var offset = ($scope.currentPage * $scope.perPage) - $scope.perPage;
@@ -154,6 +153,9 @@
                 // We'll first find the category and subCategory from the URL parameters.
                 var subCategory = $routeParams.subCategory || null,
                     details     = $categoryHelper.find($routeParams.category, subCategory);
+
+                // Fetch the product count from the API call.
+                $scope.productCount = details.category.productCount;
 
                 // And assign them to the scope variables.
                 $scope.category     = details.category;
