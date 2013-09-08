@@ -62,6 +62,14 @@
             $scope.sortBy = $productHelper.sortBy;
 
             /**
+             * @method setPriceRange
+             * @param minimum {Number}
+             * @param maximum {Number}
+             * @return {void}
+             */
+            $scope.setPriceRange = $productHelper.setPriceRange;
+
+            /**
              * @property currentPage
              * @type {Number}
              * @default 1
@@ -82,12 +90,28 @@
             $scope.perPage = 10;
 
             /**
+             * @property maximumPrice
+             * @type {Number}
+             */
+            $scope.maximumPrice = 0;
+
+            /**
+             * @property minimumPrice
+             * @type {Number}
+             */
+            $scope.minimumPrice = 0;
+
+            /**
              * @property paginateProducts
              * Responsible for taking the content and paginating them based on the page number,
              * and the total amount of products.
              * @return {Array}
              */
             $scope.paginateProducts = function paginateProducts() {
+
+//                $scope.minimumPrice = 0;
+//                $scope.maximumPrice = 110;
+
 
                 var products            = $productHelper.getProducts();
                 $scope.totalProducts    = products.length;
@@ -105,7 +129,17 @@
              * tells us that it's been updated.
              */
             $scope.$on('contentUpdated', function onContentUpdated(event, products) {
-                $scope.products = $scope.paginateProducts();
+                $scope.products = products;
+            });
+
+            /**
+             * @on contentLoaded
+             * Responsible for setting up the local variables for when the content first
+             * gets loaded.
+             */
+            $scope.$on('contentLoaded', function onContentLoaded() {
+                $scope.minimumPrice = $productHelper.getRecord('price', 'bottom');
+                $scope.maximumPrice = $productHelper.getRecord('price', 'top');
             });
 
             /**

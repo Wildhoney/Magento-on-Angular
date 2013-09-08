@@ -321,6 +321,20 @@ section.page.category {
     div.group {
       padding-bottom: 15px;
 
+      &.price section.slider {
+        padding: 10px 10px 5px 10px;
+
+        .ui-widget-header {
+          background: none #dd4b39;
+        }
+
+        .ui-slider-handle {
+          height: 12px !important;
+          top: -1px;
+          border-radius: 0 !important;
+        }
+      }
+
       h3 {
         background: #adadad;
         background: -webkit-linear-gradient(top,  #adadad 0%,#939393 100%);

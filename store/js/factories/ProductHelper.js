@@ -39,6 +39,12 @@
              */
             $service.loaded = false;
 
+            /**
+             * @property records
+             * @type {Array}
+             */
+            $service.records = [];
+
             // Create our request and our promise which will be resolved when the AJAX
             // request is successful.
             var request     = $http({method: 'GET', url: '/Magento-on-Angular/api/public/products'}),
@@ -57,10 +63,18 @@
                 $crossfilterHelper.addDimension('colours', 'colour');
                 $crossfilterHelper.addDimension('manufacturers', 'manufacturer');
 
+                // Calculate top and bottom price.
+                // Todo: Make this dynamic that does all of the dimensions.
+                $service.records.price = {
+                    top     : ($crossfilterHelper.get('price').top(1)[0]),
+                    bottom  : ($crossfilterHelper.get('price').bottom(1)[0])
+                };
+
                 // Resolve our promise!
                 deferred.resolve();
 
                 $service.loaded = true;
+                $rootScope.$broadcast('contentLoaded');
 
             });
 
@@ -84,6 +98,17 @@
                 $rootScope.$broadcast('contentUpdated', $service.getProducts());
 
             });
+
+            /**
+             * @method getRecord
+             * @param $dimension
+             * @param $topBottom
+             * Responsible for gathering the top or bottom for any given dimension.
+             * @return {Mixed}
+             */
+            $service.getRecord = function getRecord($dimension, $topBottom) {
+                return $service.records[$dimension][$topBottom][$dimension];
+            };
 
             /**
              * @method sortBy
@@ -184,13 +209,28 @@
              */
             $service.setCategoryId = function setCategoryId(id) {
 
-                _applyDimension('categories', function(d) {
+                _applyDimension('categories', function() {
 
                     this.filterFunction(function(ids) {
                         return ($j.inArray(id, ids) !== -1);
                     });
 
                 });
+
+            };
+
+            /**
+             * @method setPriceRange
+             * @param minimum {Number}
+             * @param maximum {Number}
+             * @return {void}
+             */
+            $service.setPriceRange = function setPriceRange(minimum, maximum) {
+
+                _applyDimension('price', function() {
+                    this.filterRange([minimum, maximum]);
+                });
+
             };
 
             return $service;

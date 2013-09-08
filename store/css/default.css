@@ -231,6 +231,14 @@ section.page.category section.products ul.products {
       text-align: center; }
 section.page.category section.attributes div.group {
   padding-bottom: 15px; }
+  section.page.category section.attributes div.group.price section.slider {
+    padding: 10px 10px 5px 10px; }
+    section.page.category section.attributes div.group.price section.slider .ui-widget-header {
+      background: none #dd4b39; }
+    section.page.category section.attributes div.group.price section.slider .ui-slider-handle {
+      height: 12px !important;
+      top: -1px;
+      border-radius: 0 !important; }
   section.page.category section.attributes div.group h3 {
     background: #adadad;
     background: -webkit-linear-gradient(top, #adadad 0%, #939393 100%);
