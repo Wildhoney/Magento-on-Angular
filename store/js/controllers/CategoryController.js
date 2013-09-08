@@ -102,6 +102,18 @@
             $scope.minimumPrice = $productHelper.record('price', 'bottom');
 
             /**
+             * @property selectionProductCount
+             * @type {Number}
+             */
+            $scope.selectionProductCount = 0;
+
+            /**
+             * @property totalProductCount
+             * @type {Number}
+             */
+            $scope.totalProductCount = 0;
+
+            /**
              * @property paginateProducts
              * Responsible for taking the content and paginating them based on the page number,
              * and the total amount of products.
@@ -124,7 +136,8 @@
              * tells us that it's been updated.
              */
             $scope.$on('contentUpdated', function onContentUpdated(event, products) {
-                $scope.products = $scope.paginateProducts(products);
+                $scope.selectionProductCount    = products.length;
+                $scope.products                 = $scope.paginateProducts(products);
             });
 
             /**
@@ -155,7 +168,7 @@
                     details     = $categoryHelper.find($routeParams.category, subCategory);
 
                 // Fetch the product count from the API call.
-                $scope.productCount = details.category.productCount;
+                $scope.totalProductCount = details.category.productCount;
 
                 // And assign them to the scope variables.
                 $scope.category     = details.category;
