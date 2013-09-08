@@ -109,10 +109,6 @@
              */
             $scope.paginateProducts = function paginateProducts() {
 
-//                $scope.minimumPrice = 0;
-//                $scope.maximumPrice = 110;
-
-
                 var products            = $productHelper.getProducts();
                 $scope.totalProducts    = products.length;
                 $scope.pages            = _.range(1, products.length / $scope.perPage);
@@ -154,6 +150,8 @@
 
             // Once the categories have been loaded then we'll perform some actions.
             $categoryHelper.hasLoaded().then(function categoriesLoaded() {
+
+                console.log('HEre');
 
                 // We'll first find the category and subCategory from the URL parameters.
                 var subCategory = $routeParams.subCategory || null,
