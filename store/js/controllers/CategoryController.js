@@ -93,13 +93,13 @@
              * @property maximumPrice
              * @type {Number}
              */
-            $scope.maximumPrice = 0;
+            $scope.maximumPrice = $productHelper.record('price', 'top');
 
             /**
              * @property minimumPrice
              * @type {Number}
              */
-            $scope.minimumPrice = 0;
+            $scope.minimumPrice = $productHelper.record('price', 'bottom');
 
             /**
              * @property paginateProducts
@@ -134,8 +134,8 @@
              * gets loaded.
              */
             $scope.$on('contentLoaded', function onContentLoaded() {
-                $scope.minimumPrice = $productHelper.getRecord('price', 'bottom');
-                $scope.maximumPrice = $productHelper.getRecord('price', 'top');
+                $scope.minimumPrice = $productHelper.record('price', 'bottom');
+                $scope.maximumPrice = $productHelper.record('price', 'top');
             });
 
             /**
@@ -150,8 +150,6 @@
 
             // Once the categories have been loaded then we'll perform some actions.
             $categoryHelper.hasLoaded().then(function categoriesLoaded() {
-
-                console.log('HEre');
 
                 // We'll first find the category and subCategory from the URL parameters.
                 var subCategory = $routeParams.subCategory || null,

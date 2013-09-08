@@ -100,14 +100,20 @@
             });
 
             /**
-             * @method getRecord
+             * @method record
              * @param $dimension
              * @param $topBottom
              * Responsible for gathering the top or bottom for any given dimension.
-             * @return {Mixed}
+             * @return {Number,String}
              */
-            $service.getRecord = function getRecord($dimension, $topBottom) {
+            $service.record = function record($dimension, $topBottom) {
+
+                if (!$service.records[$dimension]) {
+                    return 0;
+                }
+
                 return $service.records[$dimension][$topBottom][$dimension];
+                
             };
 
             /**
