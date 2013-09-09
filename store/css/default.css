@@ -302,3 +302,23 @@ section.page.category section.attributes div.group {
         text-align: center;
         right: 8px;
         top: 7px; }
+
+section.page.product div.left {
+  float: left;
+  width: 40%;
+  padding-right: 30px; }
+  section.page.product div.left img {
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    margin: 5px;
+    float: left; }
+section.page.product div.right {
+  float: left;
+  width: 60%; }
+  section.page.product div.right p.description {
+    float: left;
+    overflow: hidden;
+    padding-top: 5px;
+    font-size: 12px; }

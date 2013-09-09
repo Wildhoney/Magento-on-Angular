@@ -415,3 +415,34 @@ section.page.category {
 
   }
 }
+
+section.page.product {
+
+  div.left {
+    float: left;
+    width: 40%;
+    padding-right: 30px;
+
+    img {
+      padding: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+      border: 1px solid rgba(0, 0, 0, .15);
+      width: 100%;
+      margin: 5px;
+      float: left;
+    }
+  }
+
+  div.right {
+    float: left;
+    width: 60%;
+
+    p.description {
+      float: left;
+      overflow: hidden;
+      padding-top: 5px;
+      font-size: 12px;
+    }
+  }
+
+}

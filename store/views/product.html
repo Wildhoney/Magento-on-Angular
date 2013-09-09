@@ -4,6 +4,19 @@
         <h2>{{product.name}}</h2>
     </section>
 
-    <p class="description">{{product.description}}</p>
+    <div class="left">
+        <img ng-src="{{product.largeImage}}" />
+    </div>
+
+    <div class="right">
+
+        <p class="description">{{product.description}}</p>
+
+        <ul class="actions unstyled">
+            <li><button class="btn btn-small">Add to Basket</button></li>
+        </ul>
+
+    </div>
+
 
 </section>

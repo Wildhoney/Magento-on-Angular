@@ -10,7 +10,10 @@ class ProductController extends MageController {
             'id'            => $product->getId(),
             'sku'           => $product->getSku(),
             'name'          => $product->getName(),
+            'colour'        => (int) $product->getData('color'),
+            'manufacturer'  => (int) $product->getData('manufacturer'),
             'description'   => trim($product->getDescription()),
+            'largeImage'    => $product->getSmallImageUrl(),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages()
         );
