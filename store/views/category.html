@@ -73,20 +73,20 @@
 
         <section class="products">
 
-            <ul class="pagination unstyled">
-                <li class="title">Page {{currentPage}} of {{pages[pages.length - 1] || 1}}</li>
-                <li class="pageNumber" ng-repeat="page in pages">
+            <!--<ul class="pagination unstyled">-->
+                <!--<li class="title">Page {{currentPage}} of {{pages[pages.length - 1] || 1}}</li>-->
+                <!--<li class="pageNumber" ng-repeat="page in pages">-->
 
-                    <a ng-hide="subCategory" href="#!/category/{{category.ident}}/{{page}}">
-                        {{page}}
-                    </a>
+                    <!--<a ng-hide="subCategory" href="#!/category/{{category.ident}}/{{page}}">-->
+                        <!--{{page}}-->
+                    <!--</a>-->
 
-                    <a ng-show="subCategory" href="#!/category/{{category.ident}}/{{subCategory.ident}}/{{page}}">
-                        {{page}}
-                    </a>
+                    <!--<a ng-show="subCategory" href="#!/category/{{category.ident}}/{{subCategory.ident}}/{{page}}">-->
+                        <!--{{page}}-->
+                    <!--</a>-->
 
-                </li>
-            </ul>
+                <!--</li>-->
+            <!--</ul>-->
 
             <div class="options">
 
@@ -105,20 +105,7 @@
 
             </div>
 
-            <ul class="products unstyled">
 
-                <li ng-repeat="product in products">
-
-                    <a href="#!/product/{{product.ident}}">
-                        <div class="image" style="background-image: url('{{product.image}}');"></div>
-                    </a>
-
-                    <div class="name">{{product.name}}</div>
-                    <div class="price">&pound;{{product.price | number: 2}}</div>
-
-                </li>
-
-            </ul>
 
         </section>
 

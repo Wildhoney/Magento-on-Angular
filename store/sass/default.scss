@@ -8,7 +8,10 @@ html, body {
   height: 100%;
   text-align: center;
   //border-top: 4px solid cadetblue;
-  border-top: 4px solid #dd4b39;
+}
+
+body {
+  border-top: 8px solid #dd4b39;
 }
 
 @mixin lato {
@@ -30,6 +33,11 @@ section.container {
   height: 100%;
   max-width: 1000px;
   padding: 10px 20px;
+
+  &.lost-focus {
+    -webkit-filter: blur(1px) grayscale(100%);
+    pointer-events: none;
+  }
 }
 
 header {
@@ -416,33 +424,52 @@ section.page.category {
   }
 }
 
-section.page.product {
+section.product {
+  $width: 60%;
 
-  div.left {
-    float: left;
-    width: 40%;
-    padding-right: 30px;
-
-    img {
-      padding: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, .25);
-      border: 1px solid rgba(0, 0, 0, .15);
-      width: 100%;
-      margin: 5px;
-      float: left;
-    }
-  }
-
-  div.right {
-    float: left;
-    width: 60%;
-
-    p.description {
-      float: left;
-      overflow: hidden;
-      padding-top: 5px;
-      font-size: 12px;
-    }
-  }
-
+  background-color: white;
+  border: 1px solid lightgray;
+  height: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .35);
+  z-index: 101;
+  margin: auto;
+  width: $width;
+  margin-left: -($width / 2);
+  left: 50%;
+  max-width: 800px;
+  text-align: left;
+  padding: 12px;
+  position: fixed;
+  top: 100px;
 }
+
+//section.page.product {
+//
+//  div.left {
+//    float: left;
+//    width: 40%;
+//    padding-right: 30px;
+//
+//    img {
+//      padding: 5px;
+//      box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+//      border: 1px solid rgba(0, 0, 0, .15);
+//      width: 100%;
+//      margin: 5px;
+//      float: left;
+//    }
+//  }
+//
+//  div.right {
+//    float: left;
+//    width: 60%;
+//
+//    p.description {
+//      float: left;
+//      overflow: hidden;
+//      padding-top: 5px;
+//      font-size: 12px;
+//    }
+//  }
+//
+//}

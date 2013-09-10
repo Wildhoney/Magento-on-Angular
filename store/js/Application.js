@@ -18,6 +18,7 @@
 
             $locationProvider.html5Mode(false).hashPrefix('!');
 
-        }]);
+        }])
+        .value('$anchorScroll', angular.noop);
 
 })(window);
