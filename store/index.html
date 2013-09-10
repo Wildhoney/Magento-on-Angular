@@ -20,6 +20,7 @@
 
         <script type="text/javascript" src="js/Application.js"></script>
 
+        <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
         <script type="text/javascript" src="js/controllers/HomeController.js"></script>
         <script type="text/javascript" src="js/controllers/ProductController.js"></script>
         <script type="text/javascript" src="js/controllers/CategoriesController.js"></script>
@@ -36,10 +37,10 @@
 
     </head>
 
-    <body ng-app="maoApp">
+    <body ng-app="maoApp" ng-controller="ApplicationController">
 
         <!-- Begin Container -->
-        <section class="container">
+        <section class="container" ng-class="{lostFocus: lostFocus}">
 
             <!-- Begin Header -->
             <header>
@@ -80,6 +81,17 @@
         <section class="product" ng-show="product" ng-controller="ProductController">
 
             <h2>{{product.name}}</h2>
+            <a class="close" ng-click="dismiss()">&times;</a>
+
+            <img ng-src="{{product.largeImage}}" />
+
+            <ul class="details">
+                <li class="description">{{product.description}}</li>
+                <li class="buy btn-group">
+                    <button class="btn btn-small"><i class="icon-shopping-cart"></i> Add to Basket</button>
+                    <button class="btn btn-small">Wishlist</button>
+                </li>
+            </ul>
 
         </section>
         <!-- End Product Modal -->

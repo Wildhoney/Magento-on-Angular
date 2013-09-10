@@ -8,9 +8,9 @@
      */
     $m.controller('ProductController',
 
-        ['$scope', '$http', '$parameters', '$productHelper',
+        ['$scope', '$http', '$parameters', '$productHelper', '$window',
 
-            function ProductController($scope, $http, $parameters, $productHelper) {
+            function ProductController($scope, $http, $parameters, $productHelper, $window) {
 
                 /**
                  * @property product
@@ -36,7 +36,16 @@
 
                 });
 
-    }]);
+                $scope.$on('unloadedProduct', function onUnloadedProduct() {
+                    $scope.product = null;
+                });
+
+                $scope.dismiss = function dismiss() {
+
+                }
+
+            }
+    ]);
 
 
 })(window.mao);

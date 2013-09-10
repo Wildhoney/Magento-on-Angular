@@ -16,10 +16,11 @@ section.container {
   width: 100%;
   height: 100%;
   max-width: 1000px;
-  padding: 10px 20px; }
-  section.container.lost-focus {
-    -webkit-filter: blur(1px) grayscale(100%);
-    pointer-events: none; }
+  padding: 10px 20px;
+  transition: all .45s; }
+  section.container.lostFocus {
+    pointer-events: none;
+    -webkit-filter: blur(1px) grayscale(100%); }
 
 header {
   background: transparent url("./../images/logo.png") no-repeat left top;
@@ -311,7 +312,7 @@ section.page.category section.attributes div.group {
 section.product {
   background-color: white;
   border: 1px solid lightgray;
-  height: 300px;
+  height: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   z-index: 101;
   margin: auto;
@@ -320,6 +321,46 @@ section.product {
   left: 50%;
   max-width: 800px;
   text-align: left;
-  padding: 12px;
+  padding: 0 20px;
   position: fixed;
   top: 100px; }
+  section.product h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90%;
+    text-overflow: ellipsis; }
+  section.product img {
+    float: left;
+    width: 30%; }
+  section.product a.close {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    opacity: 1;
+    transition: all .25s;
+    color: #dd4b39; }
+    section.product a.close:hover {
+      color: black; }
+  section.product ul {
+    float: left;
+    overflow: hidden;
+    list-style-type: none;
+    padding-left: 0px;
+    width: 65%; }
+    section.product ul li.description {
+      font-size: 12px;
+      padding-bottom: 10px; }
+    section.product ul li.buy button {
+      font-weight: normal;
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      font-size: 14px; }
+    section.product ul li.buy i {
+      margin-top: 2px; }

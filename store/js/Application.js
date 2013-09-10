@@ -29,6 +29,8 @@
                     return;
                 }
 
+                $rootScope.$broadcast('unloadedProduct');
+
             });
 
         });
