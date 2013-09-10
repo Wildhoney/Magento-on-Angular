@@ -39,7 +39,7 @@
     <body ng-app="maoApp">
 
         <!-- Begin Container -->
-        <section class="container lost-focus">
+        <section class="container">
 
             <!-- Begin Header -->
             <header>
@@ -77,8 +77,10 @@
         <!-- End Container -->
 
         <!-- Begin Product Modal -->
-        <section class="product">
-            Test...
+        <section class="product" ng-show="product" ng-controller="ProductController">
+
+            <h2>{{product.name}}</h2>
+
         </section>
         <!-- End Product Modal -->
 

@@ -19,6 +19,18 @@
             $locationProvider.html5Mode(false).hashPrefix('!');
 
         }])
-        .value('$anchorScroll', angular.noop);
+        .value('$anchorScroll', angular.noop)
+        .run(function run($rootScope, $parameters) {
+
+            $rootScope.$on('$routeChangeSuccess', function() {
+
+                if ($parameters.product) {
+                    $rootScope.$broadcast('loadedProduct');
+                    return;
+                }
+
+            });
+
+        });
 
 })(window);

@@ -8,27 +8,30 @@
      */
     $m.controller('ProductController',
 
-        ['$scope', '$http', '$routeParams', '$productHelper',
+        ['$scope', '$http', '$parameters', '$productHelper',
 
-            function ProductController($scope, $http, $routeParams, $productHelper) {
+            function ProductController($scope, $http, $parameters, $productHelper) {
 
                 /**
                  * @property product
                  * @type {}
                  */
-                $scope.product = {};
+                $scope.product = null;
 
-                // Finds the product by its ident once the content has been loaded.
-                $productHelper.hasLoaded().then(function() {
+                $scope.$on('loadedProduct', function onLoadedProduct() {
 
-                    $scope.product = $productHelper.pluck($routeParams.ident);
+                    // Finds the product by its ident once the content has been loaded.
+                    $productHelper.hasLoaded().then(function() {
 
-                    var url     = '/Magento-on-Angular/api/public/product/' + $scope.product.id,
-                        request = $http({method: 'GET', url: url });
+                        $scope.product = $productHelper.pluck($parameters.product);
 
-                    request.success(function(response) {
-                        $scope.product = _.extend($scope.product, response);
-                        $scope.$emit('loadedProduct', response);
+                        var url     = '/Magento-on-Angular/api/public/product/' + $scope.product.id,
+                            request = $http({method: 'GET', url: url });
+
+                        request.success(function(response) {
+                            $scope.product = _.extend($scope.product, response);
+                        });
+
                     });
 
                 });

@@ -8,10 +8,10 @@
      */
     $m.controller('CategoryController',
 
-        ['$scope', '$routeParams', '$categoryHelper', '$productHelper', '$attributeHelper',
+        ['$rootScope', '$scope', '$routeParams', '$categoryHelper', '$productHelper', '$attributeHelper',
          '$pagination', '$parameters',
 
-        function CategoryController($scope, $routeParams, $categoryHelper, $productHelper,
+        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper, $productHelper,
                                     $attributeHelper, $pagination, $parameters) {
 
             /**
@@ -112,10 +112,6 @@
              * @type {Number}
              */
             $scope.totalProductCount = 0;
-
-            $scope.$on('$routeChangeSuccess', function(next, current) {
-                console.log($parameters);
-            });
 
             /**
              * @property paginateProducts
