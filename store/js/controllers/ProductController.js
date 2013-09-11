@@ -8,9 +8,9 @@
      */
     $m.controller('ProductController',
 
-        ['$scope', '$http', '$parameters', '$productHelper', '$window',
+        ['$scope', '$http', '$parameters', '$productHelper', '$window', '$location',
 
-            function ProductController($scope, $http, $parameters, $productHelper, $window) {
+            function ProductController($scope, $http, $parameters, $productHelper, $window, $location) {
 
                 /**
                  * @property product
@@ -41,7 +41,8 @@
                 });
 
                 $scope.dismiss = function dismiss() {
-
+                    var url = $location.$$path.replace($scope.product.ident, '');
+                    $location.path(url);
                 }
 
             }
