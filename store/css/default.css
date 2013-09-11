@@ -20,7 +20,7 @@ section.container {
   transition: all .45s; }
   section.container.lostFocus {
     pointer-events: none;
-    -webkit-filter: blur(1px) grayscale(100%); }
+    -webkit-filter: blur(1px); }
 
 header {
   background: transparent url("./../images/logo.png") no-repeat left top;

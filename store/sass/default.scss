@@ -37,7 +37,7 @@ section.container {
 
   &.lostFocus {
     pointer-events: none;
-    -webkit-filter: blur(1px) grayscale(100%);
+    -webkit-filter: blur(1px);
   }
 }
 

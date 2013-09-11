@@ -57,6 +57,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
     grunt.registerTask('js-test', ['jasmine', 'jshint']);
     grunt.registerTask('php-test', ['phpunit']);
+    grunt.registerTask('build', ['sass', 'uglify']);
     grunt.registerTask('default', ['phpunit', 'jasmine', 'jshint', 'sass', 'uglify']);
 
 };
