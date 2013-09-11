@@ -14,9 +14,11 @@
 
             var $service = {};
 
+
             $rootScope.$on('$routeChangeSuccess', function() {
-                $service.category   = $routeParams.category;
-                $service.product    = $routeParams.subCategory;
+                $service.category   = $routeParams.first;
+                $service.pageNumber = $routeParams.second || 1;
+                $service.product    = $routeParams.third;
             });
 
             return $service;

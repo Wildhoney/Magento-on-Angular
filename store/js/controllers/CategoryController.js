@@ -8,11 +8,11 @@
      */
     $m.controller('CategoryController',
 
-        ['$rootScope', '$scope', '$routeParams', '$categoryHelper', '$productHelper', '$attributeHelper',
-         '$pagination', '$parameters',
+        ['$rootScope', '$scope', '$categoryHelper', '$productHelper', '$attributeHelper',
+         '$parameters',
 
-        function CategoryController($rootScope, $scope, $routeParams, $categoryHelper, $productHelper,
-                                    $attributeHelper, $pagination, $parameters) {
+        function CategoryController($rootScope, $scope, $categoryHelper, $productHelper,
+                                    $attributeHelper, $parameters) {
 
             /**
              * @property products
@@ -74,7 +74,7 @@
              * @type {Number}
              * @default 1
              */
-            $scope.currentPage = $pagination.getPageNumber();
+            $scope.currentPage = $parameters.pageNumber;
 
             /**
              * @property pages
@@ -164,8 +164,8 @@
             $categoryHelper.hasLoaded().then(function categoriesLoaded() {
 
                 // We'll first find the category and subCategory from the URL parameters.
-                var subCategory = $routeParams.subCategory || null,
-                    details     = $categoryHelper.find($routeParams.category, subCategory);
+                var subCategory = $parameters.subCategory || null,
+                    details     = $categoryHelper.find($parameters.category, subCategory);
 
                 // Fetch the product count from the API call.
                 $scope.totalProductCount = details.category.productCount;
