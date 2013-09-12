@@ -6,9 +6,9 @@
      * @controller CategoriesController
      * @contributors Adam Timberlake
      */
-    $m.controller('CategoriesController', ['$scope', '$categoryHelper', '$http',
+    $m.controller('CategoriesController', ['$scope', '$http',
 
-        function CategoriesController($scope, $categoryHelper, $http) {
+        function CategoriesController($scope, $http) {
 
             /**
              * @property categories
@@ -21,7 +21,6 @@
             request.success(function(response) {
                 $scope.categories = response;
                 $scope.$emit('loadedCategories', response);
-
             });
         
     }]);
