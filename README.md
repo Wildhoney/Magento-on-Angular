@@ -16,7 +16,7 @@ All unit tests for both JavaScript and PHP can be run from the terminal: `grunt 
  * PHP specific unit tests are available with the `phpunit` command from the `/api/` directory;
  * JavaScript specific unit tests are available via the URL `/store/tests/`;
 
-Mao's Angular Event
+Mao's Events (Hooks)
 ---------
 
 I've attempted to standardise the events that are fired within the application.
