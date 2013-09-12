@@ -25,7 +25,6 @@ I've attempted to standardise the events that are fired within the application.
  * `mao/basket/updated`: Basket has been updated;
  * `mao/basket/loaded`: Basket has been retrieved;
  * `mao/basket/add -> {id}`: Instruction to add a product;
-
  * ***Product***
  * `mao/product/loaded`: Product has been loaded;
  * `mao/product/unloaded` Product has been unloaded;
