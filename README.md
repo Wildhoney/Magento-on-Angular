@@ -21,9 +21,9 @@ Mao's Events (Hooks)
 
 I've attempted to standardise the events that are fired within the application.
 
- * `mao/basket/add` (params: `id {Number}`) &ndash; add item to basket by `id`;
- * `mao/basket/updated` (params: `id {Number}`) &ndash; basket has been updated;
- * `mao/basket/loaded` (params: `items {Array}`) &ndash; basket has loaded initially;
+ * `mao/basket/add -> {id}` (params: `product {Object}`) &ndash; add item to basket by `id`;
+ * `mao/basket/updated` (params: `product {Object}`) &ndash; basket has been updated;
+ * `mao/basket/loaded` (params: `products {Array}`) &ndash; basket has loaded initially;
 
 Laravel API
 ---------
