@@ -47,6 +47,9 @@ header {
   padding-left: 60px;
   @include lato;
   padding-bottom: 75px;
+  margin-bottom: 20px;
+  float: left;
+  overflow: hidden;
 
   h1 {
     font-size: 32px;
@@ -62,6 +65,7 @@ header {
 nav {
   $height: 40px;
 
+  clear: both;
   background: #efefef;
   background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
   height: $height;
@@ -429,7 +433,8 @@ section.product {
   $width: 60%;
 
   background-color: white;
-  border: 1px solid lightgray;
+  //border: 1px solid lightgray;
+  border-top: 8px solid #333;
   height: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, .35);
   z-index: 101;
@@ -488,6 +493,12 @@ section.product {
       padding-bottom: 10px;
     }
 
+    li.price {
+      color: #dd4b39;
+      font-size: 24px;
+      padding-bottom: 10px;
+    }
+
     li.buy {
       button {
         font-weight: normal;
@@ -499,5 +510,29 @@ section.product {
         margin-top: 2px;
       }
     }
+  }
+}
+
+section.basket {
+  float: right;
+  overflow: hidden;
+  //background: transparent url('./../images/cart.png') no-repeat top left;
+  width: 140px;
+  margin-top: 20px;
+  @include lato;
+  height: 50px;
+  text-align: right;
+
+  span {
+    padding-top: 2px;
+    color: #555;
+    font-size: 14px;
+    float: right;
+  }
+
+  div {
+    clear: both;
+    overflow: hidden;
+    font-size: 20px;
   }
 }

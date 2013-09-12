@@ -8,9 +8,10 @@
      */
     $m.controller('ProductController',
 
-        ['$scope', '$http', '$parameters', '$productHelper', '$window', '$location',
+        ['$scope', '$http', '$parameters', '$productHelper', '$window', '$location', '$rootScope',
 
-            function ProductController($scope, $http, $parameters, $productHelper, $window, $location) {
+            function ProductController($scope, $http, $parameters, $productHelper, $window, $location,
+                                       $rootScope) {
 
                 /**
                  * @property product
@@ -39,7 +40,7 @@
                     // Finds the product by its ident once the content has been loaded.
                     $productHelper.hasLoaded().then(function() {
 
-                        $scope.product = $productHelper.pluck($parameters.product);
+                        $scope.product = $productHelper.pluckBy('ident', $parameters.product);
 
                         var url     = '/Magento-on-Angular/api/public/product/' + $scope.product.id,
                             request = $http({method: 'GET', url: url });
@@ -67,6 +68,14 @@
                 $scope.$on('unloadProduct', function onUnloadProduct() {
                     $scope.dismiss();
                 });
+
+                /**
+                 * @method addBasket
+                 * @return {void}
+                 */
+                $scope.addBasket = function addBasket(id) {
+                    $rootScope.$broadcast('mao/basket/add', id);
+                }
 
             }
     ]);

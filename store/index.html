@@ -25,6 +25,7 @@
         <script type="text/javascript" src="js/controllers/ProductController.js"></script>
         <script type="text/javascript" src="js/controllers/CategoriesController.js"></script>
         <script type="text/javascript" src="js/controllers/CategoryController.js"></script>
+        <script type="text/javascript" src="js/controllers/BasketController.js"></script>
 
         <script type="text/javascript" src="js/factories/Parameters.js"></script>
         <script type="text/javascript" src="js/factories/CategoryHelper.js"></script>
@@ -48,6 +49,15 @@
                 <sub>Reinvigorating Magento.</sub>
             </header>
             <!-- End Header -->
+
+            <!-- Begin Basket -->
+            <section class="basket" ng-controller="BasketController">
+
+                <span>Items in Basket: {{items.length}}</span>
+                <div class="total">&pound;59.99</div>
+
+            </section>
+            <!-- End Basket -->
 
             <!-- Begin Categories -->
             <nav ng-controller="CategoriesController">
@@ -86,9 +96,13 @@
             <img ng-src="{{product.largeImage}}" />
 
             <ul class="details">
+                <li class="price">&pound;{{product.price | number: 2}}</li>
                 <li class="description">{{product.description}}</li>
                 <li class="buy btn-group">
-                    <button class="btn btn-small"><i class="icon-shopping-cart"></i> Add to Basket</button>
+                    <button class="btn btn-small" ng-click="addBasket(product.id)">
+                        <i class="icon-shopping-cart"></i>
+                        Add to Basket
+                    </button>
                     <button class="btn btn-small">Wishlist</button>
                 </li>
             </ul>

@@ -1,8 +1,9 @@
 /**
  * @param $m {Object} Mao
+ * @param $j {Object} jQuery
  * @param $c {Function} Crossfilter
  */
-(function($m, $c) {
+(function($m, $j, $c) {
 
     "use strict";
 
@@ -43,8 +44,11 @@
         $service.create = function create(data) {
 
             // Create the Crossfilter that's responsible for the plucking of items by their ID.
-            $service.simple.crossfilter     = $c(data);
-            $service.simple.dimensions.id   = $service.simple.crossfilter.dimension(function(d) {
+            $service.simple.crossfilter         = $c(data);
+            $service.simple.dimensions.id       = $service.simple.crossfilter.dimension(function(d) {
+                return d.id;
+            });
+            $service.simple.dimensions.ident    = $service.simple.crossfilter.dimension(function(d) {
                 return d.ident;
             });
 
@@ -76,14 +80,30 @@
         };
 
         /**
-         * @method getById
-         * @param id {Number}
-         * @return {Object}
+         * @method getBy
+         * @param field {String}
+         * @param value {Number|String|Array}
+         * @return {Object|Array}
          */
-        $service.getById = function getById(id) {
+        $service.getBy = function getBy(field, value) {
 
-            var dimension = $service.simple.dimensions.id;
-            dimension.filterExact(id);
+            // Reset the dimensions.
+            $service.simple.dimensions.id.filterAll();
+            $service.simple.dimensions.ident.filterAll();
+
+            var dimension = $service.simple.dimensions[field];
+
+            if (Array.isArray(value)) {
+
+                dimension.filterFunction(function(d) {
+                    return ($j.inArray(d, value) !== -1);
+                });
+
+                return dimension.top(Infinity);
+
+            }
+
+            dimension.filterExact(value);
             return dimension.top(1)[0];
 
         };
@@ -92,4 +112,4 @@
 
     }]);
 
-})(window.mao, window.crossfilter);
+})(window.mao, window.jQuery, window.crossfilter);

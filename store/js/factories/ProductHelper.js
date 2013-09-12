@@ -242,11 +242,12 @@
             /**
              * @method pluck
              * Responsible for plucking a product from the vast array by its ID/ident.
-             * @param id {Number}
-             * @return {}
+             * @param field {String}
+             * @param value {Number|String|Array}
+             * @return {Object|Array}
              */
-            $service.pluck = function pluck(id) {
-                return $crossfilterHelper.getById(id);
+            $service.pluckBy = function pluckBy(field, value) {
+                return $crossfilterHelper.getBy(field, value);
             };
 
             return $service;
