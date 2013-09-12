@@ -25,7 +25,7 @@
                     }
 
                     // Emit the event to unload the product from the DOM.
-                    $rootScope.$broadcast('unloadProduct');
+                    $rootScope.$broadcast('mao/product/unload');
                     $scope.$apply();
 
                 });

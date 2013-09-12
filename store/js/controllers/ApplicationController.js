@@ -19,7 +19,7 @@
          * @on productLoaded
          * Responsible for changing the class on the body so nice effects can occur!
          */
-        $scope.$on('loadedProduct', function onProductLoaded() {
+        $scope.$on('mao/product/loaded', function onProductLoaded() {
             $scope.lostFocus = true;
         });
 
@@ -27,7 +27,7 @@
          * @on unloadedProduct
          * Responsible for removing the fancy out-of-focus effects.
          */
-        $scope.$on('unloadedProduct', function onUnloadedProduct() {
+        $scope.$on('mao/product/unloaded', function onUnloadedProduct() {
             $scope.lostFocus = false;
         });
 

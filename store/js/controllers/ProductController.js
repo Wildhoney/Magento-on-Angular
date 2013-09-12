@@ -30,12 +30,12 @@
                 };
 
                 /**
-                 * @on loadedProduct
+                 * @on mao/product/loaded
                  * Responsible for changing the URL and opening up the product's modal window
                  * when the user selects a product.
                  * @return {void}
                  */
-                $scope.$on('loadedProduct', function onLoadedProduct() {
+                $scope.$on('mao/product/loaded', function onProductLoaded() {
 
                     // Finds the product by its ident once the content has been loaded.
                     $productHelper.hasLoaded().then(function() {
@@ -54,10 +54,10 @@
                 });
 
                 /**
-                 * @on unloadedProduct
+                 * @on mao/product/unloaded
                  * Unload the product from the DOM.
                  */
-                $scope.$on('unloadedProduct', function onUnloadedProduct() {
+                $scope.$on('mao/product/unloaded', function onProductUnloaded() {
                     $scope.product = null;
                 });
 
@@ -65,7 +65,7 @@
                  * @on unloadProduct
                  * Unloads the product.
                  */
-                $scope.$on('unloadProduct', function onUnloadProduct() {
+                $scope.$on('mao/product/unload', function onProductUnload() {
                     $scope.dismiss();
                 });
 

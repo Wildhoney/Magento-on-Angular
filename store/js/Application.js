@@ -25,11 +25,11 @@
             $rootScope.$on('$routeChangeSuccess', function() {
 
                 if ($parameters.product) {
-                    $rootScope.$broadcast('loadedProduct');
+                    $rootScope.$broadcast('mao/product/loaded');
                     return;
                 }
 
-                $rootScope.$broadcast('unloadedProduct');
+                $rootScope.$broadcast('mao/product/unloaded');
 
             });
 
