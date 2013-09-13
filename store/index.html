@@ -99,9 +99,10 @@
                 <li class="price">&pound;{{product.price | number: 2}}</li>
                 <li class="description">{{product.description}}</li>
                 <li class="buy btn-group">
-                    <button class="btn btn-small" ng-click="addBasket(product.id)">
+                    <button class="btn btn-small" ng-disabled="adding" ng-click="addBasket(product.id)">
                         <i class="icon-shopping-cart"></i>
-                        Add to Basket
+                        <span ng-hide="adding">Add to Basket</span>
+                        <span ng-show="adding">Adding...</span>
                     </button>
                     <button class="btn btn-small">Wishlist</button>
                 </li>

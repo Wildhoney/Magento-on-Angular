@@ -20,6 +20,13 @@
                 $scope.product = null;
 
                 /**
+                 * @property adding
+                 * @type {Boolean}
+                 * @default false
+                 */
+                $scope.adding = false;
+
+                /**
                  * @method dismiss
                  * Responsible for closing the product in focus.
                  * @return {void}
@@ -70,10 +77,19 @@
                 });
 
                 /**
+                 * @on mao/basket/updated
+                 * When the basket has been updated we can reset the `adding`.
+                 */
+                $scope.$on('mao/basket/updated', function onBasketUpdated() {
+                    $scope.adding = false;
+                });
+
+                /**
                  * @method addBasket
                  * @return {void}
                  */
                 $scope.addBasket = function addBasket(id) {
+                    $scope.adding = true;
                     $rootScope.$broadcast('mao/basket/add', id);
                 }
 

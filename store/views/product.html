@@ -10,10 +10,15 @@
 
     <div class="right">
 
-        <p class="description">{{product.description}}</p>
+        <p class="description">
+            {{adding}}</p>
 
         <ul class="actions unstyled">
-            <li><button class="btn btn-small">Add to Basket</button></li>
+            <li>
+                <button class="btn btn-small" ng-disabled="adding">
+                    Add to Basket
+                </button>
+            </li>
         </ul>
 
     </div>
