@@ -20,7 +20,14 @@
 
         }])
         .value('$anchorScroll', angular.noop)
-        .run(function run($rootScope, $parameters) {
+        .run(function run($rootScope, $parameters, $route) {
+
+//            var lastRoute = $route.current;
+//            $rootScope.$on('$locationChangeSuccess', function locationChangeSuccess() {
+//                $rootScope.$apply();
+//                console.log($parameters);
+//                $rootScope.current = lastRoute;
+//            });
 
             $rootScope.$on('$routeChangeSuccess', function() {
 

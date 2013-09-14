@@ -14,12 +14,14 @@
 
             var $service = {};
 
-
-            $rootScope.$on('$routeChangeSuccess', function() {
+            $service.parse = function parse() {
                 $service.category   = $routeParams.first;
                 $service.pageNumber = $routeParams.second || 1;
                 $service.product    = $routeParams.third;
-            });
+            };
+
+            $rootScope.$on('$routeChangeSuccess', $service.parse);
+//            $rootScope.$on('$locationChangeSuccess', $service.parse);
 
             return $service;
 

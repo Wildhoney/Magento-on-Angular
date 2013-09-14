@@ -24,11 +24,13 @@ class BasketController extends MageController {
 
     public function addItem($productId) {
 
+        Mage::getSingleton('core/session', array('name' => 'frontend'));
+
         $product = Mage::getModel('catalog/product')->load((int) $productId);
 
-        $oBasket = Mage::getSingleton('checkout/cart');
-        $oBasket->addProduct($product, 1);
-        $oBasket->save();
+        $basket = Mage::getSingleton('checkout/cart');
+        $basket->addProduct($product, 1);
+        $basket->save();
 
     }
 
