@@ -32,9 +32,7 @@
                  * @return {void}
                  */
                 $scope.dismiss = function dismiss() {
-                    var url = $location.$$path;
                     $location.search('product', null);
-//                    $location.path(url);
                 };
 
                 /**
