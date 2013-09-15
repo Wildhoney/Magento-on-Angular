@@ -20,7 +20,7 @@
                 <h3>Price</h3>
                 <div class="loading" ng-hide="manufacturers.length">Loading&hellip;</div>
                 <section class="slider">
-                        <div slider data-min="{{minimumPrice}}" data-max="{{maximumPrice}}"></div>
+                    <div slider data-min="{{minimumPrice}}" data-max="{{maximumPrice}}"></div>
                 </section>
 
             </div>
@@ -109,7 +109,7 @@
 
                 <li ng-repeat="product in products">
 
-                    <a href="#!/category/{{category.ident}}/{{currentPage}}/{{product.ident}}">
+                    <a open-modal data-ident="{{product.ident}}" href="#!/product/{{product.ident}}">
                         <div class="image" style="background-image: url('{{product.image}}');"></div>
                     </a>
 

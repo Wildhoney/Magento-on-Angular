@@ -38,16 +38,18 @@
 
                 /**
                  * @on mao/product/loaded
+                 * @param event {Object}
+                 * @param ident {String}
                  * Responsible for changing the URL and opening up the product's modal window
                  * when the user selects a product.
                  * @return {void}
                  */
-                $scope.$on('mao/product/loaded', function onProductLoaded() {
+                $scope.$on('mao/product/loaded', function onProductLoaded(event, ident) {
 
                     // Finds the product by its ident once the content has been loaded.
                     $productHelper.hasLoaded().then(function() {
 
-                        $scope.product = $productHelper.pluckBy('ident', $parameters.product);
+                        $scope.product = $productHelper.pluckBy('ident', ident);
 
                         var url     = '/Magento-on-Angular/api/public/product/' + $scope.product.id,
                             request = $http({method: 'GET', url: url });

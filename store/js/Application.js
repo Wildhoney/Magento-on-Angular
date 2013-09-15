@@ -11,7 +11,7 @@
             $routeProvider
                 .when('/', { templateUrl: 'views/home.html' })
                 .when('/category/:first', { templateUrl: 'views/category.html' })
-                .when('/category/:first/:second', { templateUrl: 'views/category.html' })
+                .when('/category/:first/:second', { templateUrl: 'views/category.html', reloadOnSearch: false })
                 .when('/category/:first/:second/:third', { templateUrl: 'views/category.html' })
                 .when('/product/:ident', { templateUrl: 'views/product.html' })
                 .otherwise({ redirectTo: '/error/not-found' });
@@ -20,19 +20,12 @@
 
         }])
         .value('$anchorScroll', angular.noop)
-        .run(function run($rootScope, $parameters, $route) {
-
-//            var lastRoute = $route.current;
-//            $rootScope.$on('$locationChangeSuccess', function locationChangeSuccess() {
-//                $rootScope.$apply();
-//                console.log($parameters);
-//                $rootScope.current = lastRoute;
-//            });
+        .run(function run($rootScope, $routeParams) {
 
             $rootScope.$on('$routeChangeSuccess', function() {
 
-                if ($parameters.product) {
-                    $rootScope.$broadcast('mao/product/loaded');
+                if ($routeParams.product) {
+                    $rootScope.$broadcast('mao/product/loaded', $routeParams.product);
                     return;
                 }
 
