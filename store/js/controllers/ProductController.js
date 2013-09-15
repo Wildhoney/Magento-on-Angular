@@ -32,14 +32,15 @@
                  * @return {void}
                  */
                 $scope.dismiss = function dismiss() {
-                    var url = $location.$$path.replace($scope.product.ident, '');
-                    $location.path(url);
+                    var url = $location.$$path;
+                    $location.search('product', null);
+//                    $location.path(url);
                 };
 
                 /**
                  * @on mao/product/loaded
                  * @param event {Object}
-                 * @param ident {String}
+                 * @param event {String}
                  * Responsible for changing the URL and opening up the product's modal window
                  * when the user selects a product.
                  * @return {void}
