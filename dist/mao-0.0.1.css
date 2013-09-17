@@ -28,7 +28,10 @@ header {
   padding-left: 60px;
   font-family: "Lato", sans-serif;
   font-weight: normal;
-  padding-bottom: 75px; }
+  padding-bottom: 75px;
+  margin-bottom: 20px;
+  float: left;
+  overflow: hidden; }
   header h1 {
     font-size: 32px;
     height: 34px;
@@ -40,6 +43,7 @@ header {
     font-weight: normal; }
 
 nav {
+  clear: both;
   background: #efefef;
   background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
   height: 40px;
@@ -311,7 +315,7 @@ section.page.category section.attributes div.group {
 
 section.product {
   background-color: white;
-  border: 1px solid lightgray;
+  border-top: 8px solid #333;
   height: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   z-index: 101;
@@ -357,6 +361,10 @@ section.product {
     section.product ul li.description {
       font-size: 12px;
       padding-bottom: 10px; }
+    section.product ul li.price {
+      color: #dd4b39;
+      font-size: 24px;
+      padding-bottom: 10px; }
     section.product ul li.buy button {
       font-weight: normal;
       font-family: "Lato", sans-serif;
@@ -364,3 +372,22 @@ section.product {
       font-size: 14px; }
     section.product ul li.buy i {
       margin-top: 2px; }
+
+section.basket {
+  float: right;
+  overflow: hidden;
+  width: 140px;
+  margin-top: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  height: 50px;
+  text-align: right; }
+  section.basket span {
+    padding-top: 2px;
+    color: #555;
+    font-size: 14px;
+    float: right; }
+  section.basket div {
+    clear: both;
+    overflow: hidden;
+    font-size: 20px; }
