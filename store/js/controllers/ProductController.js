@@ -9,9 +9,10 @@
     $m.controller('ProductController',
 
         ['$scope', '$http', '$parameters', '$productHelper', '$window', '$location', '$rootScope',
+         '$timeout',
 
             function ProductController($scope, $http, $parameters, $productHelper, $window, $location,
-                                       $rootScope) {
+                                       $rootScope, $timeout) {
 
                 /**
                  * @property product
@@ -25,6 +26,15 @@
                  * @default false
                  */
                 $scope.adding = false;
+
+                /**
+                 * @property recentlyAdded
+                 * When set to true, the success message is displayed for a certain
+                 * amount of seconds.
+                 * @type {Boolean}
+                 * @default false
+                 */
+                $scope.recentlyAdded = false;
 
                 /**
                  * @method dismiss
@@ -82,7 +92,14 @@
                  * When the basket has been updated we can reset the `adding`.
                  */
                 $scope.$on('mao/basket/updated', function onBasketUpdated() {
-                    $scope.adding = false;
+
+                    $scope.adding           = false;
+                    $scope.recentlyAdded    = true;
+
+                    $timeout(function() {
+                        $scope.recentlyAdded = false;
+                    }, 5000);
+
                 });
 
                 /**

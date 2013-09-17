@@ -92,6 +92,11 @@
         <section class="product" ng-show="product" ng-controller="ProductController">
 
             <h2>{{product.name}}</h2>
+
+            <div class="alert alert-success" ng-show="recentlyAdded">
+                Voila! {{product.name}} has been added to your basket.
+            </div>
+
             <a class="close" ng-click="dismiss()">&times;</a>
 
             <img ng-src="{{product.largeImage}}" />
