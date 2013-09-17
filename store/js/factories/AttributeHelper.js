@@ -49,11 +49,11 @@
             };
 
             /**
-             * @on contentUpdated
+             * @on mao/products/updated
              * Responsible for updating the model count for each filter type.
              * @todo Refactor into being a Crossfilter method, and make it more dynamic.
              */
-            $rootScope.$on('contentUpdated', function onContentUpdated(event, content) {
+            $rootScope.$on('mao/products/updated', function onProductsUpdated(event, content) {
 
                 $service.hasLoaded('colours').then(function() {
                     $service.colours.cache.forEach(function(colourModel) {
@@ -136,7 +136,7 @@
 
             /**
              * @method toggle
-             * @broadcasts attributeUpdated
+             * @broadcasts mao/attribute/updated
              * @param model {Object}
              * @return {Boolean}
              */
@@ -164,7 +164,7 @@
 
                 // Broadcast that an attribute has been changed, so that the $productHelper
                 // can update its models.
-                $rootScope.$broadcast('attributeUpdated', model._meta.type, record.inactive);
+                $rootScope.$broadcast('mao/attribute/updated', model._meta.type, record.inactive);
 
                 return true;
 

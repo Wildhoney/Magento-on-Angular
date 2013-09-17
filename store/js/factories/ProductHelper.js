@@ -74,17 +74,17 @@
                 deferred.resolve();
 
                 $service.loaded = true;
-                $rootScope.$broadcast('contentLoaded');
+                $rootScope.$broadcast('mao/products/loaded');
 
             });
 
             /**
-             * @on attributeUpdated
-             * @broadcasts contentUpdated
+             * @on mao/attribute/updated
+             * @broadcasts mao/products/updated
              * Responsible for updating the products based on any attribute that has
              * been changed by anything anywhere.
              */
-            $rootScope.$on('attributeUpdated', function onAttributeUpdated(event, type, ids) {
+            $rootScope.$on('mao/attribute/updated', function onAttributeUpdated(event, type, ids) {
 
                 // Find the dimension from the type of the attribute.
                 var dimension = $crossfilterHelper.get(type);
@@ -95,7 +95,7 @@
                 });
 
                 // Finally we can let everybody know that we've updated the content.
-                $rootScope.$broadcast('contentUpdated', $service.getProducts());
+                $rootScope.$broadcast('mao/products/updated', $service.getProducts());
 
             });
 
@@ -130,8 +130,8 @@
                 // by that property.
                 _defaultDimension = property;
 
-                // Broadcast the `contentUpdated` event using the updated default dimension property.
-                $rootScope.$broadcast('contentUpdated', $service.getProducts());
+                // Broadcast the `mao/products/updated` event using the updated default dimension property.
+                $rootScope.$broadcast('mao/products/updated', $service.getProducts());
 
                 return true;
 
@@ -173,13 +173,13 @@
                 $block.apply(dimension);
 
                 // Let all the folks know we've updated the content.
-                $rootScope.$broadcast('contentUpdated', $service.getProducts());
+                $rootScope.$broadcast('mao/products/updated', $service.getProducts());
 
             };
 
             /**
              * @method setQuery
-             * @broadcasts contentUpdated
+             * @broadcasts mao/products/updated
              * @param query {String}
              * Responsible for updating the products based on their name matching against the
              * user query.
@@ -209,7 +209,7 @@
 
             /**
              * @method setCategoryId
-             * @broadcasts contentUpdated
+             * @broadcasts mao/products/updated
              * @param id {Number}
              * @return {void}
              */

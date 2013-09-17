@@ -40,7 +40,7 @@
                 };
 
                 // Attach the events that can invoke the `_renderSlider` method.
-                $scope.$on('contentLoaded', _renderSlider);
+                $scope.$on('mao/products/loaded', _renderSlider);
                 $rootScope.$on('$viewContentLoaded', _renderSlider);
 
             }

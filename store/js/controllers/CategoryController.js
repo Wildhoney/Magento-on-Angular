@@ -131,21 +131,21 @@
             };
 
             /**
-             * @on contentUpdated
+             * @on mao/products/updated
              * Responsible for updating the content whenever the $productHelper service
              * tells us that it's been updated.
              */
-            $scope.$on('contentUpdated', function onContentUpdated(event, products) {
+            $scope.$on('mao/products/updated', function onProductsUpdated(event, products) {
                 $scope.selectionProductCount    = products.length;
                 $scope.products                 = $scope.paginateProducts(products);
             });
 
             /**
-             * @on contentLoaded
+             * @on mao/products/loaded
              * Responsible for setting up the local variables for when the content first
              * gets loaded.
              */
-            $scope.$on('contentLoaded', function onContentLoaded() {
+            $scope.$on('mao/products/loaded', function onContentLoaded() {
                 $scope.minimumPrice = $productHelper.record('price', 'bottom');
                 $scope.maximumPrice = $productHelper.record('price', 'top');
             });

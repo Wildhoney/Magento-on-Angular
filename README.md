@@ -29,6 +29,11 @@ I've attempted to standardise the events that are fired within the application.
  * `mao/product/loaded`: Product has been loaded;
  * `mao/product/unloaded` Product has been unloaded;
  * `mao/product/unload`: Instruction to unload a product;
+ * ***Products***
+ * `mao/products/updated`: Products collection has been updated;
+ * ``
+ * ***Product Attributes***
+ * `mao/attribute/updated`: Filter attribute has been updated;
 
 
 Laravel API
