@@ -89,30 +89,7 @@
         <!-- End Container -->
 
         <!-- Begin Product Modal -->
-        <section class="product" ng-show="product" ng-controller="ProductController">
-
-            <h2>{{product.name}}</h2>
-
-            <div class="alert alert-success" ng-show="recentlyAdded">
-                Voila! {{product.name}} has been added to your basket.
-            </div>
-
-            <a class="close" ng-click="dismiss()">&times;</a>
-
-            <img ng-src="{{product.largeImage}}" />
-
-            <ul class="details">
-                <li class="price">&pound;{{product.price | number: 2}}</li>
-                <li class="description">{{product.description}}</li>
-                <li class="buy btn-group">
-                    <button class="btn btn-small" ng-disabled="adding" ng-click="addBasket(product.id)">
-                        <i class="icon-shopping-cart"></i>
-                        <span ng-hide="adding">Add to Basket</span>
-                        <span ng-show="adding">Adding...</span>
-                    </button>
-                    <button class="btn btn-small">Wishlist</button>
-                </li>
-            </ul>
+        <section class="product" ng-show="product" ng-include="'views/partials/product.html'" ng-controller="ProductController">
 
         </section>
         <!-- End Product Modal -->
