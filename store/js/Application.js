@@ -2,11 +2,15 @@
 
     "use strict";
 
-    $w.mao = angular.module('maoApp', []).
+    $w.mao = angular.module('maoApp', []);
 
-        config(['$routeProvider', '$provide', '$locationProvider',
+    /**
+     * @method config
+     * Response for configuring the routes.
+     */
+    $w.mao.config(['$routeProvider', '$provide', '$locationProvider',
 
-            function config($routeProvider, $provide, $locationProvider) {
+        function config($routeProvider, $provide, $locationProvider) {
 
             $routeProvider
                 .when('/', { templateUrl: 'views/home.html' })
@@ -18,21 +22,33 @@
 
             $locationProvider.html5Mode(false).hashPrefix('!');
 
-        }])
-        .value('$anchorScroll', angular.noop)
-        .run(function run($rootScope, $routeParams) {
+    }]);
 
-            $rootScope.$on('$routeChangeSuccess', function() {
+    /**
+     * @method value
+     * Prevent the `$anchorScroll` from performing its default action of moving users
+     * to the top of the page when the route changes.
+     */
+    $w.mao.value('$anchorScroll', angular.noop);
 
-                if ($routeParams.product) {
-                    $rootScope.$broadcast('mao/product/loaded', $routeParams.product);
-                    return;
-                }
+    /**
+     * @method run
+     * Responsible for capturing the `$routeChangeSuccess` and invoking a product in the
+     * modal window when a product has been specified.
+     */
+    $w.mao.run(function run($rootScope, $routeParams) {
 
-                $rootScope.$broadcast('mao/product/unloaded');
+        $rootScope.$on('$routeChangeSuccess', function() {
 
-            });
+            if ($routeParams.product) {
+                $rootScope.$broadcast('mao/product/loaded', $routeParams.product);
+                return;
+            }
+
+            $rootScope.$broadcast('mao/product/unloaded');
 
         });
+
+    });
 
 })(window);
