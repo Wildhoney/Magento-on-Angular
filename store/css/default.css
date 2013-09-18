@@ -401,7 +401,8 @@ section.basket {
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
     right: 0;
-    top: 60px;
+    top: 0;
+    margin-top: 46px;
     padding: 0;
     overflow: hidden;
     list-style-type: none;
