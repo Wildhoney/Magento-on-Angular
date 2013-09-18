@@ -515,13 +515,17 @@ section.product {
 
 section.basket {
   float: right;
-  overflow: hidden;
-  //background: transparent url('./../images/cart.png') no-repeat top left;
   width: 140px;
   margin-top: 20px;
   @include lato;
   height: 50px;
   text-align: right;
+  position: relative;
+  cursor: pointer;
+
+  &:hover ul.items {
+    display: block;
+  }
 
   span {
     padding-top: 2px;
@@ -530,9 +534,59 @@ section.basket {
     float: right;
   }
 
-  div {
+  div.total {
     clear: both;
     overflow: hidden;
     font-size: 20px;
+  }
+
+  ul.items {
+    display: none;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .25);
+    border: 1px solid rgba(0, 0, 0, .15);
+    background-color: #ffffff;
+    right: 0;
+    top: 60px;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+    position: absolute;
+    z-index: 201;
+
+    li.row {
+      padding: 5px 12px;
+      overflow: hidden;
+      border-bottom: 1px solid #d3d3d3;
+
+      img {
+        float: left;
+        margin-left: 20px;
+        overflow: hidden;
+      }
+
+      ul.details {
+        margin-left: 15px;
+        float: left;
+        overflow: hidden;
+        text-align: left;
+        width: 175px;
+
+        li.name {
+          width: 100%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding-top: 16px;
+          @include lato;
+          font-weight: bold;
+        }
+
+        li.price {
+          @include times-new-roman;
+          font-style: normal;
+        }
+      }
+    }
   }
 }

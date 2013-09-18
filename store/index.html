@@ -57,6 +57,16 @@
                 <span>Items in Basket: {{items.length}}</span>
                 <div class="total">&pound;59.99</div>
 
+                <ul class="items unstyled">
+                    <li class="row" ng-repeat="item in items">
+                        <img src="{{item.image}}" />
+                        <ul class="details unstyled">
+                            <li class="name">{{item.name}}</li>
+                            <li class="price">&pound;{{item.price | number: 2}}</li>
+                        </ul>
+                    </li>
+                </ul>
+
             </section>
             <!-- End Basket -->
 

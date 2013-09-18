@@ -375,19 +375,64 @@ section.product {
 
 section.basket {
   float: right;
-  overflow: hidden;
   width: 140px;
   margin-top: 20px;
   font-family: "Lato", sans-serif;
   font-weight: normal;
   height: 50px;
-  text-align: right; }
+  text-align: right;
+  position: relative;
+  cursor: pointer; }
+  section.basket:hover ul.items {
+    display: block; }
   section.basket span {
     padding-top: 2px;
     color: #555;
     font-size: 14px;
     float: right; }
-  section.basket div {
+  section.basket div.total {
     clear: both;
     overflow: hidden;
     font-size: 20px; }
+  section.basket ul.items {
+    display: none;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    right: 0;
+    top: 60px;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+    position: absolute;
+    z-index: 201; }
+    section.basket ul.items li.row {
+      padding: 5px 12px;
+      overflow: hidden;
+      border-bottom: 1px solid #d3d3d3; }
+      section.basket ul.items li.row img {
+        float: left;
+        margin-left: 20px;
+        overflow: hidden; }
+      section.basket ul.items li.row ul.details {
+        margin-left: 15px;
+        float: left;
+        overflow: hidden;
+        text-align: left;
+        width: 175px; }
+        section.basket ul.items li.row ul.details li.name {
+          width: 100%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding-top: 16px;
+          font-family: "Lato", sans-serif;
+          font-weight: normal;
+          font-weight: bold; }
+        section.basket ul.items li.row ul.details li.price {
+          font-family: "Times New Roman", serif;
+          font-style: italic;
+          letter-spacing: 0.125em;
+          font-weight: normal;
+          font-style: normal; }
