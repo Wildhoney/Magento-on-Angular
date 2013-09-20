@@ -63,7 +63,7 @@ section.sidebar {
     padding: 0 10px;
   }
 
-  div.title {
+  div.profile {
     //825A6E
     background: rgba(0, 0, 0, .35);
     color: #666;
@@ -129,7 +129,7 @@ section.sidebar {
       border-bottom: 1px solid rgba(0, 0, 0, .1);
 
       &:hover {
-        background-color: white;
+        //background-color: white;
         box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, .1);
         text-shadow: 0 1px 0 white;
 
@@ -148,6 +148,40 @@ section.sidebar {
 
       &.category {
         background-image: url('./../images/tag_fill_16x16.png');
+        background-position: 10px 10px;
+        padding-left: 0;
+        height: auto;
+        transition: all 1s;
+        line-height: auto;
+
+        &.active {
+          background-color: white;
+
+          ul.sub-navigation {
+            height: 84px;
+          }
+        }
+
+        a.title {
+          padding-left: 35px;
+        }
+
+        ul.sub-navigation {
+          height: 0;
+          transition: all .75s;
+          clear: both;
+          overflow: hidden;
+
+          li {
+            padding-left: 10px;
+            height: 28px;
+            line-height: 28px;
+
+            a {
+              font-size: 11px;
+            }
+          }
+        }
       }
 
       &.loading {

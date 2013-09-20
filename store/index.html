@@ -48,7 +48,7 @@
 
             <header>Mao.</header>
 
-            <div class="title">
+            <div class="profile">
                 <img src="https://1.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&s=45" />
                 <ul class="unstyled">
                     <li class="username">Wildhoney</li>
@@ -60,8 +60,17 @@
                 <li class="home"><a>Home</a></li>
                 <li class="basket"><a>Basket</a><var class="count">0</var></li>
                 <li class="loading" ng-show="!categories.length">Loading Categories...</li>
-                <li class="category" ng-repeat="category in categories | orderBy: 'name'">
-                    <a>{{category.name}}</a>
+                <li class="category"
+                    ng-repeat="category in categories | orderBy: 'name'"
+                    ng-class="{active: (activeCategoryId == category.id)}"
+                    ng-click="open(category)">
+
+                    <a class="title">{{category.name}}</a>
+                    <ul class="sub-navigation unstyled">
+                        <li ng-repeat="subCategory in category.children | orderBy: 'name'">
+                            <a>{{subCategory.name}}</a>
+                        </li>
+                    </ul>
 
                 </li>
             </ul>

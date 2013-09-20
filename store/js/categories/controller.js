@@ -6,6 +6,11 @@
 
             $scope.categories = $request.getContent('categories');
 
+            $scope.activeCategoryId = 0;
+
+            $scope.open = function open(category) {
+                $scope.activeCategoryId = category.id;
+            }
 
     }]);
 
