@@ -19,17 +19,17 @@ section.sidebar {
   background-color: #eee; }
   section.sidebar header {
     width: 100%;
-    background-color: #d8574b;
+    background-color: #4D4147;
     color: white;
     font-family: "Lato", sans-serif;
     font-weight: normal;
-    height: 35px;
-    line-height: 35px;
-    font-size: 18px;
+    height: 45px;
+    line-height: 45px;
+    text-shadow: inset 1px 0 1px white;
+    font-size: 20px;
     padding: 0 10px; }
   section.sidebar div.title {
-    background: #444444;
-    background: -webkit-linear-gradient(top, #444444 0%, #555555 100%);
+    background: rgba(0, 0, 0, 0.35);
     color: #666;
     overflow: hidden;
     font-size: 11px;
@@ -40,7 +40,7 @@ section.sidebar {
       float: left;
       overflow: hidden;
       margin-right: 16px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.55); }
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); }
     section.sidebar div.title ul {
       float: left;
       overflow: hidden;
@@ -48,7 +48,7 @@ section.sidebar {
       section.sidebar div.title ul li {
         float: left;
         overflow: hidden;
-        color: #a9a9a9; }
+        color: rgba(0, 0, 0, 0.35); }
         section.sidebar div.title ul li.username {
           color: white;
           font-size: 16px; }
@@ -58,50 +58,77 @@ section.sidebar {
           section.sidebar div.title ul li.profile:after {
             content: "|";
             padding-left: 10px;
-            color: #666666; }
+            color: rgba(0, 0, 0, 0.15); }
   section.sidebar ul.navigation {
     list-style-type: none; }
     section.sidebar ul.navigation li {
       height: 35px;
       line-height: 35px;
-      padding-left: 10px;
+      padding-left: 35px;
       transition: 0.25s all;
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.05);
       cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #a9a9a9;
+      text-shadow: 0 1px 0 white;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
       section.sidebar ul.navigation li:hover {
-        background: #eeeeee;
-        background: -webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); }
-      section.sidebar ul.navigation li img {
-        width: 32px; }
+        background-color: white;
+        box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 1px 0 white; }
+        section.sidebar ul.navigation li:hover a {
+          color: black; }
+      section.sidebar ul.navigation li.home {
+        background-image: url("./../images/book_alt2_16x14.png"); }
+      section.sidebar ul.navigation li.basket {
+        background-image: url("./../images/heart_fill_16x14.png"); }
+      section.sidebar ul.navigation li.category {
+        background-image: url("./../images/tag_fill_16x16.png"); }
+      section.sidebar ul.navigation li.loading {
+        background: transparent url("./../images/loading.gif") no-repeat 10px center;
+        font-size: 11px;
+        color: #a9a9a9;
+        text-transform: uppercase;
+        padding-left: 35px; }
       section.sidebar ul.navigation li a {
         color: white;
         font-size: 13px;
         letter-spacing: 1px;
         color: #666; }
+        section.sidebar ul.navigation li a:hover {
+          text-decoration: none; }
       section.sidebar ul.navigation li var.count {
         font-style: normal;
         float: right;
-        background-color: rgba(0, 0, 0, 0.2);
+        background: #adadad;
+        background: -webkit-linear-gradient(top, #bbbbbb 0%, #cccccc 100%);
+        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
         color: white;
-        height: 20px;
-        line-height: 20px;
-        margin: 7px 10px 0 0;
-        min-width: 40px;
+        height: 17px;
+        line-height: 17px;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+        margin: 8px 10px 0 0;
+        min-width: 20px;
         text-align: center;
         padding: 0 8px;
         font-size: 11px;
         border-radius: 20px; }
   section.sidebar ul.filters {
-    width: 35px;
+    width: 38px;
     left: 100%;
     height: 100%;
     position: absolute;
-    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.1), inset 5px 0 5px -5px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1);
     top: 0; }
     section.sidebar ul.filters li {
       height: 35px;
-      line-height: 35px; }
+      line-height: 35px;
+      text-align: center; }
       section.sidebar ul.filters li:nth-of-type(odd) {
         background-color: rgba(0, 0, 0, 0.05); }
 

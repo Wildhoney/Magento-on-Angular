@@ -57,18 +57,17 @@
                 </ul>
             </div>
             <ul class="navigation unstyled">
-                <li><a>Home</a></li>
-                <li>
-                    <a>Basket</a>
-                    <var class="count">0</var>
-                </li>
-                <li ng-repeat="category in categories | orderBy: 'name'">
+                <li class="home"><a>Home</a></li>
+                <li class="basket"><a>Basket</a><var class="count">0</var></li>
+                <li class="loading" ng-show="!categories.length">Loading Categories...</li>
+                <li class="category" ng-repeat="category in categories | orderBy: 'name'">
                     <a>{{category.name}}</a>
+
                 </li>
             </ul>
 
             <ul class="filters unstyled">
-                <li></li>
+                <li><img src="images/brush_16x16.png" /></li>
                 <li></li>
                 <li></li>
                 <li></li>
