@@ -28,7 +28,8 @@ section.sidebar {
     font-size: 18px;
     padding: 0 10px; }
   section.sidebar div.title {
-    background-color: #444;
+    background: #444444;
+    background: -webkit-linear-gradient(top, #444444 0%, #555555 100%);
     color: #666;
     overflow: hidden;
     font-size: 11px;
@@ -46,7 +47,8 @@ section.sidebar {
       margin-top: 7px; }
       section.sidebar div.title ul li {
         float: left;
-        overflow: hidden; }
+        overflow: hidden;
+        color: #a9a9a9; }
         section.sidebar div.title ul li.username {
           color: white;
           font-size: 16px; }
@@ -55,19 +57,20 @@ section.sidebar {
           margin-right: 10px; }
           section.sidebar div.title ul li.profile:after {
             content: "|";
-            padding-left: 10px; }
+            padding-left: 10px;
+            color: #666666; }
   section.sidebar ul.navigation {
     list-style-type: none; }
     section.sidebar ul.navigation li {
       height: 35px;
       line-height: 35px;
-      padding-left: 35px;
+      padding-left: 10px;
       transition: 0.25s all;
       cursor: pointer;
-      background: #eeeeee url("./../images/bullet.png") no-repeat 2px center;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
       section.sidebar ul.navigation li:hover {
-        background-color: rgba(0, 0, 0, 0.05); }
+        background: #eeeeee;
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); }
       section.sidebar ul.navigation li img {
         width: 32px; }
       section.sidebar ul.navigation li a {

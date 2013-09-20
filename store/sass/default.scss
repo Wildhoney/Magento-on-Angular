@@ -60,8 +60,8 @@ section.sidebar {
   }
 
   div.title {
-    //background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
-    background-color: #444;
+    background: #444444;
+    background: -webkit-linear-gradient(top, #444444 0%, #555555 100%);
     color: #666;
     overflow: hidden;
     font-size: 11px;
@@ -86,6 +86,7 @@ section.sidebar {
       li {
         float: left;
         overflow: hidden;
+        color: #a9a9a9;
 
         &.username {
           color: white;
@@ -99,6 +100,7 @@ section.sidebar {
           &:after {
             content: "|";
             padding-left: 10px;
+            color: #666
           }
         }
       }
@@ -111,14 +113,14 @@ section.sidebar {
     li {
       height: 35px;
       line-height: 35px;
-      padding-left: 35px;
+      padding-left: 10px;
       transition: 0.25s all;
       cursor: pointer;
-      background: #eee url('./../images/bullet.png') no-repeat 2px center;
       border-bottom: 1px solid rgba(0, 0, 0, .1);
 
       &:hover {
-        background-color: rgba(0, 0, 0, .05);
+        background: #eeeeee;
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%);
       }
 
       img {
