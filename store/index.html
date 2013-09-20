@@ -69,6 +69,7 @@
                             ng-repeat="category in categories | orderBy: 'name'"
                             ng-click="goto(category)">
                             <a>{{category.name}}</a>
+                            <var class="count">{{category.productCount | number: 0}}</var>
                         </li>
                     </ul>
 
@@ -78,6 +79,7 @@
                         </li>
                         <li class="category" ng-repeat="subCategory in subCategories | orderBy: 'name'">
                             <a>{{subCategory.name}}</a>
+                            <var class="count">{{subCategory.productCount | number: 0}}</var>
                         </li>
                     </ul>
 
