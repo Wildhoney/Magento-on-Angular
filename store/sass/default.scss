@@ -35,17 +35,17 @@ section.sidebar {
   position: fixed;
   text-align: left;
   overflow: visible;
-  background-color: rgba(0, 0, 0, .65);
+  background-color: #eee;
 
-  &:after {
-    content: "";
-    width: 20%;
-    height: 100%;
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, .5);
-  }
+  //&:after {
+  //  content: "";
+  //  width: 20%;
+  //  height: 100%;
+  //  pointer-events: none;
+  //  position: fixed;
+  //  top: 0;
+  //  box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, .5);
+  //}
 
   header {
     width: 100%;
@@ -66,6 +66,7 @@ section.sidebar {
     overflow: hidden;
     font-size: 11px;
     padding: 10px 10px 5px 10px;
+    height: 70px;
     //height: 30px;
     //line-height: 30px;
 
@@ -110,29 +111,32 @@ section.sidebar {
     li {
       height: 35px;
       line-height: 35px;
-      padding-left: 10px;
+      padding-left: 35px;
       transition: 0.25s all;
       cursor: pointer;
+      background: #eee url('./../images/bullet.png') no-repeat 2px center;
       border-bottom: 1px solid rgba(0, 0, 0, .1);
 
       &:hover {
         background-color: rgba(0, 0, 0, .05);
       }
 
-      //&:nth-of-type(even) {
-      //  background-color: rgba(255, 255, 255, .05);
-      //}
+      img {
+        width: 32px;
+      }
 
       a {
         color: white;
-        font-size: 12px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #666;
       }
 
       var.count {
         font-style: normal;
         float: right;
-        background-color: rgba(0, 0, 0, .15);
-        color: #d3d3d3;
+        background-color: rgba(0, 0, 0, .2);
+        color: white;
         height: 20px;
         line-height: 20px;
         margin: 7px 10px 0 0;
@@ -145,14 +149,23 @@ section.sidebar {
     }
   }
 
-  section.filters {
-    width: 120%;
+  ul.filters {
+    width: 35px;
     left: 100%;
     height: 100%;
     position: absolute;
-    background-color: #a9a9a9;
-    border-left: 1px solid rgba(255, 255, 255, .15);
+    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .1);
     top: 0;
+
+    li {
+      height: 35px;
+      line-height: 35px;
+
+      &:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, .05);
+      }
+    }
   }
 }
 
