@@ -56,24 +56,34 @@
                     <li class="sign-out">Sign Out</li>
                 </ul>
             </div>
-            <ul class="navigation unstyled">
-                <li class="home"><a>Home</a></li>
-                <li class="basket"><a>Basket</a><var class="count">0</var></li>
-                <li class="loading" ng-show="!categories.length">Loading Categories...</li>
-                <li class="category"
-                    ng-repeat="category in categories | orderBy: 'name'"
-                    ng-class="{active: (activeCategoryId == category.id)}"
-                    ng-click="open(category)">
 
-                    <a class="title">{{category.name}}</a>
-                    <ul class="sub-navigation unstyled">
-                        <li ng-repeat="subCategory in category.children | orderBy: 'name'">
+            <div class="nav-wrapper">
+
+                <nav ng-class="{secondTier: subCategories.length}">
+
+                    <ul class="navigation unstyled">
+                        <li class="home"><a>Home</a></li>
+                        <li class="basket"><a>Basket</a><var class="count">0</var></li>
+                        <li class="loading" ng-show="!categories.length">Loading Categories...</li>
+                        <li class="category"
+                            ng-repeat="category in categories | orderBy: 'name'"
+                            ng-click="goto(category)">
+                            <a>{{category.name}}</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navigation unstyled">
+                        <li class="back" ng-click="goto()">
+                            <a>Back</a>
+                        </li>
+                        <li class="category" ng-repeat="subCategory in subCategories | orderBy: 'name'">
                             <a>{{subCategory.name}}</a>
                         </li>
                     </ul>
 
-                </li>
-            </ul>
+                </nav>
+
+            </div>
 
             <ul class="filters unstyled">
                 <li><img src="images/brush_16x16.png" /></li>

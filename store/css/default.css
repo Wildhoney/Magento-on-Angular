@@ -11,18 +11,17 @@ html, body {
 section.sidebar {
   float: left;
   z-index: 3;
-  width: 20%;
+  width: 25%;
   height: 100%;
   position: fixed;
   text-align: left;
-  overflow: visible;
   background-color: #eee; }
   section.sidebar header {
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
     width: 100%;
     background-color: #4D4147;
     color: white;
-    font-family: "Lato", sans-serif;
-    font-weight: normal;
     height: 45px;
     line-height: 45px;
     text-shadow: inset 1px 0 1px white;
@@ -60,7 +59,12 @@ section.sidebar {
             padding-left: 10px;
             color: rgba(0, 0, 0, 0.15); }
   section.sidebar ul.navigation {
-    list-style-type: none; }
+    transition: all .35s;
+    list-style-type: none;
+    width: 25%;
+    float: left; }
+    section.sidebar ul.navigation.sub-navigation {
+      left: 100%; }
     section.sidebar ul.navigation li {
       height: 35px;
       line-height: 35px;
@@ -77,6 +81,7 @@ section.sidebar {
       text-shadow: 0 1px 0 white;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
       section.sidebar ul.navigation li:hover {
+        background-color: white;
         box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.1);
         text-shadow: 0 1px 0 white; }
         section.sidebar ul.navigation li:hover a {
@@ -86,29 +91,9 @@ section.sidebar {
       section.sidebar ul.navigation li.basket {
         background-image: url("./../images/heart_fill_16x14.png"); }
       section.sidebar ul.navigation li.category {
-        background-image: url("./../images/tag_fill_16x16.png");
-        background-position: 10px 10px;
-        padding-left: 0;
-        height: auto;
-        transition: all 1s;
-        line-height: auto; }
-        section.sidebar ul.navigation li.category.active {
-          background-color: white; }
-          section.sidebar ul.navigation li.category.active ul.sub-navigation {
-            height: 84px; }
-        section.sidebar ul.navigation li.category a.title {
-          padding-left: 35px; }
-        section.sidebar ul.navigation li.category ul.sub-navigation {
-          height: 0;
-          transition: all .75s;
-          clear: both;
-          overflow: hidden; }
-          section.sidebar ul.navigation li.category ul.sub-navigation li {
-            padding-left: 10px;
-            height: 28px;
-            line-height: 28px; }
-            section.sidebar ul.navigation li.category ul.sub-navigation li a {
-              font-size: 11px; }
+        background-image: url("./../images/tag_fill_16x16.png"); }
+      section.sidebar ul.navigation li.back {
+        background-image: url("./../images/arrow_left_16x16.png"); }
       section.sidebar ul.navigation li.loading {
         background: transparent url("./../images/loading.gif") no-repeat 10px center;
         font-size: 11px;
@@ -153,10 +138,25 @@ section.sidebar {
       section.sidebar ul.filters li:nth-of-type(odd) {
         background-color: rgba(0, 0, 0, 0.05); }
 
+div.nav-wrapper {
+  width: 25%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  div.nav-wrapper nav {
+    overflow: hidden;
+    width: 400%;
+    position: absolute;
+    left: -0%;
+    transition: all .35s; }
+    div.nav-wrapper nav.secondTier {
+      left: -100%; }
+
 section.content {
   float: left;
-  width: 80%;
-  left: 20%;
+  width: 85%;
+  left: 25%;
   z-index: 2;
   position: absolute;
   background-color: #ddd;

@@ -1,0 +1,197 @@
+section.sidebar {
+  float: left;
+  z-index: 3;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  text-align: left;
+  background-color: #eee;
+
+  header {
+    @include lato;
+    width: 100%;
+    background-color: #4D4147;
+    color: white;
+    height: 45px;
+    line-height: 45px;
+    text-shadow: inset 1px 0 1px white;
+    font-size: 20px;
+    padding: 0 10px;
+  }
+
+  div.profile {
+    background: rgba(0, 0, 0, .35);
+    color: #666;
+    overflow: hidden;
+    font-size: 11px;
+    padding: 10px 10px 5px 10px;
+    height: 70px;
+
+    img {
+      border: 3px solid white;
+      float: left;
+      overflow: hidden;
+      margin-right: 16px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+    }
+
+    ul {
+      float: left;
+      overflow: hidden;
+      margin-top: 7px;
+
+      li {
+        float: left;
+        overflow: hidden;
+        color: rgba(0, 0, 0, .35);
+
+        &.username {
+          color: white;
+          font-size: 16px;
+        }
+
+        &.profile {
+          clear: both;
+          margin-right: 10px;
+
+          &:after {
+            content: "|";
+            padding-left: 10px;
+            color: rgba(0, 0, 0, .15)
+          }
+        }
+      }
+    }
+  }
+
+  ul.navigation {
+    transition: all .35s;
+    list-style-type: none;
+    width: 25%;
+    float: left;
+
+    &.sub-navigation {
+      left: 100%;
+    }
+
+    li {
+      height: 35px;
+      line-height: 35px;
+      padding-left: 35px;
+      transition: 0.25s all;
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, .05);
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #a9a9a9;
+      text-shadow: 0 1px 0 white;
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+      &:hover {
+        background-color: white;
+        box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, .1);
+        text-shadow: 0 1px 0 white;
+
+        a {
+          color: black;
+        }
+      }
+
+      &.home {
+        background-image: url('./../images/book_alt2_16x14.png');
+      }
+
+      &.basket {
+        background-image: url('./../images/heart_fill_16x14.png');
+      }
+
+      &.category {
+        background-image: url('./../images/tag_fill_16x16.png');
+      }
+
+      &.back {
+        background-image: url('./../images/arrow_left_16x16.png');
+      }
+
+      &.loading {
+        background: transparent url('./../images/loading.gif') no-repeat 10px center;
+        font-size: 11px;
+        color: #a9a9a9;
+        text-transform: uppercase;
+        padding-left: 35px;
+      }
+
+      a {
+        color: white;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #666;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      var.count {
+        font-style: normal;
+        float: right;
+        background: #adadad;
+        background: -webkit-linear-gradient(top, #bbb  0%, #ccc 100%);
+        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
+        color: white;
+        height: 17px;
+        line-height: 17px;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, .35);
+        margin: 8px 10px 0 0;
+        min-width: 20px;
+        text-align: center;
+        padding: 0 8px;
+        font-size: 11px;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  ul.filters {
+    width: 38px;
+    left: 100%;
+    height: 100%;
+    position: absolute;
+    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, .1), inset 5px 0 5px -5px rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .1);
+    top: 0;
+
+    li {
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+
+      &:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, .05);
+      }
+    }
+  }
+}
+
+div.nav-wrapper {
+  width: 25%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  nav {
+    overflow: hidden;
+    width: 400%;
+    position: absolute;
+    left: -0%;
+    transition: all .35s;
+
+    &.secondTier {
+      left: -100%;
+    }
+  }
+}

@@ -6,10 +6,16 @@
 
             $scope.categories = $request.getContent('categories');
 
-            $scope.activeCategoryId = 0;
+            $scope.subCategories = [];
 
-            $scope.open = function open(category) {
-                $scope.activeCategoryId = category.id;
+            $scope.goto = function open(category) {
+
+                if (!category) {
+                    $scope.subCategories = [];
+                    return;
+                }
+
+                $scope.subCategories = category.children;
             }
 
     }]);
