@@ -5,7 +5,7 @@ section.sidebar {
   height: 100%;
   position: fixed;
   text-align: left;
-  background-color: #eee;
+  background-color: #ECE6DC;
 
   header {
     @include lato;
@@ -20,7 +20,10 @@ section.sidebar {
   }
 
   div.profile {
+    @include lato;
+    //background: rgba(0, 0, 0, .35);
     background: rgba(0, 0, 0, .35);
+    background-color: #99B2B7;
     color: #666;
     overflow: hidden;
     font-size: 11px;
@@ -125,10 +128,10 @@ section.sidebar {
       }
 
       a {
-        color: white;
+        @include lato;
         font-size: 13px;
         letter-spacing: 1px;
-        color: #666;
+        color: rgba(0, 0, 0, .75);
 
         &:hover {
           text-decoration: none;
@@ -161,7 +164,7 @@ section.sidebar {
     height: 100%;
     position: absolute;
     box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, .1), inset 5px 0 5px -5px rgba(0, 0, 0, .1);
-    background-color: rgba(0, 0, 0, .1);
+    background-color: #ddd;
     top: 0;
 
     li {

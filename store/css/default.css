@@ -15,7 +15,7 @@ section.sidebar {
   height: 100%;
   position: fixed;
   text-align: left;
-  background-color: #eee; }
+  background-color: #ECE6DC; }
   section.sidebar header {
     font-family: "Lato", sans-serif;
     font-weight: normal;
@@ -28,7 +28,10 @@ section.sidebar {
     font-size: 20px;
     padding: 0 10px; }
   section.sidebar div.profile {
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
     background: rgba(0, 0, 0, 0.35);
+    background-color: #99B2B7;
     color: #666;
     overflow: hidden;
     font-size: 11px;
@@ -101,10 +104,11 @@ section.sidebar {
         text-transform: uppercase;
         padding-left: 35px; }
       section.sidebar ul.navigation li a {
-        color: white;
+        font-family: "Lato", sans-serif;
+        font-weight: normal;
         font-size: 13px;
         letter-spacing: 1px;
-        color: #666; }
+        color: rgba(0, 0, 0, 0.75); }
         section.sidebar ul.navigation li a:hover {
           text-decoration: none; }
       section.sidebar ul.navigation li var.count {
@@ -129,7 +133,7 @@ section.sidebar {
     height: 100%;
     position: absolute;
     box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.1), inset 5px 0 5px -5px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #ddd;
     top: 0; }
     section.sidebar ul.filters li {
       height: 35px;
@@ -154,10 +158,33 @@ div.nav-wrapper {
       left: -100%; }
 
 section.content {
+  padding: 20px 10px 10px 60px;
+  text-align: left;
   float: left;
   width: 85%;
   left: 25%;
   z-index: 2;
   position: absolute;
-  background-color: #ddd;
+  background-color: #fefefe;
   height: 100%; }
+  section.content div.product {
+    float: left;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: 0 20px 20px 0; }
+    section.content div.product h1 {
+      font-family: "Lato", sans-serif;
+      font-weight: normal;
+      white-space: nowrap;
+      font-size: 18px;
+      line-height: 5px !important;
+      font-weight: 400;
+      padding-bottom: 3px; }
+    section.content div.product h2 {
+      font-family: "Times New Roman", serif;
+      font-style: italic;
+      letter-spacing: 0.125em;
+      font-weight: normal;
+      line-height: 5px !important;
+      font-size: 12px; }

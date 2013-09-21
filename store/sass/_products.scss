@@ -1,0 +1,36 @@
+section.content {
+  padding: 20px 10px 10px 60px;
+  text-align: left;
+
+  float: left;
+  width: 85%;
+  left: 25%;
+  z-index: 2;
+  position: absolute;
+  background-color: #fefefe;
+  height: 100%;
+
+  div.product {
+    float: left;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: 0 20px 20px 0;
+    //border: 1px solid red;
+
+    h1 {
+      @include lato;
+      white-space: nowrap;
+      font-size: 18px;
+      line-height: 5px !important;
+      font-weight: 400;
+      padding-bottom: 3px;
+    }
+
+    h2 {
+      @include times-new-roman;
+      line-height: 5px !important;
+      font-size: 12px;
+    }
+  }
+}

@@ -24,13 +24,4 @@ html, body {
 }
 
 @import 'sidebar.scss';
-
-section.content {
-  float: left;
-  width: 85%;
-  left: 25%;
-  z-index: 2;
-  position: absolute;
-  background-color: #ddd;
-  height: 100%;
-}
+@import 'products.scss';
