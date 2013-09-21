@@ -25,7 +25,7 @@ I've attempted to standardise the events that are fired within the application.
 <table>
     <tr>
         <td>Broadcasts</td>
-        <td>`mao/categories/loaded`</td>
+        <td><code>mao/categories/loaded</code></td>
         <td>All categories have been loaded</td>
     </tr>
 </table>
@@ -34,7 +34,7 @@ I've attempted to standardise the events that are fired within the application.
 <table>
     <tr>
         <td>Broadcasts</td>
-        <td>`mao/products/loaded`</td>
+        <td><code>mao/products/loaded</code></td>
         <td>All products have been loaded</td>
     </tr>
 </table>
