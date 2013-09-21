@@ -21,20 +21,23 @@ Mao's Events (Hooks)
 
 I've attempted to standardise the events that are fired within the application.
 
- * ***Basket***
- * `mao/basket/updated`: Basket has been updated;
- * `mao/basket/loaded`: Basket has been retrieved;
- * `mao/basket/add -> {id}`: Instruction to add a product;
- * ***Product***
- * `mao/product/loaded`: Product has been loaded;
- * `mao/product/unloaded` Product has been unloaded;
- * `mao/product/unload`: Instruction to unload a product;
- * ***Products***
- * `mao/products/updated`: Products collection has been updated;
- * ``
- * ***Product Attributes***
- * `mao/attribute/updated`: Filter attribute has been updated;
+<h3>`CategoriesController`</h3>
+<table>
+    <tr>
+        <td>Broadcasts</td>
+        <td>`mao/categories/loaded`</td>
+        <td>All categories have been loaded</td>
+    </tr>
+</table>
 
+<h3>`ProductsController`</h3>
+<table>
+    <tr>
+        <td>Broadcasts</td>
+        <td>`mao/products/loaded`</td>
+        <td>All products have been loaded</td>
+    </tr>
+</table>
 
 Laravel API
 ---------
