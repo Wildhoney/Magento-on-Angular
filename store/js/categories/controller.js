@@ -4,7 +4,9 @@
      * @controller CategoriesController
      * @author Adam Timberlake
      */
-    $m.controller('CategoriesController', ['$rootScope', '$scope', '$request', '$routeParams',
+    $m.controller('CategoriesController',
+
+        ['$rootScope', '$scope', '$request', '$routeParams',
 
         function CategoriesController($rootScope, $scope, $request, $routeParams) {
 
