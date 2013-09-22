@@ -110,7 +110,7 @@
 
                 <div class="container" ng-repeat="product in products">
                     <div class="product">
-                        <img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/b/a/bang17111-2adq.jpg" />
+                        <img ng-src="{{product.image}}" />
                         <ul class="details unstyled">
                             <li class="name">{{product.name}}</li>
                             <li class="price">&pound;{{product.price | number: 2}}</li>
