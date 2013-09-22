@@ -5,7 +5,7 @@ section.sidebar {
   height: 100%;
   position: fixed;
   text-align: left;
-  background-color: #ECE6DC;
+  background-color: #D5DED9;
 
   header {
     @include lato;
@@ -17,6 +17,7 @@ section.sidebar {
     text-shadow: inset 1px 0 1px white;
     font-size: 20px;
     padding: 0 10px;
+    letter-spacing: 0.02em;
   }
 
   div.profile {
@@ -79,13 +80,13 @@ section.sidebar {
     }
 
     li {
-      height: 35px;
-      line-height: 35px;
-      padding-left: 35px;
+      height: 45px;
+      line-height: 45px;
+      padding-left: 45px;
       transition: 0.25s all;
-      background-position: 10px center;
+      background-position: 15px center;
       background-repeat: no-repeat;
-      box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, .05);
+      //box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, .05);
       cursor: pointer;
       position: relative;
       white-space: nowrap;
@@ -95,9 +96,8 @@ section.sidebar {
       border-bottom: 1px solid rgba(0, 0, 0, .1);
 
       &:hover {
-        background-color: white;
+        background-color: rgba(0, 0, 0, .05);
         box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, .1);
-        text-shadow: 0 1px 0 white;
 
         a {
           color: black;
@@ -132,7 +132,7 @@ section.sidebar {
         @include lato;
         font-size: 13px;
         letter-spacing: 1px;
-        color: #604848;
+        color: black;
         float: left;
         width: 100%;
 
@@ -147,19 +147,19 @@ section.sidebar {
         right: 0;
         font-style: normal;
         float: right;
-        background-color: #A79C8E;
+        //background-color: white;
         //background: #adadad;
         //background: -webkit-linear-gradient(top, #bbb  0%, #ccc 100%);
-        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
-        color: white;
-        height: 17px;
-        line-height: 17px;
-        text-shadow: 1px 1px 0 rgba(0, 0, 0, .35);
-        margin: 9px 10px 0 0;
+        //box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
+        color: #9CAD9A;
+        height: 20px;
+        line-height: 20px;
+        //text-shadow: 1px 1px 0 rgba(0, 0, 0, .35);
+        margin: 12px 15px 0 0;
         min-width: 20px;
         text-align: center;
-        padding: 0 8px;
-        font-size: 11px;
+        padding: 1px 8px 0 8px;
+        font-size: 12px;
         border-radius: 20px;
       }
     }
@@ -170,8 +170,8 @@ section.sidebar {
     left: 100%;
     height: 100%;
     position: absolute;
-    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, .1), inset 15px 0 15px -15px rgba(0, 0, 0, .4);
-    background-color: rgba(0, 0, 0, .15);
+    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .05);
     top: 0;
 
     li {
@@ -179,9 +179,19 @@ section.sidebar {
       line-height: 35px;
       text-align: center;
 
-      &:nth-of-type(odd) {
-        background-color: rgba(0, 0, 0, .05);
+      &:first-of-type {
+        background-color: rgba(0, 0, 0, .25);
+        height: 45px;
       }
+
+      &:nth-of-type(2) {
+        background-color: rgba(0, 0, 0, .1);
+        height: 70px;
+      }
+
+      //&:nth-of-type(odd) {
+      //  background-color: rgba(0, 0, 0, .05);
+      //}
     }
   }
 }

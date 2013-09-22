@@ -15,9 +15,10 @@ section.sidebar {
   height: 100%;
   position: fixed;
   text-align: left;
-  background-color: #ECE6DC; }
+  background-color: #D5DED9; }
   section.sidebar header {
     font-family: "Lato", sans-serif;
+    letter-spacing: .125em;
     font-weight: normal;
     width: 100%;
     background-color: #4D4147;
@@ -26,9 +27,11 @@ section.sidebar {
     line-height: 45px;
     text-shadow: inset 1px 0 1px white;
     font-size: 20px;
-    padding: 0 10px; }
+    padding: 0 10px;
+    letter-spacing: 0.02em; }
   section.sidebar div.profile {
     font-family: "Lato", sans-serif;
+    letter-spacing: .125em;
     font-weight: normal;
     background: rgba(0, 0, 0, 0.35);
     text-transform: uppercase;
@@ -70,13 +73,12 @@ section.sidebar {
     section.sidebar ul.navigation.sub-navigation {
       left: 100%; }
     section.sidebar ul.navigation li {
-      height: 35px;
-      line-height: 35px;
-      padding-left: 35px;
+      height: 45px;
+      line-height: 45px;
+      padding-left: 45px;
       transition: 0.25s all;
-      background-position: 10px center;
+      background-position: 15px center;
       background-repeat: no-repeat;
-      box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.05);
       cursor: pointer;
       position: relative;
       white-space: nowrap;
@@ -85,9 +87,8 @@ section.sidebar {
       color: #a9a9a9;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
       section.sidebar ul.navigation li:hover {
-        background-color: white;
-        box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.1);
-        text-shadow: 0 1px 0 white; }
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.1); }
         section.sidebar ul.navigation li:hover a {
           color: black; }
       section.sidebar ul.navigation li.home {
@@ -106,10 +107,11 @@ section.sidebar {
         padding-left: 35px; }
       section.sidebar ul.navigation li a {
         font-family: "Lato", sans-serif;
+        letter-spacing: .125em;
         font-weight: normal;
         font-size: 13px;
         letter-spacing: 1px;
-        color: #604848;
+        color: black;
         float: left;
         width: 100%; }
         section.sidebar ul.navigation li a:hover {
@@ -120,32 +122,33 @@ section.sidebar {
         right: 0;
         font-style: normal;
         float: right;
-        background-color: #A79C8E;
-        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
-        color: white;
-        height: 17px;
-        line-height: 17px;
-        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
-        margin: 9px 10px 0 0;
+        color: #9CAD9A;
+        height: 20px;
+        line-height: 20px;
+        margin: 12px 15px 0 0;
         min-width: 20px;
         text-align: center;
-        padding: 0 8px;
-        font-size: 11px;
+        padding: 1px 8px 0 8px;
+        font-size: 12px;
         border-radius: 20px; }
   section.sidebar ul.filters {
     width: 40px;
     left: 100%;
     height: 100%;
     position: absolute;
-    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.1), inset 15px 0 15px -15px rgba(0, 0, 0, 0.4);
-    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
     top: 0; }
     section.sidebar ul.filters li {
       height: 35px;
       line-height: 35px;
       text-align: center; }
-      section.sidebar ul.filters li:nth-of-type(odd) {
-        background-color: rgba(0, 0, 0, 0.05); }
+      section.sidebar ul.filters li:first-of-type {
+        background-color: rgba(0, 0, 0, 0.25);
+        height: 45px; }
+      section.sidebar ul.filters li:nth-of-type(2) {
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 70px; }
 
 div.nav-wrapper {
   width: 25%;
@@ -163,33 +166,57 @@ div.nav-wrapper {
       left: -100%; }
 
 section.content {
-  padding: 20px 10px 10px 60px;
+  padding: 20px 20px 10px 60px;
+  box-sizing: border-box;
   text-align: left;
   float: left;
-  width: 85%;
+  width: 75%;
   left: 25%;
   z-index: 2;
   position: absolute;
   background-color: #fefefe;
-  height: 100%; }
+  min-height: 100%; }
+  section.content div.container {
+    float: left;
+    width: 25%;
+    padding-bottom: 20px; }
   section.content div.product {
     float: left;
     overflow: hidden;
-    width: 200px;
-    height: 200px;
-    margin: 0 20px 20px 0; }
+    width: 100%;
+    height: 230px;
+    background-color: white;
+    padding: 10px; }
     section.content div.product h1 {
       font-family: "Lato", sans-serif;
+      letter-spacing: .125em;
       font-weight: normal;
       white-space: nowrap;
-      font-size: 18px;
-      line-height: 5px !important;
+      font-size: 15px;
+      line-height: 14px !important;
       font-weight: 400;
-      padding-bottom: 3px; }
-    section.content div.product h2 {
-      font-family: "Times New Roman", serif;
-      font-style: italic;
-      letter-spacing: 0.125em;
-      font-weight: normal;
-      line-height: 5px !important;
-      font-size: 12px; }
+      padding-bottom: 5px;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+    section.content div.product ul.details {
+      float: left;
+      overflow: hidden;
+      margin-top: 10px;
+      width: 100%;
+      text-align: center; }
+      section.content div.product ul.details li.name {
+        font-family: "Times New Roman", serif;
+        font-style: italic;
+        letter-spacing: .075em;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px; }
+      section.content div.product ul.details li.price {
+        font-family: "Lato", sans-serif;
+        letter-spacing: .125em;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 11px;
+        color: #4D4147; }

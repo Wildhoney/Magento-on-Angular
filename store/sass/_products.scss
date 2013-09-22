@@ -1,36 +1,72 @@
 section.content {
-  padding: 20px 10px 10px 60px;
+  padding: 20px 20px 10px 60px;
+  box-sizing: border-box;
   text-align: left;
 
   float: left;
-  width: 85%;
+  width: 75%;
   left: 25%;
   z-index: 2;
   position: absolute;
   background-color: #fefefe;
-  height: 100%;
+  //background-color: rgba(0, 0, 0, .15);
+  //background-color: #cecece;
+  min-height: 100%;
+
+  div.container {
+    float: left;
+    width: 25%;
+    padding-bottom: 20px;
+  }
 
   div.product {
+
     float: left;
     overflow: hidden;
-    width: 200px;
-    height: 200px;
-    margin: 0 20px 20px 0;
-    //border: 1px solid red;
+    width: 100%;
+    height: 230px;
+    background-color: white;
+    padding: 10px;
 
     h1 {
       @include lato;
       white-space: nowrap;
-      font-size: 18px;
-      line-height: 5px !important;
+      font-size: 15px;
+      line-height: 14px !important;
       font-weight: 400;
-      padding-bottom: 3px;
+      padding-bottom: 5px;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
-    h2 {
-      @include times-new-roman;
-      line-height: 5px !important;
-      font-size: 12px;
+    ul.details {
+      float: left;
+      overflow: hidden;
+      margin-top: 10px;
+      width: 100%;
+      text-align: center;
+
+      li {
+        &.name {
+          @include times-new-roman;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 12px;
+        }
+
+        &.price {
+          @include lato;
+          font-style: normal;
+          font-size: 11px;
+          color: #4D4147;
+        }
+      }
     }
+
+    //h2 {
+    //  line-height: 5px !important;
+    //  font-size: 12px;
+    //}
   }
 }

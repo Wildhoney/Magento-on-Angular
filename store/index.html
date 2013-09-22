@@ -106,19 +106,21 @@
 
         <section class="content">
 
-            <div class="product" ng-controller="ProductsController">
+            <div class="products" ng-controller="ProductsController">
 
-                Count: {{products.length}}
+                <div class="container" ng-repeat="product in products">
+                    <div class="product">
+                        <img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/b/a/bang17111-2adq.jpg" />
+                        <ul class="details unstyled">
+                            <li class="name">{{product.name}}</li>
+                            <li class="price">&pound;{{product.price | number: 2}}</li>
+                        </ul>
+                        <!--<h2>Floral T-Shirt by Lisa</h2>-->
+                        <!--<img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/m/i/mini17102-1aab_04.jpg" />-->
+                    </div>
+                </div>
 
             </div>
-
-            <!--<div class="product">-->
-                <!--<h1>Adidas</h1>-->
-                <!--<h2>Floral T-Shirt by Lisa</h2>-->
-                <!--<img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/m/i/mini17102-1aab_04.jpg" />-->
-            <!--</div>-->
-            <!--<div class="product"></div>-->
-            <!--<div class="product"></div>-->
 
         </section>
 

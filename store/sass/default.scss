@@ -13,14 +13,15 @@ html, body {
 
 @mixin lato {
   font-family: "Lato", sans-serif;
+  letter-spacing: .125em;
   font-weight: normal;
 }
 
 @mixin times-new-roman {
   font-family: "Times New Roman", serif;
   font-style: italic;
-  letter-spacing: 0.125em;
-  font-weight: normal;
+  letter-spacing: .075em;
+  font-weight: bold;
 }
 
 @import 'sidebar.scss';
