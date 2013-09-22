@@ -1,8 +1,10 @@
 (function($m) {
 
-    $m.controller('ProductsController', ['$rootScope', '$scope', '$productsService',
+    $m.controller('ProductsController',
 
-        function ProductsController($rootScope, $scope, $productsService) {
+        ['$rootScope', '$scope', '$routeParams', '$productsService',
+
+        function ProductsController($rootScope, $scope, $routeParams, $productsService) {
 
             /**
              * @property products
@@ -11,14 +13,41 @@
             $scope.products = $productsService.getProducts();
 
             /**
+             * @property queue
+             * @type {Array}
+             * Responsible for storing methods to invoke once products have been loaded.
+             */
+            $scope.queue = [];
+
+            $scope.$on('mao/products/loaded', function productsLoaded() {
+
+                $scope.queue.forEach(function(delayedMethod) {
+                    delayedMethod();
+                });
+
+            });
+
+            /**
              * @on mao/categories/change
              * @param event {Object}
              * @param category {Object}
              * Responsible for updating the products when the category has been changed.
              */
             $scope.$on('mao/categories/set', function categoriesSet(event, category) {
-                $productsService.set('category', category);
-                $scope.products = $productsService.getProducts();
+
+                var setCategory = function setCategory() {
+                    $productsService.set('category', category);
+                    $scope.products = $productsService.getProducts();
+                };
+
+                if (!$productsService.hasLoaded()) {
+                    $scope.queue.push(setCategory);
+                    return;
+
+                }
+
+                setCategory();
+
             });
 
             /**

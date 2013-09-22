@@ -20,6 +20,10 @@
 //             */
 //            $service.products = [];
 
+            $service.hasLoaded = function hasLoaded() {
+                return Boolean($crossfilter.crossfilter);
+            };
+
             /**
              * @method getProducts
              * @return {Array}
@@ -35,6 +39,7 @@
                     $crossfilter.create(response);
                     $rootScope.$broadcast('mao/products/loaded', response);
                 });
+
             };
 
             /**

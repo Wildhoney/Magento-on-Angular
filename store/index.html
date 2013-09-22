@@ -27,23 +27,6 @@
         <script type="text/javascript" src="js/products/service.js"></script>
         <script type="text/javascript" src="js/products/helpers/crossfilter.js"></script>
 
-        <!--<script type="text/javascript" src="js/controllers/ApplicationController.js"></script>-->
-        <!--<script type="text/javascript" src="js/controllers/HomeController.js"></script>-->
-        <!--<script type="text/javascript" src="js/controllers/ProductController.js"></script>-->
-        <!--<script type="text/javascript" src="js/controllers/CategoriesController.js"></script>-->
-        <!--<script type="text/javascript" src="js/controllers/CategoryController.js"></script>-->
-        <!--<script type="text/javascript" src="js/controllers/BasketController.js"></script>-->
-
-        <!--<script type="text/javascript" src="js/factories/Parameters.js"></script>-->
-        <!--<script type="text/javascript" src="js/factories/CategoryHelper.js"></script>-->
-        <!--<script type="text/javascript" src="js/factories/ProductHelper.js"></script>-->
-        <!--<script type="text/javascript" src="js/factories/CrossfilterHelper.js"></script>-->
-        <!--<script type="text/javascript" src="js/factories/AttributeHelper.js"></script>-->
-
-        <!--<script type="text/javascript" src="js/directives/RangeSlider.js"></script>-->
-        <!--<script type="text/javascript" src="js/directives/Body.js"></script>-->
-        <!--<script type="text/javascript" src="js/directives/Modal.js"></script>-->
-
     </head>
 
     <body ng-app="mao">
@@ -104,23 +87,7 @@
 
         </section>
 
-        <section class="content">
-
-            <div class="products" ng-controller="ProductsController">
-
-                <div class="container" ng-repeat="product in products">
-                    <div class="product">
-                        <img ng-src="{{product.image}}" />
-                        <ul class="details unstyled">
-                            <li class="name">{{product.name}}</li>
-                            <li class="price">&pound;{{product.price | number: 2}}</li>
-                        </ul>
-                        <!--<h2>Floral T-Shirt by Lisa</h2>-->
-                        <!--<img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/m/i/mini17102-1aab_04.jpg" />-->
-                    </div>
-                </div>
-
-            </div>
+        <section class="content" ng-view>
 
         </section>
 

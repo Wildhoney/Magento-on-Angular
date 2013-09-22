@@ -88,7 +88,7 @@ section.sidebar {
       border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
       section.sidebar ul.navigation li:hover {
         background-color: rgba(0, 0, 0, 0.05);
-        box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.1); }
+        border-top: 1px solid rgba(0, 0, 0, 0.05); }
         section.sidebar ul.navigation li:hover a {
           color: black; }
       section.sidebar ul.navigation li.home {

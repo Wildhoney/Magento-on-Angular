@@ -4,16 +4,25 @@
      * @controller CategoriesController
      * @author Adam Timberlake
      */
-    $m.controller('CategoriesController', ['$rootScope', '$scope', '$request',
+    $m.controller('CategoriesController', ['$rootScope', '$scope', '$request', '$routeParams',
 
-        function CategoriesController($rootScope, $scope, $request) {
+        function CategoriesController($rootScope, $scope, $request, $routeParams) {
 
             /**
              * @property categories
              * @type {Array}
              */
-            $scope.categories = $request.getContent('categories', function() {
-                $rootScope.$broadcast('mao/categories/loaded');
+            $scope.categories = $request.getContent('categories', function(response) {
+
+                $rootScope.$broadcast('mao/categories/loaded', response);
+
+                if ($routeParams.category) {
+                    var name        = $routeParams.category || $routeParams.subCategory,
+                        category    = _.findWhere(response, { ident: name });
+
+                    $rootScope.$broadcast('mao/categories/set', category);
+                }
+
             });
 
             /**

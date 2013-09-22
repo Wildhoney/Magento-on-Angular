@@ -1,0 +1,13 @@
+<div class="products" ng-controller="ProductsController">
+
+    <div class="container" ng-repeat="product in products">
+        <div class="product">
+            <img ng-src="{{product.image}}" />
+            <ul class="details unstyled">
+                <li class="name">{{product.name}}</li>
+                <li class="price">&pound;{{product.price | number: 2}}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
