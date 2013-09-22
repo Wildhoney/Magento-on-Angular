@@ -78,6 +78,7 @@ section.sidebar {
       background-repeat: no-repeat;
       box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.05);
       cursor: pointer;
+      position: relative;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -108,10 +109,15 @@ section.sidebar {
         font-weight: normal;
         font-size: 13px;
         letter-spacing: 1px;
-        color: #604848; }
+        color: #604848;
+        float: left;
+        width: 100%; }
         section.sidebar ul.navigation li a:hover {
           text-decoration: none; }
       section.sidebar ul.navigation li var.count {
+        position: absolute;
+        top: 0;
+        right: 0;
         font-style: normal;
         float: right;
         background-color: #A79C8E;
@@ -120,18 +126,17 @@ section.sidebar {
         height: 17px;
         line-height: 17px;
         text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
-        margin: 8px 10px 0 0;
+        margin: 9px 10px 0 0;
         min-width: 20px;
         text-align: center;
         padding: 0 8px;
         font-size: 11px;
         border-radius: 20px; }
   section.sidebar ul.filters {
-    width: 45px;
+    width: 40px;
     left: 100%;
     height: 100%;
     position: absolute;
-    border-left: 5px solid white;
     box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.1), inset 15px 0 15px -15px rgba(0, 0, 0, 0.4);
     background-color: rgba(0, 0, 0, 0.15);
     top: 0; }

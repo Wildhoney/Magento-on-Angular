@@ -21,7 +21,7 @@ Mao's Events (Hooks)
 
 I've attempted to standardise the events that are fired within the application.
 
-<h3>`CategoriesController`</h3>
+<h3><code>CategoriesController</code></h3>
 <table>
     <tr>
         <td>Broadcasts</td>
@@ -30,12 +30,22 @@ I've attempted to standardise the events that are fired within the application.
     </tr>
 </table>
 
-<h3>`ProductsController`</h3>
+<h3><code>ProductsController</code></h3>
 <table>
     <tr>
         <td>Broadcasts</td>
         <td><code>mao/products/loaded</code></td>
         <td>All products have been loaded</td>
+    </tr>
+    <tr>
+        <td>Listens</td>
+        <td><code>mao/categories/set</code></td>
+        <td>Updates products when the category changes</td>
+    </tr>
+    <tr>
+        <td>Listens</td>
+        <td><code>mao/categories/unset</code></td>
+        <td>Updates when no category constraints are applied</td>
     </tr>
 </table>
 

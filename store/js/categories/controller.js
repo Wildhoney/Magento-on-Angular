@@ -17,10 +17,16 @@
             });
 
             /**
-             * @property subCategories
-             * @type {Array}
+             * @property selected
+             * @type {Object}
              */
-            $scope.subCategories = [];
+            $scope.selected = { category: null, subCategories: [] };
+
+            /**
+             * @property position
+             * @ty[e {Number}
+             */
+            $scope.position = 0;
 
             /**
              * @method goto
@@ -31,13 +37,31 @@
 
                 if (!category) {
                     // Reset the `subCategories`.
-                    $scope.subCategories = [];
+                    $rootScope.$broadcast('mao/categories/unset');
+                    $scope.selected.category        = null;
+                    $scope.selected.subCategories   = [];
+                    $scope.position                 -= 1;
                     return;
                 }
 
-                // Otherwise we'll populate the `subCategories` with the category's
-                // sub-categories.
-                $scope.subCategories = category.children;
+                var selected    = $scope.selected;
+
+                switch ($scope.position) {
+
+                    case (0):
+                        selected.category       = category;
+                        selected.subCategories  = category.children;
+                        $scope.position         = 1;
+                        break;
+
+                    case (1):
+                        selected.subCategory    = selected.category.children;
+                        $scope.position         = 1;
+                        break;
+                }
+
+                // Broadcast the changes to the category.
+                $rootScope.$broadcast('mao/categories/set', category);
 
             }
 
