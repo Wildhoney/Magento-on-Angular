@@ -93,7 +93,7 @@ section.sidebar {
       overflow: hidden;
       text-overflow: ellipsis;
       color: #a9a9a9;
-      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
 
       &:hover {
         background-color: rgba(0, 0, 0, .05);
@@ -123,7 +123,7 @@ section.sidebar {
       &.loading {
         background: transparent url('./../images/loading.gif') no-repeat 10px center;
         font-size: 11px;
-        color: #a9a9a9;
+        color: rgba(0, 0, 0, .25);
         text-transform: uppercase;
         padding-left: 35px;
       }

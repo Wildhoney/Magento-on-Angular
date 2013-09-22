@@ -85,7 +85,7 @@ section.sidebar {
       overflow: hidden;
       text-overflow: ellipsis;
       color: #a9a9a9;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
       section.sidebar ul.navigation li:hover {
         background-color: rgba(0, 0, 0, 0.05);
         box-shadow: inset 0 2px 5px -2px rgba(0, 0, 0, 0.1); }
@@ -102,7 +102,7 @@ section.sidebar {
       section.sidebar ul.navigation li.loading {
         background: transparent url("./../images/loading.gif") no-repeat 10px center;
         font-size: 11px;
-        color: #a9a9a9;
+        color: rgba(0, 0, 0, 0.25);
         text-transform: uppercase;
         padding-left: 35px; }
       section.sidebar ul.navigation li a {
