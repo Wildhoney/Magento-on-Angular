@@ -1,0 +1,2 @@
+/*! Mao by Adam Timberlake created on 2013-09-22 */
+!function(a){"use strict";a.mao=angular.module("mao",[]),a.mao.config(["$routeProvider","$provide","$locationProvider",function(a,b,c){a.when("/",{templateUrl:"views/home.html"}).when("/category/:category",{templateUrl:"views/products.html"}).when("/category/:category/:subCategory",{templateUrl:"views/products.html"}).when("/product/:ident",{templateUrl:"views/product.html"}).otherwise({redirectTo:"/error/not-found"}),c.html5Mode(!1).hashPrefix("!")}])}(window);
