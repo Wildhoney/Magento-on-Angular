@@ -5,434 +5,219 @@
 
 html, body {
   height: 100%;
-  text-align: center; }
+  text-align: center;
+  background-color: #3b3b3b; }
 
-body {
-  border-top: 8px solid #dd4b39; }
-
-section.container {
-  text-align: left;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 1000px;
-  padding: 10px 20px;
-  transition: all .45s; }
-  section.container.lostFocus {
-    pointer-events: none;
-    -webkit-filter: blur(1px); }
-
-header {
-  background: transparent url("./../images/logo.png") no-repeat left top;
-  height: 64px;
-  padding-left: 60px;
-  font-family: "Lato", sans-serif;
-  font-weight: normal;
-  padding-bottom: 75px;
-  margin-bottom: 20px;
+section.sidebar {
   float: left;
-  overflow: hidden; }
-  header h1 {
-    font-size: 32px;
-    height: 34px;
-    padding-top: 6px; }
-  header sub {
-    font-family: "Times New Roman", serif;
-    font-style: italic;
-    letter-spacing: 0.125em;
-    font-weight: normal; }
-
-nav {
-  clear: both;
-  background: #efefef;
-  background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
-  height: 40px;
-  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  width: 100%; }
-  nav ul {
-    list-style-type: none; }
-    nav ul li.tab {
-      border-right: 1px solid #ccc;
-      float: left;
-      overflow: visible;
-      font-family: "Lato", sans-serif;
-      font-weight: normal;
-      cursor: pointer;
-      color: #888;
-      height: 40px;
-      position: relative; }
-      nav ul li.tab:hover {
-        color: black;
-        background: -webkit-linear-gradient(top, #eeeeee 0%, #cccccc 100%); }
-        nav ul li.tab:hover ul {
-          display: block; }
-      nav ul li.tab a {
-        color: #888;
-        float: left;
-        width: 100%;
-        height: 40px;
-        line-height: 40px;
-        padding: 0 15px;
-        text-decoration: none; }
-        nav ul li.tab a:hover {
-          color: black; }
-      nav ul li.tab ul {
-        display: none;
-        position: absolute;
-        z-index: 3;
-        background-color: #eee;
-        top: 40px;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-        left: 0; }
-        nav ul li.tab ul li.sub-category {
-          color: black;
-          width: 200px;
-          font-size: 14px;
-          border-bottom: 1px solid #ccc;
-          transition: all .35s;
-          overflow: hidden;
-          height: 30px;
-          line-height: 30px; }
-          nav ul li.tab ul li.sub-category:hover {
-            background-color: #ddd; }
-          nav ul li.tab ul li.sub-category a {
-            height: 30px;
-            line-height: 30px;
-            color: black;
-            padding: 0 15px;
-            float: left;
-            width: 100%;
-            text-decoration: none; }
-
-section.content {
-  overflow: hidden; }
-  section.content section.page {
-    overflow: hidden; }
-    section.content section.page section.title h2 {
-      font-family: "Lato", sans-serif;
-      font-weight: normal;
-      font-size: 16px; }
-
-section.page.category section.title h2 {
-  float: left;
-  overflow: hidden; }
-section.page.category section.title input.query {
-  float: right;
-  width: 300px;
-  margin-top: 17px;
-  height: 28px;
-  line-height: 28px;
-  border-radius: 0;
-  padding-left: 25px;
-  background: transparent url("./../images/filter.png") no-repeat 6px center;
-  overflow: hidden; }
-section.page.category div.left {
-  clear: both;
-  float: left;
+  z-index: 3;
   width: 25%;
-  padding-right: 20px; }
-section.page.category div.right {
-  float: left;
-  width: 75%; }
-  section.page.category div.right div.options {
-    width: 100%;
-    float: left; }
-    section.page.category div.right div.options span.displaying {
-      font-size: 11px;
-      text-transform: uppercase;
-      font-family: "Lato", sans-serif;
-      font-weight: normal;
-      float: left;
-      padding-top: 4px; }
-    section.page.category div.right div.options div.btn-group {
-      float: right; }
-      section.page.category div.right div.options div.btn-group ul.dropdown-menu a {
-        cursor: pointer; }
-section.page.category div.loading {
-  padding-left: 30px;
-  margin: 5px 0;
-  font-family: "Times New Roman", serif;
-  font-style: italic;
-  letter-spacing: 0.125em;
-  font-weight: normal;
-  display: block;
-  font-size: 12px;
-  background: white url("./../images/loading.gif") no-repeat 8px center;
-  transition: all .45s; }
-  section.page.category div.loading.loaded {
-    display: none; }
-section.page.category section.products ul.pagination {
-  clear: both;
-  margin: 20px 0;
-  list-style-type: none;
-  overflow: hidden;
-  border: 1px solid #ddd;
-  padding: 1px;
-  float: left; }
-  section.page.category section.products ul.pagination li {
-    float: left;
-    height: 20px;
-    line-height: 20px;
-    text-align: center; }
-    section.page.category section.products ul.pagination li.title {
-      width: 100px;
-      background-color: #ddd;
-      color: #333;
-      font-size: 10px;
-      height: 100%;
-      text-transform: uppercase;
-      font-family: "Times New Roman", serif;
-      font-style: italic;
-      letter-spacing: 0.125em;
-      font-weight: normal; }
-    section.page.category section.products ul.pagination li.pageNumber {
-      width: 25px;
-      background-color: #eee;
-      font-size: 12px;
-      transition: all .35s;
-      font-family: "Lato", sans-serif;
-      font-weight: normal; }
-      section.page.category section.products ul.pagination li.pageNumber a {
-        color: #0088cc;
-        text-decoration: none;
-        font-size: 11px;
-        float: left;
-        width: 100%;
-        text-align: center; }
-      section.page.category section.products ul.pagination li.pageNumber:hover {
-        background-color: #ddd; }
-      section.page.category section.products ul.pagination li.pageNumber:first-of-type a {
-        padding-left: 5px; }
-      section.page.category section.products ul.pagination li.pageNumber:last-of-type a {
-        padding-right: 5px; }
-section.page.category section.products ul.products {
-  clear: both;
-  overflow: hidden; }
-  section.page.category section.products ul.products li {
-    width: 20%;
-    height: 190px;
-    float: left;
-    overflow: hidden;
-    padding: 15px; }
-    section.page.category section.products ul.products li div.image {
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;
-      width: 100%;
-      height: 100px;
-      border: 1px solid lightgray;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
-    section.page.category section.products ul.products li div.name {
-      font-family: "Lato", sans-serif;
-      font-weight: normal;
-      font-size: 12px;
-      text-align: center;
-      height: 50px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding: 8px 0 5px 0; }
-    section.page.category section.products ul.products li div.price {
-      font-family: "Lato", sans-serif;
-      font-weight: normal;
-      font-weight: bold;
-      color: #dd4b39;
-      font-size: 14px;
-      text-align: center; }
-section.page.category section.attributes div.group {
-  padding-bottom: 15px; }
-  section.page.category section.attributes div.group.price section.slider {
-    padding: 10px 10px 5px 10px; }
-    section.page.category section.attributes div.group.price section.slider .ui-widget-header {
-      background: none #dd4b39; }
-    section.page.category section.attributes div.group.price section.slider .ui-slider-handle {
-      height: 12px !important;
-      top: -1px;
-      border-radius: 0 !important; }
-  section.page.category section.attributes div.group h3 {
-    background: #adadad;
-    background: -webkit-linear-gradient(top, #adadad 0%, #939393 100%);
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    text-transform: uppercase;
-    font-family: "Lato", sans-serif;
-    font-weight: normal;
-    font-size: 11px;
-    font-weight: normal;
-    margin: 0;
-    color: white;
-    padding: 0 8px;
-    height: 25px;
-    line-height: 25px; }
-  section.page.category section.attributes div.group input.filter {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    margin-bottom: 0;
-    padding-left: 25px;
-    background: transparent url("./../images/filter.png") no-repeat 6px center; }
-  section.page.category section.attributes div.group ul {
-    list-style-type: none;
-    margin: 0;
-    max-height: 160px;
-    overflow-y: scroll;
-    border: 1px solid lightgray;
-    padding: 3px 5px;
-    box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.25), inset 0 10px 10px -10px rgba(0, 0, 0, 0.25); }
-    section.page.category section.attributes div.group ul li {
-      overflow: hidden;
-      cursor: pointer;
-      padding: 5px 8px;
-      border-bottom: 1px solid lightgray;
-      transition: .35s opacity;
-      position: relative; }
-      section.page.category section.attributes div.group ul li.inactive {
-        opacity: .25; }
-      section.page.category section.attributes div.group ul li div.icon {
-        float: left;
-        width: 20px;
-        height: 20px;
-        margin-right: 6px;
-        border: 1px solid lightgray; }
-      section.page.category section.attributes div.group ul li div.name {
-        font-family: "Lato", sans-serif;
-        font-weight: normal;
-        font-size: 11px;
-        float: left; }
-      section.page.category section.attributes div.group ul li label.count {
-        position: absolute;
-        font-size: 11px;
-        background: #efefef;
-        color: #777;
-        background: -webkit-linear-gradient(top, #efefef 0%, #dddddd 100%);
-        padding: 0 8px;
-        line-height: 16px;
-        border-radius: 20px;
-        min-width: 30px;
-        text-align: center;
-        right: 8px;
-        top: 7px; }
-
-section.product {
-  background-color: white;
-  border-top: 8px solid #333;
-  height: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
-  z-index: 101;
-  margin: auto;
-  width: 60%;
-  margin-left: -30%;
-  left: 50%;
-  max-width: 800px;
-  text-align: left;
-  padding: 0 20px;
+  height: 100%;
   position: fixed;
-  top: 100px; }
-  section.product h2 {
+  text-align: left;
+  background-color: #D5DED9; }
+  section.sidebar header {
     font-family: "Lato", sans-serif;
+    letter-spacing: .125em;
     font-weight: normal;
-    font-size: 16px;
+    width: 100%;
+    background-color: #4D4147;
+    color: white;
+    height: 45px;
+    line-height: 45px;
+    text-shadow: inset 1px 0 1px white;
+    font-size: 20px;
+    padding: 0 10px;
+    letter-spacing: 0.02em; }
+  section.sidebar div.profile {
+    font-family: "Lato", sans-serif;
+    letter-spacing: .125em;
     font-weight: normal;
-    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.35);
+    text-transform: uppercase;
+    background-color: #99B2B7;
+    color: #666;
     overflow: hidden;
-    width: 90%;
-    text-overflow: ellipsis; }
-  section.product img {
-    float: left;
-    width: 30%; }
-  section.product a.close {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    opacity: 1;
-    transition: all .25s;
-    color: #dd4b39; }
-    section.product a.close:hover {
-      color: black; }
-  section.product ul {
-    float: left;
-    overflow: hidden;
-    list-style-type: none;
-    padding-left: 0px;
-    width: 65%; }
-    section.product ul li.description {
-      font-size: 12px;
-      padding-bottom: 10px; }
-    section.product ul li.price {
-      color: #dd4b39;
-      font-size: 24px;
-      padding-bottom: 10px; }
-    section.product ul li.buy button {
-      font-weight: normal;
-      font-family: "Lato", sans-serif;
-      font-weight: normal;
-      font-size: 14px; }
-    section.product ul li.buy i {
-      margin-top: 2px; }
-
-section.basket {
-  float: right;
-  width: 140px;
-  margin-top: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: normal;
-  height: 50px;
-  text-align: right;
-  position: relative;
-  cursor: pointer; }
-  section.basket:hover ul.items {
-    display: block; }
-  section.basket span {
-    padding-top: 2px;
-    color: #555;
-    font-size: 14px;
-    float: right; }
-  section.basket div.total {
-    clear: both;
-    overflow: hidden;
-    font-size: 20px; }
-  section.basket ul.items {
-    display: none;
-    width: 300px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    background-color: #ffffff;
-    right: 0;
-    top: 60px;
-    padding: 0;
-    overflow: hidden;
-    list-style-type: none;
-    position: absolute;
-    z-index: 201; }
-    section.basket ul.items li.row {
-      padding: 5px 12px;
+    font-size: 11px;
+    padding: 10px 10px 5px 10px;
+    height: 70px; }
+    section.sidebar div.profile img {
+      border: 3px solid white;
+      float: left;
       overflow: hidden;
-      border-bottom: 1px solid #d3d3d3; }
-      section.basket ul.items li.row img {
-        float: left;
-        margin-left: 20px;
-        overflow: hidden; }
-      section.basket ul.items li.row ul.details {
-        margin-left: 15px;
+      margin-right: 16px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); }
+    section.sidebar div.profile ul {
+      float: left;
+      overflow: hidden;
+      margin-top: 7px; }
+      section.sidebar div.profile ul li {
         float: left;
         overflow: hidden;
-        text-align: left;
-        width: 175px; }
-        section.basket ul.items li.row ul.details li.name {
-          width: 100%;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          padding-top: 16px;
-          font-family: "Lato", sans-serif;
-          font-weight: normal;
-          font-weight: bold; }
-        section.basket ul.items li.row ul.details li.price {
-          font-family: "Times New Roman", serif;
-          font-style: italic;
-          letter-spacing: 0.125em;
-          font-weight: normal;
-          font-style: normal; }
+        color: rgba(0, 0, 0, 0.35); }
+        section.sidebar div.profile ul li.username {
+          color: white;
+          font-size: 16px; }
+        section.sidebar div.profile ul li.profile {
+          clear: both;
+          margin-right: 10px; }
+          section.sidebar div.profile ul li.profile:after {
+            content: "|";
+            padding-left: 10px;
+            color: rgba(0, 0, 0, 0.15); }
+  section.sidebar ul.navigation {
+    transition: all .35s;
+    list-style-type: none;
+    width: 25%;
+    float: left; }
+    section.sidebar ul.navigation.sub-navigation {
+      left: 100%; }
+    section.sidebar ul.navigation li {
+      height: 45px;
+      line-height: 45px;
+      padding-left: 45px;
+      transition: 0.25s all;
+      background-position: 15px center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #a9a9a9;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+      section.sidebar ul.navigation li:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgba(0, 0, 0, 0.05); }
+        section.sidebar ul.navigation li:hover a {
+          color: black; }
+      section.sidebar ul.navigation li.home {
+        background-image: url("./../images/book_alt2_16x14.png"); }
+      section.sidebar ul.navigation li.basket {
+        background-image: url("./../images/heart_fill_16x14.png"); }
+      section.sidebar ul.navigation li.category {
+        background-image: url("./../images/tag_fill_16x16.png"); }
+      section.sidebar ul.navigation li.back {
+        background-image: url("./../images/arrow_left_16x16.png"); }
+      section.sidebar ul.navigation li.loading {
+        background: transparent url("./../images/loading.gif") no-repeat 10px center;
+        font-size: 11px;
+        color: rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+        padding-left: 35px; }
+      section.sidebar ul.navigation li a {
+        font-family: "Lato", sans-serif;
+        letter-spacing: .125em;
+        font-weight: normal;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: black;
+        float: left;
+        width: 100%; }
+        section.sidebar ul.navigation li a:hover {
+          text-decoration: none; }
+      section.sidebar ul.navigation li var.count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-style: normal;
+        float: right;
+        color: #9CAD9A;
+        height: 20px;
+        line-height: 20px;
+        margin: 12px 15px 0 0;
+        min-width: 20px;
+        text-align: center;
+        padding: 1px 8px 0 8px;
+        font-size: 12px;
+        border-radius: 20px; }
+  section.sidebar ul.filters {
+    width: 40px;
+    left: 100%;
+    height: 100%;
+    position: absolute;
+    box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+    top: 0; }
+    section.sidebar ul.filters li {
+      height: 35px;
+      line-height: 35px;
+      text-align: center; }
+      section.sidebar ul.filters li:first-of-type {
+        background-color: rgba(0, 0, 0, 0.25);
+        height: 45px; }
+      section.sidebar ul.filters li:nth-of-type(2) {
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 70px; }
+
+div.nav-wrapper {
+  width: 25%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  div.nav-wrapper nav {
+    overflow: hidden;
+    width: 400%;
+    position: absolute;
+    left: -0%;
+    transition: all .35s; }
+    div.nav-wrapper nav.secondTier {
+      left: -100%; }
+
+section.content {
+  padding: 20px 20px 10px 60px;
+  box-sizing: border-box;
+  text-align: left;
+  float: left;
+  width: 75%;
+  left: 25%;
+  z-index: 2;
+  position: absolute;
+  background-color: #fefefe;
+  min-height: 100%; }
+  section.content div.container {
+    float: left;
+    width: 25%;
+    padding-bottom: 20px; }
+  section.content div.product {
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    height: 140px;
+    text-align: center;
+    background-color: white;
+    padding: 10px; }
+    section.content div.product h1 {
+      font-family: "Lato", sans-serif;
+      letter-spacing: .125em;
+      font-weight: normal;
+      white-space: nowrap;
+      font-size: 15px;
+      line-height: 14px !important;
+      font-weight: 400;
+      padding-bottom: 5px;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+    section.content div.product ul.details {
+      float: left;
+      overflow: hidden;
+      margin-top: 10px;
+      width: 100%;
+      text-align: center; }
+      section.content div.product ul.details li.name {
+        font-family: "Times New Roman", serif;
+        font-style: italic;
+        letter-spacing: .075em;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px; }
+      section.content div.product ul.details li.price {
+        font-family: "Lato", sans-serif;
+        letter-spacing: .125em;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 11px;
+        color: #4D4147; }
