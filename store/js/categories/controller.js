@@ -12,17 +12,42 @@
              * @property categories
              * @type {Array}
              */
-            $scope.categories = $request.getContent('categories', function(response) {
+            $scope.categores = [];
 
+            /**
+             * @constructor
+             */
+            $request.getContent('categories', function(response) {
+                $scope.categories = response;
                 $rootScope.$broadcast('mao/categories/loaded', response);
+                $rootScope.$broadcast('mao/categories/set', $scope.getCategory());
+            });
+
+            /**
+             * @method getCategory
+             * Responsible for resolving the active category based on the route parameters.
+             * @return {Object}
+             */
+            $scope.getCategory = function getCategory() {
+
+                var category = {};
 
                 if ($routeParams.category) {
-                    var name        = $routeParams.category || $routeParams.subCategory,
-                        category    = _.findWhere(response, { ident: name });
-
-                    $rootScope.$broadcast('mao/categories/set', category);
+                    var name    = $routeParams.category || $routeParams.subCategory;
+                    category    = _.findWhere($scope.categories, { ident: name });
                 }
 
+                return category;
+
+            };
+
+            /**
+             * @on mao/products/loaded
+             * Responsible for notifying products of the active category once the products
+             * have been successfully downloaded.
+             */
+            $scope.$on('mao/products/loaded', function productsLoaded() {
+                $rootScope.$broadcast('mao/categories/set', $scope.getCategory());
             });
 
             /**

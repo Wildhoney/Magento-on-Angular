@@ -29,10 +29,6 @@
                     delayedMethod();
                 });
 
-                if ($routeParams.category) {
-                    console.log($routeParams);
-                }
-
             });
 
             /**
