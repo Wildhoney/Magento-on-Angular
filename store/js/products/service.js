@@ -14,12 +14,16 @@
 
             var $service = {};
 
-//            /**
-//             * @property products
-//             * @type {Array}
-//             */
-//            $service.products = [];
+            /**
+             * @property products
+             * @type {Array}
+             */
+            $service.products = [];
 
+            /**
+             * @method hasLoaded
+             * @return {Boolean}
+             */
             $service.hasLoaded = function hasLoaded() {
                 return Boolean($crossfilter.crossfilter);
             };

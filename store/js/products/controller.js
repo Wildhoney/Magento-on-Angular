@@ -19,11 +19,19 @@
              */
             $scope.queue = [];
 
+            /**
+             * @on mao/products/loaded
+             * Responsible for invoking any delayed methods.
+             */
             $scope.$on('mao/products/loaded', function productsLoaded() {
 
                 $scope.queue.forEach(function(delayedMethod) {
                     delayedMethod();
                 });
+
+                if ($routeParams.category) {
+                    console.log($routeParams);
+                }
 
             });
 
