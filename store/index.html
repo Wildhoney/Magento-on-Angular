@@ -12,7 +12,7 @@
         <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
 
         <script type="text/javascript" src="./../bower_components/jquery/jquery.js"></script>
-        <script type="text/javascript" src="./../bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="./../bower_components/angular-unstable/angular.min.js"></script>
         <script type="text/javascript" src="./../bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script type="text/javascript" src="./../bower_components/underscore/underscore.js"></script>
         <script type="text/javascript" src="./../bower_components/jquery-ui/ui/jquery-ui.js"></script>
@@ -31,63 +31,71 @@
 
     <body ng-app="mao">
 
-        <section class="sidebar" ng-controller="CategoriesController">
+        <section class="wrapper lostFocus">
 
-            <header>Mao.</header>
+            <section class="sidebar" ng-controller="CategoriesController">
 
-            <div class="profile">
-                <img src="https://1.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&s=45" />
-                <ul class="unstyled">
-                    <li class="username">Wildhoney</li>
-                    <li class="profile">Profile</li>
-                    <li class="sign-out">Sign Out</li>
+                <header>Mao.</header>
+
+                <div class="profile">
+                    <img src="https://1.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&s=45" />
+                    <ul class="unstyled">
+                        <li class="username">Wildhoney</li>
+                        <li class="profile">Profile</li>
+                        <li class="sign-out">Sign Out</li>
+                    </ul>
+                </div>
+
+                <div class="nav-wrapper">
+
+                    <nav ng-class="{secondTier: (position == 1)}">
+
+                        <ul class="navigation unstyled">
+                            <li class="home"><a>Home</a></li>
+                            <li class="basket"><a>Basket</a><var class="count">0</var></li>
+                            <li class="loading" ng-show="!categories.length">Loading Categories...</li>
+                            <li class="category"
+                                ng-repeat="category in categories | orderBy: 'name'"
+                                ng-click="goto(category)">
+                                <a href="#!/category/{{category.ident}}">{{category.name}}</a>
+                                <var class="count">{{category.productCount | number: 0}}</var>
+                            </li>
+                        </ul>
+
+                        <ul class="navigation unstyled">
+                            <li class="back" ng-click="goto()">
+                                <a href="#!/">Back</a>
+                            </li>
+                            <li class="category"
+                                ng-repeat="subCategory in selected.subCategories | orderBy: 'name'"
+                                ng-click="goto(subCategory)">
+                                <a href="#!/category/{{selected.category.ident}}/{{subCategory.ident}}">
+                                    {{subCategory.name}}
+                                </a>
+                                <var class="count">{{subCategory.productCount | number: 0}}</var>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+                <ul class="filters unstyled">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
-            </div>
 
-            <div class="nav-wrapper">
+            </section>
 
-                <nav ng-class="{secondTier: (position == 1)}">
+            <section class="content" ng-view>
 
-                    <ul class="navigation unstyled">
-                        <li class="home"><a>Home</a></li>
-                        <li class="basket"><a>Basket</a><var class="count">0</var></li>
-                        <li class="loading" ng-show="!categories.length">Loading Categories...</li>
-                        <li class="category"
-                            ng-repeat="category in categories | orderBy: 'name'"
-                            ng-click="goto(category)">
-                            <a href="#!/category/{{category.ident}}">{{category.name}}</a>
-                            <var class="count">{{category.productCount | number: 0}}</var>
-                        </li>
-                    </ul>
-
-                    <ul class="navigation unstyled">
-                        <li class="back" ng-click="goto()">
-                            <a href="#!/">Back</a>
-                        </li>
-                        <li class="category"
-                            ng-repeat="subCategory in selected.subCategories | orderBy: 'name'"
-                            ng-click="goto(subCategory)">
-                            <a href="#!/category/{{selected.category.ident}}/{{subCategory.ident}}">
-                                {{subCategory.name}}
-                            </a>
-                            <var class="count">{{subCategory.productCount | number: 0}}</var>
-                        </li>
-                    </ul>
-
-                </nav>
-
-            </div>
-
-            <ul class="filters unstyled">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+            </section>
 
         </section>
 
-        <section class="content" ng-view>
+        <section class="product" ng-include="'views/product.html'">
 
         </section>
 

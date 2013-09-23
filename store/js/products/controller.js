@@ -2,9 +2,9 @@
 
     $m.controller('ProductsController',
 
-        ['$rootScope', '$scope', '$routeParams', '$productsService',
+        ['$rootScope', '$scope', '$productsService',
 
-        function ProductsController($rootScope, $scope, $routeParams, $productsService) {
+        function ProductsController($rootScope, $scope, $productsService) {
 
             /**
              * @property products

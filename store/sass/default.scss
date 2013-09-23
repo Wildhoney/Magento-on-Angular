@@ -8,8 +8,11 @@ html, body {
   height: 100%;
   text-align: center;
   background-color: #3b3b3b;
-  //border-top: 4px solid cadetblue;
 }
+
+//section.wrapper.lostFocus {
+//  -webkit-filter: blur(1px);
+//}
 
 @mixin lato {
   font-family: "Lato", sans-serif;
@@ -25,4 +28,6 @@ html, body {
 }
 
 @import 'sidebar.scss';
+@import 'content.scss';
 @import 'products.scss';
+@import 'product.scss';
