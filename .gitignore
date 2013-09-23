@@ -1,7 +1,7 @@
 /.idea
 /.DS_Store
 /.gitignore
-/.sass-cache
+/store/sass/.sass-cache
 /.grunt
 /bower_components
 /node_modules
