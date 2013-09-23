@@ -23,7 +23,7 @@
              * @property category
              * @type {Object}
              */
-            $scope.category = { category: '', subCategory: '' };
+            $scope.category = '';
 
             /**
              * @on mao/products/loaded
@@ -46,13 +46,7 @@
                 var setCategory = function setCategory() {
                     $productsService.set('category', category);
                     $scope.products = $productsService.getProducts();
-
-                    if (category.children) {
-                        $scope.category.category = category;
-                        return;
-                    }
-
-                    $scope.category.subCategory = category;
+                    $scope.category = category;
                 };
 
                 if (!$productsService.hasLoaded()) {

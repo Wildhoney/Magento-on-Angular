@@ -41,9 +41,18 @@
             /**
              * @constructor
              */
-            $request.getContent('categories', function(response) {
-                $scope.categories = response;
-                $rootScope.$broadcast('mao/categories/loaded', response);
+            $request.getContent('categories', function(categories) {
+
+                categories.forEach(function(category) {
+                    // Setup the children -> parent relationship so that each child
+                    // knows who its parent is. No orphans here!
+                    category.children.forEach(function(subCategory) {
+                        subCategory.parent = category;
+                    });
+                });
+
+                $scope.categories = categories;
+                $rootScope.$broadcast('mao/categories/loaded', categories);
                 $rootScope.$broadcast('mao/categories/set', $scope.getCategory());
             });
 

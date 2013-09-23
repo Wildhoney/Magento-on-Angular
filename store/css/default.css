@@ -176,6 +176,48 @@ section.content {
   position: absolute;
   background-color: #fefefe;
   min-height: 100%; }
+  section.content section {
+    margin-top: 120px; }
+  section.content div.title {
+    background-color: #efefef;
+    overflow: hidden;
+    padding-bottom: 18px;
+    position: absolute;
+    padding: 16px 20px;
+    left: 40px;
+    width: 100%;
+    top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    height: 115px; }
+    section.content div.title h1 {
+      font-family: "Lato", sans-serif;
+      letter-spacing: .125em;
+      font-weight: normal;
+      font-weight: normal;
+      letter-spacing: 0;
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 0; }
+      section.content div.title h1 span {
+        color: #999999; }
+    section.content div.title h2 {
+      font-family: "Lato", sans-serif;
+      letter-spacing: .125em;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 0;
+      margin-top: 22px;
+      font-weight: normal;
+      color: #999; }
+    section.content div.title div.actions {
+      position: absolute;
+      bottom: 16px; }
+      section.content div.title div.actions button {
+        font-family: "Lato", sans-serif;
+        letter-spacing: .125em;
+        font-weight: normal;
+        letter-spacing: 0; }
 
 section.products div.container {
   float: left;
@@ -207,10 +249,9 @@ section.products div.product {
     width: 100%;
     text-align: center; }
     section.products div.product ul.details li.name {
-      font-family: "Times New Roman", serif;
-      font-style: italic;
-      letter-spacing: .075em;
-      font-weight: bold;
+      font-family: "Lato", sans-serif;
+      letter-spacing: .125em;
+      font-weight: normal;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -222,3 +263,6 @@ section.products div.product {
       font-style: normal;
       font-size: 11px;
       color: #4D4147; }
+
+section.product {
+  border: 1px solid red; }

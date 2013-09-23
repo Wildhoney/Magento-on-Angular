@@ -1,10 +1,23 @@
 <section class="products" ng-controller="ProductsController">
 
+    <div class="title">
+        <h1>Products <span>({{products.length}})</span></h1>
+        <h2>
+            <span ng-show="category.parent">{{category.parent.name}} / </span>
+            {{category.name}}
+        </h2>
+        <div class="actions">
+            <!--<button class="btn btn-small">Filter me, baby!</button>-->
+        </div>
+    </div>
+
     <div class="container" ng-repeat="product in products">
         <div class="product">
             <img ng-src="{{product.image}}" />
             <ul class="details unstyled">
-                <li class="name">{{product.name}}</li>
+                <li class="name">
+                    <a href="#!/product/{{product.ident}}">{{product.name}}</a>
+                </li>
                 <li class="price">&pound;{{product.price | number: 2}}</li>
             </ul>
         </div>

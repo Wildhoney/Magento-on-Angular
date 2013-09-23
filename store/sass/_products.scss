@@ -35,7 +35,7 @@ section.products {
 
       li {
         &.name {
-          @include times-new-roman;
+          @include lato;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;

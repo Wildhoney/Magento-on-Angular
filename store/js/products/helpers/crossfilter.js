@@ -77,8 +77,6 @@
                 return dimension.filterAll();
             }
 
-            console.log(category.id);
-
             // Otherwise we can apply the filter.
             return dimension.filterFunction(function(d) {
                 return _.contains(d, category.id);
