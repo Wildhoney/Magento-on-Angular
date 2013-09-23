@@ -20,6 +20,12 @@
             $scope.queue = [];
 
             /**
+             * @property category
+             * @type {Object}
+             */
+            $scope.category = { category: '', subCategory: '' };
+
+            /**
              * @on mao/products/loaded
              * Responsible for invoking any delayed methods.
              */
@@ -40,6 +46,13 @@
                 var setCategory = function setCategory() {
                     $productsService.set('category', category);
                     $scope.products = $productsService.getProducts();
+
+                    if (category.children) {
+                        $scope.category.category = category;
+                        return;
+                    }
+
+                    $scope.category.subCategory = category;
                 };
 
                 if (!$productsService.hasLoaded()) {

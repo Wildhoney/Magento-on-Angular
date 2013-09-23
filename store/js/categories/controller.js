@@ -28,6 +28,16 @@
              */
             $scope.position = 0;
 
+            $scope.activeCategory = false;
+
+
+            $rootScope.$on('$viewContentLoaded', function viewContentLoaded() {
+                if (!$scope.activeCategory) {
+                    return;
+                }
+                $rootScope.$broadcast('mao/categories/set', $scope.activeCategory);
+            });
+
             /**
              * @constructor
              */
@@ -46,6 +56,7 @@
                 $rootScope.$broadcast('mao/categories/set', $scope.getCategory());
             });
 
+
             /**
              * @method getCategory
              * Responsible for resolving the active category based on the route parameters.
@@ -53,14 +64,34 @@
              */
             $scope.getCategory = function getCategory() {
 
-                var category = {};
+                var category = {}, subCategory = {};
 
                 if ($routeParams.category) {
-                    var name    = $routeParams.category || $routeParams.subCategory;
+                    var name    = $routeParams.subCategory || $routeParams.category;
                     category    = _.findWhere($scope.categories, { ident: name });
                 }
 
-                return category;
+                if (!category) {
+                    category = {};
+
+                    // Otherwise we're after a sub-category!
+                    $scope.categories.forEach(function(category) {
+
+                        var found = _.findWhere(category.children, { ident: name });
+
+                        // We've found the sub-category!
+                        if (found) subCategory = found;
+
+                    });
+
+                }
+
+                // If we're unable to locate a category in either `category` or `subCategory`.
+                if ((!'id' in category) && (!'id' in subCategory)) {
+                    throw 'Unable to locate category from $routeParams: '. $routeParams.category;
+                }
+
+                return subCategory || category;
 
             };
 
@@ -96,8 +127,7 @@
                         break;
                 }
 
-                // Broadcast the changes to the category.
-                $rootScope.$broadcast('mao/categories/set', category);
+                $scope.activeCategory = category;
 
             }
 
