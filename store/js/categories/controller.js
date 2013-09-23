@@ -28,15 +28,11 @@
              */
             $scope.position = 0;
 
+            /**
+             * @property activeCategory
+             * @type {Object|Boolean}
+             */
             $scope.activeCategory = false;
-
-
-            $rootScope.$on('$viewContentLoaded', function viewContentLoaded() {
-                if (!$scope.activeCategory) {
-                    return;
-                }
-                $rootScope.$broadcast('mao/categories/set', $scope.activeCategory);
-            });
 
             /**
              * @constructor
@@ -51,9 +47,25 @@
                     });
                 });
 
-                $scope.categories = categories;
+                $scope.categories       = categories;
+
+                var category            = $scope.getCategory();
+                $scope.activeCategory   = category;
+
                 $rootScope.$broadcast('mao/categories/loaded', categories);
-                $rootScope.$broadcast('mao/categories/set', $scope.getCategory());
+                $rootScope.$broadcast('mao/categories/set', category);
+
+            });
+
+            /**
+             * @on $viewContentLoaded
+             * Responsible for providing the `activeCategory` to each controller that
+             * is loaded in.
+             */
+            $rootScope.$on('$viewContentLoaded', function viewContentLoaded() {
+                if ($scope.activeCategory) {
+                    $rootScope.$broadcast('mao/categories/set', $scope.activeCategory);
+                }
             });
 
             /**
@@ -100,7 +112,7 @@
                     throw 'Unable to locate category from $routeParams: '. $routeParams.category;
                 }
 
-                return subCategory || category;
+                return ('id' in subCategory) ? subCategory : category;
 
             };
 

@@ -43,6 +43,7 @@
              */
             $scope.$on('mao/categories/set', function categoriesSet(event, category) {
 
+                console.log(category.name);
                 var setCategory = function setCategory() {
                     $productsService.set('category', category);
                     $scope.products = $productsService.getProducts();
