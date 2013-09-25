@@ -18,14 +18,14 @@
         <script type="text/javascript" src="./../bower_components/jquery-ui/ui/jquery-ui.js"></script>
         <script type="text/javascript" src="./../bower_components/crossfilter/crossfilter.js"></script>
 
-        <script type="text/javascript" src="js/application.js"></script>
-        <script type="text/javascript" src="js/requests.js"></script>
+        <script type="text/javascript" src="js/Application.js"></script>
+        <script type="text/javascript" src="js/Requests.js"></script>
 
-        <script type="text/javascript" src="js/categories/controller.js"></script>
+        <script type="text/javascript" src="js/categories/Controller.js"></script>
 
-        <script type="text/javascript" src="js/products/controller.js"></script>
-        <script type="text/javascript" src="js/products/service.js"></script>
-        <script type="text/javascript" src="js/products/helpers/crossfilter.js"></script>
+        <script type="text/javascript" src="js/products/Controller.js"></script>
+        <script type="text/javascript" src="js/products/Service.js"></script>
+        <script type="text/javascript" src="js/products/helpers/Crossfilter.js"></script>
 
     </head>
 
@@ -52,7 +52,10 @@
 
                         <ul class="navigation unstyled">
                             <li class="home"><a>Home</a></li>
-                            <li class="basket"><a>Basket</a><var class="count">0</var></li>
+                            <li class="basket" ng-controller="BasketController">
+                                <a>Basket</a>
+                                <var class="count">0</var>
+                            </li>
                             <li class="loading" ng-show="!categories.length">Loading Categories...</li>
                             <li class="category"
                                 ng-repeat="category in categories | orderBy: 'name'"
