@@ -15,7 +15,7 @@ section.sidebar {
   height: 100%;
   position: fixed;
   text-align: left;
-  background-color: #D5DED9; }
+  background-color: #fefefe; }
   section.sidebar header {
     font-family: "Lato", sans-serif;
     letter-spacing: .125em;
@@ -87,8 +87,7 @@ section.sidebar {
       color: #a9a9a9;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
       section.sidebar ul.navigation li:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-        border-top: 1px solid rgba(0, 0, 0, 0.05); }
+        background-color: rgba(0, 0, 0, 0.02); }
         section.sidebar ul.navigation li:hover a {
           color: black; }
       section.sidebar ul.navigation li.home {

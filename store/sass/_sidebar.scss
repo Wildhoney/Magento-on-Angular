@@ -5,7 +5,7 @@ section.sidebar {
   height: 100%;
   position: fixed;
   text-align: left;
-  background-color: #D5DED9;
+  background-color: #fefefe;
 
   header {
     @include lato;
@@ -22,7 +22,6 @@ section.sidebar {
 
   div.profile {
     @include lato;
-    //background: rgba(0, 0, 0, .35);
     background: rgba(0, 0, 0, .35);
     text-transform: uppercase;
     background-color: #99B2B7;
@@ -95,8 +94,7 @@ section.sidebar {
       border-bottom: 1px solid rgba(0, 0, 0, .05);
 
       &:hover {
-        background-color: rgba(0, 0, 0, .05);
-        border-top: 1px solid rgba(0, 0, 0, .05);
+        background-color: rgba(0, 0, 0, .02);
 
         a {
           color: black;
@@ -182,10 +180,6 @@ section.sidebar {
         background-color: rgba(0, 0, 0, .1);
         height: 70px;
       }
-
-      //&:nth-of-type(odd) {
-      //  background-color: rgba(0, 0, 0, .05);
-      //}
     }
   }
 }
