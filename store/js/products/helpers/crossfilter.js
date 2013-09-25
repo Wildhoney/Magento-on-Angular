@@ -14,13 +14,13 @@
          * @property crossfilter
          * @type {Object}
          */
-        $service.crossfilter = null;
+        $service.crossfilters = { master: null, slave: null };
 
         /**
          * @property dimensions
          * @type {Array}
          */
-        $service.dimensions = [];
+        $service.dimensions = { master: [], slave: [] };
 
         /**
          * @property primaryKey
@@ -43,7 +43,9 @@
         $service.create = function create(products) {
 
             // Create the dimension and extract the keys from the first model.
-            $service.crossfilter = $c(products);
+            $service.crossfilters.master    = $c(products);
+            $service.crossfilters.slave     = $c(products);
+
             var keys = _.keys(products[0]);
 
             // An assumption that the primary key is the first key in the first model.
@@ -51,12 +53,18 @@
 
             // Create a dimension for each and every property in the collection.
             keys.forEach(function(property) {
-                $service.dimensions[property] = $service.crossfilter.dimension(function(model) {
+
+                $service.dimensions.master[property] = $service.crossfilters.master.dimension(function(model) {
                     return model[property];
                 });
+
+                $service.dimensions.slave[property] = $service.crossfilters.slave.dimension(function(model) {
+                    return model[property];
+                });
+
             });
 
-            return $service.crossfilter;
+            return $service.crossfilters;
 
         };
 
@@ -66,7 +74,7 @@
          */
         $service.getContent = function getContent() {
 
-            var dimension   = $service.dimensions[$service.primaryKey],
+            var dimension   = $service.dimensions.master[$service.primaryKey],
                 method      = ($service.isAscending) ? 'top' : 'bottom';
 
             return dimension[method](Infinity);
@@ -105,7 +113,7 @@
          */
         $service.setCategory = function setCategory(category) {
 
-            var dimension = $service.dimensions.categories;
+            var dimension = $service.dimensions.master.categories;
 
             if (!category) {
                 // Remove the filters altogether if no category was passed.
@@ -117,6 +125,15 @@
                 return _.contains(d, category.id);
             });
 
+        };
+
+        /**
+         * @method pluck
+         * @param rowDetails {Object}
+         * @return {Object}
+         */
+        $service.pluck = function pluck(rowDetails) {
+            alert(rowDetails);
         };
 
         return $service;

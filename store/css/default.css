@@ -195,19 +195,21 @@ section.content {
       font-weight: normal;
       font-weight: normal;
       letter-spacing: 0;
-      font-size: 16px;
-      text-transform: uppercase;
+      font-size: 28px;
+      color: #a9a9a9;
       line-height: 0; }
       section.content div.title h1 span {
-        color: #999999; }
+        color: #bbbbbb; }
     section.content div.title h2 {
-      font-family: "Lato", sans-serif;
-      letter-spacing: .125em;
-      font-weight: normal;
+      font-family: "Times New Roman", serif;
+      font-style: italic;
+      letter-spacing: .075em;
+      font-weight: bold;
       font-size: 14px;
       line-height: 0;
       margin-top: 22px;
-      font-weight: normal;
+      font-weight: 100;
+      font-style: normal;
       color: #999; }
     section.content div.title div.actions {
       position: absolute;

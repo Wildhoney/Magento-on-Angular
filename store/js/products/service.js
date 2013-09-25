@@ -25,7 +25,7 @@
              * @return {Boolean}
              */
             $service.hasLoaded = function hasLoaded() {
-                return Boolean($crossfilter.crossfilter);
+                return Boolean($crossfilter.crossfilters.master);
             };
 
             /**
@@ -41,7 +41,7 @@
              */
             $service.getProducts = function getProducts() {
 
-                if ($crossfilter.crossfilter) {
+                if ($crossfilter.crossfilters.master) {
                     return $crossfilter.getContent();
                 }
 
@@ -67,8 +67,8 @@
 
             /**
              * @property pluck
-             * @value {Mixed}
-             * @key {String}
+             * @param value {Number|String|Boolean}
+             * @param key {String}
              * Responsible for plucking products from the array whilst ignoring
              * any other filters applied.
              * @return {Object|Array}
