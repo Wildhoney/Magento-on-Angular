@@ -26,6 +26,17 @@
             $scope.category = '';
 
             /**
+             * @method sortBy
+             * @param property {String}
+             * @param ascending {Boolean}
+             * @return {void}
+             */
+            $scope.sortBy = function sortBy(property, ascending) {
+                $productsService.sortBy(property, ascending);
+                $scope.products = $productsService.getProducts();
+            };
+
+            /**
              * @on mao/products/loaded
              * Responsible for invoking any delayed methods.
              */
@@ -43,7 +54,6 @@
              */
             $scope.$on('mao/categories/set', function categoriesSet(event, category) {
 
-                console.log(category.name);
                 var setCategory = function setCategory() {
                     $productsService.set('category', category);
                     $scope.products = $productsService.getProducts();

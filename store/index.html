@@ -56,19 +56,19 @@
                             <li class="loading" ng-show="!categories.length">Loading Categories...</li>
                             <li class="category"
                                 ng-repeat="category in categories | orderBy: 'name'"
-                                ng-click="goto(category)">
+                                ng-click="gotoCategory(category)">
                                 <a href="#!/category/{{category.ident}}">{{category.name}}</a>
                                 <var class="count">{{category.productCount | number: 0}}</var>
                             </li>
                         </ul>
 
                         <ul class="navigation unstyled">
-                            <li class="back" ng-click="goto()">
+                            <li class="back" ng-click="gotoCategory()">
                                 <a href="#!/">Back</a>
                             </li>
                             <li class="category"
                                 ng-repeat="subCategory in selected.subCategories | orderBy: 'name'"
-                                ng-click="goto(subCategory)">
+                                ng-click="gotoCategory(subCategory)">
                                 <a href="#!/category/{{selected.category.ident}}/{{subCategory.ident}}">
                                     {{subCategory.name}}
                                 </a>

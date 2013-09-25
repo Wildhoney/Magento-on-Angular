@@ -29,6 +29,12 @@
         $service.primaryKey = '';
 
         /**
+         * @property isAscending
+         * @type {Boolean}
+         */
+        $service.isAscending = true;
+
+        /**
          * @method create
          * @param products {Array}
          * Responsible for creating the Crossfilter and all its necessary dimensions.
@@ -38,7 +44,7 @@
 
             // Create the dimension and extract the keys from the first model.
             $service.crossfilter = $c(products);
-            var keys = Object.keys(products[0]);
+            var keys = _.keys(products[0]);
 
             // An assumption that the primary key is the first key in the first model.
             $service.primaryKey = keys[0];
@@ -59,8 +65,37 @@
          * @return {Array}
          */
         $service.getContent = function getContent() {
-            var dimension = $service.dimensions[$service.primaryKey];
-            return dimension.top(Infinity);
+
+            var dimension   = $service.dimensions[$service.primaryKey],
+                method      = ($service.isAscending) ? 'top' : 'bottom';
+
+            return dimension[method](Infinity);
+
+        };
+
+        /**
+         * @method sortBy
+         * @param property {String}
+         * @param ascending {Boolean}
+         * Responsible for sorting the products. If no `ascending` is specified, then the
+         * ascending/descending is alternated.
+         * @return {void}
+         */
+        $service.sortBy = function sortBy(property, ascending) {
+
+            $service.primaryKey = property;
+
+            if (typeof ascending !== 'undefined') {
+
+                // Change the `isAscending` specifically if the user has specified it.
+                $service.isAscending = ascending;
+                return;
+                
+            }
+
+            // Otherwise we'll toggle it.
+            $service.isAscending = !$service.isAscending;
+
         };
 
         /**

@@ -29,6 +29,13 @@
             };
 
             /**
+             * @method sortBy
+             * @param property {String}
+             * @param ascending {Boolean}
+             */
+            $service.sortBy = $crossfilter.sortBy;
+
+            /**
              * @method getProducts
              * @return {Array}
              */

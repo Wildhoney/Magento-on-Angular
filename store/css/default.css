@@ -180,7 +180,7 @@ section.content {
     margin-top: 120px; }
   section.content div.title {
     background-color: #efefef;
-    overflow: hidden;
+    overflow: visible;
     padding-bottom: 18px;
     position: absolute;
     padding: 16px 20px;
@@ -213,11 +213,19 @@ section.content {
     section.content div.title div.actions {
       position: absolute;
       bottom: 16px; }
-      section.content div.title div.actions button {
+      section.content div.title div.actions .btn-group .btn i {
+        float: left;
+        margin: 3px 5px 0 0; }
+      section.content div.title div.actions .btn-group .caret {
+        margin-left: 5px; }
+      section.content div.title div.actions .btn-group a {
+        font-size: 12px;
         font-family: "Lato", sans-serif;
         letter-spacing: .125em;
         font-weight: normal;
         letter-spacing: 0; }
+      section.content div.title div.actions .btn-group li {
+        text-transform: capitalize; }
 
 section.products div.container {
   float: left;

@@ -7,7 +7,17 @@
             {{category.name}}
         </h2>
         <div class="actions">
-            <!--<button class="btn btn-small">Filter me, baby!</button>-->
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-share-alt"></i>
+                    Sort Products
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="sortBy('name')">Name</a></li>
+                    <li><a ng-click="sortBy('price')">Price</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 

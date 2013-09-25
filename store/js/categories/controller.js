@@ -117,11 +117,12 @@
             };
 
             /**
-             * @method goto
-             * Responsible for populating the necessary property for child categories.
+             * @method gotoCategory
              * @param category {Object}
+             * Responsible for populating the necessary property for child categories.
+             * @return {void}
              */
-            $scope.goto = function goto(category) {
+            $scope.gotoCategory = function gotoCategory(category) {
 
                 if (!category) {
                     // Reset the `subCategories`.

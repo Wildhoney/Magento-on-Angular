@@ -16,7 +16,7 @@ section.content {
 
   div.title {
     background-color: #efefef;
-    overflow: hidden;
+    overflow: visible;
     padding-bottom: 18px;
     position: absolute;
     padding: 16px 20px;
@@ -53,9 +53,27 @@ section.content {
       position: absolute;
       bottom: 16px;
 
-      button {
-        @include lato;
-        letter-spacing: 0;
+      .btn-group {
+        .btn {
+          i {
+            float: left;
+            margin: 3px 5px 0 0;
+          }
+        }
+
+        .caret {
+          margin-left: 5px;
+        }
+
+        a {
+          font-size: 12px;
+          @include lato;
+          letter-spacing: 0;
+        }
+
+        li {
+          text-transform: capitalize;
+        }
       }
     }
 
