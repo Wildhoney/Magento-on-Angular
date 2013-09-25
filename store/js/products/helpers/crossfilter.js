@@ -90,7 +90,7 @@
                 // Change the `isAscending` specifically if the user has specified it.
                 $service.isAscending = ascending;
                 return;
-                
+
             }
 
             // Otherwise we'll toggle it.
