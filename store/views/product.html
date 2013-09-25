@@ -1,10 +1,13 @@
 <section class="products" ng-controller="ProductController">
 
     <div class="title">
-        <h1>Product</h1>
-        <h2>
-            No, no, no!
-        </h2>
+        <h1>{{product.name}}</h1>
+        <!--<h2>&pound;{{product.price | number: 2}}</h2>-->
+    </div>
+
+    <div class="container">
+        <img ng-src="{{product.image}}" />
+        <p class="description" ng-bind-html-unsafe="product.description"></p>
     </div>
 
 </section>

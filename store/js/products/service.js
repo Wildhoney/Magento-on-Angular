@@ -68,13 +68,13 @@
             /**
              * @property pluck
              * @param value {Number|String|Boolean}
-             * @param key {String}
+             * @param property {String}
              * Responsible for plucking products from the array whilst ignoring
              * any other filters applied.
              * @return {Object|Array}
              */
-            $service.pluck = function pluck(value, key) {
-                return $crossfilter.pluck({ key: key || 'id', value: value});
+            $service.pluck = function pluck(value, property) {
+                return $crossfilter.pluck({ property: property || 'id', value: value});
             };
 
             return $service;

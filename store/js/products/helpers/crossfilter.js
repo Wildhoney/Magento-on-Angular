@@ -18,7 +18,7 @@
 
         /**
          * @property dimensions
-         * @type {Array}
+         * @type {Object}
          */
         $service.dimensions = { master: [], slave: [] };
 
@@ -129,11 +129,22 @@
 
         /**
          * @method pluck
-         * @param rowDetails {Object}
+         * @param details {Object}
          * @return {Object}
          */
-        $service.pluck = function pluck(rowDetails) {
-            alert(rowDetails);
+        $service.pluck = function pluck(details) {
+
+            // Locate the dimension and filter it against the details that we have.
+            var dimension = $service.dimensions.slave[details.property];
+            dimension.filterExact(details.value);
+
+            // Extract the row from the Crossfilter.
+            var row = dimension.top(1)[0];
+
+            // Reset the dimension and return the row we've found.
+            dimension.filterAll();
+            return row;
+
         };
 
         return $service;
