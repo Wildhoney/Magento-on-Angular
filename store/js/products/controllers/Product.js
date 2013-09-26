@@ -48,6 +48,7 @@
              */
             $scope.$on('mao/products/loaded', $scope.getProduct);
 
+
             /**
              * @method addBasket
              * @param product {Object}
