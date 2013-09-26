@@ -25,10 +25,10 @@
 
         <script type="text/javascript" src="js/Products/controllers/Product.js"></script>
         <script type="text/javascript" src="js/Products/controllers/Products.js"></script>
+        <script type="text/javascript" src="js/Products/controllers/Basket.js"></script>
         <script type="text/javascript" src="js/Products/Service.js"></script>
         <script type="text/javascript" src="js/Products/helpers/Crossfilter.js"></script>
 
-        <script type="text/javascript" src="js/Basket/Controller.js"></script>
 
     </head>
 
@@ -57,7 +57,7 @@
                             <li class="home"><a>Home</a></li>
                             <li class="basket" ng-controller="BasketController">
                                 <a>Basket</a>
-                                <var class="count">0</var>
+                                <var class="count">{{count()}}</var>
                             </li>
                             <li class="loading" ng-show="!categories.length">Loading Categories...</li>
                             <li class="category"
