@@ -9,6 +9,7 @@ section.sidebar {
 
   header {
     @include lato;
+    text-shadow: 1px 1px 0 black;
     width: 100%;
     background-color: #4D4147;
     color: white;
@@ -18,10 +19,12 @@ section.sidebar {
     font-size: 20px;
     padding: 0 10px;
     letter-spacing: 0.02em;
+    box-shadow: inset 0 -5px 10px -5px rgba(0, 0, 0, .45);
   }
 
   div.profile {
     @include lato;
+    box-shadow: inset 0 -5px 10px -5px rgba(0, 0, 0, .15);
     background: rgba(0, 0, 0, .35);
     text-transform: uppercase;
     background-color: #99B2B7;
@@ -32,6 +35,7 @@ section.sidebar {
     height: 70px;
 
     img {
+      border-radius: 30px;
       border: 3px solid white;
       float: left;
       overflow: hidden;
@@ -52,6 +56,7 @@ section.sidebar {
         &.username {
           color: white;
           font-size: 16px;
+          text-shadow: 1px 1px 0 rgba(0, 0, 0, .25);
         }
 
         &.profile {
@@ -158,7 +163,7 @@ section.sidebar {
   }
 
   ul.filters {
-    width: 40px;
+    width: 10px;
     left: 100%;
     height: 100%;
     position: absolute;

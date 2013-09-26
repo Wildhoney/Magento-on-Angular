@@ -20,6 +20,7 @@ section.sidebar {
     font-family: "Lato", sans-serif;
     letter-spacing: .125em;
     font-weight: normal;
+    text-shadow: 1px 1px 0 black;
     width: 100%;
     background-color: #4D4147;
     color: white;
@@ -28,11 +29,13 @@ section.sidebar {
     text-shadow: inset 1px 0 1px white;
     font-size: 20px;
     padding: 0 10px;
-    letter-spacing: 0.02em; }
+    letter-spacing: 0.02em;
+    box-shadow: inset 0 -5px 10px -5px rgba(0, 0, 0, 0.45); }
   section.sidebar div.profile {
     font-family: "Lato", sans-serif;
     letter-spacing: .125em;
     font-weight: normal;
+    box-shadow: inset 0 -5px 10px -5px rgba(0, 0, 0, 0.15);
     background: rgba(0, 0, 0, 0.35);
     text-transform: uppercase;
     background-color: #99B2B7;
@@ -42,6 +45,7 @@ section.sidebar {
     padding: 10px 10px 5px 10px;
     height: 70px; }
     section.sidebar div.profile img {
+      border-radius: 30px;
       border: 3px solid white;
       float: left;
       overflow: hidden;
@@ -57,7 +61,8 @@ section.sidebar {
         color: rgba(0, 0, 0, 0.35); }
         section.sidebar div.profile ul li.username {
           color: white;
-          font-size: 16px; }
+          font-size: 16px;
+          text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
         section.sidebar div.profile ul li.profile {
           clear: both;
           margin-right: 10px; }
@@ -131,7 +136,7 @@ section.sidebar {
         font-size: 12px;
         border-radius: 20px; }
   section.sidebar ul.filters {
-    width: 40px;
+    width: 10px;
     left: 100%;
     height: 100%;
     position: absolute;
@@ -177,7 +182,7 @@ section.content {
   section.content section {
     margin-top: 120px; }
   section.content div.container {
-    padding: 20px 20px 20px 60px; }
+    padding: 20px 20px 20px 20px; }
   section.content div.title {
     background-color: #fff;
     overflow: visible;
@@ -185,7 +190,7 @@ section.content {
     width: 100%;
     position: absolute;
     padding: 16px 20px;
-    left: 40px;
+    left: 10px;
     top: 0;
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
