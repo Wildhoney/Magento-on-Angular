@@ -1,5 +1,39 @@
 section.product {
 
-  border: 1px solid red;
+
+  div.left {
+    float: left;
+    width: 30%;
+
+    div.pictures {
+      text-align: center;
+      //height: 200px;
+      //line-height: 200px;
+      //width: 200px;
+
+      img {
+        margin: 20px auto;
+      }
+    }
+  }
+
+  div.right {
+    float: left;
+    width: 70%;
+
+    div.price {
+      @include lato;
+      font-size: 28px;
+      padding-bottom: 10px;
+    }
+
+    p.description {
+      text-align: justify;
+      color: #666;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 10px 0;
+    }
+  }
 
 }

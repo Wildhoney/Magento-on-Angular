@@ -48,6 +48,16 @@
              */
             $scope.$on('mao/products/loaded', $scope.getProduct);
 
+            /**
+             * @method addBasket
+             * @param product {Object}
+             * Responsible for adding a product into the basket.
+             * @return {void}
+             */
+            $scope.addBasket = function addBasket(product) {
+                $rootScope.$broadcast('mao/basket/add', product);
+            }
+
     }]);
 
 })(window.mao);

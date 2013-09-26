@@ -1,13 +1,38 @@
-<section class="products" ng-controller="ProductController">
+<section class="product" ng-controller="ProductController">
 
     <div class="title">
         <h1>{{product.name}}</h1>
-        <!--<h2>&pound;{{product.price | number: 2}}</h2>-->
     </div>
 
     <div class="container">
-        <img ng-src="{{product.image}}" />
-        <p class="description" ng-bind-html-unsafe="product.description"></p>
+
+        <div class="left">
+
+            <div class="pictures">
+                <img class="main" ng-src="{{product.image}}" />
+            </div>
+
+
+        </div>
+
+        <div class="right">
+
+            <div class="price">
+                &pound;{{product.price | number: 2}}
+            </div>
+
+            <p class="description" ng-bind-html-unsafe="product.description"></p>
+
+            <ul class="unstyled actions">
+                <li class="basket">
+                    <button class="btn btn-small" ng-click="addBasket(product)">
+                        Add to Basket
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+
     </div>
 
 </section>

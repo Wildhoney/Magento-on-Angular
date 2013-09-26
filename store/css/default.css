@@ -165,26 +165,27 @@ div.nav-wrapper {
       left: -100%; }
 
 section.content {
-  padding: 20px 20px 10px 60px;
   box-sizing: border-box;
   text-align: left;
-  float: left;
   width: 75%;
   left: 25%;
   z-index: 2;
   position: absolute;
   background-color: #fefefe;
-  min-height: 100%; }
+  min-height: 100%;
+  overflow: hidden; }
   section.content section {
     margin-top: 120px; }
+  section.content div.container {
+    padding: 20px 20px 20px 60px; }
   section.content div.title {
-    background-color: #efefef;
+    background-color: #fff;
     overflow: visible;
     padding-bottom: 18px;
+    width: 100%;
     position: absolute;
     padding: 16px 20px;
     left: 40px;
-    width: 100%;
     top: 0;
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
@@ -196,18 +197,17 @@ section.content {
       font-weight: normal;
       letter-spacing: 0;
       font-size: 28px;
-      color: #a9a9a9;
+      color: black;
       line-height: 0; }
       section.content div.title h1 span {
         color: #bbbbbb; }
     section.content div.title h2 {
-      font-family: "Times New Roman", serif;
-      font-style: italic;
-      letter-spacing: .075em;
-      font-weight: bold;
+      font-family: "Lato", sans-serif;
+      letter-spacing: .125em;
+      font-weight: normal;
       font-size: 14px;
       line-height: 0;
-      margin-top: 22px;
+      margin-top: 25px;
       font-weight: 100;
       font-style: normal;
       color: #999; }
@@ -221,9 +221,6 @@ section.content {
         margin-left: 5px; }
       section.content div.title div.actions .btn-group a {
         font-size: 12px;
-        font-family: "Lato", sans-serif;
-        letter-spacing: .125em;
-        font-weight: normal;
         letter-spacing: 0; }
       section.content div.title div.actions .btn-group li {
         text-transform: capitalize; }
@@ -273,5 +270,25 @@ section.products div.product {
       font-size: 11px;
       color: #4D4147; }
 
-section.product {
-  border: 1px solid red; }
+section.product div.left {
+  float: left;
+  width: 30%; }
+  section.product div.left div.pictures {
+    text-align: center; }
+    section.product div.left div.pictures img {
+      margin: 20px auto; }
+section.product div.right {
+  float: left;
+  width: 70%; }
+  section.product div.right div.price {
+    font-family: "Lato", sans-serif;
+    letter-spacing: .125em;
+    font-weight: normal;
+    font-size: 28px;
+    padding-bottom: 10px; }
+  section.product div.right p.description {
+    text-align: justify;
+    color: #666;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 10px 0; }
