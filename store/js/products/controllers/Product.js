@@ -17,15 +17,18 @@
             $scope.product = {};
 
             /**
-             * @constructor
+             * @property products
+             * @type {Array}
              */
             $scope.products = $productsService.getProducts();
 
             /**
-             * @on mao/products/loaded
-             * Responsible for invoking any delayed methods.
+             * @method getProduct
+             * Responsible for plucking the product from the Crossfilter, and issuing an AJAX request
+             * to load more data for the product, mixing it in with the Crossfilter returned object.
+             * @return {void}
              */
-            $scope.$on('mao/products/loaded', function productsLoaded() {
+            $scope.getProduct = function getProduct() {
 
                 $scope.product = $productsService.pluck($routeParams.ident, 'ident');
 
@@ -33,7 +36,17 @@
                     $scope.product = _.extend($scope.product, response);
                 });
 
-            });
+            };
+
+            /**
+             * @on $viewContentLoaded
+             */
+            $rootScope.$on('$viewContentLoaded', $scope.getProduct);
+
+            /**
+             * @on mao/products/loaded
+             */
+            $scope.$on('mao/products/loaded', $scope.getProduct);
 
     }]);
 
