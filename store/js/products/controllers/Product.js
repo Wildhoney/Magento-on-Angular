@@ -30,6 +30,10 @@
              */
             $scope.getProduct = function getProduct() {
 
+                if (!$productsService.hasLoaded()) {
+                    return;
+                }
+
                 $scope.product = $productsService.pluck($routeParams.ident, 'ident');
 
                 $request.getContent('product/' + $scope.product.id).then(function(response) {
@@ -47,7 +51,6 @@
              * @on mao/products/loaded
              */
             $scope.$on('mao/products/loaded', $scope.getProduct);
-
 
             /**
              * @method addBasket

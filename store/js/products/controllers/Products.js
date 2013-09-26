@@ -63,7 +63,6 @@
                 if (!$productsService.hasLoaded()) {
                     $scope.queue.push(setCategory);
                     return;
-
                 }
 
                 setCategory();
