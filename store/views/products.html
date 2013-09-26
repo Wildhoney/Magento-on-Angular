@@ -6,19 +6,15 @@
             <span ng-show="category.parent">{{category.parent.name}} / </span>
             {{category.name}}
         </h2>
-        <div class="actions">
-            <div class="btn-group">
-                <a class="btn dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-share-alt"></i>
-                    Sort Products
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a ng-click="sortBy('name')">Name</a></li>
-                    <li><a ng-click="sortBy('price')">Price</a></li>
-                </ul>
-            </div>
-        </div>
+        <ul class="actions unstyled">
+            <li>
+                <a>Sort Products</a>
+                <div class="dropdown">
+                    <a ng-click="sortBy('name')">Sort by Name</a>
+                    <a ng-click="sortBy('price')">Sort by Price</a>
+                </div>
+            </li>
+        </ul>
     </div>
 
     <div class="container" ng-repeat="product in products">

@@ -216,19 +216,50 @@ section.content {
       font-weight: 100;
       font-style: normal;
       color: #999; }
-    section.content div.title div.actions {
+    section.content div.title ul.actions {
       position: absolute;
-      bottom: 16px; }
-      section.content div.title div.actions .btn-group .btn i {
-        float: left;
-        margin: 3px 5px 0 0; }
-      section.content div.title div.actions .btn-group .caret {
-        margin-left: 5px; }
-      section.content div.title div.actions .btn-group a {
-        font-size: 12px;
-        letter-spacing: 0; }
-      section.content div.title div.actions .btn-group li {
-        text-transform: capitalize; }
+      bottom: -11px;
+      width: 100%;
+      list-style-type: none;
+      left: 0;
+      border-top: 1px solid #efefef; }
+      section.content div.title ul.actions li {
+        border-right: 1px solid #efefef;
+        float: left; }
+        section.content div.title ul.actions li:hover {
+          background-color: #efefef; }
+          section.content div.title ul.actions li:hover div.dropdown {
+            display: block; }
+          section.content div.title ul.actions li:hover a {
+            text-decoration: none;
+            color: black; }
+        section.content div.title ul.actions li a {
+          text-transform: uppercase;
+          font-size: 12px;
+          font-family: "Lato", sans-serif;
+          letter-spacing: .125em;
+          font-weight: normal;
+          height: 33px;
+          float: left;
+          line-height: 33px;
+          padding: 0 15px;
+          cursor: pointer; }
+        section.content div.title ul.actions li div.dropdown {
+          display: none;
+          background-color: #efefef;
+          position: absolute;
+          top: 33px;
+          width: 300px;
+          padding: 15px;
+          box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.15); }
+          section.content div.title ul.actions li div.dropdown a {
+            color: #565656;
+            text-transform: none;
+            clear: both;
+            user-select: none;
+            -webkit-user-select: none; }
+            section.content div.title ul.actions li div.dropdown a:hover {
+              color: black; }
 
 section.products div.container {
   float: left;
