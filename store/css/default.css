@@ -77,12 +77,10 @@ section.sidebar {
     float: left; }
     section.sidebar ul.navigation.sub-navigation {
       left: 100%; }
-    section.sidebar ul.navigation li {
-      height: 45px;
-      line-height: 45px;
-      padding-left: 45px;
+    section.sidebar ul.navigation li.item {
+      padding: 15px 0 15px 45px;
       transition: 0.25s all;
-      background-position: 15px center;
+      background-position: 15px 18px;
       background-repeat: no-repeat;
       cursor: pointer;
       position: relative;
@@ -91,25 +89,40 @@ section.sidebar {
       text-overflow: ellipsis;
       color: #a9a9a9;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
-      section.sidebar ul.navigation li:hover {
+      section.sidebar ul.navigation li.item:hover {
         background-color: rgba(0, 0, 0, 0.02); }
-        section.sidebar ul.navigation li:hover a {
+        section.sidebar ul.navigation li.item:hover a {
           color: black; }
-      section.sidebar ul.navigation li.home {
+      section.sidebar ul.navigation li.item.home {
         background-image: url("./../images/book_alt2_16x14.png"); }
-      section.sidebar ul.navigation li.basket {
+      section.sidebar ul.navigation li.item.basket {
         background-image: url("./../images/heart_fill_16x14.png"); }
-      section.sidebar ul.navigation li.category {
+      section.sidebar ul.navigation li.item.category {
         background-image: url("./../images/tag_fill_16x16.png"); }
-      section.sidebar ul.navigation li.back {
+      section.sidebar ul.navigation li.item.back {
         background-image: url("./../images/arrow_left_16x16.png"); }
-      section.sidebar ul.navigation li.loading {
+      section.sidebar ul.navigation li.item.loading {
         background: transparent url("./../images/loading.gif") no-repeat 10px center;
         font-size: 11px;
         color: rgba(0, 0, 0, 0.25);
         text-transform: uppercase;
         padding-left: 35px; }
-      section.sidebar ul.navigation li a {
+      section.sidebar ul.navigation li.item ul.basket-items {
+        clear: both;
+        overflow: hidden;
+        float: left; }
+        section.sidebar ul.navigation li.item ul.basket-items li {
+          font-size: 11px;
+          color: rgba(0, 0, 0, 0.65);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 5px 0;
+          margin-top: 5px; }
+          section.sidebar ul.navigation li.item ul.basket-items li img {
+            width: 20px;
+            margin-right: 8px; }
+      section.sidebar ul.navigation li.item a {
         font-family: "Lato", sans-serif;
         letter-spacing: .125em;
         font-weight: normal;
@@ -118,9 +131,9 @@ section.sidebar {
         color: black;
         float: left;
         width: 100%; }
-        section.sidebar ul.navigation li a:hover {
+        section.sidebar ul.navigation li.item a:hover {
           text-decoration: none; }
-      section.sidebar ul.navigation li var.count {
+      section.sidebar ul.navigation li.item var.count {
         position: absolute;
         top: 0;
         right: 0;

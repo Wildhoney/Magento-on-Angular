@@ -54,13 +54,14 @@
                     <nav ng-class="{secondTier: (position == 1)}">
 
                         <ul class="navigation unstyled">
-                            <li class="home"><a>Home</a></li>
-                            <li class="basket" ng-controller="BasketController">
+                            <li class="home item"><a>Home</a></li>
+                            <li class="basket item" ng-controller="BasketController">
                                 <a>Basket</a>
                                 <var class="count">{{count()}}</var>
+                                <div ng-include="'views/partials/basket.html'"></div>
                             </li>
-                            <li class="loading" ng-show="!categories.length">Loading Categories...</li>
-                            <li class="category"
+                            <li class="loading item" ng-show="!categories.length">Loading Categories...</li>
+                            <li class="category item"
                                 ng-repeat="category in categories | orderBy: 'name'"
                                 ng-click="gotoCategory(category)">
                                 <a href="#!/category/{{category.ident}}">{{category.name}}</a>

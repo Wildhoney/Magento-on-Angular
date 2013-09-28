@@ -83,12 +83,10 @@ section.sidebar {
       left: 100%;
     }
 
-    li {
-      height: 45px;
-      line-height: 45px;
-      padding-left: 45px;
+    li.item {
+      padding: 15px 0 15px 45px;
       transition: 0.25s all;
-      background-position: 15px center;
+      background-position: 15px 18px;
       background-repeat: no-repeat;
       cursor: pointer;
       position: relative;
@@ -128,6 +126,27 @@ section.sidebar {
         color: rgba(0, 0, 0, .25);
         text-transform: uppercase;
         padding-left: 35px;
+      }
+
+      ul.basket-items {
+        clear: both;
+        overflow: hidden;
+        float: left;
+
+        li {
+          font-size: 11px;
+          color: rgba(0, 0, 0, .65);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 5px 0;
+          margin-top: 5px;
+
+          img {
+            width: 20px;
+            margin-right: 8px;
+          }
+        }
       }
 
       a {
