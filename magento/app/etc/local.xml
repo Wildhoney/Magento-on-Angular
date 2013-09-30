@@ -28,10 +28,10 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Wed, 07 Aug 2013 20:59:17 +0000]]></date>
+            <date><![CDATA[Mon, 30 Sep 2013 18:40:54 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[bob2]]></key>
+            <key><![CDATA[enc]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
@@ -52,7 +52,7 @@
                 </connection>
             </default_setup>
         </resources>
-        <session_save><![CDATA[db]]></session_save>
+        <session_save><![CDATA[files]]></session_save>
     </global>
     <admin>
         <routers>

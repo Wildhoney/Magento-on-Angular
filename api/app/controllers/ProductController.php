@@ -18,7 +18,23 @@ class ProductController extends MageController {
             'gallery'       => $product->getMediaGalleryImages()
         );
 
+        $childProducts = Mage::getModel('catalog/product_type_configurable')
+                            ->getUsedProducts(null, $product);
+
+//        foreach ($childProducts as $childProduct) {
+//            $model['children'][] = array(
+//                'id'        => $childProduct->getId(),
+//                'sku'       => $childProduct->getSku(),
+//                'name'      => $childProduct->getName(),
+//                'colour'    =>
+//            );
+//        }
+
         return Response::json($model);
+
+    }
+
+    public function getShoe() {
 
     }
 
