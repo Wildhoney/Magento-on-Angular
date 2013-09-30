@@ -2,6 +2,7 @@
 /.DS_Store
 /.gitignore
 /store/sass/.sass-cache
+/.sass-cache
 /.grunt
 /bower_components
 /node_modules
