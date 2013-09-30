@@ -70,10 +70,10 @@
                         </ul>
 
                         <ul class="navigation unstyled">
-                            <li class="back" ng-click="gotoCategory()">
+                            <li class="back item" ng-click="gotoCategory()">
                                 <a href="#!/">Back</a>
                             </li>
-                            <li class="category"
+                            <li class="category item"
                                 ng-repeat="subCategory in selected.subCategories | orderBy: 'name'"
                                 ng-click="gotoCategory(subCategory)">
                                 <a href="#!/category/{{selected.category.ident}}/{{subCategory.ident}}">
