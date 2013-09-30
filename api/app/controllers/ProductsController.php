@@ -18,10 +18,6 @@ class ProductsController extends MageController {
             $categoryId = (int) $product->getCategoryIds()[0];
             $type       = Mage::getModel('catalog/category')->load($categoryId);
 
-//            if ($product->getName() !== 'Anashria Womens Premier Leather Sandal') {
-//                continue;
-//            }
-
             foreach ($product->getCategoryIds() as $id) {
 
                 array_push($ids, (int) $id);
@@ -52,25 +48,13 @@ class ProductsController extends MageController {
                 'manufacturer'      => (int) $product->getData('manufacturer'),
                 'categories'        => array_unique($ids),
                 'type'              => $type,
-                'specialisation'    => $this->_hasSpecialisationRoute()
+                'specialisation'    => $product->getData('specialisation')
             );
 
         }
 
         return Response::json($collection);
 
-    }
-
-    private function _hasSpecialisationRoute() {
-
-//        $inflection = new Illuminate\Support\Pluralizer();
-//        die(var_dump($inflection->singular('shoes')));
-
-//        foreach (Route::getRoutes() as $route) {
-//            var_dump($route->getAction());
-////            die();
-//        }
-//        die(var_dump(Route::getRoutebyname("my_route_name")));
     }
 
 }
