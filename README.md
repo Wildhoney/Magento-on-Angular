@@ -21,7 +21,7 @@ Mao's Events (Hooks)
 
 I've attempted to standardise the events that are fired within the application.
 
-<h3><code>CategoriesController</code></h3>
+<h5>CategoriesController</h5>
 <table>
     <tr>
         <td>Broadcasts</td>
@@ -30,7 +30,7 @@ I've attempted to standardise the events that are fired within the application.
     </tr>
 </table>
 
-<h3><code>ProductsController</code></h3>
+<h5>ProductsController</h5>
 <table>
     <tr>
         <td>Broadcasts</td>
