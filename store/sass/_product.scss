@@ -7,9 +7,6 @@ section.product {
 
     div.pictures {
       text-align: center;
-      //height: 200px;
-      //line-height: 200px;
-      //width: 200px;
 
       img {
         margin: 20px auto;
@@ -34,6 +31,24 @@ section.product {
       line-height: 18px;
       padding: 10px 0;
     }
+
+    div.children {
+      margin-bottom: 25px;
+
+      label {
+        float: left;
+        overflow: hidden;
+        margin: 2px 8px 0 0;
+        font-weight: bold;
+      }
+    }
+
+    ul.actions {
+      button.add-to-basket {
+        font-weight: bold;
+      }
+    }
+
   }
 
 }

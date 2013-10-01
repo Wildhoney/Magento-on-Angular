@@ -341,3 +341,12 @@ section.product div.right {
     font-size: 12px;
     line-height: 18px;
     padding: 10px 0; }
+  section.product div.right div.children {
+    margin-bottom: 25px; }
+    section.product div.right div.children label {
+      float: left;
+      overflow: hidden;
+      margin: 2px 8px 0 0;
+      font-weight: bold; }
+  section.product div.right ul.actions button.add-to-basket {
+    font-weight: bold; }
