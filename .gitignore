@@ -7,4 +7,5 @@
 /bower_components
 /node_modules
 /magento/var/cache/*
+/magento/var/session/*
 /magento/media/catalog/product/cache/*
