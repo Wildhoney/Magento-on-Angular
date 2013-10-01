@@ -33,7 +33,12 @@ class MageController extends BaseController {
      */
     protected function _getProduct($productId) {
 
-        $product = Mage::getModel('catalog/product')->load((int) $productId);
+        $product    = Mage::getModel('catalog/product')->load((int) $productId);
+        $products   = array();
+
+        if ($product->getTypeId() === 'configurable') {
+            $products = $this->_getProductChildren($productId);
+        }
 
         return array(
             'id'            => $product->getId(),
@@ -44,7 +49,8 @@ class MageController extends BaseController {
             'description'   => trim($product->getDescription()),
             'largeImage'    => $product->getSmallImageUrl(),
             'similar'       => $product->getRelatedProductIds(),
-            'gallery'       => $product->getMediaGalleryImages()
+            'gallery'       => $product->getMediaGalleryImages(),
+            'products'      => $products
         );
 
     }
@@ -57,8 +63,35 @@ class MageController extends BaseController {
      */
     protected function _getProductChildren($productId) {
 
-        $product = Mage::getModel('catalog/product')->load((int) $productId);
-        return Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $product);
+        $product    = Mage::getModel('catalog/product')->load((int) $productId);
+        $children   = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $product);
+        $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+        $products   = array('label' => null, 'collection' => array());
+
+        foreach ($children as $child) {
+
+            foreach ($attributes as $attribute) {
+
+                $products['label'] = $attribute['store_label'];
+
+                foreach ($attribute['values'] as $value) {
+
+                    $childValue = $child->getData($attribute['attribute_code']);
+
+                    if ($value['value_index'] == $childValue) {
+                        $products['collection'][] = array(
+                            'id'    => (int) $child->getId(),
+                            'label' => $value['store_label']
+                        );
+                    }
+
+                }
+
+            }
+
+        }
+
+        return $products;
 
     }
 
