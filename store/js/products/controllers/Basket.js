@@ -40,7 +40,6 @@
                             // it to the list.
                             $request.getContent('product/' + product.id).then(function(model) {
 
-                                console.log(model);
                                 $scope.products.push(merge(model));
                                 $productsService.loadProducts([model]);
 
