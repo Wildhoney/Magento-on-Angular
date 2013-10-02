@@ -28,10 +28,28 @@
                     response.forEach(function(product) {
 
                         // Iterate over each item in the basket, obtaining their model.
-                        var model       = $productsService.pluck(product.id, 'id'),
-                            mergedModel = _.extend(_.clone(model), { quantity: product.quantity });
+                        var model = $productsService.pluck(product.id, 'id'),
+                            merge = function merge(model) {
+                                return _.extend(_.clone(model), { quantity: product.quantity });
+                            };
 
-                        $scope.products.push(mergedModel);
+                        if (!model) {
+
+                            // If we don't currently have the model then it must be a simple product
+                            // that is a child of a configurable, so we'll load it and then add
+                            // it to the list.
+                            $request.getContent('product/' + product.id).then(function(model) {
+
+                                console.log(model);
+                                $scope.products.push(merge(model));
+                                $productsService.loadProducts([model]);
+
+                            });
+
+                            return;
+                        }
+
+                        $scope.products.push(merge(model));
                     });
 
                 });

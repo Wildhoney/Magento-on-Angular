@@ -21,6 +21,14 @@
             $service.products = [];
 
             /**
+             * @property childProducts
+             * Updated when a configurable model is loaded that has child products, which
+             * aren't part of the Crossfilter, but need to be accessible when plucking (`pluck`).
+             * @type {Array}
+             */
+            $service.childProducts = [];
+
+            /**
              * @method hasLoaded
              * @return {Boolean}
              */
@@ -54,6 +62,25 @@
             };
 
             /**
+             * @method loadProducts
+             * @param models {Array}
+             * @return {void}
+             */
+            $service.loadProducts = function loadProducts(models) {
+
+                // Iterate over each model in the collection.
+                for (var index = 0, len = models.length; index < len; index++) {
+
+                    var model = models[index];
+
+                    // Simple identity map with the `id` as the hash key.
+                    $service.childProducts[model.id] = model;
+
+                }
+
+            };
+
+            /**
              * @method set
              * @param property {Object}
              * @param category {Object}
@@ -74,7 +101,22 @@
              * @return {Object|Array}
              */
             $service.pluck = function pluck(value, property) {
+
+                // todo: Support all properties for the searching of `childProducts`.
+                if (property === 'id') {
+
+                    if ($service.childProducts[value]) {
+
+                        // If we're using the `id` to find products then we can attempt
+                        // to look into the `childProducts` first.
+                        return $service.childProducts[value];
+
+                    }
+
+                }
+
                 return $crossfilter.pluck({ property: property || 'id', value: value});
+
             };
 
             return $service;

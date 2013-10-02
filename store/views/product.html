@@ -28,13 +28,17 @@
                 <label>{{product.products.label}}:</label>
 
                 <div class="btn-group" nag-show="product.products.length">
-                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown">
                         <span ng-hide="selectedProduct">Please choose an option&hellip;</span>
-                        <span ng-show="selectedProduct">{{selectProduct.label}}</span>
+                        <span ng-show="selectedProduct">{{selectedProduct.meta.label}}</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li ng-repeat="product in product.products.collection | orderBy:'label'"><a>{{product.label}}</a></li>
+                        <li
+                            ng-click="selectProduct(product)"
+                            ng-repeat="product in product.products.collection | orderBy:'label'">
+                            <a>{{product.label}}</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -42,7 +46,7 @@
 
             <ul class="unstyled actions">
                 <li class="basket">
-                    <button ng-disabled="!selectedProduct" class="btn btn-small add-to-basket" ng-click="addBasket(product)">
+                    <button ng-disabled="!selectedProduct" class="btn btn-small add-to-basket" ng-click="addBasket(selectedProduct.model || product)">
                         Add to Basket
                     </button>
                 </li>

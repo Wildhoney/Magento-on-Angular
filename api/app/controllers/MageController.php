@@ -35,10 +35,21 @@ class MageController extends BaseController {
 
         $product    = Mage::getModel('catalog/product')->load((int) $productId);
         $products   = array();
+        $models     = array();
 
         if ($product->getTypeId() === 'configurable') {
-            $products = $this->_getProductChildren($productId);
+
+            $products   = $this->_getProductChildren($productId);
+            $productIds = array_flatten(array_map(function($product) {
+                return $product['id'];
+            }, $products['collection']));
+
+            foreach ($productIds as $productId) {
+                array_push($models, $this->_getProduct($productId));
+            }
+
         }
+
 
         return array(
             'id'            => $product->getId(),
@@ -50,7 +61,8 @@ class MageController extends BaseController {
             'largeImage'    => $product->getSmallImageUrl(),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages(),
-            'products'      => $products
+            'products'      => $products,
+            'models'        => $models
         );
 
     }
