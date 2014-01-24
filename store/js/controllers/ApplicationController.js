@@ -5,7 +5,7 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.controller('ApplicationController', ['$scope', function applicationController() {
+    $mao.controller('ApplicationController', ['$scope', function applicationController($scope) {
 
     }]);
 
