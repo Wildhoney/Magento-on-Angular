@@ -1,111 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Mao</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="js/Application.js"></script>
+</head>
+<body ng-app="maoApp">
 
-    <head>
-
-        <title>Mao</title>
-        <base href="." />
-
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/default.css" />
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.css" />
-        <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
-
-        <script type="text/javascript" src="./../bower_components/jquery/jquery.js"></script>
-        <script type="text/javascript" src="./../bower_components/angular-unstable/angular.min.js"></script>
-        <script type="text/javascript" src="./../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script type="text/javascript" src="./../bower_components/underscore/underscore.js"></script>
-        <script type="text/javascript" src="./../bower_components/jquery-ui/ui/jquery-ui.js"></script>
-        <script type="text/javascript" src="./../bower_components/crossfilter/crossfilter.js"></script>
-
-        <script type="text/javascript" src="js/Application.js"></script>
-        <script type="text/javascript" src="js/Requests.js"></script>
-
-        <script type="text/javascript" src="js/Categories/Controller.js"></script>
-
-        <script type="text/javascript" src="js/Products/controllers/Product.js"></script>
-        <script type="text/javascript" src="js/Products/controllers/Products.js"></script>
-        <script type="text/javascript" src="js/Products/controllers/Basket.js"></script>
-        <script type="text/javascript" src="js/Products/Service.js"></script>
-        <script type="text/javascript" src="js/Products/helpers/Crossfilter.js"></script>
-
-
-    </head>
-
-    <body ng-app="mao">
-
-        <section class="wrapper lostFocus">
-
-            <section class="sidebar" ng-controller="CategoriesController">
-
-                <header>Mao.</header>
-
-                <div class="profile">
-                    <img src="https://1.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&s=45" />
-                    <ul class="unstyled">
-                        <li class="username">Wildhoney</li>
-                        <li class="profile">Profile</li>
-                        <li class="sign-out">Sign Out</li>
-                    </ul>
-                </div>
-
-                <div class="nav-wrapper">
-
-                    <nav ng-class="{secondTier: (position == 1)}">
-
-                        <ul class="navigation unstyled">
-                            <li class="home item"><a>Home</a></li>
-                            <li class="basket item" ng-controller="BasketController">
-                                <a>Basket</a>
-                                <var class="count">{{count()}}</var>
-                                <div ng-include="'views/partials/basket.html'"></div>
-                            </li>
-                            <li class="loading item" ng-show="!categories.length">Loading Categories...</li>
-                            <li class="category item"
-                                ng-repeat="category in categories | orderBy: 'name'"
-                                ng-click="gotoCategory(category)">
-                                <a href="#!/category/{{category.ident}}">{{category.name}}</a>
-                                <var class="count">{{category.productCount | number: 0}}</var>
-                            </li>
-                        </ul>
-
-                        <ul class="navigation unstyled">
-                            <li class="back item" ng-click="gotoCategory()">
-                                <a href="#!/">Back</a>
-                            </li>
-                            <li class="category item"
-                                ng-repeat="subCategory in selected.subCategories | orderBy: 'name'"
-                                ng-click="gotoCategory(subCategory)">
-                                <a href="#!/category/{{selected.category.ident}}/{{subCategory.ident}}">
-                                    {{subCategory.name}}
-                                </a>
-                                <var class="count">{{subCategory.productCount | number: 0}}</var>
-                            </li>
-                        </ul>
-
-                    </nav>
-
-                </div>
-
-                <ul class="filters unstyled">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-
-            </section>
-
-            <section class="content" ng-view>
-
-            </section>
-
-        </section>
-
-        <!--<section class="product" ng-include="'views/product.html'">-->
-
-        <!--</section>-->
-
-    </body>
-
+</body>
 </html>
