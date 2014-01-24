@@ -16,6 +16,8 @@
   "dependencies": {
     "underscore": "~1.5.2",
     "angular": "~1.0.8",
-    "socket.io-client": "~0.9.16"
+    "socket.io-client": "~0.9.16",
+    "skeleton": "*",
+    "hammerjs": "~1.0.6"
   }
 }
