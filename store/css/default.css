@@ -4,3 +4,24 @@
     margin: 0;
     padding: 0;
 }
+
+header {
+    background-color: #26202B;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+    height: 100px;
+    line-height: 100px;
+}
+
+header h1 span {
+    color: #847AD1;
+    font-weight: 400;
+}
