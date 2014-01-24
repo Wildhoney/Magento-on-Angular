@@ -16,6 +16,6 @@
   "dependencies": {
     "underscore": "~1.5.2",
     "angular": "~1.0.8",
-    "angular-unstable": "~1.1.5"
+    "socket.io-client": "~0.9.16"
   }
 }
