@@ -15,12 +15,11 @@ var url = 'http://localhost/Magento-on-Angular/api/public/products';
 io.sockets.on('connection', function (socket) {
 
     // Bootstrap Snapshot passing in the reference for the socket as a dependency.
-    var $snapshot = new Snapshot('default').bootstrap(socket).useDelta(false);
+    var $snapshot = new Snapshot('products').bootstrap(socket).useDelta(true);
 
     // Configure the defaults.
     $snapshot.setPerPage(Infinity);
     $snapshot.setSortBy('word', 'ascending');
-//    $snapshot.setRanges(['id']);
 
     request(url, function (error, response, body) {
         var json = JSON.parse(body);
