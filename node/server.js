@@ -18,8 +18,7 @@ io.sockets.on('connection', function (socket) {
     var $snapshot = new Snapshot('products').bootstrap(socket).useDelta(true);
 
     // Configure the defaults.
-    $snapshot.setPerPage(Infinity);
-    $snapshot.setSortBy('word', 'ascending');
+    $snapshot.setPerPage(10);
 
     request(url, function (error, response, body) {
         var json = JSON.parse(body);
