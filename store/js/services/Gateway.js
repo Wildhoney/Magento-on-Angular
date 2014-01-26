@@ -11,10 +11,16 @@
 
         /**
          * @property _productsCache
-         * @type {Array}
+         * @type {Object}
          * @private
          */
-        service._productsCache = [];
+        service._productsCache = {};
+
+        /**
+         * @property primaryKey
+         * @type {String}
+         */
+        service.primaryKey = 'id';
 
         /**
          * @method resolve
@@ -25,22 +31,22 @@
 
             var models = [];
 
-            _.forEach(products, function forEach(pitch) {
+            _.forEach(products, function forEach(product) {
 
-                if (!_.isNumber(pitch)) {
+                if (!_.isNumber(product)) {
 
                     // Find the primary key of the model.
-                    var primaryKey = pitch[service.primaryKey];
+                    var primaryKey = product[service.primaryKey];
 
                     // Store the product for retrieval next time.
-                    service._productsCache[primaryKey] = pitch;
-                    models.push(pitch);
+                    service._productsCache[primaryKey] = product;
+                    models.push(product);
                     return;
 
                 }
 
                 // Otherwise we've encountered a delta model and we just need to resolve it.
-                models.push(service._productsCache[pitch]);
+                models.push(service._productsCache[product]);
 
             });
 

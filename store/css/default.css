@@ -7,7 +7,7 @@
 
 header {
     background-color: #26202B;
-    height: 100px;
+    height: 50px;
     width: 100%;
     text-align: center;
 }
@@ -16,9 +16,9 @@ header h1 {
     color: white;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 100;
-    font-size: 24px;
-    height: 100px;
-    line-height: 100px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
 }
 
 header h1 span {

@@ -5,6 +5,22 @@ section.products {
     text-align: center;
 }
 
+section.products div.paging {
+    font-size: 14px;
+    font-family: "Source Sans Pro", sans-serif;
+    text-transform: uppercase;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+section.products div.paging a {
+    cursor: pointer;
+}
+
 section.products ul li {
     width: 20%;
     box-sizing: border-box;
@@ -12,6 +28,7 @@ section.products ul li {
     text-align: center;
     padding: 10px;
     float: left;
+    cursor: pointer;
 }
 
 section.products ul li img {
