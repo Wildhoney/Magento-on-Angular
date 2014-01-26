@@ -1,5 +1,5 @@
 section.products {
-    width: 80%;
+    width: 75%;
     overflow: hidden;
     margin: 20px auto;
     text-align: center;
@@ -21,10 +21,15 @@ section.products div.paging a {
     cursor: pointer;
 }
 
+section.products ul {
+    margin: 50px auto;
+    overflow: hidden;
+}
+
 section.products ul li {
     width: 20%;
     box-sizing: border-box;
-    height: 220px;
+    min-height: 300px;
     text-align: center;
     padding: 10px;
     float: left;

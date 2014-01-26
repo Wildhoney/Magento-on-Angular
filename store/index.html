@@ -12,6 +12,7 @@
     <script type="text/javascript" src="js/Application.js"></script>
     <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
+    <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
 </head>
@@ -21,7 +22,12 @@
         <h1>Welcome to <span>Mao</span>.</h1>
     </header>
 
-    <section class="products" ng-controller="ProductsController">
+    <section class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+
+
+    </section>
+
+    <section class="products" ng-controller="ProductsController" ng-class="{away: filtersOpen}">
 
         <div class="paging">
             You're viewing page {{statistics.pages.current}} of {{statistics.pages.total}}

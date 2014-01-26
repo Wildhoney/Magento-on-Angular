@@ -1,0 +1,17 @@
+section.filters {
+    height: 100%;
+    float: left;
+    z-index: 2;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(0, 0, 0, .15);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, .25);
+    width: 5%;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+section.filters.open {
+    width: 25%;
+}

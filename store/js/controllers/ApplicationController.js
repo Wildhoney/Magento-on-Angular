@@ -9,7 +9,13 @@
 
     function applicationController($scope) {
 
-
+        /**
+         * @property filtersOpen
+         * @type {Boolean}
+         * @default false
+         */
+        $scope.filtersOpen = false;
+        
     }]);
 
 })(window.maoApp);
