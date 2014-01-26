@@ -21,11 +21,29 @@
          */
         $scope.statistics = {};
 
+        /**
+         * @property maxPrice
+         * @type {Number}
+         */
+        $scope.maxPrice = 0;
+
         // When we have the products loaded from the Node.js middleware.
         socket.node.on('snapshot/products/contentUpdated', function contentUpdated(models, statistics) {
-            $scope.statistics = statistics;
-            $scope.products = gateway.resolve(models);
-            $scope.$apply();
+
+            $scope.$apply(function() {
+
+                $scope.statistics = statistics;
+                $scope.products = gateway.resolve(models);
+
+                if ($scope.maxPrice === 0) {
+
+                    // Update with the overall maximum price.
+                    $scope.maxPrice = $scope.statistics.ranges.price.max;
+
+                }
+
+            });
+
         });
 
         /**

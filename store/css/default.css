@@ -15,6 +15,7 @@ header {
     background-color: #26202B;
     height: 50px;
     width: 100%;
+    border-bottom: 5px solid #d3d3d3;
     text-align: center;
 }
 

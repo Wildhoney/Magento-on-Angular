@@ -27,7 +27,12 @@
          * @param max {Number}
          * @return {void}
          */
-        $scope.setPriceRange = gateway.setPriceRange;
+        $scope.setPriceRange = function setPriceRange(min, max) {
+
+            console.log(max);
+//            gateway.setPriceRange(min, max);
+
+        };
 
         /**
          * @method setName
