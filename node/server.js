@@ -18,7 +18,7 @@ io.sockets.on('connection', function (socket) {
     var $snapshot = new Snapshot('products').bootstrap(socket).useDelta(true);
 
     // Configure the defaults.
-    $snapshot.setPerPage(10);
+    $snapshot.setPerPage(12);
 
     request(url, function (error, response, body) {
         var json = JSON.parse(body);

@@ -1,0 +1,13 @@
+section.products {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px auto;
+    text-align: center;
+}
+
+section.products ul li {
+    text-align: left;
+    width: 33.33%;
+    /*height: 265px;*/
+    float: left;
+}

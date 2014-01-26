@@ -24,6 +24,9 @@
     <section class="products" ng-controller="ProductsController">
 
         <ul>
+            <li ng-repeat="product in products">
+                <img ng-src="{{product.image}}" />
+            </li>
         </ul>
 
     </section>

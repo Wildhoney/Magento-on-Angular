@@ -43,7 +43,7 @@ class ProductsController extends MageController {
                 'name'              => trim($product->getName()),
                 'ident'             => trim($this->_createIdent($product->getName())),
                 'price'             => (float) $product->getPrice(),
-                'image'             => $product->getThumbnailUrl(),
+                'image'             => $product->getImageUrl(),
                 'colour'            => (int) $product->getData('color'),
                 'manufacturer'      => (int) $product->getData('manufacturer'),
                 'categories'        => array_unique($ids),
