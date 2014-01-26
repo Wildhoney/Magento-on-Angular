@@ -22,28 +22,50 @@
         <h1>Welcome to <span>Mao</span>.</h1>
     </header>
 
-    <section class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+    <section ng-controller="ProductsController">
 
+        <section class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
-    </section>
+            <div class="filter price-range">
+                <h2>Price</h2>
+                <p class="description">Define the minimum and maximum price range.</p>
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <label>Min:</label>
+                            <input type="range" ng-model="price.minimum" ng-change="setPriceRange(price.minimum, price.maximum)" />
+                            <span>&pound;{{statistics.ranges.price.min | number: 2}}</span>
+                        </li>
+                        <li>
+                            <label>Max:</label>
+                            <input type="range" ng-model="price.maximum" ng-change="setPriceRange(price.minimum, price.maximum)" />
+                            <span>&pound;{{statistics.ranges.price.max | number: 2}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-    <section class="products" ng-controller="ProductsController" ng-class="{away: filtersOpen}">
+        </section>
 
-        <div class="paging">
-            You're viewing page {{statistics.pages.current}} of {{statistics.pages.total}}
-            &ndash;
-            <a ng-click="previousPage()">previous page</a> or <a ng-click="nextPage()">next page</a>.
-        </div>
+        <section class="products" ng-class="{away: filtersOpen}">
 
-        <ul>
-            <li ng-repeat="product in products">
+            <div class="paging">
+                You're viewing page {{statistics.pages.current}} of {{statistics.pages.total}}
+                &ndash;
+                <a ng-click="previousPage()">previous page</a> or <a ng-click="nextPage()">next page</a>.
+            </div>
 
-                <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
-                <h2><a href="#">{{product.name}}</a></h2>
-                <div class="price">&pound;{{product.price | number: 2}}</div>
+            <ul>
+                <li ng-repeat="product in products">
 
-            </li>
-        </ul>
+                    <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
+                    <h2><a href="#">{{product.name}}</a></h2>
+                    <div class="price">&pound;{{product.price | number: 2}}</div>
+
+                </li>
+            </ul>
+
+        </section>
 
     </section>
 

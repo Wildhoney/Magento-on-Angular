@@ -1,8 +1,22 @@
 section.products {
     width: 75%;
     overflow: hidden;
-    margin: 20px auto;
+    margin: auto;
+    padding-top: 20px;
     text-align: center;
+    transition: all 1.25s;
+    -o-transition: all 1.25s;
+    -ms-transition: all 1.25s;
+    -moz-transition: all 1.25s;
+    -webkit-transition: all 1.25s;
+}
+
+section.products.away {
+    filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
 
 section.products div.paging {

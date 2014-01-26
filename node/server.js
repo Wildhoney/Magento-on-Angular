@@ -20,6 +20,7 @@ io.sockets.on('connection', function (socket) {
     // Configure the defaults.
     $snapshot.setPageNumber(1);
     $snapshot.setPerPage(15);
+    $snapshot.setRanges(['price']);
 
     request(url, function (error, response, body) {
         var json = JSON.parse(body);

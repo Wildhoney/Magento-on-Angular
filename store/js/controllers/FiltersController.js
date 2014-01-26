@@ -5,9 +5,23 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.controller('FiltersController', ['$scope',
+    $mao.controller('FiltersController', ['$scope', 'gateway',
 
-    function filtersController($scope) {
+    function filtersController($scope, gateway) {
+
+        /**
+         * @property price
+         * @type {Object}
+         */
+        $scope.price = { minimum: 0, maximum: 0 };
+
+        /**
+         * @method setPriceRange
+         * @param min {Number}
+         * @param max {Number}
+         * @return {void}
+         */
+        $scope.setPriceRange = gateway.setPriceRange;
 
         /**
          * @method open

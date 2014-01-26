@@ -5,7 +5,7 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.service('gateway', [function gatewayService() {
+    $mao.service('gateway', ['socket', function gatewayService(socket) {
 
         var service = {};
 
@@ -52,6 +52,16 @@
 
             return models;
 
+        };
+
+        /**
+         * @method setPriceRange
+         * @param min {Number}
+         * @param max {Number}
+         * @return {void}
+         */
+        service.setPriceRange = function setPriceRange(min, max) {
+            socket.node.emit('snapshot/products/rangeFilter', 'price', [min, max]);
         };
 
         return service;
