@@ -6,8 +6,32 @@ section.products {
 }
 
 section.products ul li {
-    text-align: left;
-    width: 33.33%;
-    /*height: 265px;*/
+    width: 20%;
+    box-sizing: border-box;
+    height: 220px;
+    text-align: center;
+    padding: 10px;
     float: left;
+}
+
+section.products ul li img {
+    max-width: 100%;
+}
+
+section.products ul li h2 {
+    line-height: 10px;
+}
+
+section.products ul li h2 a {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 12px;
+    color: #847AD1;
+}
+
+section.products ul li h2 a:hover {
+    color: black;
+}
+
+section.products ul li div.price {
+    font-weight: 800;
 }

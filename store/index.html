@@ -25,7 +25,11 @@
 
         <ul>
             <li ng-repeat="product in products">
-                <img ng-src="{{product.image}}" />
+
+                <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
+                <h2><a href="#">{{product.name}}</a></h2>
+                <div class="price">&pound;{{product.price | number: 2}}</div>
+
             </li>
         </ul>
 
