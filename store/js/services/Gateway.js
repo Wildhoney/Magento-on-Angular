@@ -64,6 +64,15 @@
             socket.node.emit('snapshot/products/rangeFilter', 'price', [min, max]);
         };
 
+        /**
+         * @method setName
+         * @param text {String}
+         * @return {void}
+         */
+        service.setName = function setName(text) {
+            socket.node.emit('snapshot/products/fuzzyFilter', 'name', text);
+        };
+
         return service;
 
     }]);

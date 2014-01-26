@@ -51,7 +51,11 @@ section.filters div.filter p.description {
 }
 
 section.filters div.filter div.inner {
-    padding: 0 10px 15px 10px;
+    padding: 0 10px;
+}
+
+section.filters div.filter.product-name p.description {
+    margin-bottom: 5px;
 }
 
 section.filters div.filter.price-range ul li {

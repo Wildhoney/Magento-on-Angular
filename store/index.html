@@ -26,6 +26,14 @@
 
         <section class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
+            <div class="filter product-name">
+                <h2>Name</h2>
+                <p class="description">Search for a product by its name.</p>
+                <div class="inner">
+                    <input type="text" ng-model="name" placeholder="'red coat', 'blue football', etc..." ng-change="setName(name)" />
+                </div>
+            </div>
+
             <div class="filter price-range">
                 <h2>Price</h2>
                 <p class="description">Define the minimum and maximum price range.</p>

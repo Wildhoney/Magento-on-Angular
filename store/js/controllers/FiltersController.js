@@ -16,12 +16,25 @@
         $scope.price = { minimum: 0, maximum: 0 };
 
         /**
+         * @property name
+         * @type {String}
+         */
+        $scope.name = '';
+
+        /**
          * @method setPriceRange
          * @param min {Number}
          * @param max {Number}
          * @return {void}
          */
         $scope.setPriceRange = gateway.setPriceRange;
+
+        /**
+         * @method setName
+         * @param text {String}
+         * @return {void}
+         */
+        $scope.setName = gateway.setName;
 
         /**
          * @method open
