@@ -18,39 +18,6 @@ All unit tests for both JavaScript and PHP can be run from the terminal: `grunt 
  * PHP specific unit tests are available with the `phpunit` command from the `/api/` directory;
  * JavaScript specific unit tests are available via the URL `/store/tests/`;
 
-Mao's Events (Hooks)
----------
-
-I've attempted to standardise the events that are fired within the application.
-
-<h5>CategoriesController</h5>
-<table>
-    <tr>
-        <td>Broadcasts</td>
-        <td><code>mao/categories/loaded</code></td>
-        <td>All categories have been loaded</td>
-    </tr>
-</table>
-
-<h5>ProductsController</h5>
-<table>
-    <tr>
-        <td>Broadcasts</td>
-        <td><code>mao/products/loaded</code></td>
-        <td>All products have been loaded</td>
-    </tr>
-    <tr>
-        <td>Listens</td>
-        <td><code>mao/categories/set</code></td>
-        <td>Updates products when the category changes</td>
-    </tr>
-    <tr>
-        <td>Listens</td>
-        <td><code>mao/categories/unset</code></td>
-        <td>Updates when no category constraints are applied</td>
-    </tr>
-</table>
-
 Laravel API
 ---------
 

@@ -1,7 +1,7 @@
 (function($mao) {
 
     "use strict";
-    
+
     /**
      * @service Socket
      * @author Adam Timberlake

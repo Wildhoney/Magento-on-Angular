@@ -1,7 +1,7 @@
 (function($mao) {
 
     "use strict";
-    
+
     /**
      * @service Gateway
      * @author Adam Timberlake
