@@ -5,10 +5,8 @@ section.filters {
     position: fixed;
     background-color: white;
     box-sizing: border-box;
-    border-right: 1px solid rgba(0, 0, 0, .15);
-    box-shadow: 0 -20px 60px rgba(0, 0, 0, .25);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, .35);
     width: 25%;
-    border-right: 1px solid #d3d3d3;
     margin-left: -20%;
     transition: all .35s;
     -o-transition: all .35s;
@@ -51,6 +49,11 @@ section.filters div.filter p.description {
     font-size: 12px;
 }
 
+section.filters div.filter p.description label {
+    font-weight: 400;
+    font-size: 12px;
+}
+
 section.filters div.filter div.inner {
     padding: 0 10px;
 }
@@ -78,4 +81,24 @@ section.filters div.filter.price-range ul li span {
     font-size: 12px;
     margin-top: -2px;
     font-weight: 400;
+}
+
+section.filters div.filter.colours ul li {
+    float: left;
+    overflow: hidden;
+    width: 80px;
+}
+
+section.filters div.filter.colours ul li input {
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+section.filters div.filter.colours ul li label {
+    float: left;
+    overflow: hidden;
+    padding-left: 5px;
+    margin-top: -2px;
+    font-weight: 300;
 }

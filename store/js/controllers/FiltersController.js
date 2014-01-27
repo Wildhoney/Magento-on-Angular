@@ -5,15 +5,37 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.controller('FiltersController', ['$scope', 'gateway',
+    $mao.controller('FiltersController', ['$scope', 'gateway', 'http',
 
-    function filtersController($scope, gateway) {
+    function filtersController($scope, gateway, http) {
 
         /**
          * @property name
          * @type {String}
          */
         $scope.name = '';
+
+        /**
+         * @property colours
+         * @type {Object}
+         */
+        $scope.colours = {
+
+            /**
+             * All variations of the colours.
+             *
+             * @property options
+             */
+            options: http.getAttribute('color'),
+
+            /**
+             * List of colour IDs that have been selected.
+             *
+             * @property selected
+             */
+            selected: []
+
+        };
 
         /**
          * @property price
@@ -74,11 +96,31 @@
         $scope.setName = gateway.setName;
 
         /**
+         * @method toggleColour
+         * @return {void}
+         */
+        $scope.toggleColour = function toggleColour() {
+
+            var colours = [];
+
+            _.forEach($scope.colours.selected, function forEach(selected, index) {
+
+                if (selected) {
+                    colours.push(index);
+                }
+
+            });
+
+            gateway.setColours(colours);
+
+        };
+
+        /**
          * @method open
          * @return {void}
          */
         $scope.open = function open() {
-            $scope.$parent.$parent.filtersOpen = true;
+            $scope.$parent.filtersOpen = true;
         };
 
         /**
@@ -86,7 +128,7 @@
          * @return {void}
          */
         $scope.close = function close() {
-            $scope.$parent.$parent.filtersOpen = false;
+            $scope.$parent.filtersOpen = false;
         };
 
     }]);

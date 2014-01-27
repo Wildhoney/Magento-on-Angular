@@ -1,5 +1,6 @@
 var io          = require('socket.io').listen(8888),
     fs          = require('fs'),
+    _           = require('underscore'),
     request     = require('request'),
     Snapshot    = require('node-snapshot');
 
@@ -25,6 +26,20 @@ io.sockets.on('connection', function (socket) {
     request(url, function (error, response, body) {
         var json = JSON.parse(body);
         $snapshot.setCollection(json);
+    });
+
+    socket.on('snapshot/products/colours', function colours(ids) {
+
+        console.log(ids);
+
+        $snapshot.applyFilter('colour', function colour(colourDimension) {
+
+            colourDimension.filterFunction(function(d) {
+                return (d === 0) || _.contains(ids, d);
+            });
+
+        }, 'afresh');
+
     });
 
 });

@@ -12,11 +12,11 @@ section.products {
 }
 
 section.products.away {
-    filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -webkit-filter: blur(1px);
 }
 
 section.products div.models {
@@ -32,6 +32,9 @@ section.products div.models {
 section.products div.paging {
     font-size: 14px;
     font-family: "Source Sans Pro", sans-serif;
+    border-bottom: 3px solid rgba(0, 0, 0, .1);
+    display: inline-block;
+    padding-bottom: 15px;
     text-transform: uppercase;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -73,6 +73,10 @@
             socket.node.emit('snapshot/products/fuzzyFilter', 'name', text);
         };
 
+        service.setColours = function setColours(ids) {
+            socket.node.emit('snapshot/products/colours', ids);
+        };
+
         return service;
 
     }]);

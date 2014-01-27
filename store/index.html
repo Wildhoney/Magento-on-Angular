@@ -15,6 +15,7 @@
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
+    <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
 </head>
 <body ng-app="maoApp" ng-controller="ApplicationController">
@@ -29,9 +30,11 @@
 
             <div class="filter product-name">
                 <h2>Name</h2>
-                <p class="description">Search for a product by its name.</p>
+                <p class="description">
+                    <label for="name">Search for a product by its name.</label>
+                </p>
                 <div class="inner">
-                    <input type="text" ng-model="name" placeholder="'red coat', 'blue football', etc..." ng-change="setName(name)" />
+                    <input type="text" id="name" ng-model="name" placeholder="'red coat', 'blue football', etc..." ng-change="setName(name)" />
                 </div>
             </div>
 
@@ -51,6 +54,21 @@
                             <span>&pound;{{(price.actual.maximum || statistics.ranges.price.max) | number: 2}}</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="filter colours">
+                <h2>Colours</h2>
+                <p class="description">Choose the colours you're fond of in a product.</p>
+                <div class="inner">
+
+                    <ul>
+                        <li ng-repeat="colour in colours.options">
+                            <input type="checkbox" ng-init="colours.selected[colour.id] = true" id="{{colour.id}}" ng-model="colours.selected[colour.id]" ng-change="toggleColour(colour.id)" />
+                            <label for="{{colour.id}}">{{colour.label}}</label>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
 
