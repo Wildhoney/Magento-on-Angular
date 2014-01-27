@@ -1,5 +1,7 @@
 (function($mao) {
 
+    "use strict";
+
     /**
      * @controller ProductsController
      * @author Adam Timberlake

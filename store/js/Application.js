@@ -1,5 +1,7 @@
 (function($window, $angular) {
 
+    "use strict";
+
     /**
      * @property window.maoApp
      * @type {Object}

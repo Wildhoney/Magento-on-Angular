@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         },
         jasmine: {
             pivotal: {
-                src: ['store/js/Application.js', 'store/js/factories/*', 'store/js/controllers/*'],
+                src: ['store/js/Application.js', 'store/js/services/*', 'store/js/controllers/*'],
                 options: {
                     specs: 'store/tests/spec.js',
                     helpers: ['store/js/vendor/*.js']
@@ -54,10 +54,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
-    grunt.registerTask('js-test', ['jasmine', 'jshint']);
-    grunt.registerTask('php-test', ['phpunit']);
+    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('js-test', ['jshint']);
+//    grunt.registerTask('php-test', ['phpunit']);
     grunt.registerTask('build', ['sass', 'uglify']);
-    grunt.registerTask('default', ['phpunit', 'jasmine', 'jshint', 'sass', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'sass', 'uglify']);
 
 };
