@@ -22,6 +22,13 @@
         $scope.statistics = {};
 
         /**
+         * @property immutableStatistics
+         * @type {Object|null}
+         * @default null
+         */
+        $scope.immutableStatistics = null;
+
+        /**
          * @property maxPrice
          * @type {Number}
          */
@@ -35,10 +42,10 @@
                 $scope.statistics = statistics;
                 $scope.products = gateway.resolve(models);
 
-                if ($scope.maxPrice === 0) {
+                if (!$scope.immutableStatistics) {
 
-                    // Update with the overall maximum price.
-                    $scope.maxPrice = $scope.statistics.ranges.price.max;
+                    // Update with the initial statistics
+                    $scope.immutableStatistics = $scope.statistics;
 
                 }
 

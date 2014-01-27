@@ -42,13 +42,13 @@
                     <ul>
                         <li>
                             <label>Min:</label>
-                            <input type="range" ng-model="price.minimum" ng-change="setPriceRange(price.minimum, price.maximum)" />
-                            <span>&pound;{{statistics.ranges.price.min | number: 2}}</span>
+                            <input type="range" ng-model="price.percentage.minimum" ng-change="setPriceRange(price.percentage.minimum, price.percentage.maximum)" />
+                            <span>&pound;{{(price.actual.minimum || statistics.ranges.price.min) | number: 2}}</span>
                         </li>
                         <li>
                             <label>Max:</label>
-                            <input type="range" ng-model="price.maximum" ng-change="setPriceRange(price.minimum, price.maximum)" />
-                            <span>&pound;{{statistics.ranges.price.max | number: 2}}</span>
+                            <input type="range" ng-model="price.percentage.maximum" ng-change="setPriceRange(price.percentage.minimum, price.percentage.maximum)" />
+                            <span>&pound;{{(price.actual.maximum || statistics.ranges.price.max) | number: 2}}</span>
                         </li>
                     </ul>
                 </div>

@@ -13,7 +13,10 @@
          * @property price
          * @type {Object}
          */
-        $scope.price = { minimum: 0, maximum: 0 };
+        $scope.price = {
+            percentage: { minimum: 0, maximum: 100 },
+            actual: { minimum: 0, maximum: 0 }
+        };
 
         /**
          * @property name
@@ -29,8 +32,12 @@
          */
         $scope.setPriceRange = function setPriceRange(min, max) {
 
-            console.log(max);
-//            gateway.setPriceRange(min, max);
+            // Since the range passes a percent (0-100), we can calculate how much that
+            // is based on the overall price.
+            $scope.price.actual.minimum = min = (($scope.immutableStatistics.ranges.price.max / 100) * min);
+            $scope.price.actual.maximum = max = (($scope.immutableStatistics.ranges.price.max / 100) * max);
+
+            gateway.setPriceRange(min, (max + 0.001));
 
         };
 
