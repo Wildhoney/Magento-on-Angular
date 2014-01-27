@@ -20,6 +20,7 @@
     "grunt-contrib-jasmine": "~0.5.1",
     "node-snapshot": "~0.2.8",
     "request": "~2.33.0",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "grunt-contrib-cssmin": "~0.7.0"
   }
 }

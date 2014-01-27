@@ -13,28 +13,15 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['store/js/Application.js', 'store/js/controllers/*.js'],
+            all: 'store/js/**/*.js',
             options: {
                 jshintrc: '.jshintrc'
             }
         },
         uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
             build: {
-                src: ['store/js/Application.js', 'store/js/factories/*.js', 'store/js/controllers/*.js'],
-                dest: 'dist/<%= pkg.buildName %>-<%= pkg.version %>.js'
-            }
-        },
-        sass: {
-            dist: {
-                options: {
-                    style: 'nested'
-                },
-                files: {
-                    'dist/<%= pkg.buildName %>-<%= pkg.version %>.css': 'store/sass/default.scss'
-                }
+                src: 'store/js/**/*.js',
+                dest: 'dist/<%= pkg.buildName %>.js'
             }
         },
         jasmine: {
@@ -45,19 +32,26 @@ module.exports = function(grunt) {
                     helpers: ['store/js/vendor/*.js']
                 }
             }
+        },
+        cssmin: {
+            combine: {
+                files: {
+                    'dist/<%= pkg.buildName %>.css': ['store/css/**/*.css']
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-phpunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('test', ['jshint']);
     grunt.registerTask('js-test', ['jshint']);
 //    grunt.registerTask('php-test', ['phpunit']);
-    grunt.registerTask('build', ['sass', 'uglify']);
-    grunt.registerTask('default', ['jshint', 'sass', 'uglify']);
+    grunt.registerTask('build', ['cssmin', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'cssmin', 'uglify']);
 
 };

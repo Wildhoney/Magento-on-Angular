@@ -26,7 +26,7 @@
 
             var deferred = $q.defer();
 
-            $http.get(service.url + 'attributes/color').then(function(response) {
+            $http.get(service.url + 'attributes/' + name).then(function(response) {
                 deferred.resolve(response.data);
             });
 
