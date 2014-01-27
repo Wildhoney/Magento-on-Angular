@@ -36,7 +36,7 @@ Specification
  * Angular.js front-end for one-page functionality;
  * Laravel API for interacting with Magento;
  * Separation of concerns with API being separate from Magento installation;
- * Lazy-loaded product collection delivery with <a href="https://github.com/Wildhoney/Snapshot.js">Snapshot.js</a>;
+ * Lazy-loaded product collection with <a href="https://github.com/Wildhoney/Snapshot.js">Snapshot.js</a>;
  * Simplified PHP back-end REST API;
  * Implement Spreedly as the payment gateway;
  * Front-end and back-end tests with >90% unit-test code coverage;
