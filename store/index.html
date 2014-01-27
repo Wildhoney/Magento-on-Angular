@@ -58,6 +58,10 @@
 
         <section class="products" ng-class="{away: filtersOpen}">
 
+            <div class="models" title="Current amount of products currently being shown on the page.">
+                {{statistics.models.current}}/{{statistics.models.total}}
+            </div>
+
             <div class="paging">
                 You're viewing page {{statistics.pages.current}} of {{statistics.pages.total}}
                 &ndash;

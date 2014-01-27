@@ -10,19 +10,32 @@
     function filtersController($scope, gateway) {
 
         /**
-         * @property price
-         * @type {Object}
-         */
-        $scope.price = {
-            percentage: { minimum: 0, maximum: 100 },
-            actual: { minimum: 0, maximum: 0 }
-        };
-
-        /**
          * @property name
          * @type {String}
          */
         $scope.name = '';
+
+        /**
+         * @property price
+         * @type {Object}
+         */
+        $scope.price = {
+
+            /**
+             * Values for the range itself.
+             *
+             * @property percentage
+             */
+            percentage: { minimum: 0, maximum: 100 },
+
+            /**
+             * What the values above equate to based on the maximum price.
+             *
+             * @property actual
+             */
+            actual: { minimum: 0, maximum: 0 }
+
+        };
 
         /**
          * @method setPriceRange
@@ -49,13 +62,6 @@
 
             }
 
-            if (max < min) {
-
-                // Do the same for if the max goes below.
-//                $scope.price.percentage.minimum = $scope.price.percentage.maximum;
-
-            }
-
             gateway.setPriceRange(min, (max + 0.001));
 
         };
@@ -72,7 +78,7 @@
          * @return {void}
          */
         $scope.open = function open() {
-            $scope.$parent.filtersOpen = true;
+            $scope.$parent.$parent.filtersOpen = true;
         };
 
         /**
@@ -80,7 +86,7 @@
          * @return {void}
          */
         $scope.close = function close() {
-            $scope.$parent.filtersOpen = false;
+            $scope.$parent.$parent.filtersOpen = false;
         };
 
     }]);
