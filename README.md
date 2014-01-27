@@ -5,6 +5,8 @@ Mao
 
 Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Mao brings Magento into the 21st century.
 
+**0.1.0 Demo Video:** https://vimeo.com/85201798
+
 <img src="http://i.imgur.com/PP6l6G9.jpg" alt="Angular, Magento, Laravel" />
 
 Unit Testing
