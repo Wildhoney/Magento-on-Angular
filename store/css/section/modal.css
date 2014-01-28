@@ -8,7 +8,6 @@ section.modal-window {
     left: 5%;
     pointer-events: none;
     z-index: 1001;
-    padding: 20px;
     transform: scale(.8);
     -o-transform: scale(.8);
     -ms-transform: scale(.8);
@@ -48,4 +47,43 @@ section.modal-window h2 {
     font-size: 18px;
     font-weight: 200;
     margin: 0;
+}
+
+section.modal-window div.view {
+    overflow: hidden;
+    height: 100%;
+}
+
+section.modal-window div.left {
+    float: left;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .05);
+    width: 32%;
+    padding: 20px;
+}
+
+section.modal-window div.left h2 {
+    margin-bottom: 20px;
+}
+
+section.modal-window div.left img {
+    box-shadow: 0 0 50px rgba(0, 0, 0, .25);
+}
+
+section.modal-window div.right {
+    float: left;
+    height: 100%;
+    width: 68%;
+    padding: 55px 20px 20px 20px;
+}
+
+section.modal-window div.right p.description {
+    font-size: 14px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+section.modal-window div.right div.price {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 24px;
+    font-weight: 200;
 }
