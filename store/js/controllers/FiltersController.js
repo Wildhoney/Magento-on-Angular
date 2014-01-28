@@ -72,9 +72,41 @@
          * @method resetName
          * @return {void}
          */
-        $scope.resetName = function resetName(){
+        $scope.resetName = function resetName() {
             $scope.name = '';
             $scope.setName($scope.name);
+        };
+
+        /**
+         * @method resetPriceRange
+         * @return {void}
+         */
+        $scope.resetPriceRange = function resetPriceRange() {
+
+            // Reset the `price` object to the default.
+            $scope.price.percentage = { minimum: 0, maximum: 100 };
+            $scope.price.actual = { minimum: 0, maximum: 0 }
+
+            // Update the minimum and maximum.
+            var min = $scope.immutableStatistics.ranges.price.min,
+                max = $scope.immutableStatistics.ranges.price.max;
+
+            gateway.setPriceRange(min, (max + 0.001));
+
+        };
+
+        /**
+         * @method invertColours
+         * @return {void}
+         */
+        $scope.invertColours = function invertColours() {
+
+            _.forEach($scope.colours.selected, function forEach(value, index) {
+                $scope.colours.selected[index] = !$scope.colours.selected[index];
+            });
+
+            $scope.setColours();
+
         };
 
         /**

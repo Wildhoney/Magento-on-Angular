@@ -133,6 +133,7 @@ section.filters div.filter.colours ul li input {
 section.filters div.filter.colours ul li label {
     float: left;
     overflow: hidden;
+    cursor: pointer;
     padding-left: 5px;
     margin-top: 2px;
     font-weight: 300;
