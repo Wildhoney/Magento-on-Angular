@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 src: 'store/js/**/*.js',
-                dest: 'dist/<%= pkg.buildName %>.js'
+                dest: 'dist/<%= pkg.name %>.js'
             }
         },
         jasmine: {
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'dist/<%= pkg.buildName %>.css': ['store/css/**/*.css']
+                    'dist/<%= pkg.name %>.css': ['store/css/**/*.css']
                 }
             }
         }
