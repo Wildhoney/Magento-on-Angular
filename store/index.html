@@ -32,7 +32,7 @@
         <section data-filter class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
             <div class="filter product-name">
-                <h2>Name</h2>
+                <h2><img class="icon" src="images/name.png" />Name</h2>
                 <a ng-click="resetName()">Clear</a>
                 <p class="description">
                     <label for="name">Search for a product by its name.</label>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="filter price-range">
-                <h2>Price</h2>
+                <h2><img class="icon" src="images/price.png" />Price</h2>
                 <a ng-click="resetPriceRange()">Reset</a>
                 <p class="description">Define the minimum and maximum price range.</p>
                 <div class="inner">
@@ -63,7 +63,7 @@
             </div>
 
             <div class="filter colours">
-                <h2>Colours</h2>
+                <h2><img class="icon" src="images/colour.png" />Colours</h2>
                 <a ng-click="invertColours()">Invert</a>
                 <p class="description">Choose the colours you're fond of in a product.</p>
                 <div class="inner">
@@ -80,7 +80,7 @@
 
         </section>
 
-        <section class="products" ng-class="{away: filtersOpen}">
+        <section class="products" ng-class="{'filters-open': filtersOpen, 'modal-open': modalOpen'}">
 
             <div class="models" title="Current amount of products currently being shown on the page.">
                 {{statistics.models.current}}/{{statistics.models.total}}
@@ -107,7 +107,7 @@
             </div>
 
             <ul class="collection">
-                <li ng-repeat="product in products">
+                <li ng-repeat="product in products" ng-click="view(product.id)">
 
                     <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
                     <h2><a href="#">{{product.name}}</a></h2>
@@ -119,6 +119,10 @@
         </section>
 
     </section>
+
+    <!--<section class="modal-window">-->
+        <!--<h2>AMD Phenom X4 9850 Black Ed. 2.50GHz Retail</h2>-->
+    <!--</section>-->
 
 </body>
 </html>

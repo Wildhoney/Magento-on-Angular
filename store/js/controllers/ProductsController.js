@@ -37,6 +37,15 @@
         $scope.immutableStatistics = null;
 
         /**
+         * @method view
+         * @param productId {Number}
+         * @return {void}
+         */
+        $scope.view = function view(productId) {
+            alert(productId);
+        };
+
+        /**
          * @method setSorting
          * @param property {String}
          * @return {void}

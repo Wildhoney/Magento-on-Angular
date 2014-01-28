@@ -1,0 +1,18 @@
+section.modal-window {
+    position: fixed;
+    width: 80%;
+    background-color: white;
+    height: 80%;
+    box-shadow: 0 0 80px rgba(0, 0, 0, .45);
+    top: 10%;
+    left: 10%;
+    z-index: 1001;
+    padding: 20px;
+}
+
+section.modal-window h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    margin: 0;
+}

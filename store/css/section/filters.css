@@ -63,12 +63,17 @@ section.filters div.filter {
 section.filters div.filter h2 {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 14px;
-    text-transform: uppercase;
     font-weight: 400;
     line-height: 20px;
     margin: 0;
     padding: 5px 10px;
     border-bottom: 1px solid #d3d3d3;
+}
+
+section.filters div.filter img.icon {
+    float: left;
+    margin: 2px 8px 0 0;
+    opacity: .2;
 }
 
 section.filters div.filter a {

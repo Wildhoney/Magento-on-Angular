@@ -1,5 +1,6 @@
 @import "section/products.css";
 @import "section/filters.css";
+@import "section/modal.css";
 
 * {
     margin: 0;

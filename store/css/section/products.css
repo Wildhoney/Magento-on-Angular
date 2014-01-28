@@ -11,12 +11,20 @@ section.products {
     -webkit-transition: all 1.25s;
 }
 
-section.products.away {
-    filter: blur(1px);
-    -o-filter: blur(1px);
-    -ms-filter: blur(1px);
-    -moz-filter: blur(1px);
+section.products.filters-open {
+    filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    -moz-filter: blur(2px);
     -webkit-filter: blur(2px);
+}
+
+section.products.modal-open {
+    filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -webkit-filter: blur(4px);
 }
 
 section.products div.models {
