@@ -16,6 +16,7 @@
     <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
+    <script type="text/javascript" src="js/controllers/ModalController.js"></script>
     <script type="text/javascript" src="js/directives/Filters.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
     <script type="text/javascript" src="js/services/Http.js"></script>
@@ -120,9 +121,9 @@
 
     </section>
 
-    <!--<section class="modal-window">-->
-        <!--<h2>AMD Phenom X4 9850 Black Ed. 2.50GHz Retail</h2>-->
-    <!--</section>-->
+    <section class="modal-window" ng-class="{open: modalOpen}" ng-include="partial" ng-controller="ModalController">
+
+    </section>
 
 </body>
 </html>

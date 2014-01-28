@@ -34,6 +34,23 @@
 
         };
 
+        /**
+         * @method getProduct
+         * @param id {Number}
+         * @return {$q.promise}
+         */
+        service.getProduct = function getProduct(id) {
+
+            var deferred = $q.defer();
+
+            $http.get(service.url + 'product/' + id).then(function(response) {
+                deferred.resolve(response.data);
+            });
+
+            return deferred.promise;
+
+        };
+
         return service;
 
     }]);

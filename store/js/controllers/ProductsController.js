@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.controller('ProductsController', ['$scope', 'socket', 'gateway',
+    $mao.controller('ProductsController', ['$scope', '$rootScope', 'socket', 'gateway', 'http',
 
-    function productsController($scope, socket, gateway) {
+    function productsController($scope, $rootScope, socket, gateway, http) {
 
         /**
          * @property products
@@ -42,7 +42,17 @@
          * @return {void}
          */
         $scope.view = function view(productId) {
-            alert(productId);
+
+            $scope.$parent.modalOpen = true;
+
+            http.getProduct(productId).then(function then(model) {
+
+                $rootScope.$broadcast('modal/open', 'product.html', {
+                    model: model
+                });
+
+            });
+
         };
 
         /**

@@ -6,8 +6,22 @@ section.modal-window {
     box-shadow: 0 0 80px rgba(0, 0, 0, .45);
     top: 10%;
     left: 10%;
+    pointer-events: none;
     z-index: 1001;
     padding: 20px;
+    -webkit-transform: scale(.8);
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+    opacity: 0;
+}
+
+section.modal-window.open {
+    pointer-events: all;
+    -webkit-transform: scale(1);
+    opacity: 1;
 }
 
 section.modal-window h2 {

@@ -17,6 +17,13 @@
          * @default false
          */
         $scope.filtersOpen = false;
+
+        /**
+         * @property modalOpen
+         * @type {Boolean}
+         * @default false
+         */
+        $scope.modalOpen = false;
         
     }]);
 
