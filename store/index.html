@@ -22,7 +22,7 @@
     <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
 </head>
-<body ng-app="maoApp" ng-controller="ApplicationController">
+<body ng-app="maoApp" ng-controller="ApplicationController" ng-keyup="keyUp($event)">
 
     <header>
         <h1>Welcome to <span>Mao</span>.</h1>
@@ -121,7 +121,10 @@
 
     </section>
 
-    <section class="modal-window" ng-class="{open: modalOpen}" ng-include="partial" ng-controller="ModalController">
+    <section class="modal-window" ng-class="{open: modalOpen}" ng-controller="ModalController">
+
+        <a class="close" ng-click="close()">&times;</a>
+        <div class="view" ng-include="partial"></div>
 
     </section>
 

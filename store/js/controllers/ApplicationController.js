@@ -24,6 +24,15 @@
          * @default false
          */
         $scope.modalOpen = false;
+
+        /**
+         * @method keyUp
+         * @param event {Object}
+         * @return {void}
+         */
+        $scope.keyUp = function keyUp(event) {
+            console.log('Close?');
+        };
         
     }]);
 

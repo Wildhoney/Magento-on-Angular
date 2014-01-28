@@ -28,6 +28,20 @@
             $scope.partial = 'views/' + partialName;
             $scope.options = options;
         });
+
+        /**
+         * @method close
+         * @return {void}
+         */
+        $scope.close = function close() {
+
+            $scope.$parent.modalOpen = false;
+
+            // Reset all of the passed in parameters.
+            $scope.partial = '';
+            $scope.options = {};
+
+        };
         
     }]);
 

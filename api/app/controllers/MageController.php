@@ -58,7 +58,7 @@ class MageController extends BaseController {
             'colour'        => (int) $product->getData('color'),
             'manufacturer'  => (int) $product->getData('manufacturer'),
             'description'   => trim($product->getDescription()),
-            'largeImage'    => $product->getSmallImageUrl(),
+            'largeImage'    => $product->getImageUrl(),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages(),
             'products'      => $products,

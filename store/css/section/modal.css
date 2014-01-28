@@ -1,14 +1,18 @@
 section.modal-window {
     position: fixed;
-    width: 80%;
+    width: 90%;
     background-color: white;
-    height: 80%;
+    height: 90%;
     box-shadow: 0 0 80px rgba(0, 0, 0, .45);
-    top: 10%;
-    left: 10%;
+    top: 5%;
+    left: 5%;
     pointer-events: none;
     z-index: 1001;
     padding: 20px;
+    transform: scale(.8);
+    -o-transform: scale(.8);
+    -ms-transform: scale(.8);
+    -moz-transform: scale(.8);
     -webkit-transform: scale(.8);
     transition: all .35s;
     -o-transition: all .35s;
@@ -16,6 +20,21 @@ section.modal-window {
     -moz-transition: all .35s;
     -webkit-transition: all .35s;
     opacity: 0;
+}
+
+section.modal-window a.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
 }
 
 section.modal-window.open {
