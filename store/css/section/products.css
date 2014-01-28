@@ -16,7 +16,7 @@ section.products.away {
     -o-filter: blur(1px);
     -ms-filter: blur(1px);
     -moz-filter: blur(1px);
-    -webkit-filter: blur(1px);
+    -webkit-filter: blur(2px);
 }
 
 section.products div.models {

@@ -62,6 +62,22 @@
         };
 
         /**
+         * @method setName
+         * @param text {String}
+         * @return {void}
+         */
+        $scope.setName = gateway.setName;
+
+        /**
+         * @method resetName
+         * @return {void}
+         */
+        $scope.resetName = function resetName(){
+            $scope.name = '';
+            $scope.setName($scope.name);
+        };
+
+        /**
          * @method setPriceRange
          * @param propertyChanging {String}
          * @param min {Number}
@@ -91,17 +107,10 @@
         };
 
         /**
-         * @method setName
-         * @param text {String}
+         * @method setColours
          * @return {void}
          */
-        $scope.setName = gateway.setName;
-
-        /**
-         * @method toggleColour
-         * @return {void}
-         */
-        $scope.toggleColour = function toggleColour() {
+        $scope.setColours = function setColours() {
 
             var colours = [];
 

@@ -8,11 +8,11 @@ section.filters {
     box-shadow: 0 -20px 60px rgba(0, 0, 0, .35);
     width: 25%;
     margin-left: -20%;
-    transition: all .35s;
-    -o-transition: all .35s;
-    -ms-transition: all .35s;
-    -moz-transition: all .35s;
-    -webkit-transition: all .35s;
+    transition: margin-left .35s, width .35s;
+    -o-transition: margin-left .35s, width .35s;
+    -ms-transition: margin-left .35s, width .35s;
+    -moz-transition: margin-left .35s, width .35s;
+    -webkit-transition: margin-left .35s, width .35s;
 }
 
 section.filters.open {
@@ -52,6 +52,7 @@ section.filters.open div.filter {
 section.filters div.filter {
     font-family: "Source Sans Pro", sans-serif;
     opacity: 0;
+    position: relative;
     transition: all .75s;
     -o-transition: all .75s;
     -ms-transition: all .75s;
@@ -68,6 +69,14 @@ section.filters div.filter h2 {
     margin: 0;
     padding: 5px 10px;
     border-bottom: 1px solid #d3d3d3;
+}
+
+section.filters div.filter a {
+    position: absolute;
+    font-size: 12px;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
 }
 
 section.filters div.filter p.description {

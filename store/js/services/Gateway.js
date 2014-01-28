@@ -75,6 +75,11 @@
             socket.node.emit('snapshot/products/fuzzyFilter', 'name', text);
         };
 
+        /**
+         * @method setColours
+         * @param ids {Array}
+         * @return {void}
+         */
         service.setColours = function setColours(ids) {
             socket.node.emit('snapshot/products/colours', ids);
         };

@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../bower_components/skeleton/stylesheets/base.css" />
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
 
+    <script type="text/javascript" src="../bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="../bower_components/underscore/underscore.js"></script>
     <script type="text/javascript" src="../bower_components/hammerjs/hammer.js"></script>
@@ -15,6 +16,7 @@
     <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
+    <script type="text/javascript" src="js/directives/Filters.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
     <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
@@ -27,10 +29,11 @@
 
     <section ng-controller="ProductsController">
 
-        <section class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+        <section data-filter class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
             <div class="filter product-name">
                 <h2>Name</h2>
+                <a ng-click="resetName()">Clear</a>
                 <p class="description">
                     <label for="name">Search for a product by its name.</label>
                 </p>
@@ -41,6 +44,7 @@
 
             <div class="filter price-range">
                 <h2>Price</h2>
+                <a ng-click="resetPriceRange()">Clear</a>
                 <p class="description">Define the minimum and maximum price range.</p>
                 <div class="inner">
                     <ul>
@@ -65,7 +69,7 @@
 
                     <ul>
                         <li ng-repeat="colour in colours.options">
-                            <input type="checkbox" ng-init="colours.selected[colour.id] = true" id="{{colour.id}}" ng-model="colours.selected[colour.id]" ng-change="toggleColour(colour.id)" />
+                            <input type="checkbox" ng-init="colours.selected[colour.id] = true" id="{{colour.id}}" ng-model="colours.selected[colour.id]" ng-change="setColours(colour.id)" />
                             <label for="{{colour.id}}">{{colour.label}}</label>
                         </li>
                     </ul>
