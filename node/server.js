@@ -21,6 +21,7 @@ io.sockets.on('connection', function (socket) {
     // Configure the defaults.
     $snapshot.setPageNumber(1);
     $snapshot.setPerPage(15);
+    $snapshot.setSortBy('name', 'asc');
     $snapshot.setRanges(['price']);
 
     request(url, function (error, response, body) {

@@ -32,9 +32,6 @@ section.products div.models {
 section.products div.paging {
     font-size: 14px;
     font-family: "Source Sans Pro", sans-serif;
-    border-bottom: 3px solid rgba(0, 0, 0, .1);
-    display: inline-block;
-    padding-bottom: 15px;
     text-transform: uppercase;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -44,20 +41,64 @@ section.products div.paging {
     user-select: none;
 }
 
+section.products div.sorting {
+    font-family: "Source Sans Pro", sans-serif;
+    border-bottom: 3px solid rgba(0, 0, 0, .1);
+    display: inline-block;
+    padding: 15px 0 8px 0;
+}
+
+section.products div.sorting label {
+    float: left;
+    padding: 3px 6px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 5px;
+    background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);
+}
+
+section.products div.sorting ul.properties {
+    overflow: hidden;
+    float: left;
+    height: 22px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+section.products div.sorting ul.properties li {
+    float: left;
+    overflow: hidden;
+    padding: 1px 5px 0 5px;
+}
+
+section.products div.sorting ul.properties li span.direction {
+    color: #a9a9a9;
+    font-family: Arial, Tahoma, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+section.products div.sorting ul.properties li a {
+    cursor: pointer;
+}
+
 section.products div.paging a {
     cursor: pointer;
     text-decoration: none;
-    height: 18px;
-    display: inline-block;
-    border-bottom: 1px dotted rgba(0, 0, 0, .25);
 }
 
-section.products ul {
+section.products ul.collection {
     margin: 50px auto;
     overflow: hidden;
 }
 
-section.products ul li {
+section.products ul.collection li {
     width: 20%;
     box-sizing: border-box;
     min-height: 300px;
@@ -67,24 +108,24 @@ section.products ul li {
     cursor: pointer;
 }
 
-section.products ul li img {
+section.products ul.collection li img {
     max-width: 100%;
 }
 
-section.products ul li h2 {
+section.products ul.collection li h2 {
     line-height: 10px;
 }
 
-section.products ul li h2 a {
+section.products ul.collection li h2 a {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 12px;
-    color: #847AD1;
+    /*color: #847AD1;*/
 }
 
-section.products ul li h2 a:hover {
+section.products ul.collection li h2 a:hover {
     color: black;
 }
 
-section.products ul li div.price {
+section.products ul.collection li div.price {
     font-weight: 800;
 }

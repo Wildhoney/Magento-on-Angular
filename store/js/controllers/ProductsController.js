@@ -18,6 +18,12 @@
         $scope.products = [];
 
         /**
+         * @property sorting
+         * @type {Object}
+         */
+        $scope.sorting = { property: 'name', direction: 'asc' };
+
+        /**
          * @property statistics
          * @type {Object}
          */
@@ -31,10 +37,25 @@
         $scope.immutableStatistics = null;
 
         /**
-         * @property maxPrice
-         * @type {Number}
+         * @method setSorting
+         * @param property {String}
+         * @return {void}
          */
-        $scope.maxPrice = 0;
+        $scope.setSorting = function setSorting(property) {
+
+            // Determine if the user has clicked on the same property again, which means
+            // we'll be inverting the current sort order.
+            if ($scope.sorting.property === property) {
+                $scope.sorting.direction = ($scope.sorting.direction === 'asc' ? 'desc' : 'asc');
+            }
+
+            // Update the sorting property.
+            $scope.sorting.property = property;
+
+            // ...And finally we can emit the event to the Node.js server.
+            socket.node.emit('snapshot/products/sortBy', $scope.sorting.property, $scope.sorting.direction);
+
+        };
 
         // When we have the products loaded from the Node.js middleware.
         socket.node.on('snapshot/products/contentUpdated', function contentUpdated(models, statistics) {

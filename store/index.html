@@ -87,7 +87,21 @@
                 <a ng-click="previousPage()">previous page</a> or <a ng-click="nextPage()">next page</a>.
             </div>
 
-            <ul>
+            <div class="sorting">
+                <label>Sort By:</label>
+                <ul class="properties">
+                    <li>
+                        <a ng-click="setSorting('name')">Name</a>
+                        <span ng-hide="sorting.property != 'name'" class="direction">({{sorting.direction}})</span>
+                    </li>
+                    <li>
+                        <a ng-click="setSorting('price')">Price</a>
+                        <span ng-hide="sorting.property != 'price'" class="direction">({{sorting.direction}})</span>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="collection">
                 <li ng-repeat="product in products">
 
                     <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />

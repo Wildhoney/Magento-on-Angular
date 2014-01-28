@@ -20,6 +20,31 @@ section.filters.open {
     margin-left: 0;
 }
 
+section.filters:after {
+    content: "Filters";
+    position: absolute;
+    background-color: white;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, .05);
+    padding: 10px 0 10px 30px;
+    width: 110px;
+    right: -110px;
+    border-radius: 0 4px 4px 0;
+    top: 70px;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+section.filters.open:after {
+    opacity: 0;
+    z-index: 0;
+}
+
 section.filters.open div.filter {
     opacity: 1;
 }
@@ -46,7 +71,7 @@ section.filters div.filter h2 {
 }
 
 section.filters div.filter p.description {
-    padding: 0 10px;
+    padding: 10px 10px 5px 10px;
     font-size: 12px;
 }
 
