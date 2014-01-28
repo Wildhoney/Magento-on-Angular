@@ -18,6 +18,7 @@
     "angular": "~1.0.8",
     "socket.io-client": "~0.9.16",
     "skeleton": "*",
-    "hammerjs": "~1.0.6"
+    "hammerjs": "~1.0.6",
+    "bootstrap": "~3.0.3"
   }
 }

@@ -46,6 +46,10 @@ section.products div.paging {
 
 section.products div.paging a {
     cursor: pointer;
+    text-decoration: none;
+    height: 18px;
+    display: inline-block;
+    border-bottom: 1px dotted rgba(0, 0, 0, .25);
 }
 
 section.products ul {
