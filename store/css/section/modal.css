@@ -23,14 +23,15 @@ section.modal-window.modal-open {
 section.modal-window a.close {
     position: absolute;
     background-color: #e5e5e5;
-    height: 30px;
-    line-height: 30px;
+    height: 45px;
+    line-height: 42px;
+    border-radius: 3px 0 0 3px;
     text-align: center;
-    width: 140px;
+    width: 100px;
     top: 10px;
     font-size: 12px;
     cursor: pointer;
-    left: -140px;
+    left: -100px;
     z-index: 101;
     opacity: 0;
     transition: all 1.25s;
@@ -43,7 +44,7 @@ section.modal-window a.close {
 section.modal-window a.close img {
     float: left;
     opacity: .35;
-    margin: 7px 2px 0 10px;
+    margin: 3px 6px 0 0;
 }
 
 section.modal-window.modal-open a.close {

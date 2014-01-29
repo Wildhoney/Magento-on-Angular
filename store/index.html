@@ -108,6 +108,7 @@
             </div>
 
             <ul class="collection">
+
                 <li ng-repeat="product in products" ng-click="view(product.id, $event)">
 
                     <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
@@ -122,8 +123,10 @@
         <section data-filter class="modal-window" ng-controller="ModalController" ng-class="{'modal-open': modalOpen}">
 
             <a class="close" ng-click="close()">
-                <img src="images/back.png" alt="Back" />
-                Back to Products
+                <div class="btn">
+                    <img src="images/back.png" alt="Back" />
+                    Back
+                </div>
             </a>
             <div class="view" ng-include="partial"></div>
 

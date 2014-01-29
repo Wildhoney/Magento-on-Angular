@@ -34,3 +34,18 @@ header h1 span {
     color: #847AD1;
     font-weight: 400;
 }
+
+div.btn {
+    border: 1px solid #d3d3d3;
+    background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);
+    padding: 5px 15px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-shadow: 1px 1px 0 white;
+}
+
+div.btn:active {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+    background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);
+}
