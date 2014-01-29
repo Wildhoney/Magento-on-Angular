@@ -20,6 +20,17 @@ All unit tests for both JavaScript and PHP can be run from the terminal: `grunt 
  * PHP specific unit tests are available with the `phpunit` command from the `/api/` directory;
  * JavaScript specific unit tests are available via the URL `/store/tests/`;
 
+Directory Structure
+---------
+
+At first glance the directories may seem over-complicated. However there's method in all of the madness!
+
+ * `api` contains the Laravel framework which interfaces with Magento;
+ * `dist` contains production-ready minified JS/CSS files for Mao;
+ * `magento` contains factory default Magento release;
+ * `node` contains Node.js server for delivering products via <a href="https://github.com/Wildhoney/Snapshot.js">Snapshot</a>;
+ * `store` contains the actual Angular.js Mao application;
+
 Laravel API
 ---------
 
