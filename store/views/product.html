@@ -1,14 +1,7 @@
-<div class="left">
-
-    <h2>{{options.model.name}}</h2>
-
-    <img ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />
-
+<!--<img ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />-->
+<h2>{{options.model.name}}</h2>
+<div class="price">
+    <img src="images/star.png" class="Price" />
+    Our Price: &pound;{{options.model.price | number: 2}}
 </div>
-
-<div class="right">
-
-    <p class="description">{{options.model.description}}</p>
-    <div class="price">&pound;{{options.model.price | number: 2}}</div>
-
-</div>
+<p class="description">{{options.model.description}}</p>

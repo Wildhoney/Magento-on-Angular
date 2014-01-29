@@ -39,11 +39,16 @@
         /**
          * @method view
          * @param productId {Number}
+         * @param event {Object}
          * @return {void}
          */
-        $scope.view = function view(productId) {
+        $scope.view = function view(productId, event) {
 
-            $scope.$parent.modalOpen = true;
+            if (event) {
+                event.stopPropagation();
+            }
+
+            $scope.modalOpen = true;
 
             http.getProduct(productId).then(function then(model) {
 
@@ -52,6 +57,18 @@
                 });
 
             });
+
+        };
+
+        /**
+         * @method closeModal
+         * @return {void}
+         */
+        $scope.closeModal = function closeModal() {
+
+            if ($scope.modalOpen) {
+                $rootScope.$broadcast('modal/close');
+            }
 
         };
 

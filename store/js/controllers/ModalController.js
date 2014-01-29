@@ -29,6 +29,11 @@
             $scope.options = options;
         });
 
+        // When the "modal/close" event has been broadcast.
+        $scope.$on('modal/close', function() {
+            $scope.close();
+        });
+
         /**
          * @method close
          * @return {void}

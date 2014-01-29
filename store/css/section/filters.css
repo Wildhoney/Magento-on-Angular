@@ -126,7 +126,7 @@ section.filters div.filter.price-range ul li span {
 section.filters div.filter.colours ul li {
     float: left;
     overflow: hidden;
-    width: 80px;
+    width: 75px;
 }
 
 section.filters div.filter.colours ul li input {
