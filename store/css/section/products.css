@@ -22,11 +22,11 @@ section.products.filters-open {
 
 section.products.modal-open {
     margin-right: 40%;
-    filter: grayscale(100%) blur(2px);
-    -o-filter: grayscale(100%) blur(2px);
-    -ms-filter: grayscale(100%) blur(2px);
-    -moz-filter: grayscale(100%) blur(2px);
-    -webkit-filter: grayscale(100%) blur(2px);
+    filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -webkit-filter: blur(2px);
 }
 
 section.products div.models {
