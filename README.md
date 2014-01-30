@@ -20,6 +20,15 @@ All unit tests for both JavaScript and PHP can be run from the terminal: `grunt 
  * PHP specific unit tests are available with the `phpunit` command from the `/api/` directory;
  * JavaScript specific unit tests are available via the URL `/store/tests/`;
 
+Generating Products
+---------
+
+Since your product collection might be a little slow because of Magento's EAV database structure, Mao allows you to create a cache key via the terminal instead &ndash; however a cached copy will still be generated if you access it via your browser.
+
+In order to generate a cache for the product collection, you can run `php artisan products` from the terminal. Once completed, the normal API method via the browser will use this cache key.
+
+Please note that by default the cache is attempted to be created via Redis. If you don't want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `redis` to `file`.
+
 Directory Structure
 ---------
 
