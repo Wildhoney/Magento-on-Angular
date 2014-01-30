@@ -40,15 +40,16 @@
          * @return {$q.promise}
          */
         service.getProduct = function getProduct(id) {
+            return $http.get(service.url + 'product/' + id);
+        };
 
-            var deferred = $q.defer();
-
-            $http.get(service.url + 'product/' + id).then(function(response) {
-                deferred.resolve(response.data);
-            });
-
-            return deferred.promise;
-
+        /**
+         * @method addBasket
+         * @param id {Number}
+         * @return {$q.promise}
+         */
+        service.addBasket = function addBasket(id) {
+            return $http.get(service.url + 'basket/add/' + id);
         };
 
         return service;

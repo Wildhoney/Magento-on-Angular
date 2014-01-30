@@ -1,8 +1,12 @@
-<!--<img ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />-->
-<h2>{{options.model.name}}</h2>
-<div class="price">
-    <img src="images/star.png" class="Price" />
-    Our Price: &pound;{{options.model.price | number: 2}}
-</div>
-<p class="description">{{options.model.description}}</p>
-<div class="btn">Add to Basket</div>
+<section class="product" ng-controller="ProductController">
+
+    <!--<img ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />-->
+    <h2>{{options.model.name}}</h2>
+    <div class="price">
+        <img src="images/star.png" class="Price" />
+        Our Price: &pound;{{options.model.price | number: 2}}
+    </div>
+    <p class="description">{{options.model.description}}</p>
+    <div class="btn" ng-click="addBasket(options.model.id)">Add to Basket</div>
+
+</section>

@@ -50,10 +50,10 @@
 
             $scope.modalOpen = true;
 
-            http.getProduct(productId).then(function then(model) {
+            http.getProduct(productId).then(function then(response) {
 
                 $rootScope.$broadcast('modal/open', 'product.html', {
-                    model: model
+                    model: response.data
                 });
 
             });
