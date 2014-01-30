@@ -4,6 +4,15 @@ class ProductsController extends MageController {
 
     public function getProducts() {
 
+        $cacheKey = 'products';
+
+        if (Cache::has($cacheKey)) {
+
+            // Simply respond with the cached products if we have it already cached.
+            return Cache::get($cacheKey);
+
+        }
+
         $collection = array();
 
         $products = Mage::getResourceModel('catalog/product_collection');
@@ -52,6 +61,9 @@ class ProductsController extends MageController {
             );
 
         }
+
+        // Cache the results of the collection.
+        Cache::put($cacheKey, json_encode($collection), 60);
 
         return Response::json($collection);
 
