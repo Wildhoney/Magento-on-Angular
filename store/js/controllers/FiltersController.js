@@ -28,7 +28,7 @@
              *
              * @property options
              */
-            options: http.getAttribute('color'),
+            options: [],
 
             /**
              * List of colour IDs that have been selected.
@@ -67,6 +67,11 @@
          * @return {void}
          */
         $scope.setName = gateway.setName;
+
+        // Fetch all of the colours.
+        http.getAttribute('color').then(function then(models) {
+            $scope.colours.options = models;
+        });
 
         /**
          * @method resetName

@@ -30,9 +30,9 @@
          * @param event {Object}
          * @return {void}
          */
-//        $scope.keyUp = function keyUp(event) {
+        $scope.keyUp = function keyUp(event) {
 //            console.log('Close?');
-//        };
+        };
         
     }]);
 
