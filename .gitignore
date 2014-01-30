@@ -12,3 +12,4 @@
 /api/app/storage/*
 /dump.rdb
 /magento/var/log/*
+/magento/app/etc/local.xml
