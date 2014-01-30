@@ -17,7 +17,10 @@
         $scope.addBasket = function addBasket(id) {
 
             http.addBasket(id).then(function then(response) {
+
                 //...
+                return response;
+                
             });
 
         };
