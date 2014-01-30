@@ -2,13 +2,24 @@ var io          = require('socket.io').listen(8888),
     fs          = require('fs'),
     _           = require('underscore'),
     request     = require('request'),
-    Snapshot    = require('node-snapshot');
+    Snapshot    = require('node-snapshot'),
+    memwatch    = require('memwatch');
 
 /**
  * @property url
  * @type {String}
  */
 var url = 'http://localhost/Magento-on-Angular/api/public/products';
+
+// When a leak has been detected.
+memwatch.on('leak', function leak(response) {
+    console.log(response);
+});
+
+// When the normal heartbeat for statistics is emitted.
+memwatch.on('stats', function stats(response) {
+    console.log(response);
+});
 
 /**
  * @on connection
