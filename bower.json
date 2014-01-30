@@ -15,11 +15,15 @@
   ],
   "dependencies": {
     "underscore": "~1.5.2",
-    "angular": "~1.0.8",
+    "angular": "~1.2.10",
     "socket.io-client": "~0.9.16",
     "skeleton": "*",
     "hammerjs": "~1.0.6",
     "bootstrap": "~3.0.3",
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "angular-sanitize": "~1.2.10"
+  },
+  "resolutions": {
+    "angular": "~1.2.10"
   }
 }

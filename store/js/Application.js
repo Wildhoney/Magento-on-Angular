@@ -6,6 +6,6 @@
      * @property window.maoApp
      * @type {Object}
      */
-    $window.maoApp = $angular.module('maoApp', []);
+    $window.maoApp = $angular.module('maoApp', ['ngSanitize']);
 
 })(window, window.angular);

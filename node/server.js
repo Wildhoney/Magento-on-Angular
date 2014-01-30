@@ -53,11 +53,7 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('disconnect', function() {
-        $snapshot.crossfilter = undefined;
-        $snapshot.dimensions  = undefined;
-        $snapshot.memory      = undefined;
-        $snapshot.socket      = undefined;
-        $snapshot             = undefined;
+        $snapshot = undefined;
     });
 
 });

@@ -6,7 +6,7 @@
         <img src="images/star.png" class="Price" />
         Our Price: &pound;{{options.model.price | number: 2}}
     </div>
-    <p class="description">{{options.model.description}}</p>
+    <p class="description" ng-bind-html="options.model.description"></p>
     <div class="btn" ng-click="addBasket(options.model.id)">Add to Basket</div>
 
 </section>
