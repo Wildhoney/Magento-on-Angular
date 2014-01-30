@@ -11,3 +11,4 @@
 /magento/media/catalog/product/cache/*
 /api/app/storage/*
 /dump.rdb
+/magento/var/log/*
