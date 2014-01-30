@@ -27,6 +27,8 @@ Since your product collection might be a little slow because of Magento's EAV da
 
 In order to generate a cache for the product collection, you can run `php artisan products` from the terminal. Once completed, the normal API method via the browser will use this cache key.
 
+<img src="http://i.imgur.com/Ye2AO9J.png" alt="Redis" />
+
 Please note that by default the cache is attempted to be created via Redis. If you don't want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `redis` to `file`.
 
 Directory Structure
