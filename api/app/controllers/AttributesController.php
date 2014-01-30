@@ -2,6 +2,11 @@
 
 class AttributesController extends MageController {
 
+    /**
+     * @method getOptions
+     * @param  string $attributeName
+     * @return string
+     */
     public function getOptions($attributeName) {
 
         $attribute = Mage::getSingleton('eav/config')->getAttribute('catalog_product', $attributeName);

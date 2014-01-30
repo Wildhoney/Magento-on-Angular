@@ -4,7 +4,7 @@ class ProductController extends MageController {
 
     /**
      * @method getProduct
-     * @param int $productId
+     * @param integer $productId
      * @return string
      */
     public function getProduct($productId) {

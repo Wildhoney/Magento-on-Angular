@@ -2,7 +2,7 @@ var io          = require('socket.io').listen(8888),
     fs          = require('fs'),
     _           = require('underscore'),
     request     = require('request'),
-    Snapshot    = require('node-snapshot'),
+    snapshot    = require('node-snapshot'),
     memwatch    = require('memwatch');
 
 /**
@@ -27,7 +27,7 @@ memwatch.on('stats', function stats(response) {
 io.sockets.on('connection', function (socket) {
 
     // Bootstrap Snapshot passing in the reference for the socket as a dependency.
-    var $snapshot = new Snapshot('products').bootstrap(socket).useDelta(true);
+    var $snapshot = new snapshot('products').bootstrap(socket).useDelta(true);
 
     // Configure the defaults.
     $snapshot.setPageNumber(1);
@@ -42,8 +42,6 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('snapshot/products/colours', function colours(ids) {
 
-        console.log(ids);
-
         $snapshot.applyFilter('colour', function colour(colourDimension) {
 
             colourDimension.filterFunction(function(d) {
@@ -52,6 +50,14 @@ io.sockets.on('connection', function (socket) {
 
         }, 'afresh');
 
+    });
+
+    socket.on('disconnect', function() {
+        $snapshot.crossfilter = undefined;
+        $snapshot.dimensions  = undefined;
+        $snapshot.memory      = undefined;
+        $snapshot.socket      = undefined;
+        $snapshot             = undefined;
     });
 
 });

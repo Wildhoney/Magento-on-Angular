@@ -40,10 +40,10 @@
             </db>
             <default_setup>
                 <connection>
-                    <host><![CDATA[127.0.0.1]]></host>
-                    <username><![CDATA[root]]></username>
-                    <password><![CDATA[password]]></password>
-                    <dbname><![CDATA[magento]]></dbname>
+                    <host><![CDATA[aatest.alexandalexa.com]]></host>
+                    <username><![CDATA[dev_db_usr]]></username>
+                    <password><![CDATA[sLyi3Fh3m7i]]></password>
+                    <dbname><![CDATA[dev_dhruv]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>

@@ -39,6 +39,16 @@ section.products div.models {
     font-family: "Source Sans Pro", sans-serif;
 }
 
+section.products div.response-time {
+    float: right;
+    font-weight: 100;
+    color: #a9a9a9;
+    font-size: 16px;
+    cursor: help;
+    border-bottom: 3px solid rgba(0, 0, 0, .1);
+    font-family: "Source Sans Pro", sans-serif;
+}
+
 section.products div.paging {
     font-size: 14px;
     font-family: "Source Sans Pro", sans-serif;

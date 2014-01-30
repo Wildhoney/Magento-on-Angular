@@ -2,70 +2,27 @@
 
 class ProductsController extends MageController {
 
+    /**
+     * @const PRODUCTS_CACHE_KEY
+     * @type string
+     */
+    const PRODUCTS_CACHE_KEY = 'products';
+
+    /**
+     * @method getProducts
+     * @return string
+     */
     public function getProducts() {
 
-        $cacheKey = 'products';
+//        if (!Cache::has(self::PRODUCTS_CACHE_KEY)) {
+//
+//            // Invoke the "products" command if it hasn't been cached already.
+//            Artisan::call('products');
+//
+//        }
 
-        if (Cache::has($cacheKey)) {
-
-            // Simply respond with the cached products if we have it already cached.
-            return Cache::get($cacheKey);
-
-        }
-
-        $collection = array();
-
-        $products = Mage::getResourceModel('catalog/product_collection');
-        $products->addAttributeToSelect('*');
-        $products->addAttributeToFilter('visibility', array('neq' => 1));
-        $products->addAttributeToFilter('status', 1);
-        $products->load();
-
-        foreach ($products as $product) {
-
-            $ids        = array();
-            $categoryId = (int) $product->getCategoryIds()[0];
-            $type       = Mage::getModel('catalog/category')->load($categoryId);
-
-            foreach ($product->getCategoryIds() as $id) {
-
-                array_push($ids, (int) $id);
-
-                // Add any parent IDs as well.
-                $category = Mage::getModel('catalog/category')->load($id);
-
-                if ($category->parent_id) {
-
-                    $parentCategory = Mage::getModel('catalog/category')->load($category->parent_id);
-
-                    if ($parentCategory->parent_id) {;
-                        array_push($ids, (int) $parentCategory->parent_id);
-                    }
-
-                    array_push($ids, (int) $category->parent_id);
-                }
-
-            }
-
-            $collection[] = array(
-                'id'                => (int) $product->getId(),
-                'name'              => trim($product->getName()),
-                'ident'             => trim($this->_createIdent($product->getName())),
-                'price'             => (float) $product->getPrice(),
-                'image'             => $product->getImageUrl(),
-                'colour'            => (int) $product->getData('color'),
-                'manufacturer'      => (int) $product->getData('manufacturer'),
-                'categories'        => array_unique($ids),
-                'type'              => $type,
-                'specialisation'    => $product->getData('specialisation')
-            );
-
-        }
-
-        // Cache the results of the collection.
-        Cache::put($cacheKey, json_encode($collection), 60);
-
-        return Response::json($collection);
+        // Response with the collection from the cache.
+        return Cache::get(self::PRODUCTS_CACHE_KEY);
 
     }
 

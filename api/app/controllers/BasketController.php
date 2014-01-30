@@ -2,6 +2,10 @@
 
 class BasketController extends MageController {
 
+    /**
+     * @method getItems
+     * @return string
+     */
     public function getItems() {
 
         Mage::getSingleton('core/session', array('name' => 'frontend'));
@@ -22,6 +26,11 @@ class BasketController extends MageController {
 
     }
 
+    /**
+     * @method addItem
+     * @param int $productId
+     * @return void
+     */
     public function addItem($productId) {
 
         Mage::getSingleton('core/session', array('name' => 'frontend'));

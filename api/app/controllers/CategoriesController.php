@@ -2,6 +2,10 @@
 
 class CategoriesController extends MageController {
 
+    /**
+     * @method getCategories
+     * @return string
+     */
     public function getCategories() {
 
         $categories = Mage::helper('catalog/category')->getStoreCategories();

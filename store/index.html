@@ -85,7 +85,7 @@
         <section ng-click="closeModal()" class="products" ng-class="{'filters-open': filtersOpen, 'modal-open': modalOpen}">
 
             <div class="models" title="Current amount of products currently being shown on the page.">
-                {{statistics.models.current}}/{{statistics.models.total}}
+                {{statistics.models.current}}/{{statistics.models.total}} in {{statistics.responseTime}}ms
             </div>
 
             <div class="paging">

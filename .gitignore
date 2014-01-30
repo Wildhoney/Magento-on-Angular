@@ -9,3 +9,5 @@
 /magento/var/cache/*
 /magento/var/session/*
 /magento/media/catalog/product/cache/*
+/api/app/storage/*
+/dump.rdb
