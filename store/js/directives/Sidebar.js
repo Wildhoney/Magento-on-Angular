@@ -3,11 +3,11 @@
     "use strict";
 
     /**
-     * @directive filter
+     * @directive sidebar
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.directive('filter', ['$window', function filterDirective($window) {
+    $mao.directive('sidebar', ['$window', function sidebarDirective($window) {
 
         return {
             restrict: 'A',

@@ -19,7 +19,8 @@
     <script type="text/javascript" src="js/controllers/ProductController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/controllers/ModalController.js"></script>
-    <script type="text/javascript" src="js/directives/Filters.js"></script>
+    <script type="text/javascript" src="js/directives/Sidebar.js"></script>
+    <script type="text/javascript" src="js/directives/Accordion.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
     <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
@@ -32,9 +33,9 @@
 
     <section ng-controller="ProductsController">
 
-        <section data-filter class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+        <section data-accordion-group data-sidebar class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
-            <div class="filter product-name">
+            <div data-accordion-item class="filter product-name">
                 <h2><img class="icon" src="images/name.png" />Name</h2>
                 <a ng-click="resetName()">Clear</a>
                 <p class="description">
@@ -45,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="filter price-range">
+            <div data-accordion-item class="filter price-range">
                 <h2><img class="icon" src="images/price.png" />Price</h2>
                 <a ng-click="resetPriceRange()">Reset</a>
                 <p class="description">Define the minimum and maximum price range.</p>
@@ -53,19 +54,19 @@
                     <ul>
                         <li>
                             <label>Min:</label>
-                            <input type="range" ng-model="price.percentage.minimum" ng-change="setPriceRange('minimum', price.percentage.minimum, price.percentage.maximum)" />
+                            <input type="range" ng-model="price.percentage.minimum" ng-mouseup="setPriceRange('minimum', price.percentage.minimum, price.percentage.maximum)" />
                             <span>&pound;{{(price.actual.minimum || statistics.ranges.price.min) | number: 2}}</span>
                         </li>
                         <li>
                             <label>Max:</label>
-                            <input type="range" ng-model="price.percentage.maximum" ng-change="setPriceRange('maximum', price.percentage.minimum, price.percentage.maximum)" />
+                            <input type="range" ng-model="price.percentage.maximum" ng-mouseup="setPriceRange('maximum', price.percentage.minimum, price.percentage.maximum)" />
                             <span>&pound;{{(price.actual.maximum || statistics.ranges.price.max) | number: 2}}</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="filter colours">
+            <div data-accordion-item class="filter colours">
                 <h2><img class="icon" src="images/colour.png" />Colours</h2>
                 <a ng-click="invertColours()">Invert</a>
                 <p class="description">Choose the colours you're fond of in a product.</p>
@@ -122,7 +123,7 @@
 
         </section>
 
-        <section data-filter class="modal-window" ng-controller="ModalController" ng-class="{'modal-open': modalOpen}">
+        <section data-sidebar class="modal-window" ng-controller="ModalController" ng-class="{'modal-open': modalOpen}">
 
             <a class="close" ng-click="close()">
                 <div class="btn">

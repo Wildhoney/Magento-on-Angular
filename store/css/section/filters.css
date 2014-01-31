@@ -52,6 +52,8 @@ section.filters.open div.filter {
 section.filters div.filter {
     font-family: "Source Sans Pro", sans-serif;
     opacity: 0;
+    max-height: 32px;
+    overflow: hidden;
     position: relative;
     transition: all .75s;
     -o-transition: all .75s;
@@ -65,6 +67,7 @@ section.filters div.filter h2 {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    cursor: pointer;
     margin: 0;
     padding: 5px 10px;
     border-bottom: 1px solid #d3d3d3;
@@ -80,7 +83,7 @@ section.filters div.filter a {
     position: absolute;
     font-size: 12px;
     right: 10px;
-    top: 7px;
+    top: 6px;
     cursor: pointer;
 }
 

@@ -16,7 +16,7 @@
          * @type {Boolean}
          * @default false
          */
-        $scope.filtersOpen = false;
+        $scope.filtersOpen = true;
 
         /**
          * @property modalOpen
@@ -31,7 +31,11 @@
          * @return {void}
          */
         $scope.keyUp = function keyUp(event) {
-//            console.log('Close?');
+
+            if (event.keyCode === 27) {
+                $scope.$broadcast('modal/close');
+            }
+
         };
         
     }]);
