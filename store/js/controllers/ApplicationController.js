@@ -16,7 +16,7 @@
          * @type {Boolean}
          * @default false
          */
-        $scope.filtersOpen = true;
+        $scope.filtersOpen = false;
 
         /**
          * @property modalOpen

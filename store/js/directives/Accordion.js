@@ -55,6 +55,10 @@
             scope: true,
             link: function link(scope, element) {
 
+                // Memorise the height of the box.
+                scope.height = element.height();
+
+                // Set the current scope to be the active scope upon click.
                 element.bind('click', function click() {
                     scope.setActive(scope);
                 });
@@ -63,11 +67,12 @@
                 scope.$watch('activeScope', function activeScopeChanged(activeScope) {
 
                     if (activeScope !== scope) {
-                        element.css('max-height', '32px');
+                        element.css('height', 32);
+//                        element.css('max-height', '32px');
                         return;
                     }
 
-                    element.css('max-height', '300px');
+                    element.css('height', scope.height);
 
                 });
 
