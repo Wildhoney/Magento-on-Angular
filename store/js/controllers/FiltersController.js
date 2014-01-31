@@ -171,7 +171,10 @@
             var colours = [];
 
             _.forEach($scope.filters.colours.selected, function forEach(selected, index) {
-                (selected) ? colours.push(index) : function() {} ();
+
+                if (selected) {
+                    colours.push(index)
+                }
             });
             
             gateway.setColour(colours);
@@ -187,7 +190,11 @@
             var manufacturers = [];
 
             _.forEach($scope.filters.manufacturers.selected, function forEach(selected, index) {
-                (selected) ? manufacturers.push(index) : function() {} ();
+
+                if (selected) {
+                    manufacturers.push(index)
+                }
+
             });
             
             gateway.setManufacturer(manufacturers);

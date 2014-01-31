@@ -55,7 +55,7 @@
             scope: true,
             link: function link(scope, element) {
 
-                scope.$on('filters/received', function filtersReceived(event, type) {
+                scope.$on('filters/received', function filtersReceived() {
 
                     $timeout(function timeout() {
 
