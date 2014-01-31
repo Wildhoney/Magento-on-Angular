@@ -30,9 +30,10 @@ section.products.modal-open {
 }
 
 section.products div.models {
-    float: left;
+    position: fixed;
     font-weight: 100;
     color: #a9a9a9;
+    right: 30px;
     font-size: 16px;
     cursor: help;
     border-bottom: 3px solid rgba(0, 0, 0, .1);

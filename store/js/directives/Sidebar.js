@@ -20,7 +20,7 @@
 
                     // Update the "top" property based on the amount of scroll, taking into
                     // consideration the header.
-                    element[0].style.top = offset + 'px';
+                    element[0].style.top = ((offset > 50) ? 50 : offset) + 'px';
 
                 });
 

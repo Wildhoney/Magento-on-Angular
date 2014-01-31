@@ -1,0 +1,40 @@
+section.filters div.basket {
+    height: 100px;
+    padding: 20px;
+    width: 280px;
+}
+
+section.filters div.basket img.avatar {
+    width: 60px;
+    border-radius: 50px;
+    float: left;
+}
+
+section.filters div.basket span {
+    float: left;
+    font-size: 32px;
+    margin: 6px 0 0 15px;
+}
+
+section.filters div.basket a {
+    cursor: pointer;
+    float: right;
+    margin-top: 15px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, .15);
+    opacity: .5;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(0, 0, 0, .65);
+    padding: 5px 15px;
+    border-radius: 3px;
+    transition: all .55s;
+    -o-transition: all .55s;
+    -ms-transition: all .55s;
+    -moz-transition: all .55s;
+    -webkit-transition: all .55s;
+}
+
+section.filters div.basket a:hover {
+    text-decoration: none;
+    opacity: .75;
+}

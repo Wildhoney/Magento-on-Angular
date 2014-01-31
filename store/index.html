@@ -20,7 +20,7 @@
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/controllers/ModalController.js"></script>
     <script type="text/javascript" src="js/directives/Sidebar.js"></script>
-    <script type="text/javascript" src="js/directives/Accordion.js"></script>
+    <script type="text/javascript" src="js/directives/Panel.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
     <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
@@ -33,70 +33,75 @@
 
     <section ng-controller="ProductsController">
 
-        <section data-accordion-group data-sidebar class="filters" ng-controller="FiltersController" ng-mouseover="open()" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+        <section data-accordion-group data-sidebar class="filters" ng-controller="FiltersController"     ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
-            <div data-accordion-item class="filter product-name">
-                <h2><img class="icon" src="images/name.png" />Name</h2>
-                <a ng-click="resetName()">Clear</a>
-                <p class="description">
-                    <label for="name">Search for a product by its name.</label>
-                </p>
-                <div class="inner">
-                    <input type="text" id="name" ng-model="name" placeholder="'red coat', 'blue football', etc..." ng-change="setName(name)" />
-                </div>
-            </div>
+            <section class="tabs" ng-include="'views/tabs.html'"></section>
+            <section class="quick-links" ng-include="'views/quick-links.html'"></section>
 
-            <div data-accordion-item class="filter price-range">
-                <h2><img class="icon" src="images/price.png" />Price</h2>
-                <a ng-click="resetPriceRange()">Reset</a>
-                <p class="description">Define the minimum and maximum price range.</p>
-                <div class="inner">
-                    <ul>
-                        <li>
-                            <label>Min:</label>
-                            <input type="range" ng-model="price.percentage.minimum" ng-change="setPriceRange('minimum', price.percentage.minimum, price.percentage.maximum)" />
-                            <span>&pound;{{(price.actual.minimum || statistics.ranges.price.min) | number: 2}}</span>
-                        </li>
-                        <li>
-                            <label>Max:</label>
-                            <input type="range" ng-model="price.percentage.maximum" ng-change="setPriceRange('maximum', price.percentage.minimum, price.percentage.maximum)" />
-                            <span>&pound;{{(price.actual.maximum || statistics.ranges.price.max) | number: 2}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <section class="panels">
 
-            <div data-accordion-item class="filter colours">
-                <h2><img class="icon" src="images/colour.png" />Colours</h2>
-                <a ng-click="invertColours()">Invert</a>
-                <p class="description">Choose the colours you're fond of in a product.</p>
-                <div class="inner">
+                <section data-panel="basic" class="basic">
+                    Basic.
+                </section>
 
-                    <ul>
-                        <li ng-repeat="colour in filters.colours.models">
-                            <input type="checkbox" ng-init="filters.colours.selected[colour.id] = true" id="{{colour.id}}" ng-model="filters.colours.selected[colour.id]" ng-change="setColour(colour.id)" />
-                            <label for="{{colour.id}}">{{colour.label}}</label>
-                        </li>
-                    </ul>
+                <section data-panel="colours" class="colours">
 
-                </div>
-            </div>
+                    <div ng-include="'views/filters/colours.html'"></div>
 
-            <div data-accordion-item class="filter manufacturers">
-                <h2><img class="icon" src="images/manufacturer.png" />Manufacturers</h2>
-                <a ng-click="invertManufacturers()">Invert</a>
-                <p class="description">Choose the manufacturers you're interested in.</p>
-                <div class="inner">
+                </section>
 
-                    <ul>
-                        <li ng-repeat="manufacturer in filters.manufacturers.models">
-                            <input type="checkbox" ng-init="filters.manufacturers.selected[manufacturer.id] = true" id="{{manufacturer.id}}" ng-model="filters.manufacturers.selected[manufacturer.id]" ng-change="setManufacturer(manufacturer.id)" />
-                            <label for="{{manufacturer.id}}">{{manufacturer.label}}</label>
-                        </li>
-                    </ul>
+                <section data-panel="brands" class="brands">
+                    Brands.
+                </section>
 
-                </div>
-            </div>
+            </section>
+
+            <!--<div data-accordion-item class="filter product-name">-->
+                <!--<h2><img class="icon" src="images/name.png" />Name</h2>-->
+                <!--<a ng-click="resetName()">Clear</a>-->
+                <!--<p class="description">-->
+                    <!--<label for="name">Search for a product by its name.</label>-->
+                <!--</p>-->
+                <!--<div class="inner">-->
+                    <!--<input type="text" id="name" ng-model="name" placeholder="'red coat', 'blue football', etc..." ng-change="setName(name)" />-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div data-accordion-item class="filter price-range">-->
+                <!--<h2><img class="icon" src="images/price.png" />Price</h2>-->
+                <!--<a ng-click="resetPriceRange()">Reset</a>-->
+                <!--<p class="description">Define the minimum and maximum price range.</p>-->
+                <!--<div class="inner">-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<label>Min:</label>-->
+                            <!--<input type="range" ng-model="price.percentage.minimum" ng-change="setPriceRange('minimum', price.percentage.minimum, price.percentage.maximum)" />-->
+                            <!--<span>&pound;{{(price.actual.minimum || statistics.ranges.price.min) | number: 2}}</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<label>Max:</label>-->
+                            <!--<input type="range" ng-model="price.percentage.maximum" ng-change="setPriceRange('maximum', price.percentage.minimum, price.percentage.maximum)" />-->
+                            <!--<span>&pound;{{(price.actual.maximum || statistics.ranges.price.max) | number: 2}}</span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div data-accordion-item class="filter manufacturers">-->
+                <!--<h2><img class="icon" src="images/manufacturer.png" />Manufacturers</h2>-->
+                <!--<a ng-click="invertManufacturers()">Invert</a>-->
+                <!--<p class="description">Choose the manufacturers you're interested in.</p>-->
+                <!--<div class="inner">-->
+
+                    <!--<ul>-->
+                        <!--<li ng-repeat="manufacturer in filters.manufacturers.models">-->
+                            <!--<input type="checkbox" ng-init="filters.manufacturers.selected[manufacturer.id] = true" id="{{manufacturer.id}}" ng-model="filters.manufacturers.selected[manufacturer.id]" ng-change="setManufacturer(manufacturer.id)" />-->
+                            <!--<label for="{{manufacturer.id}}">{{manufacturer.label}}</label>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+
+                <!--</div>-->
+            <!--</div>-->
 
         </section>
 
@@ -130,7 +135,8 @@
 
                 <li ng-repeat="product in products" ng-click="view(product.id, $event)">
 
-                    <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
+                    <!--<img ng-src="{{product.image}}" alt="{{product.name}}'s image" />-->
+                    <img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/h/a/hatl18132-3ahq_05-copy.jpg" alt="{{product.name}}'s image" />
                     <h2><a>{{product.name}}</a></h2>
                     <div class="price">&pound;{{product.price | number: 2}}</div>
 

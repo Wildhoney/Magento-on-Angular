@@ -1,0 +1,35 @@
+section.tabs {
+    position: absolute;
+    top: 54px;
+    z-index: 2;
+    width: 120px;
+    right: -120px;
+}
+
+section.tabs ul li {
+    margin-bottom: 5px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, .05);
+    padding: 10px 20px 10px 10px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+section.tabs ul li:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+section.tabs ul li img {
+    float: left;
+    overflow: hidden;
+    opacity: .5;
+    margin: 0 10px 0 8px;
+}

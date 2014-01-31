@@ -1,0 +1,33 @@
+section.quick-links {
+    float: right;
+    text-align: center;
+}
+
+section.quick-links ul li {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+section.quick-links ul li.basket {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: rgba(0, 0, 0, .25);
+}
+
+section.quick-links ul li img {
+    opacity: .25;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+section.quick-links ul li:hover img {
+    opacity: .55;
+}

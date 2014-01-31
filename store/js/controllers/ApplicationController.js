@@ -13,10 +13,9 @@
 
         /**
          * @property filtersOpen
-         * @type {Boolean}
-         * @default false
+         * @type {String}
          */
-        $scope.filtersOpen = false;
+        $scope.filtersOpen = '';
 
         /**
          * @property modalOpen

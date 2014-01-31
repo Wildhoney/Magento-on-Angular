@@ -1,3 +1,6 @@
+@import 'filters/tabs.css';
+@import 'filters/quick-links.css';
+
 section.filters {
     height: 100%;
     float: left;
@@ -6,8 +9,8 @@ section.filters {
     background-color: white;
     box-sizing: border-box;
     box-shadow: 0 -20px 60px rgba(0, 0, 0, .35);
-    width: 25%;
-    margin-left: -20%;
+    width: 270px;
+    margin-left: -215px;
     transition: margin-left .35s, width .35s;
     -o-transition: margin-left .35s, width .35s;
     -ms-transition: margin-left .35s, width .35s;
@@ -16,42 +19,17 @@ section.filters {
 }
 
 section.filters.open {
-    width: 25%;
     margin-left: 0;
 }
 
-section.filters:after {
-    content: "Filters";
-    position: absolute;
-    background-color: white;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 100;
-    text-transform: uppercase;
-    background-color: rgba(0, 0, 0, .05);
-    padding: 10px 0 10px 30px;
-    width: 110px;
-    right: -110px;
-    border-radius: 0 4px 4px 0;
-    top: 70px;
-    transition: all .35s;
-    -o-transition: all .35s;
-    -ms-transition: all .35s;
-    -moz-transition: all .35s;
-    -webkit-transition: all .35s;
-}
-
-section.filters.open:after {
+section.filters.open section.quick-links {
     opacity: 0;
-    z-index: 0;
-}
-
-section.filters.open div.filter {
-    opacity: 1;
+    position: absolute;
 }
 
 section.filters div.filter {
     font-family: "Source Sans Pro", sans-serif;
-    opacity: 0;
+    width: 100%;
     overflow: hidden;
     position: relative;
     max-height: 400px;
@@ -65,6 +43,7 @@ section.filters div.filter {
 section.filters div.filter h2 {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 14px;
+    width: 100%;
     font-weight: 400;
     line-height: 20px;
     cursor: pointer;
@@ -84,6 +63,7 @@ section.filters div.filter a {
     font-size: 12px;
     right: 10px;
     top: 6px;
+    display: none;
     cursor: pointer;
 }
 
@@ -105,85 +85,85 @@ section.filters div.filter.product-name p.description {
     margin-bottom: 5px;
 }
 
-section.filters div.filter.price-range ul li {
-    padding: 0 10px;
-}
+/*section.filters div.filter.price-range ul li {*/
+    /*padding: 0 10px;*/
+/*}*/
 
-section.filters div.filter.price-range ul li label {
-    float: left;
-    font-weight: 200;
-    margin: -1px 8px 0 0;
-}
+/*section.filters div.filter.price-range ul li label {*/
+    /*float: left;*/
+    /*font-weight: 200;*/
+    /*margin: -1px 8px 0 0;*/
+/*}*/
 
-section.filters div.filter.price-range ul li input {
-    width: 130px;
-}
+/*section.filters div.filter.price-range ul li input {*/
+    /*width: 130px;*/
+/*}*/
 
-section.filters div.filter.price-range ul li span {
-    float: right;
-    font-size: 12px;
-    margin-top: -2px;
-    font-weight: 400;
-}
+/*section.filters div.filter.price-range ul li span {*/
+    /*float: right;*/
+    /*font-size: 12px;*/
+    /*margin-top: -2px;*/
+    /*font-weight: 400;*/
+/*}*/
 
-section.filters div.filter.colours ul li {
-    float: left;
-    overflow: hidden;
-    width: 75px;
-}
+/*section.filters div.filter.colours ul li {*/
+    /*float: left;*/
+    /*overflow: hidden;*/
+    /*width: 75px;*/
+/*}*/
 
-section.filters div.filter.colours ul li input {
-    float: left;
-    overflow: hidden;
-    cursor: pointer;
-}
+/*section.filters div.filter.colours ul li input {*/
+    /*float: left;*/
+    /*overflow: hidden;*/
+    /*cursor: pointer;*/
+/*}*/
 
-section.filters div.filter.colours ul li label {
-    float: left;
-    overflow: hidden;
-    cursor: pointer;
-    padding-left: 5px;
-    margin-top: 2px;
-    font-weight: 300;
-}
+/*section.filters div.filter.colours ul li label {*/
+    /*float: left;*/
+    /*overflow: hidden;*/
+    /*cursor: pointer;*/
+    /*padding-left: 5px;*/
+    /*margin-top: 2px;*/
+    /*font-weight: 300;*/
+/*}*/
 
-section.filters div.filter.manufacturers ul {
-    max-height: 300px;
-    border: 1px solid #d3d3d3;
-    overflow: hidden;
-    overflow-y: scroll;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, .1);
-}
+/*section.filters div.filter.manufacturers ul {*/
+    /*max-height: 300px;*/
+    /*border: 1px solid #d3d3d3;*/
+    /*overflow: hidden;*/
+    /*overflow-y: scroll;*/
+    /*box-shadow: inset 0 0 10px rgba(0, 0, 0, .1);*/
+/*}*/
 
-section.filters div.filter.manufacturers ul li {
-    width: 100%;
-    margin-bottom: 0;
-    height: 25px;
-    line-height: 25px;
-    float: left;
-    overflow: hidden;
-    clear: both;
-    position: relative;
-    padding: 0 10px;
-}
+/*section.filters div.filter.manufacturers ul li {*/
+    /*width: 100%;*/
+    /*margin-bottom: 0;*/
+    /*height: 25px;*/
+    /*line-height: 25px;*/
+    /*float: left;*/
+    /*overflow: hidden;*/
+    /*clear: both;*/
+    /*position: relative;*/
+    /*padding: 0 10px;*/
+/*}*/
 
-section.filters div.filter.manufacturers ul li:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, .025);
-}
+/*section.filters div.filter.manufacturers ul li:nth-of-type(odd) {*/
+    /*background-color: rgba(0, 0, 0, .025);*/
+/*}*/
 
-section.filters div.filter.manufacturers ul li input {
-    float: left;
-    overflow: hidden;
-    margin-top: 7px;
-    position: absolute;
-    pointer-events: none;
-}
+/*section.filters div.filter.manufacturers ul li input {*/
+    /*float: left;*/
+    /*overflow: hidden;*/
+    /*margin-top: 7px;*/
+    /*position: absolute;*/
+    /*pointer-events: none;*/
+/*}*/
 
-section.filters div.filter.manufacturers ul li label {
-    float: left;
-    cursor: pointer;
-    padding-left: 20px;
-    float: left;
-    width: 100%;
-    font-weight: 100;
-}
+/*section.filters div.filter.manufacturers ul li label {*/
+    /*float: left;*/
+    /*cursor: pointer;*/
+    /*padding-left: 20px;*/
+    /*float: left;*/
+    /*width: 100%;*/
+    /*font-weight: 100;*/
+/*}*/
