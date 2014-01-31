@@ -52,6 +52,18 @@ io.sockets.on('connection', function (socket) {
 
     });
 
+    socket.on('snapshot/products/manufacturers', function manufacturers(ids) {
+
+        $snapshot.applyFilter('manufacturer', function manufacturer(manufacturerDimension) {
+
+            manufacturerDimension.filterFunction(function(d) {
+                return (d === 0) || _.contains(ids, d);
+            });
+
+        }, 'afresh');
+
+    });
+
     socket.on('disconnect', function() {
         $snapshot = undefined;
     });

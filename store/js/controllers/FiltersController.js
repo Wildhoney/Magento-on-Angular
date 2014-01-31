@@ -18,28 +18,6 @@
         $scope.name = '';
 
         /**
-         * @property colours
-         * @type {Object}
-         */
-        $scope.colours = {
-
-            /**
-             * All variations of the colours.
-             *
-             * @property options
-             */
-            options: [],
-
-            /**
-             * List of colour IDs that have been selected.
-             *
-             * @property selected
-             */
-            selected: []
-
-        };
-
-        /**
          * @property price
          * @type {Object}
          */
@@ -62,6 +40,26 @@
         };
 
         /**
+         * @property filters
+         * @type {Object}
+         */
+        $scope.filters = {
+
+            /**
+             * @property colours
+             * @type {Object}
+             */
+            colours: { models: [], selected: [] },
+
+            /**
+             * @property manufacturers
+             * @type {Object}
+             */
+            manufacturers: { models: [], selected: [] }
+
+        };
+
+        /**
          * @method setName
          * @param text {String}
          * @return {void}
@@ -70,7 +68,14 @@
 
         // Fetch all of the colours.
         http.getAttribute('color').then(function then(models) {
-            $scope.colours.options = models;
+            $scope.filters.colours.models = models;
+            $scope.$broadcast('filters/received', 'colour');
+        });
+
+        // Fetch all of the manufacturers.
+        http.getAttribute('manufacturer').then(function then(models) {
+            $scope.filters.manufacturers.models = models;
+            $scope.$broadcast('filters/received', 'manufacturer');
         });
 
         /**
@@ -110,7 +115,7 @@
                 $scope.colours.selected[index] = !$scope.colours.selected[index];
             });
 
-            $scope.setColours();
+            $scope.setColour();
 
         };
 
@@ -144,22 +149,34 @@
         };
 
         /**
-         * @method setColours
+         * @method setColour
          * @return {void}
          */
-        $scope.setColours = function setColours() {
+        $scope.setColour = function setColour() {
 
             var colours = [];
 
-            _.forEach($scope.colours.selected, function forEach(selected, index) {
-
-                if (selected) {
-                    colours.push(index);
-                }
-
+            _.forEach($scope.filters.colours.selected, function forEach(selected, index) {
+                (selected) ? colours.push(index) : function() {} ();
             });
+            
+            gateway.setColour(colours);
 
-            gateway.setColours(colours);
+        };
+
+        /**
+         * @method setManufacturer
+         * @return {void}
+         */
+        $scope.setManufacturer = function setManufacturer() {
+
+            var manufacturers = [];
+
+            _.forEach($scope.filters.manufacturers.selected, function forEach(selected, index) {
+                (selected) ? manufacturers.push(index) : function() {} ();
+            });
+            
+            gateway.setManufacturer(manufacturers);
 
         };
 

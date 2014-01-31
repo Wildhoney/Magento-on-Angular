@@ -76,12 +76,21 @@
         };
 
         /**
-         * @method setColours
+         * @method setColour
          * @param ids {Array}
          * @return {void}
          */
-        service.setColours = function setColours(ids) {
+        service.setColour = function setColour(ids) {
             socket.node.emit('snapshot/products/colours', ids);
+        };
+
+        /**
+         * @method setManufacturer
+         * @param ids {Array}
+         * @return {void}
+         */
+        service.setManufacturer = function setManufacturer(ids) {
+            socket.node.emit('snapshot/products/manufacturers', ids);
         };
 
         return service;

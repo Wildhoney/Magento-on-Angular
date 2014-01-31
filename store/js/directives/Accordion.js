@@ -48,18 +48,32 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.directive('accordionItem', function accordionItemDirective() {
+    $mao.directive('accordionItem', ['$timeout', function accordionItemDirective($timeout) {
 
         return {
             restrict: 'A',
             scope: true,
             link: function link(scope, element) {
 
-                // Memorise the height of the box.
-                scope.height = element.height();
+                scope.$on('filters/received', function filtersReceived(event, type) {
+
+                    $timeout(function timeout() {
+
+                        // Allow the height to assume its own height.
+                        element.css('height', 'auto');
+
+                        // Memorise the height of the box.
+                        scope.height = element.height();
+
+                        // Close the accordion item again.
+                        element.css('height', 32);
+
+                    }, 1);
+
+                });
 
                 // Set the current scope to be the active scope upon click.
-                element.bind('click', function click() {
+                element.find('h2').bind('click', function click() {
                     scope.setActive(scope);
                 });
 
@@ -68,7 +82,6 @@
 
                     if (activeScope !== scope) {
                         element.css('height', 32);
-//                        element.css('max-height', '32px');
                         return;
                     }
 
@@ -79,6 +92,6 @@
             }
         }
 
-    });
+    }]);
 
 })(window.maoApp);

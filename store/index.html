@@ -73,9 +73,24 @@
                 <div class="inner">
 
                     <ul>
-                        <li ng-repeat="colour in colours.options">
-                            <input type="checkbox" ng-init="colours.selected[colour.id] = true" id="{{colour.id}}" ng-model="colours.selected[colour.id]" ng-change="setColours(colour.id)" />
+                        <li ng-repeat="colour in filters.colours.models">
+                            <input type="checkbox" ng-init="filters.colours.selected[colour.id] = true" id="{{colour.id}}" ng-model="filters.colours.selected[colour.id]" ng-change="setColour(colour.id)" />
                             <label for="{{colour.id}}">{{colour.label}}</label>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div data-accordion-item class="filter manufacturers">
+                <h2><img class="icon" src="images/manufacturer.png" />Manufacturers</h2>
+                <p class="description">Choose the manufacturers you're interested in.</p>
+                <div class="inner">
+
+                    <ul>
+                        <li ng-repeat="manufacturer in filters.manufacturers.models">
+                            <input type="checkbox" ng-init="filters.manufacturers.selected[manufacturer.id] = true" id="{{manufacturer.id}}" ng-model="filters.manufacturers.selected[manufacturer.id]" ng-change="setManufacturer(manufacturer.id)" />
+                            <label for="{{manufacturer.id}}">{{manufacturer.label}}</label>
                         </li>
                     </ul>
 
