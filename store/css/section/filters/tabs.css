@@ -12,19 +12,25 @@ section.tabs ul li {
     font-weight: 100;
     font-size: 12px;
     text-transform: uppercase;
-    background-color: rgba(0, 0, 0, .05);
-    padding: 10px 20px 10px 10px;
-    border-radius: 0 4px 4px 0;
+    padding: 12px 20px 10px 5px;
+    /*border-radius: 0 4px 4px 0;*/
     cursor: pointer;
+    background-color: rgba(0, 0, 0, .1);
     transition: all .35s;
     -o-transition: all .35s;
     -ms-transition: all .35s;
     -moz-transition: all .35s;
     -webkit-transition: all .35s;
+    color: white;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, .25);
 }
 
 section.tabs ul li:hover {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .15);
+}
+
+section.tabs ul li.active {
 }
 
 section.tabs ul li img {

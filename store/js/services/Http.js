@@ -23,15 +23,7 @@
          * @return {$q.promise}
          */
         service.getAttribute = function getAttribute(name) {
-
-            var deferred = $q.defer();
-
-            $http.get(service.url + 'attributes/' + name).then(function(response) {
-                deferred.resolve(response.data);
-            });
-
-            return deferred.promise;
-
+            return $http.get(service.url + 'attributes/' + name);
         };
 
         /**

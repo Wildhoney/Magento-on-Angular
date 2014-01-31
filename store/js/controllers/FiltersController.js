@@ -11,7 +11,28 @@
 
     function filtersController($scope, gateway, http) {
 
-        
+        /**
+         * @property price
+         * @type {Object}
+         */
+        $scope.price = { minimum: 0, maximum: 100 };
+
+        /**
+         * @method setName
+         * @param text {String}
+         * @return {void}
+         */
+        $scope.setName = gateway.setName;
+
+        /**
+         * @method update
+         * @param property {String}
+         * @param values {Array}
+         */
+        $scope.update = function update(property, values) {
+            property = property.charAt(0).toUpperCase() + property.substring(1);
+            gateway['set' + property](values);
+        };
 
         /**
          * @method setPriceRange
@@ -24,16 +45,16 @@
 
             // Since the range passes a percent (0-100), we can calculate how much that
             // is based on the overall price.
-            $scope.price.actual.minimum = min = (($scope.immutableStatistics.ranges.price.max / 100) * min);
-            $scope.price.actual.maximum = max = (($scope.immutableStatistics.ranges.price.max / 100) * max);
+            min = (($scope.immutableStatistics.ranges.price.max / 100) * min);
+            max = (($scope.immutableStatistics.ranges.price.max / 100) * max);
 
             if (min > max) {
 
                 // Keep the two in line if the minimum goes above the maximum.
                 if (propertyChanging === 'maximum') {
-                    $scope.price.percentage.minimum = $scope.price.percentage.maximum;
+                    $scope.minimum = $scope.maximum;
                 } else {
-                    $scope.price.percentage.maximum = $scope.price.percentage.minimum;
+                    $scope.maximum = $scope.minimum;
                 }
 
             }

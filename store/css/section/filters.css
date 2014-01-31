@@ -1,4 +1,7 @@
 @import 'filters/tabs.css';
+@import 'filters/colours.css';
+@import 'filters/prices.css';
+@import 'filters/brands.css';
 @import 'filters/quick-links.css';
 
 section.filters {
@@ -32,7 +35,7 @@ section.filters div.filter {
     width: 100%;
     overflow: hidden;
     position: relative;
-    max-height: 400px;
+    max-height: 500px;
     transition: all .55s;
     -o-transition: all .55s;
     -ms-transition: all .55s;
@@ -81,89 +84,6 @@ section.filters div.filter div.inner {
     padding: 0 10px;
 }
 
-section.filters div.filter.product-name p.description {
-    margin-bottom: 5px;
-}
-
-/*section.filters div.filter.price-range ul li {*/
-    /*padding: 0 10px;*/
-/*}*/
-
-/*section.filters div.filter.price-range ul li label {*/
-    /*float: left;*/
-    /*font-weight: 200;*/
-    /*margin: -1px 8px 0 0;*/
-/*}*/
-
-/*section.filters div.filter.price-range ul li input {*/
-    /*width: 130px;*/
-/*}*/
-
-/*section.filters div.filter.price-range ul li span {*/
-    /*float: right;*/
-    /*font-size: 12px;*/
-    /*margin-top: -2px;*/
-    /*font-weight: 400;*/
-/*}*/
-
-/*section.filters div.filter.colours ul li {*/
-    /*float: left;*/
-    /*overflow: hidden;*/
-    /*width: 75px;*/
-/*}*/
-
-/*section.filters div.filter.colours ul li input {*/
-    /*float: left;*/
-    /*overflow: hidden;*/
-    /*cursor: pointer;*/
-/*}*/
-
-/*section.filters div.filter.colours ul li label {*/
-    /*float: left;*/
-    /*overflow: hidden;*/
-    /*cursor: pointer;*/
-    /*padding-left: 5px;*/
-    /*margin-top: 2px;*/
-    /*font-weight: 300;*/
-/*}*/
-
-/*section.filters div.filter.manufacturers ul {*/
-    /*max-height: 300px;*/
-    /*border: 1px solid #d3d3d3;*/
-    /*overflow: hidden;*/
-    /*overflow-y: scroll;*/
-    /*box-shadow: inset 0 0 10px rgba(0, 0, 0, .1);*/
-/*}*/
-
-/*section.filters div.filter.manufacturers ul li {*/
-    /*width: 100%;*/
-    /*margin-bottom: 0;*/
-    /*height: 25px;*/
-    /*line-height: 25px;*/
-    /*float: left;*/
-    /*overflow: hidden;*/
-    /*clear: both;*/
-    /*position: relative;*/
-    /*padding: 0 10px;*/
-/*}*/
-
-/*section.filters div.filter.manufacturers ul li:nth-of-type(odd) {*/
-    /*background-color: rgba(0, 0, 0, .025);*/
-/*}*/
-
-/*section.filters div.filter.manufacturers ul li input {*/
-    /*float: left;*/
-    /*overflow: hidden;*/
-    /*margin-top: 7px;*/
-    /*position: absolute;*/
-    /*pointer-events: none;*/
-/*}*/
-
-/*section.filters div.filter.manufacturers ul li label {*/
-    /*float: left;*/
-    /*cursor: pointer;*/
-    /*padding-left: 20px;*/
-    /*float: left;*/
-    /*width: 100%;*/
-    /*font-weight: 100;*/
+/*section.filters div.filter.product-name p.description {*/
+    /*margin-bottom: 5px;*/
 /*}*/

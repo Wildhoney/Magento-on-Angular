@@ -1,0 +1,39 @@
+section.filters div.filter.brands label {
+    font-weight: 100;
+    float: left;
+    overflow: hidden;
+    margin: -1px 6px 0 0;
+}
+
+section.filters div.filter.brands ul {
+    max-height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #d3d3d3;
+}
+
+section.filters div.filter.brands ul li {
+    margin-bottom: 0;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+}
+
+section.filters div.filter.brands ul li:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+section.filters div.filter.brands ul li input {
+    float: left;
+    overflow: hidden;
+    pointer-events: none;
+    margin: 10px 0 0 10px;
+}
+
+section.filters div.filter.brands ul li label {
+    width: 100%;
+    cursor: pointer;
+    padding: 2px 0 0 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

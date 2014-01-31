@@ -1,0 +1,27 @@
+section.filters div.filter.colours ul {
+    margin-left: 5px;
+}
+
+section.filters div.filter.colours ul li {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 75px;
+    padding: 5px;
+}
+
+section.filters div.filter.colours ul li input {
+    pointer-events: none;
+    float: left;
+    margin: 3px 0 0 10px;
+}
+
+section.filters div.filter.colours ul li label {
+    font-weight: 200;
+    cursor: pointer;
+    position: absolute;
+    padding: 5px 0 0 35px;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
