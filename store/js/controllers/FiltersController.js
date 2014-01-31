@@ -111,11 +111,25 @@
          */
         $scope.invertColours = function invertColours() {
 
-            _.forEach($scope.colours.selected, function forEach(value, index) {
-                $scope.colours.selected[index] = !$scope.colours.selected[index];
+            _.forEach($scope.filters.colours.selected, function forEach(value, index) {
+                $scope.filters.colours.selected[index] = !$scope.filters.colours.selected[index];
             });
 
             $scope.setColour();
+
+        };
+
+        /**
+         * @method invertManufacturers
+         * @return {void}
+         */
+        $scope.invertManufacturers = function invertManufacturers() {
+
+            _.forEach($scope.filters.manufacturers.selected, function forEach(value, index) {
+                $scope.filters.manufacturers.selected[index] = !$scope.filters.manufacturers.selected[index];
+            });
+
+            $scope.setManufacturer();
 
         };
 
