@@ -12,17 +12,17 @@ class Products extends Command {
      */
     const PRODUCTS_CACHE_KEY = 'products';
 
-	/**
+    /**
      * @property string $name
      * @type string
-	 */
-	protected $name = 'products';
+     */
+    protected $name = 'products';
 
-	/**
+    /**
      * @property string $description
      * @type string
-	 */
-	protected $description = 'Generate a cache of the products in the Magento database.';
+     */
+    protected $description = 'Generate a cache of the products in the Magento database.';
 
     /**
      * @constructor

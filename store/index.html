@@ -54,12 +54,12 @@
                     <ul>
                         <li>
                             <label>Min:</label>
-                            <input type="range" ng-model="price.percentage.minimum" ng-mouseup="setPriceRange('minimum', price.percentage.minimum, price.percentage.maximum)" />
+                            <input type="range" ng-model="price.percentage.minimum" ng-change="setPriceRange('minimum', price.percentage.minimum, price.percentage.maximum)" />
                             <span>&pound;{{(price.actual.minimum || statistics.ranges.price.min) | number: 2}}</span>
                         </li>
                         <li>
                             <label>Max:</label>
-                            <input type="range" ng-model="price.percentage.maximum" ng-mouseup="setPriceRange('maximum', price.percentage.minimum, price.percentage.maximum)" />
+                            <input type="range" ng-model="price.percentage.maximum" ng-change="setPriceRange('maximum', price.percentage.minimum, price.percentage.maximum)" />
                             <span>&pound;{{(price.actual.maximum || statistics.ranges.price.max) | number: 2}}</span>
                         </li>
                     </ul>
@@ -131,7 +131,7 @@
                 <li ng-repeat="product in products" ng-click="view(product.id, $event)">
 
                     <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
-                    <h2><a href="#">{{product.name}}</a></h2>
+                    <h2><a>{{product.name}}</a></h2>
                     <div class="price">&pound;{{product.price | number: 2}}</div>
 
                 </li>
