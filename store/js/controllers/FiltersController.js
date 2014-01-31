@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.controller('FiltersController', ['$scope', 'gateway', 'http',
+    $mao.controller('FiltersController', ['$scope', 'gateway',
 
-    function filtersController($scope, gateway, http) {
+    function filtersController($scope, gateway) {
 
         /**
          * @property price

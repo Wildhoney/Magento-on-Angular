@@ -7,7 +7,7 @@
      * @author Adam Timberlake
      * @module Mao
      */
-    $mao.directive('panel', ['$window', function panelDirective($window) {
+    $mao.directive('panel', function panelDirective() {
 
         return {
             restrict: 'A',
@@ -27,6 +27,6 @@
             }
         }
 
-    }]);
+    });
 
 })(window.maoApp);
