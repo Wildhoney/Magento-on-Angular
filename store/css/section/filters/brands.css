@@ -6,7 +6,7 @@ section.filters div.filter.brands label {
 }
 
 section.filters div.filter.brands ul {
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: scroll;
     border: 1px solid #d3d3d3;
 }

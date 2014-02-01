@@ -15,7 +15,7 @@
          * @property filtersOpen
          * @type {String}
          */
-        $scope.filtersOpen = '';
+        $scope.filtersOpen = 'basic';
 
         /**
          * @property modalOpen

@@ -2,6 +2,7 @@
 @import 'filters/colours.css';
 @import 'filters/prices.css';
 @import 'filters/brands.css';
+@import 'filters/basket.css';
 @import 'filters/quick-links.css';
 
 section.filters {
@@ -83,7 +84,3 @@ section.filters div.filter p.description label {
 section.filters div.filter div.inner {
     padding: 0 10px;
 }
-
-/*section.filters div.filter.product-name p.description {*/
-    /*margin-bottom: 5px;*/
-/*}*/
