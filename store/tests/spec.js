@@ -1,6 +1,6 @@
-describe('Mao', function() {
+describe('Moa', function() {
 
-    beforeEach(module('maoApp'));
+    beforeEach(module('moaApp'));
 
     var $httpBackend, $rootScope, createController;
 
@@ -26,7 +26,7 @@ describe('Mao', function() {
     }));
 
     it('Can create an Angular module;', function() {
-        expect(angular.module('maoApp')).toBeDefined();
+        expect(angular.module('moaApp')).toBeDefined();
     });
 
     describe('CategoriesController', function() {

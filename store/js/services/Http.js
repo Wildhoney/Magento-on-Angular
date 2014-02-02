@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @service http
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.service('http', ['$q', '$http', function httpService($q, $http) {
+    $moa.service('http', ['$q', '$http', function httpService($q, $http) {
 
         var service = {};
 
@@ -48,4 +48,4 @@
 
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

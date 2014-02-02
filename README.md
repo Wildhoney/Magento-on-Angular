@@ -1,9 +1,9 @@
-Mao
+Moa
 =========
 
 <img src="https://travis-ci.org/Wildhoney/Magento-on-Angular.png" />
 
-Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Mao brings Magento into the 21st century.
+Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Moa brings Magento into the 21st century.
 
 **Demo Video:** https://vimeo.com/85305300 *(Build 0.1.1)*
 Previous: <a href="https://vimeo.com/85201798">0.1.0</a>
@@ -23,7 +23,7 @@ All unit tests for both JavaScript and PHP can be run from the terminal: `grunt 
 Generating Products
 ---------
 
-Since your product collection might be a little slow because of Magento's EAV database structure, Mao allows you to create a cache key via the terminal instead &ndash; however a cached copy will still be generated if you access it via your browser.
+Since your product collection might be a little slow because of Magento's EAV database structure, Moa allows you to create a cache key via the terminal instead &ndash; however a cached copy will still be generated if you access it via your browser.
 
 In order to generate a cache for the product collection, you can run `php artisan products` from the terminal. Once completed, the normal API method via the browser will use this cache key.
 
@@ -37,10 +37,10 @@ Directory Structure
 At first glance the directories may seem over-complicated. However there's method in all of the madness!
 
  * `api` contains the Laravel framework which interfaces with Magento;
- * `dist` contains production-ready minified JS/CSS files for Mao;
+ * `dist` contains production-ready minified JS/CSS files for Moa;
  * `magento` contains factory default Magento release;
  * `node` contains Node.js server for delivering products via <a href="https://github.com/Wildhoney/Snapshot.js">Snapshot</a>;
- * `store` contains the actual Angular.js Mao application;
+ * `store` contains the actual Angular.js Moa application;
 
 Laravel API
 ---------

@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @controller ProductController
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.controller('ProductController', ['$scope', 'http', function ProductController($scope, http) {
+    $moa.controller('ProductController', ['$scope', 'http', function ProductController($scope, http) {
 
         /**
          * @method addBasket
@@ -27,4 +27,4 @@
 
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

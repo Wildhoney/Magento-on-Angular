@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @directive sidebar
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.directive('sidebar', ['$window', function sidebarDirective($window) {
+    $moa.directive('sidebar', ['$window', function sidebarDirective($window) {
 
         return {
             restrict: 'A',
@@ -29,4 +29,4 @@
 
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

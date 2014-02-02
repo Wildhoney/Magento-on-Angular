@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @directive panel
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.directive('panel', function panelDirective() {
+    $moa.directive('panel', function panelDirective() {
 
         return {
             restrict: 'A',
@@ -29,4 +29,4 @@
 
     });
 
-})(window.maoApp);
+})(window.moaApp);

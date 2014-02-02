@@ -3,9 +3,9 @@
     "use strict";
 
     /**
-     * @property window.maoApp
+     * @property window.moaApp
      * @type {Object}
      */
-    $window.maoApp = $angular.module('maoApp', ['ngSanitize']);
+    $window.moaApp = $angular.module('moaApp', ['ngSanitize']);
 
 })(window, window.angular);

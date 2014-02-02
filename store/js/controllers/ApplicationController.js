@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @controller ApplicationController
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.controller('ApplicationController', ['$scope',
+    $moa.controller('ApplicationController', ['$scope',
 
     function applicationController($scope) {
 
@@ -39,4 +39,4 @@
         
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

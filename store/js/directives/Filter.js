@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @directive filter
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.directive('filter', ['http', function filterDirective(http) {
+    $moa.directive('filter', ['http', function filterDirective(http) {
 
         return {
             restrict: 'A',
@@ -73,4 +73,4 @@
 
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

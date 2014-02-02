@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @controller FiltersController
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.controller('FiltersController', ['$scope', 'gateway',
+    $moa.controller('FiltersController', ['$scope', 'gateway',
 
     function filtersController($scope, gateway) {
 
@@ -82,4 +82,4 @@
 
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @service Socket
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.service('socket', ['$window', function socketService($window) {
+    $moa.service('socket', ['$window', function socketService($window) {
 
         var service = {};
 
@@ -42,4 +42,4 @@
 
     }]);
 
-})(window.maoApp);
+})(window.moaApp);

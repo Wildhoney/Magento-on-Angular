@@ -1,13 +1,13 @@
-(function($mao) {
+(function($moa) {
 
     "use strict";
 
     /**
      * @controller ModalController
      * @author Adam Timberlake
-     * @module Mao
+     * @module Moa
      */
-    $mao.controller('ModalController', ['$scope',
+    $moa.controller('ModalController', ['$scope',
 
     function modalController($scope) {
 
@@ -50,4 +50,4 @@
         
     }]);
 
-})(window.maoApp);
+})(window.moaApp);
