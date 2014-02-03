@@ -22,14 +22,26 @@
         $scope.selectedProduct = {};
 
         /**
+         * @property basketAdding
+         * @type {Boolean}
+         * @default false
+         */
+        $scope.basketAdding = false;
+
+        /**
          * @method addBasket
          * @param id {Number}
          * @return {void}
          */
         $scope.addBasket = function addBasket(id) {
 
+            $scope.basketAdding = true;
+
+            return;
+
             http.addBasket(id).then(function then(response) {
 
+                $scope.basketAdding = false;
                 //...
                 return response;
 
