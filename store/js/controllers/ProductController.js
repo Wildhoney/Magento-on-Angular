@@ -37,8 +37,6 @@
 
             $scope.basketAdding = true;
 
-            return;
-
             http.addBasket(id).then(function then(response) {
 
                 $scope.basketAdding = false;
