@@ -3,6 +3,7 @@ var io          = require('socket.io').listen(8888),
     _           = require('underscore'),
     request     = require('request'),
     snapshot    = require('node-snapshot'),
+    heapdump    = require('heapdump'),
     memwatch    = require('memwatch');
 
 /**
