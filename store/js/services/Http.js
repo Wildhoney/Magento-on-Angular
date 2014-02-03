@@ -36,6 +36,14 @@
         };
 
         /**
+         * @method getBasket
+         * @return {$q.promise}
+         */
+        service.getBasket = function getProduct() {
+            return $http.get(service.url + 'basket');
+        };
+
+        /**
          * @method addBasket
          * @param id {Number}
          * @return {$q.promise}

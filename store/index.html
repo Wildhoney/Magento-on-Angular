@@ -17,12 +17,14 @@
     <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductController.js"></script>
+    <script type="text/javascript" src="js/controllers/DashboardController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/controllers/ModalController.js"></script>
     <script type="text/javascript" src="js/directives/Sidebar.js"></script>
     <script type="text/javascript" src="js/directives/Filter.js"></script>
     <script type="text/javascript" src="js/directives/Panel.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
+    <script type="text/javascript" src="js/services/Dashboard.js"></script>
     <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
 </head>
@@ -34,17 +36,17 @@
 
     <section ng-controller="ProductsController">
 
-        <section data-accordion-group data-sidebar class="filters" ng-controller="FiltersController"     ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+        <section data-accordion-group data-sidebar class="filters" ng-controller="FiltersController" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
             <section class="tabs" ng-include="'views/tabs.html'"></section>
             <section class="quick-links" ng-include="'views/quick-links.html'"></section>
 
             <section class="panels">
 
-                <section class="basket">
+                <section class="dashboard" ng-controller="DashboardController">
                     <img class="avatar" src="https://0.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&r=x&s=440" />
                     <a>
-                        <span class="basket-items">5</span>
+                        <span class="basket-items">{{basketCount}}</span>
                         <span class="total-price">(&pound;49.87)</span>
                         <img class="checkout" src="images/checkout.png" alt="Checkout" />
                     </a>

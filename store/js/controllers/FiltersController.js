@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('FiltersController', ['$scope', 'gateway',
+    $moa.controller('FiltersController', ['$scope', 'gateway', 'dashboard',
 
-    function filtersController($scope, gateway) {
+    function filtersController($scope, gateway, dashboard) {
 
         /**
          * @property price
@@ -23,6 +23,18 @@
          * @return {void}
          */
         $scope.setName = gateway.setName;
+
+        /**
+         * @property basketCount
+         * @type {Number}
+         * @default 0
+         */
+        $scope.basketCount = 0;
+
+        // When the basket has been updated.
+        $scope.$on('basket/updated', function basketUpdated(event, items) {
+            $scope.basketCount = dashboard.itemCount(items);
+        });
 
         /**
          * @method update
