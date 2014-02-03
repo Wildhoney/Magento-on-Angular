@@ -10,6 +10,8 @@ Previous: <a href="https://vimeo.com/85201798">0.1.0</a>
 
 <img src="http://i.imgur.com/PP6l6G9.jpg" alt="Angular, Magento, Laravel" />
 
+Heapshots: Moa uses <a href="https://github.com/bnoordhuis/node-heapdump">HeapDump</a> to take memory snapshots. Send a `kill -USR2 <pid>` where `<pid>` is your Node.js process ID.
+
 Unit Testing
 ---------
 
