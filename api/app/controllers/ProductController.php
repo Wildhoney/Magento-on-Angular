@@ -8,9 +8,7 @@ class ProductController extends MageController {
      * @return string
      */
     public function getProduct($productId) {
-
         return Response::json($this->_getProduct($productId));
-
     }
 
 }

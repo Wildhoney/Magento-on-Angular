@@ -51,16 +51,17 @@ class MageController extends BaseController {
 
         }
 
-
         return array(
             'id'            => $product->getId(),
             'sku'           => $product->getSku(),
             'name'          => $product->getName(),
+            'type'          => $product->getTypeId(),
             'price'         => (float) $product->getPrice(),
             'colour'        => (int) $product->getData('color'),
             'manufacturer'  => (int) $product->getData('manufacturer'),
             'description'   => trim($product->getDescription()),
-            'largeImage'    => $product->getImageUrl(),
+//            'largeImage'    => $product->getImageUrl(),
+            'largeImage'    => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages(),
             'products'      => $products,

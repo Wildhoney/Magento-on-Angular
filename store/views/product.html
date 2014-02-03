@@ -1,12 +1,25 @@
-<section class="product" ng-controller="ProductController">
+<ul class="links">
+    <li ng-click="close()"><img src="images/back.png" alt="Close" /></li>
+    <li><img src="images/email.png" alt="Email to a Friend" /></li>
+</ul>
 
-    <!--<img ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />-->
-    <h2>{{options.model.name}}</h2>
-    <div class="price">
-        <img src="images/star.png" class="Price" />
-        Our Price: &pound;{{options.model.price | number: 2}}
+<section class="product" ng-controller="ProductController" ng-init="setProduct(options.model)">
+
+    <div class="header">
+
+        <img class="product" ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />
+        <h2>{{options.model.name}}</h2>
+        <div class="price">&pound;{{options.model.price | number: 2}}</div>
+
+        <select ng-options="product.name for product in options.model.models"
+                ng-change="changeProduct()" ng-model="selectedProduct">
+            <option value="">Please select a product...</option>
+        </select>
+
+        <div class="btn" ng-class="{selectable: productId}" ng-click="addBasket(productId)">Add to Basket</div>
+
     </div>
+
     <p class="description" ng-bind-html="options.model.description"></p>
-    <div class="btn" ng-click="addBasket(options.model.id)">Add to Basket</div>
 
 </section>

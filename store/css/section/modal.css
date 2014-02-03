@@ -1,12 +1,13 @@
 section.modal-window {
     position: fixed;
     overflow: visible;
-    background-color: rgba(0, 0, 0, .1);
+    /*border-left: 1px solid #d3d3d3;*/
     right: -40%;
     top: 50px;
+    padding: 20px 15px;
+    box-shadow: 0 0 120px rgba(0, 0, 0, .2);
     width: 40%;
     height: 100%;
-    padding: 0 25px;
     transition: right 1.25s;
     -o-transition: right 1.25s;
     -ms-transition: right 1.25s;
@@ -18,67 +19,107 @@ section.modal-window.modal-open {
     right: 0;
 }
 
-section.modal-window a.close {
-    position: absolute;
-    background-color: #e5e5e5;
-    height: 45px;
-    line-height: 42px;
-    border-radius: 3px 0 0 3px;
-    text-align: center;
-    width: 100px;
-    top: 10px;
-    font-size: 12px;
-    cursor: pointer;
-    left: -100px;
-    z-index: 101;
-    opacity: 0;
-    transition: all 1.25s;
-    -o-transition: all 1.25s;
-    -ms-transition: all 1.25s;
-    -moz-transition: all 1.25s;
-    -webkit-transition: all 1.25s;
-}
-
-section.modal-window a.close img {
-    float: left;
-    opacity: .35;
-    margin: 3px 6px 0 0;
-}
-
 section.modal-window.modal-open a.close {
     opacity: 1;
-}
-
-section.modal-window h2 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: rgba(0, 0, 0, .75);
-}
-
-section.modal-window p.description {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 300;
-    text-align: justify;
-    font-size: 14px;
-}
-
-section.modal-window div.price {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    margin-bottom: 8px;
-}
-
-section.modal-window div.price img {
-    opacity: .25;
-    float: left;
-    overflow: hidden;
-    margin-right: 6px;
 }
 
 section.modal-window div.loading {
     padding-top: 15px;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 100;
+    position: absolute;
+    width: 100%;
+    margin-left: 20px;
+    top: 0;
+    left: 0;
+}
+
+section.modal-window ul.links {
+    text-align: left;
+    height: 25px;
+    position: absolute;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: .25;
+    background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);
+}
+
+section.modal-window ul.links li {
+    height: 25px;
+    width: 45px;
+    border-right: 1px solid rgba(0, 0, 0, .05);
+    line-height: 25px;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+section.modal-window ul.links li img {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+section.modal-window div.header h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    padding-top: 10px;
+    color: rgba(0, 0, 0, .75);
+}
+
+section.modal-window div.header div.price {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+section.modal-window div.header img.product {
+    width: 150px;
+    float: left;
+    margin-right: 20px;
+}
+
+section.modal-window div.header select {
+    margin-bottom: 10px;
+}
+
+section.modal-window div.header div.btn {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    background: black none;
+    text-shadow: none;
+    color: white;
+    border: 0;
+    border-radius: 0;
+    opacity: .25;
+    pointer-events: none;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+section.modal-window div.header div.btn.selectable {
+    opacity: 1;
+    pointer-events: all;
+}
+
+section.modal-window p.description {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    padding-top: 20px;
+    text-align: justify;
+    clear: both;
+    overflow: hidden;
+    font-size: 14px;
 }

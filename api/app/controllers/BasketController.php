@@ -33,13 +33,37 @@ class BasketController extends MageController {
      */
     public function addItem($productId) {
 
-        Mage::getSingleton('core/session', array('name' => 'frontend'));
+        $response = array('success' => true, 'error' => null);
 
-        $product = Mage::getModel('catalog/product')->load((int) $productId);
+        try {
 
-        $basket = Mage::getSingleton('checkout/cart');
-        $basket->addProduct($product, 1);
-        $basket->save();
+            Mage::getSingleton('core/session', array('name' => 'frontend'));
+
+            $product = Mage::getModel('catalog/product')->load((int) $productId);
+
+            $basket = Mage::getSingleton('checkout/cart');
+            $basket->addProduct($product, 1);
+            $basket->save();
+
+        } catch (Exception $e) {
+
+            $response['success'] = false;
+
+            switch ($e->getMessage()) {
+
+                case 'This product is currently out of stock.':
+                    $response['error'] = 'stock';
+                    break;
+
+                default:
+                    $response['error'] = 'unknown';
+                    break;
+
+            }
+
+        }
+
+        return Response::json($response);
 
     }
 

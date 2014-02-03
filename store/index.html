@@ -109,13 +109,6 @@
 
         <section data-sidebar class="modal-window" ng-controller="ModalController" ng-class="{'modal-open': modalOpen}">
 
-            <a class="close" ng-click="close()">
-                <div class="btn">
-                    <img src="images/back.png" alt="Back" />
-                    Back
-                </div>
-            </a>
-
             <div class="loading" ng-show="!options.model">Loading...</div>
 
             <div class="view" ng-include="partial"></div>

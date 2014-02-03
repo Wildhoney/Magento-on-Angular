@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('ModalController', ['$scope',
+    $moa.controller('ModalController', ['$scope', '$timeout',
 
-    function modalController($scope) {
+    function modalController($scope, $timeout) {
 
         /**
          * @property options
@@ -49,9 +49,13 @@
 
             $scope.$parent.modalOpen = false;
 
-            // Reset all of the passed in parameters.
-            $scope.partial = '';
-            $scope.options = null;
+            $timeout(function timeout() {
+
+                // Reset all of the passed in parameters.
+                $scope.partial = '';
+                $scope.options = null;
+
+            }, 1250);
 
         };
         

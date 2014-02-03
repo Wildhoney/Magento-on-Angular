@@ -10,6 +10,18 @@
     $moa.controller('ProductController', ['$scope', 'http', function ProductController($scope, http) {
 
         /**
+         * @property productId
+         * @type {Number}
+         */
+        $scope.productId = null;
+
+        /**
+         * @property selectedProduct
+         * @type {Object}
+         */
+        $scope.selectedProduct = {};
+
+        /**
          * @method addBasket
          * @param id {Number}
          * @return {void}
@@ -24,6 +36,38 @@
             });
 
         };
+
+        /**
+         * @method changeProduct
+         * @return {void}
+         */
+        $scope.changeProduct = function changeProduct() {
+            $scope.setProduct($scope.selectedProduct);
+        };
+
+        /**
+         * @method setProduct
+         * @param product {Object}
+         * @return {void}
+         */
+        $scope.setProduct = function setProduct(product) {
+
+            if (!product) {
+
+                // User decided to de-select their product selection.
+                $scope.productId = null;
+                return;
+
+            }
+
+            if (product.type !== 'configurable') {
+
+                // Setup the product ID if the product being added isn't a configurable.
+                $scope.productId = product.id;
+
+            }
+
+        }
 
     }]);
 
