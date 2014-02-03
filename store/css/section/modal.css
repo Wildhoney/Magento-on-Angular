@@ -1,6 +1,7 @@
 section.modal-window {
     position: fixed;
     overflow: visible;
+    border-left: 1px solid rgba(0, 0, 0, .15);
     /*border-left: 1px solid #d3d3d3;*/
     right: -40%;
     top: 50px;
@@ -42,14 +43,14 @@ section.modal-window ul.links {
     top: 0;
     left: 0;
     width: 100%;
-    opacity: .25;
+    opacity: .5;
     background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);
 }
 
 section.modal-window ul.links li {
     height: 25px;
     width: 45px;
-    border-right: 1px solid rgba(0, 0, 0, .05);
+    border-right: 1px solid rgba(0, 0, 0, .25);
     line-height: 25px;
     text-align: center;
     float: left;
@@ -122,4 +123,13 @@ section.modal-window p.description {
     clear: both;
     overflow: hidden;
     font-size: 14px;
+}
+
+section.modal-window div.error {
+    margin: 20px 0;
+    background-color: #f4cbd1;
+    color: #502e33;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    padding: 10px 15px;
 }

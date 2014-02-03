@@ -16,6 +16,21 @@
         $scope.productId = null;
 
         /**
+         * @constant ERRORS
+         * @type {Object}
+         */
+        $scope.ERRORS = {
+            stock: 'Unfortunately the product is currently out of stock.',
+            unknown: 'Sorry, but an unknown error occurred.'
+        };
+
+        /**
+         * @property errorMessage
+         * @type {String}
+         */
+        $scope.errorMessage = '';
+
+        /**
          * @property selectedProduct
          * @type {Object}
          */
@@ -39,9 +54,17 @@
 
             http.addBasket(id).then(function then(response) {
 
+                if (response.data.error) {
+
+                    // We encountered an error!
+                    $scope.errorMessage = $scope.ERRORS[response.data.error];
+                    $scope.basketAdding = false;
+                    return;
+
+                }
+
+                $scope.errorMessage = '';
                 $scope.basketAdding = false;
-                //...
-                return response;
 
             });
 

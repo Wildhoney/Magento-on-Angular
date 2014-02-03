@@ -53,7 +53,6 @@ class BasketController extends MageController {
 
                 case 'This product is currently out of stock.':
                     $response['error'] = 'stock';
-                    header('HTTP/1.0 404 Not Found');
                     break;
 
                 default:
