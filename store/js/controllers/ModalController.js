@@ -14,8 +14,9 @@
         /**
          * @property options
          * @type {Object}
+         * @default null
          */
-        $scope.options = {};
+        $scope.options = null;
 
         /**
          * @property partial
@@ -34,6 +35,12 @@
             $scope.close();
         });
 
+        // When the "modal/reset" event has been broadcast.
+        $scope.$on('modal/reset', function() {
+            $scope.partial = '';
+            $scope.options = null;
+        });
+
         /**
          * @method close
          * @return {void}
@@ -44,7 +51,7 @@
 
             // Reset all of the passed in parameters.
             $scope.partial = '';
-            $scope.options = {};
+            $scope.options = null;
 
         };
         

@@ -49,13 +49,12 @@
             }
 
             $scope.modalOpen = true;
+            $rootScope.$broadcast('modal/reset');
 
             http.getProduct(productId).then(function then(response) {
-
                 $rootScope.$broadcast('modal/open', 'product.html', {
                     model: response.data
                 });
-
             });
 
         };

@@ -2,8 +2,6 @@ section.modal-window {
     position: fixed;
     overflow: visible;
     background-color: rgba(0, 0, 0, .1);
-    /*box-shadow: inset 15px 0 15px -15px rgba(0, 0, 0, .15);*/
-    /*border-left: 1px solid rgba(0, 0, 0, .15);*/
     right: -40%;
     top: 50px;
     width: 40%;
@@ -77,4 +75,10 @@ section.modal-window div.price img {
     float: left;
     overflow: hidden;
     margin-right: 6px;
+}
+
+section.modal-window div.loading {
+    padding-top: 15px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
 }
