@@ -15,7 +15,7 @@
          * @property url
          * @type {String}
          */
-        service.url = 'http://localhost:8888/';
+        service.url = 'http://192.168.0.6:8888/';
 
         /**
          * @method _getSocket
