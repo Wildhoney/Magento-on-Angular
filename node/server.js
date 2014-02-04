@@ -2,9 +2,7 @@ var io          = {},
     fs          = require('fs'),
     _           = require('underscore'),
     request     = require('request'),
-    snapshot    = require('node-snapshot'),
-    heapdump    = require('heapdump'),
-    memwatch    = require('memwatch');
+    snapshot    = require('node-snapshot');
 
 /**
  * @property url
@@ -18,29 +16,19 @@ var url = 'http://localhost/Magento-on-Angular/api/public/products';
  */
 var products = '';
 
-// When a leak has been detected.
-memwatch.on('leak', function leak(response) {
-    console.log(response);
-});
-
-// When the normal heartbeat for statistics is emitted.
-memwatch.on('stats', function stats(response) {
-    console.log(response);
-});
-
 // Retrieve the products so we'll always have a fresh copy to serve to
 // new connections.
 request(url, function (error, response, body) {
     products = JSON.parse(body);
     io = require('socket.io').listen(8888);
-    listen();
+    beginListening();
 });
 
 /**
- * @method listen
+ * @method beginListening
  * @return {void}
  */
-var listen = function listen() {
+var beginListening = function beginListening() {
 
     /**
      * @on connection
@@ -55,7 +43,7 @@ var listen = function listen() {
         $snapshot.setPerPage(15);
         $snapshot.setSortBy('name', 'asc');
         $snapshot.setRanges(['price']);
-        $snapshot.setCollection(products);
+        $snapshot.setCollection(products, ['id', 'name', 'colour', 'price', 'manufacturer']);
 
         socket.on('snapshot/products/colours', function colours(ids) {
 
