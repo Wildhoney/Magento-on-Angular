@@ -12,15 +12,15 @@
     "crossfilter": "~1.2.0",
     "socket.io": "~0.9.16",
     "grunt-phpunit": "~0.3.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-jshint": "~0.6.5",
+    "grunt-contrib-uglify": "~0.2.7",
     "socket.io-client": "~0.9.16",
-    "grunt-contrib-jasmine": "~0.5.1",
+    "grunt-contrib-jasmine": "~0.5.2",
     "request": "~2.33.0",
     "underscore": "~1.5.2",
     "grunt-contrib-cssmin": "~0.7.0",
     "memwatch": "~0.2.2",
     "heapdump": "~0.2.5",
-    "node-snapshot": "~0.3.2"
+    "node-snapshot": "~0.3.3"
   }
 }
