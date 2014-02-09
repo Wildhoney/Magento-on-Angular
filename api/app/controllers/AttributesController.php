@@ -16,6 +16,11 @@ class AttributesController extends MageController {
      */
     public function getOptions($attributeName) {
 
+        /**
+         * @method getCount
+         * @param number $value
+         * @return int
+         */
         $getCount = function ($value) use ($attributeName) {
             $collection = Mage::getModel('catalog/product')->getCollection();
             $collection->addFieldToFilter(array(array('attribute' => $attributeName, 'eq' => $value)));
