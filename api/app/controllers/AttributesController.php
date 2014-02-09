@@ -3,11 +3,24 @@
 class AttributesController extends MageController {
 
     /**
+     * @const PROCESS_COUNTS
+     * @type boolean
+     * @default true
+     */
+    const PROCESS_COUNTS = false;
+
+    /**
      * @method getOptions
      * @param  string $attributeName
      * @return string
      */
     public function getOptions($attributeName) {
+
+        $getCount = function ($value) use ($attributeName) {
+            $collection = Mage::getModel('catalog/product')->getCollection();
+            $collection->addFieldToFilter(array(array('attribute' => $attributeName, 'eq' => $value)));
+            return count($collection);
+        };
 
         $attribute = Mage::getSingleton('eav/config')->getAttribute('catalog_product', $attributeName);
         $options   = array();
@@ -20,10 +33,19 @@ class AttributesController extends MageController {
 
         foreach ($options as $option) {
 
-            $response[] = array(
+            $current = array(
                 'id'    => (int) $option['value'],
                 'label' => $option['label']
             );
+
+            if (self::PROCESS_COUNTS) {
+
+                // Process the counts if the developer wants them to be!
+                $response['count'] = $getCount($option['value']);
+
+            }
+
+            $response[] = $current;
 
         }
 
