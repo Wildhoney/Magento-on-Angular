@@ -1,0 +1,44 @@
+section.pagination {
+    font-size: 14px;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: "Source Sans Pro", sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+section.pagination ul {
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 1px;
+    display: inline-block;
+    height: 28px;
+    margin-bottom: 0;
+}
+
+section.pagination ul li {
+    padding: 0 5px;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+section.pagination ul li.paging {
+    background-color: rgba(0, 0, 0, .1);
+    color: rgba(0, 0, 0, .55);
+    font-size: 12px;
+    padding: 0 10px;
+    margin-right: 5px;
+}
+
+section.pagination ul li a {
+    cursor: pointer;
+}

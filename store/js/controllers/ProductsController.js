@@ -112,11 +112,20 @@
         });
 
         /**
+         * @method gotoPage
+         * @param pageNumber {Number}
+         * @return {void}
+         */
+        $scope.gotoPage = function gotoPage(pageNumber) {
+            socket.node.emit('snapshot/products/pageNumber', pageNumber);
+        };
+
+        /**
          * @method nextPage
          * @return {void}
          */
         $scope.nextPage = function nextPage() {
-            socket.node.emit('snapshot/products/pageNumber', $scope.statistics.pages.current + 1);
+            $scope.gotoPage($scope.statistics.pages.current + 1);
         };
 
         /**
@@ -124,7 +133,7 @@
          * @return {void}
          */
         $scope.previousPage = function previousPage() {
-            socket.node.emit('snapshot/products/pageNumber', $scope.statistics.pages.current - 1);
+            $scope.gotoPage($scope.statistics.pages.current - 1);
         };
 
     }]);

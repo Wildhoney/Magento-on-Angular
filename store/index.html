@@ -75,11 +75,7 @@
                 {{statistics.models.current}}/{{statistics.models.total}} in {{statistics.responseTime}}ms
             </div>
 
-            <div class="paging">
-                You're viewing page {{statistics.pages.current}} of {{statistics.pages.total}}
-                &ndash;
-                <a ng-click="previousPage()">previous page</a> or <a ng-click="nextPage()">next page</a>.
-            </div>
+            <section class="pagination" ng-include="'views/pagination.html'"></section>
 
             <div class="sorting">
                 <label>Sort By:</label>

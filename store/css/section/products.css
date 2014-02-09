@@ -50,23 +50,11 @@ section.products div.response-time {
     font-family: "Source Sans Pro", sans-serif;
 }
 
-section.products div.paging {
-    font-size: 14px;
-    font-family: "Source Sans Pro", sans-serif;
-    text-transform: uppercase;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 section.products div.sorting {
     font-family: "Source Sans Pro", sans-serif;
     border-bottom: 3px solid rgba(0, 0, 0, .1);
     display: inline-block;
-    padding: 15px 0 8px 0;
+    padding: 0 0 8px 0;
 }
 
 section.products div.sorting label {

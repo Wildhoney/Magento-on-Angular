@@ -2,6 +2,7 @@
 @import "section/filters.css";
 @import "section/dashboard.css";
 @import "section/modal.css";
+@import "section/pagination.css";
 
 * {
     margin: 0;
