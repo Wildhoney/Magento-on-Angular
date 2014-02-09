@@ -19,8 +19,6 @@
     "request": "~2.33.0",
     "underscore": "~1.5.2",
     "grunt-contrib-cssmin": "~0.7.0",
-    "memwatch": "~0.2.2",
-    "heapdump": "~0.2.5",
     "node-snapshot": "~0.3.4"
   }
 }
