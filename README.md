@@ -24,7 +24,7 @@ Getting Started
  * Initialise the Node.js instance: `node node/server.js`;
  * Open `example.com/Magento-on-Angular/store/` in your browser;
 
-If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
+If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much time debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
 
 Unit Testing
 ---------
