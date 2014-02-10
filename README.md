@@ -12,6 +12,20 @@ Previous: <a href="https://vimeo.com/85201798">0.1.0</a>
 
 Heapshots: Moa uses <a href="https://github.com/bnoordhuis/node-heapdump">HeapDump</a> to take memory snapshots. Send a `kill -USR2 <pid>` where `<pid>` is your Node.js process ID.
 
+Getting Started
+---------
+
+ * Install all dependencies: `npm install`, `bower install`;
+ * Install Laravel dependencies: `composer install` from `api/`;
+ * Configure your Magento `local.xml`: `cp magento/app/etc/local.xml.template magento/app/etc/local.xml`;
+ * Update `node/server.js` line 11 to your own host and path;
+ * Update `store/js/services/Socket.js` line 18 to your Node.js instance;
+ * (Optionally): Cache products using `php artisan products` from `api/`;
+ * Initialise the Node.js instance: `node node/server.js`;
+ * Open `example.com/Magento-on-Angular/store/` in your browser;
+
+If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
+
 Unit Testing
 ---------
 
