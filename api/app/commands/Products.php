@@ -55,9 +55,10 @@ class Products extends Command {
 
             $this->info(sprintf('Resolving model %d/%d', $index++, count($products)));
 
-            $ids        = array();
-            $categoryId = (int) $product->getCategoryIds()[0];
-            $type       = Mage::getModel('catalog/category')->load($categoryId);
+            $ids         = array();
+            $categoryIds = (int) $product->getCategoryIds();
+            $categoryId  = $categoryIds[0];
+            $type        = Mage::getModel('catalog/category')->load($categoryId);
 
             foreach ($product->getCategoryIds() as $id) {
 
