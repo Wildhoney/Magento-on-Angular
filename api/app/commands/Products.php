@@ -84,7 +84,7 @@ class Products extends Command {
                 'name'              => trim($product->getName()),
                 'ident'             => trim($this->_createIdent($product->getName())),
                 'price'             => (float) $product->getPrice(),
-                'image'             => $product->getImageUrl(),
+                'image'             => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
                 'colour'            => (int) $product->getData('color'),
                 'manufacturer'      => (int) $product->getData('manufacturer'),
                 'categories'        => array_unique($ids),
