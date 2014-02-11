@@ -9,12 +9,18 @@
             <li>
                 <label>Min:</label>
                 <input type="range" ng-model="price.minimum" ng-mouseup="setPriceRange('minimum', price.minimum, price.maximum)" />
-                <span>&pound;{{statistics.ranges.price.min | number: 2}}</span>
+                <span>
+                    {{currency.symbol}}
+                    {{statistics.ranges.price.min | convert: currency | number: 2}}
+                </span>
             </li>
             <li>
                 <label>Max:</label>
                 <input type="range" ng-model="price.maximum" ng-mouseup="setPriceRange('maximum', price.minimum, price.maximum)" />
-                <span>&pound;{{statistics.ranges.price.max | number: 2}}</span>
+                <span>
+                    {{currency.symbol}}
+                    {{statistics.ranges.price.max | convert: currency | number: 2}}
+                </span>
             </li>
         </ul>
     </div>
