@@ -19,10 +19,10 @@
 
         /**
          * @method _request
-         * @param response {Object}
+         * @return {$q.promise}
          * @private
          */
-        service._request = function _request(response) {
+        service._request = function _request() {
 
             var deferred = $q.defer();
 

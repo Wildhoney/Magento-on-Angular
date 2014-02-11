@@ -7,7 +7,7 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.filter('convert', ['$rootScope', function ConvertService($rootScope) {
+    $moa.filter('convert', function ConvertService() {
 
         return function filterConvert(value, options) {
 
@@ -22,6 +22,6 @@
 
         }
 
-    }]);
+    });
 
 })(window.moaApp);
