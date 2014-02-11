@@ -2,6 +2,7 @@ var io          = {},
     fs          = require('fs'),
     _           = require('underscore'),
     request     = require('request'),
+    newRelic    = require('newrelic'),
     snapshot    = require('node-snapshot');
 
 /**
