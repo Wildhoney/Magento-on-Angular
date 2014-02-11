@@ -74,18 +74,22 @@
 
         <section ng-click="closeModal()" class="products" ng-class="{'filters-open': filtersOpen, 'modal-open': modalOpen}">
 
-            <div class="models" title="Current amount of products currently being shown on the page.">
-                {{statistics.models.current}}/{{statistics.models.total}} in {{statistics.responseTime}}ms
-            </div>
+            <div data-sidebar class="right">
 
-            <section class="currencies" ng-controller="CurrenciesController">
-                <h3>Currencies</h3>
-                <ul>
-                    <li ng-repeat="currency in currencies | orderBy: 'code'">
-                        <a ng-click="setCurrency(currency)">{{currency.code}}</a>
-                    </li>
-                </ul>
-            </section>
+                <div class="models" title="Current amount of products currently being shown on the page.">
+                    {{statistics.models.current}}/{{statistics.models.total}} in {{statistics.responseTime}}ms
+                </div>
+
+                <section class="currencies" ng-controller="CurrenciesController">
+                    <h3>Currencies</h3>
+                    <ul>
+                        <li ng-repeat="currency in currencies | orderBy: 'code'">
+                            <a ng-click="setCurrency(currency)">{{currency.code}}</a>
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
 
             <section class="pagination" ng-include="'views/pagination.html'"></section>
 

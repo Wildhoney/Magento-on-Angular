@@ -13,7 +13,11 @@
             restrict: 'A',
             link: function link(scope, element) {
 
-                angular.element($window).bind('scroll', function resized() {
+                /**
+                 * @method position
+                 * @return {void}
+                 */
+                var position = function position() {
 
                     var difference = (50 - $window.scrollY),
                         offset     = (difference < 0) ? 0 : difference;
@@ -22,7 +26,13 @@
                     // consideration the header.
                     element[0].style.top = ((offset > 50) ? 50 : offset) + 'px';
 
-                });
+                };
+
+                // When the window is scrolled.
+                angular.element($window).bind('scroll', position);
+
+                // ...And immediately!
+                position();
 
             }
         }

@@ -1,14 +1,14 @@
 section.currencies {
-    position: fixed;
     width: 200px;
+    clear: both;
+    float: right;
     text-align: right;
-    right: 30px;
-    top: 90px;
 }
 
 section.currencies h3 {
     font-weight: 200;
     font-size: 14px;
+    margin: 12px 0 5px 0;
     font-family: "Source Sans Pro", sans-serif;
 }
 

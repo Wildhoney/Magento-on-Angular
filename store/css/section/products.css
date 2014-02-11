@@ -30,12 +30,12 @@ section.products.modal-open {
 }
 
 section.products div.models {
-    position: fixed;
     font-weight: 100;
+    display: inline-block;
     color: #a9a9a9;
-    right: 30px;
     font-size: 16px;
     cursor: help;
+    float: right;
     border-bottom: 3px solid rgba(0, 0, 0, .1);
     font-family: "Source Sans Pro", sans-serif;
 }
@@ -137,4 +137,10 @@ section.products ul.collection li h2 a:hover {
 
 section.products ul.collection li div.price {
     font-weight: 800;
+}
+
+section.products div.right {
+    position: fixed;
+    right: 30px;
+    padding-top: 10px;
 }
