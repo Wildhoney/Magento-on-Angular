@@ -53,6 +53,16 @@
         };
 
         /**
+         * @method resetPrices
+         * @return {void}
+         */
+        $scope.resetPrices = function resetPrices() {
+            $scope.price.minimum = 0;
+            $scope.price.maximum = $scope.immutableStatistics.ranges.price.max;
+            $scope.setPriceRange(null, $scope.price.minimum, $scope.price.maximum);
+        };
+
+        /**
          * @method setPriceRange
          * @param propertyChanging {String}
          * @param min {Number}
