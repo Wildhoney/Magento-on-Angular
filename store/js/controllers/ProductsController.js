@@ -18,6 +18,24 @@
         $scope.products = [];
 
         /**
+         * @property perPage
+         * @type {Number}
+         */
+        $scope.perPage = 15;
+
+        /**
+         * @property perPageSteps
+         * @type {Number}
+         */
+        $scope.perPageSteps = 5;
+
+        /**
+         * @property maximumPerPage
+         * @type {Number}
+         */
+        $scope.maximumPerPage = 100;
+
+        /**
          * @property currency
          * @type {Object}
          */
@@ -140,12 +158,44 @@
         };
 
         /**
+         * @method decreasePerPage
+         * @return {void}
+         */
+        $scope.decreasePerPage = function decreasePerPage() {
+
+            if ($scope.perPage !== $scope.perPageSteps) {
+                socket.node.emit('snapshot/products/perPage', ($scope.perPage -= $scope.perPageSteps));
+            }
+
+        };
+
+        /**
+         * @method increasePerPage
+         * @return {void}
+         */
+        $scope.increasePerPage = function increasePerPage() {
+
+            if ($scope.perPage != $scope.maximumPerPage) {
+                socket.node.emit('snapshot/products/perPage', ($scope.perPage += $scope.perPageSteps));
+            }
+
+        };
+
+        /**
          * @method previousPage
          * @return {void}
          */
         $scope.previousPage = function previousPage() {
             $scope.gotoPage($scope.statistics.pages.current - 1);
         };
+
+        // When the "paging/next" or "page/previous" events are broadcast.
+        $scope.$on('paging/previous', $scope.previousPage);
+        $scope.$on('paging/next', $scope.nextPage);
+
+        // When the "paging/increase" or "page/decrease" events are broadcast.
+        $scope.$on('paging/decrease', $scope.decreasePerPage);
+        $scope.$on('paging/increase', $scope.increasePerPage);
 
     }]);
 

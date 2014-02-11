@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('ApplicationController', ['$scope',
+    $moa.controller('ApplicationController', ['$rootScope', '$scope',
 
-    function applicationController($scope) {
+    function applicationController($rootScope, $scope) {
 
         /**
          * @property filtersOpen
@@ -36,6 +36,15 @@
             }
 
         };
+
+        /**
+         * @method broadcast
+         * @param event {String}
+         * @return {void}
+         */
+        $scope.broadcast = function broadcast(event) {
+            $rootScope.$broadcast(event);
+        }
         
     }]);
 

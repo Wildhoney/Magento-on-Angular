@@ -1,6 +1,8 @@
 <ul>
     <li class="basket">{{basketCount}}</li>
-    <li>
-        <img src="images/medium/reset.png" />
-    </li>
+    <li><img src="images/medium/reset.png" /></li>
+    <li ng-click="broadcast('paging/previous')"><img src="images/medium/previous.png" /></li>
+    <li ng-click="broadcast('paging/next')"><img src="images/medium/next.png" /></li>
+    <li ng-click="broadcast('paging/decrease')"><img src="images/medium/decrease.png" /></li>
+    <li ng-click="broadcast('paging/increase')"><img src="images/medium/increase.png" /></li>
 </ul>
