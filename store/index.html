@@ -84,6 +84,7 @@
                     <h3>Currencies</h3>
                     <ul>
                         <li ng-repeat="currency in currencies | orderBy: 'code'">
+                            <span class="symbol">{{currency.symbol}}</span>
                             <a ng-click="setCurrency(currency)">{{currency.code}}</a>
                         </li>
                     </ul>

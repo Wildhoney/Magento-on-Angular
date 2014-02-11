@@ -1,7 +1,8 @@
 section.modal-window {
     position: fixed;
     overflow: visible;
-    /*border-left: 1px solid rgba(0, 0, 0, .15);*/
+    z-index: 101;
+    background-color: white;
     right: -40%;
     top: 50px;
     padding: 20px 15px;

@@ -25,3 +25,9 @@ section.currencies ul li a {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 12px;
 }
+
+section.currencies ul li span.symbol {
+    color: rgba(0, 0, 0, .35);
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 12px;
+}
