@@ -18,6 +18,24 @@
         service.url = '../api/public/';
 
         /**
+         * @method _request
+         * @param response {Object}
+         * @private
+         */
+        service._request = function _request(response) {
+
+            var deferred = $q.defer();
+
+            // Fetch the data from the backend, and resolve the promise with `response.data`.
+            $http.get(service.url + 'currencies').then(function then(response) {
+                deferred.resolve(response.data);
+            });
+
+            return deferred.promise;
+
+        };
+
+        /**
          * @method getAttribute
          * @param name {String}
          * @return {$q.promise}
@@ -33,6 +51,14 @@
          */
         service.getProduct = function getProduct(id) {
             return $http.get(service.url + 'product/' + id);
+        };
+
+        /**
+         * @method getCurrencies
+         * @return {$q.promise}
+         */
+        service.getCurrencies = function getCurrencies() {
+            return service._request(service.url + 'currencies');
         };
 
         /**

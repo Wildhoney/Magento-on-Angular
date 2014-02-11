@@ -3,6 +3,7 @@
 @import "section/dashboard.css";
 @import "section/modal.css";
 @import "section/pagination.css";
+@import "section/currencies.css";
 
 * {
     margin: 0;

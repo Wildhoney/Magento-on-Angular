@@ -17,14 +17,17 @@
     <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductController.js"></script>
+    <script type="text/javascript" src="js/controllers/CurrenciesController.js"></script>
     <script type="text/javascript" src="js/controllers/DashboardController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/controllers/ModalController.js"></script>
+    <script type="text/javascript" src="js/filters/Convert.js"></script>
     <script type="text/javascript" src="js/directives/Sidebar.js"></script>
     <script type="text/javascript" src="js/directives/Filter.js"></script>
     <script type="text/javascript" src="js/directives/Panel.js"></script>
     <script type="text/javascript" src="js/services/Gateway.js"></script>
     <script type="text/javascript" src="js/services/Dashboard.js"></script>
+    <script type="text/javascript" src="js/services/Currency.js"></script>
     <script type="text/javascript" src="js/services/Http.js"></script>
     <script type="text/javascript" src="js/services/Socket.js"></script>
 </head>
@@ -75,6 +78,15 @@
                 {{statistics.models.current}}/{{statistics.models.total}} in {{statistics.responseTime}}ms
             </div>
 
+            <section class="currencies" ng-controller="CurrenciesController">
+                <h3>Currencies</h3>
+                <ul>
+                    <li ng-repeat="currency in currencies | orderBy: 'code'">
+                        <a ng-click="setCurrency(currency)">{{currency.code}}</a>
+                    </li>
+                </ul>
+            </section>
+
             <section class="pagination" ng-include="'views/pagination.html'"></section>
 
             <div class="sorting">
@@ -92,24 +104,21 @@
             </div>
 
             <ul class="collection">
-
                 <li ng-repeat="product in products" ng-click="view(product.id, $event)">
-
                     <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
                     <h2><a>{{product.name}}</a></h2>
-                    <div class="price">&pound;{{product.price | number: 2}}</div>
-
+                    <div class="price">
+                        {{currency.symbol}}
+                        {{product.price | convert: currency | number: 2}}
+                    </div>
                 </li>
             </ul>
 
         </section>
 
         <section data-sidebar class="modal-window" ng-controller="ModalController" ng-class="{'modal-open': modalOpen}">
-
             <div class="loading" ng-show="!options.model">Loading...</div>
-
             <div class="view" ng-include="partial"></div>
-
         </section>
 
     </section>

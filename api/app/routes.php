@@ -11,10 +11,10 @@
 |
 */
 
+Route::get('/products', 'ProductsController@getProducts');
+
 Route::get('/product/{id}', 'ProductController@getProduct');
 Route::get('/product/shoes/{id}', 'ProductController@getShoe');
-
-Route::get('/products', 'ProductsController@getProducts');
 
 Route::get('/categories', 'CategoriesController@getCategories');
 
@@ -22,3 +22,5 @@ Route::get('/attributes/{name}', 'AttributesController@getOptions');
 
 Route::get('/basket', 'BasketController@getItems');
 Route::get('/basket/add/{id}', 'BasketController@addItem');
+
+Route::get('/currencies', 'CurrenciesController@getCurrencies');

@@ -7,15 +7,26 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('ProductsController', ['$scope', '$rootScope', 'socket', 'gateway', 'http',
+    $moa.controller('ProductsController', ['$scope', '$rootScope', 'socket', 'gateway', 'http', 'currency',
 
-    function productsController($scope, $rootScope, socket, gateway, http) {
+    function productsController($scope, $rootScope, socket, gateway, http, currency) {
 
         /**
          * @property products
          * @type {Array}
          */
         $scope.products = [];
+
+        /**
+         * @property currency
+         * @type {Object}
+         */
+        $scope.currency = currency.model;
+
+        // When the currency has been changed by the user.
+        $scope.$on('currency/changed', function currencyChanged(event, value) {
+            $scope.currency = value;
+        });
 
         /**
          * @property sorting
