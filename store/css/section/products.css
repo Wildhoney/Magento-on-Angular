@@ -141,6 +141,7 @@ section.products ul.collection li div.price {
 
 section.products div.right {
     position: fixed;
-    right: 30px;
-    padding-top: 10px;
+    right: 50px;
+    z-index: 2;
+    padding-top: 30px;
 }

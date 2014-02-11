@@ -2,6 +2,8 @@ section.currencies {
     width: 200px;
     clear: both;
     float: right;
+    position: relative;
+    z-index: 101;
     text-align: right;
 }
 

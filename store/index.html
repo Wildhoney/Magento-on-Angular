@@ -39,7 +39,7 @@
 
     <section ng-controller="ProductsController">
 
-        <section data-accordion-group data-sidebar class="filters" ng-controller="FiltersController" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+        <section data-sidebar class="filters" ng-controller="FiltersController" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
 
             <section class="tabs" ng-include="'views/tabs.html'"></section>
             <section class="quick-links" ng-include="'views/quick-links.html'"></section>
