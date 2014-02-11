@@ -13,3 +13,4 @@
 /dump.rdb
 /magento/var/log/*
 /magento/app/etc/local.xml
+/node/newrelic_agent.log

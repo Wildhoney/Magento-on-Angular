@@ -1,6 +1,6 @@
-<ul>
+<ul class="filter-container">
     <li ng-repeat="model in models">
-        <input id="{{model.label}}" type="checkbox" ng-change="update(type, prepare(selected))" ng-model="selected[model.id]" />
+        <input id="{{model.label}}" type="checkbox" ng-change="initiateUpdate(selected)" ng-model="selected[model.id]" />
         <label for="{{model.label}}">{{model.label}}</label>
     </li>
 </ul>

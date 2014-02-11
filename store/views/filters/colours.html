@@ -1,5 +1,9 @@
 <div class="filter colours">
     <h2><img class="icon" src="images/colour.png" />Colours</h2>
+    <ul class="more-links">
+        <li ng-click="batch.colour = 'selectAll'"><a>Select All</a></li>
+        <li ng-click="batch.colour = 'deselectAll'"><a>Deselect All</a></li>
+    </ul>
     <p class="description">Choose the colours you're fond of in a product.</p>
-    <div data-filter data-property="colour" data-namespace="color" class="inner"></div>
+    <div data-filter data-property="colour" data-update="update(type, selected)" data-batch="batch.colour" data-namespace="color" class="inner"></div>
 </div>

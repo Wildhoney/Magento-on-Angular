@@ -1,8 +1,8 @@
-section.filters div.filter.colours ul {
+section.filters div.filter.colours ul.filter-container {
     margin-left: 5px;
 }
 
-section.filters div.filter.colours ul li {
+section.filters div.filter.colours ul.filter-container li {
     float: left;
     overflow: hidden;
     position: relative;
@@ -10,13 +10,13 @@ section.filters div.filter.colours ul li {
     padding: 5px;
 }
 
-section.filters div.filter.colours ul li input {
+section.filters div.filter.colours ul.filter-container li input {
     pointer-events: none;
     float: left;
     margin: 3px 0 0 10px;
 }
 
-section.filters div.filter.colours ul li label {
+section.filters div.filter.colours ul.filter-container li label {
     font-weight: 200;
     cursor: pointer;
     position: absolute;

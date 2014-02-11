@@ -18,6 +18,14 @@
         $scope.price = { minimum: 0, maximum: 100 };
 
         /**
+         * @property toggle
+         * @type {Object}
+         */
+        $scope.toggle = {
+            colour: null
+        };
+
+        /**
          * @method setName
          * @param text {String}
          * @return {void}

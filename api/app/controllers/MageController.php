@@ -56,6 +56,7 @@ class MageController extends BaseController {
             'sku'           => $product->getSku(),
             'name'          => $product->getName(),
             'type'          => $product->getTypeId(),
+            'quantity'      => $product->getQty(),
             'price'         => (float) $product->getPrice(),
             'colour'        => (int) $product->getData('color'),
             'manufacturer'  => (int) $product->getData('manufacturer'),

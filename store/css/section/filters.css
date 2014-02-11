@@ -55,19 +55,29 @@ section.filters div.filter h2 {
     border-bottom: 1px solid #d3d3d3;
 }
 
+section.filters div.filter ul.more-links {
+    overflow: hidden;
+    position: absolute;
+    margin: 6px 8px 0 0;
+    top: 0;
+    right: 0;
+}
+
+section.filters div.filter ul.more-links li {
+    float: left;
+    overflow: hidden;
+    padding: 0 8px;
+}
+
+section.filters div.filter ul.more-links a {
+    font-size: 11px;
+    cursor: pointer;
+}
+
 section.filters div.filter img.icon {
     float: left;
     margin: 2px 8px 0 0;
     opacity: .2;
-}
-
-section.filters div.filter a {
-    position: absolute;
-    font-size: 12px;
-    right: 10px;
-    top: 6px;
-    display: none;
-    cursor: pointer;
 }
 
 section.filters div.filter p.description {
