@@ -45,7 +45,7 @@ In order to generate a cache for the product collection, you can run `php artisa
 
 <img src="http://i.imgur.com/Ye2AO9J.png" alt="Redis" />
 
-Please note that by default the cache is attempted to be created via Redis. If you don't want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `redis` to `file`.
+Please note that by default the cache is using plain old file cache. If you want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `file` to `redis`.
 
 Directory Structure
 ---------
