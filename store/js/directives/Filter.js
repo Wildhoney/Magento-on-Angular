@@ -40,7 +40,7 @@
                 scope.$watch('batched', function toggled(value) {
 
                     // Determine what we should set the value to.
-                    var booleanValue = !!(value === 'selectAll');
+                    var booleanValue = (value === 'selectAll') ? true : false;
 
                     // Iterate over each one to set them all to the determined boolean value.
                     _.forEach(scope.selected, function forEach(selected, index) {
