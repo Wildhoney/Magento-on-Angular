@@ -13,7 +13,10 @@
 
         <img class="product" ng-src="{{options.model.largeImage}}" alt="{{options.model.name}}" />
         <h2>{{options.model.name}}</h2>
-        <div class="price">&pound;{{options.model.price | number: 2}}</div>
+        <div class="price">
+            {{currency.symbol}}
+            {{options.model.price | convert: currency | number: 2}}
+        </div>
 
         <select ng-show="options.model.type == 'configurable'" ng-options="product.name for product in options.model.models"
                 ng-change="changeProduct()" ng-model="selectedProduct">
