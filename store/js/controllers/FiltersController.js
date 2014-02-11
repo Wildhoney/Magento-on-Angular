@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('FiltersController', ['$scope', 'gateway', 'dashboard',
+    $moa.controller('FiltersController', ['$scope', '$timeout', 'gateway', 'dashboard',
 
-    function filtersController($scope, gateway, dashboard) {
+    function filtersController($scope, $timeout, gateway, dashboard) {
 
         /**
          * @property price
@@ -41,6 +41,23 @@
         $scope.$on('basket/updated', function basketUpdated(event, items) {
             $scope.basketCount = dashboard.itemCount(items);
         });
+
+        /**
+         * @method setBatch
+         * @param property {Object}
+         * @param value {String}
+         * @return {void}
+         */
+        $scope.setBatch = function setBatch(property, value) {
+
+            $scope.batch[property] = '';
+
+            // Using a timeout to force the property update for all observers.
+            $timeout(function timeout() {
+                $scope.batch[property] = value;
+            }, 1);
+
+        };
 
         /**
          * @method update

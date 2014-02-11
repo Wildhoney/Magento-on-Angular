@@ -71,6 +71,7 @@ section.filters div.filter ul.more-links li {
 
 section.filters div.filter ul.more-links a {
     font-size: 11px;
+    cursor: pointer;
 
 }
 

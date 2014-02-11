@@ -46,8 +46,6 @@
 
                     }
 
-                    console.log(value);
-
                     // Determine what we should set the value to.
                     var booleanValue = (value === 'selectAll') ? true : false;
 

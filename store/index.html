@@ -83,9 +83,9 @@
                 <section class="currencies" ng-controller="CurrenciesController">
                     <h3>Currencies</h3>
                     <ul>
-                        <li ng-repeat="currency in currencies | orderBy: 'code'">
-                            <span class="symbol">{{currency.symbol}}</span>
-                            <a ng-click="setCurrency(currency)">{{currency.code}}</a>
+                        <li ng-repeat="model in currencies | orderBy: 'code'" ng-class="{active: currency == model}">
+                            <span class="symbol">{{model.symbol}}</span>
+                            <a ng-click="setCurrency(model)">{{model.code}}</a>
                         </li>
                     </ul>
                 </section>

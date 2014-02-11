@@ -22,6 +22,11 @@ section.currencies ul li {
     margin-bottom: 0;
 }
 
+section.currencies ul li.active {
+    opacity: 1;
+    font-weight: bold;
+}
+
 section.currencies ul li a {
     cursor: pointer;
     font-family: "Source Sans Pro", sans-serif;
