@@ -5,8 +5,9 @@ Moa
 
 Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Moa brings Magento into the 21st century.
 
-**Demo Video:** https://vimeo.com/85305300 *(Build 0.1.1)*
-Previous: <a href="https://vimeo.com/85201798">0.1.0</a>
+ * 0.2.8 (Latest): https://vimeo.com/86465770
+ * 0.1.1: <a href="https://vimeo.com/85305300>Watch Demo</a>
+ * 0.1.0: <a href="https://vimeo.com/85201798">Watch Demo</a>
 
 <img src="http://i.imgur.com/PP6l6G9.jpg" alt="Angular, Magento, Laravel" />
 
