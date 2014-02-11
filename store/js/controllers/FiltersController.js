@@ -18,12 +18,10 @@
         $scope.price = { minimum: 0, maximum: 100 };
 
         /**
-         * @property toggle
+         * @property batch
          * @type {Object}
          */
-        $scope.toggle = {
-            colour: null
-        };
+        $scope.batch = { colour: null, brand: null };
 
         /**
          * @method setName
@@ -72,9 +70,9 @@
 
                 // Keep the two in line if the minimum goes above the maximum.
                 if (propertyChanging === 'maximum') {
-                    $scope.minimum = $scope.maximum;
+                    $scope.price.minimum = $scope.price.maximum;
                 } else {
-                    $scope.maximum = $scope.minimum;
+                    $scope.price.maximum = $scope.price.minimum;
                 }
 
             }

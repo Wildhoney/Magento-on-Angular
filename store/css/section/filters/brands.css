@@ -5,31 +5,31 @@ section.filters div.filter.brands label {
     margin: -1px 6px 0 0;
 }
 
-section.filters div.filter.brands ul {
+section.filters div.filter.brands ul.filter-container {
     max-height: 300px;
     overflow-y: scroll;
     border: 1px solid #d3d3d3;
 }
 
-section.filters div.filter.brands ul li {
+section.filters div.filter.brands ul.filter-container li {
     margin-bottom: 0;
     height: 32px;
     line-height: 32px;
     position: relative;
 }
 
-section.filters div.filter.brands ul li:nth-of-type(even) {
+section.filters div.filter.brands ul.filter-container li:nth-of-type(even) {
     background-color: rgba(0, 0, 0, .05);
 }
 
-section.filters div.filter.brands ul li input {
+section.filters div.filter.brands ul.filter-container li input {
     float: left;
     overflow: hidden;
     pointer-events: none;
     margin: 10px 0 0 10px;
 }
 
-section.filters div.filter.brands ul li label {
+section.filters div.filter.brands ul.filter-container li label {
     width: 100%;
     cursor: pointer;
     padding: 2px 0 0 30px;

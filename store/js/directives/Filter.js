@@ -37,7 +37,16 @@
                 scope.selected = {};
 
                 // When the user toggles the values to select or deselect all.
-                scope.$watch('batched', function toggled(value) {
+                scope.$watch('batched', function batched(value) {
+
+                    if (!value) {
+
+                        // Don't do anything if the value isn't set yet.
+                        return;
+
+                    }
+
+                    console.log(value);
 
                     // Determine what we should set the value to.
                     var booleanValue = (value === 'selectAll') ? true : false;
@@ -48,7 +57,7 @@
                     });
 
                     // Okay, here we go!
-                    scope.initiateUpdate();
+                    scope.initiateUpdate(scope.selected);
 
                 });
 

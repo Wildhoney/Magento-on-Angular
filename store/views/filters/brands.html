@@ -1,5 +1,12 @@
 <div class="filter brands">
     <h2><img class="icon" src="images/brand.png" />Brands</h2>
+    <ul class="more-links">
+        <li ng-click="batch.brand = 'selectAll'"><a>Select All</a></li>
+        <li ng-click="batch.brand = 'deselectAll'"><a>Deselect All</a></li>
+    </ul>
     <p class="description">Choose from a collection of your favourite brands.</p>
-    <div data-filter data-property="manufacturer" data-namespace="manufacturer" class="inner"></div>
+    <div data-filter data-property="manufacturer"
+         data-update="update(type, selected)"
+         data-namespace="manufacturer"
+         data-batch="batch.brand" class="inner"></div>
 </div>
