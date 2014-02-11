@@ -175,7 +175,7 @@
          */
         $scope.increasePerPage = function increasePerPage() {
 
-            if ($scope.perPage != $scope.maximumPerPage) {
+            if ($scope.perPage !== $scope.maximumPerPage) {
                 socket.node.emit('snapshot/products/perPage', ($scope.perPage += $scope.perPageSteps));
             }
 
