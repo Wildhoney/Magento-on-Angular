@@ -37,6 +37,15 @@ header h1 span {
     font-weight: 400;
 }
 
+div.loading {
+    background: transparent url('../images/apple-loading.gif') 0 8px no-repeat;
+    height: 50px;
+    display: block;
+    font-family: "Source Sans Pro", sans-serif;
+    padding-left: 40px;
+    font-weight: 100;
+}
+
 div.btn {
     border: 1px solid #d3d3d3;
     background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);

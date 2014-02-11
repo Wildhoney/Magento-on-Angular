@@ -1,12 +1,11 @@
 section.modal-window {
     position: fixed;
     overflow: visible;
-    border-left: 1px solid rgba(0, 0, 0, .15);
-    /*border-left: 1px solid #d3d3d3;*/
+    /*border-left: 1px solid rgba(0, 0, 0, .15);*/
     right: -40%;
     top: 50px;
     padding: 20px 15px;
-    box-shadow: 0 0 120px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 50px rgba(0, 0, 0, .2);
     width: 40%;
     height: 100%;
     transition: right 1.25s;
@@ -26,11 +25,9 @@ section.modal-window.modal-open a.close {
 
 section.modal-window div.loading {
     padding-top: 15px;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 100;
     position: absolute;
     width: 100%;
-    margin-left: 20px;
+    margin: 10px 0 0 20px;
     top: 0;
     left: 0;
 }
@@ -44,7 +41,7 @@ section.modal-window ul.links {
     left: 0;
     width: 100%;
     opacity: .5;
-    background: -webkit-linear-gradient(top, #efefef 0%, #e0e0e0 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
 }
 
 section.modal-window ul.links li {
@@ -53,20 +50,24 @@ section.modal-window ul.links li {
     border-right: 1px solid rgba(0, 0, 0, .25);
     line-height: 25px;
     text-align: center;
+    position: relative;
     float: left;
     overflow: hidden;
     cursor: pointer;
 }
 
-section.modal-window ul.links li img {
-    opacity: 1;
-}
+/*section.modal-window ul.links li img {*/
+    /*opacity: .5;*/
+    /*transition: all .35s;*/
+    /*-o-transition: all .35s;*/
+    /*-ms-transition: all .35s;*/
+    /*-moz-transition: all .35s;*/
+    /*-webkit-transition: all .35s;*/
+/*}*/
 
-
-
-
-
-
+/*section.modal-window ul.links li:hover img {*/
+    /*opacity: 1;*/
+/*}*/
 
 section.modal-window div.header h2 {
     font-family: "Source Sans Pro", sans-serif;
