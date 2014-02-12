@@ -101,6 +101,16 @@
         };
 
         /**
+         * @method closeFilters
+         * @return {void}
+         */
+        $scope.closeFilters = function() {
+
+            $rootScope.$broadcast('filters/close');
+
+        };
+
+        /**
          * @method setSorting
          * @param property {String}
          * @return {void}

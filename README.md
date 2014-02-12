@@ -24,6 +24,7 @@ Getting Started
  * (Optionally): Cache products using `php artisan products` from `api/`;
  * Initialise the Node.js instance: `node node/server.js`;
  * Open `example.com/Magento-on-Angular/store/` in your browser;
+ * You may need to update the `base_url` in `Magento Admin > Configuration > Web`
 
 If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much time debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
 
@@ -46,7 +47,7 @@ In order to generate a cache for the product collection, you can run `php artisa
 
 <img src="http://i.imgur.com/Ye2AO9J.png" alt="Redis" />
 
-Please note that by default the cache is using plain old file cache. If you want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `file` to `redis`.
+Please note that by default the cache is using plain old file cache. If you want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `file` to `redis`. More information on the cache configuration is available on http://laravel.com/docs/cache#configuration.
 
 Directory Structure
 ---------

@@ -12,6 +12,12 @@ section.quick-links ul li {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
+/* make the entire height clickable to open the filters */ 
+section.quick-links ul li:last-child { 
+    height: 100%;
+    position: fixed;
+}
+
 section.quick-links ul li.basket {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 30px;

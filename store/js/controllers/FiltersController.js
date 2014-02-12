@@ -127,6 +127,9 @@
             $scope.$parent.filtersOpen = '';
         };
 
+        // When the "filters/close" event has been broadcast.
+        $scope.$on('filters/close', $scope.close);
+
     }]);
 
 })(window.moaApp);
