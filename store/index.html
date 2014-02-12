@@ -39,7 +39,7 @@
 
     <section ng-controller="ProductsController">
 
-        <section data-sidebar class="filters" ng-controller="FiltersController" ng-mouseleave="close()" ng-class="{open: filtersOpen}">
+        <section data-sidebar class="filters" ng-controller="FiltersController" ng-class="{open: filtersOpen}">
 
             <section class="tabs" ng-include="'views/tabs.html'"></section>
             <section class="quick-links" ng-include="'views/quick-links.html'"></section>
@@ -72,7 +72,7 @@
 
         </section>
 
-        <section ng-click="closeModal()" class="products" ng-class="{'filters-open': filtersOpen, 'modal-open': modalOpen}">
+        <section ng-click="closeModal(); closeFilters()" class="products" ng-class="{'filters-open': filtersOpen, 'modal-open': modalOpen}">
 
             <div data-sidebar class="right">
 
