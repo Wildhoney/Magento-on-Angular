@@ -98,8 +98,10 @@
                 // Keep the two in line if the minimum goes above the maximum.
                 if (propertyChanging === 'maximum') {
                     $scope.price.minimum = $scope.price.maximum;
+                    min = max;
                 } else {
                     $scope.price.maximum = $scope.price.minimum;
+                    max = min;
                 }
 
             }
