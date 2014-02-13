@@ -1,6 +1,6 @@
 <ul class="links">
     <li ng-click="close()"><img src="images/back.png" alt="Close" /></li>
-    <li><img src="images/email.png" alt="Email to a Friend" /></li>
+    <li ng-show="options.model.friendUrl.length"><img src="images/email.png" alt="Email to a Friend" /></li>
 </ul>
 
 <section class="product" ng-controller="ProductController" ng-init="setProduct(options.model)">

@@ -71,7 +71,8 @@ class BasketController extends MageController {
 
             $data[] = array(
                 'id'        => (int) $item->getProduct()->getEntityId(),
-                'quantity'  => (int) $item->getQty()
+                'quantity'  => (int) $item->getQty(),
+                'name'      => $item->getProduct()->getName()
             );
         }
 

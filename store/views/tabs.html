@@ -1,7 +1,11 @@
 <ul>
+    <li ng-click="open('basket')" ng-class="{active: (filtersOpen == 'basic')}">
+        <img src="images/basket.png" />
+        Basket
+    </li>
     <li ng-click="open('basic')" ng-class="{active: (filtersOpen == 'basic')}">
         <img src="images/name.png" />
-        Basic
+        General
     </li>
     <li ng-click="open('colours')" ng-class="{active: (filtersOpen == 'colours')}">
         <img src="images/colour.png" />

@@ -17,6 +17,7 @@
     <script type="text/javascript" src="js/controllers/ApplicationController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="js/controllers/ProductController.js"></script>
+    <script type="text/javascript" src="js/controllers/BasketController.js"></script>
     <script type="text/javascript" src="js/controllers/CurrenciesController.js"></script>
     <script type="text/javascript" src="js/controllers/DashboardController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
@@ -46,13 +47,17 @@
 
             <section class="panels">
 
-                <section class="dashboard" ng-controller="DashboardController">
+                <section class="dashboard">
                     <img class="avatar" src="https://0.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&r=x&s=440" />
                     <a>
                         <span class="basket-items">{{basketCount}}</span>
                         <span class="total-price">(&pound;49.87)</span>
                         <img class="checkout" src="images/checkout.png" alt="Checkout" />
                     </a>
+                </section>
+
+                <section ng-controller="BasketController" data-panel="basket" class="basket">
+                    <div ng-include="'views/filters/basket.html'"></div>
                 </section>
 
                 <section data-panel="basic" class="basic">

@@ -1,0 +1,11 @@
+<div class="filter basket">
+    <h2><img class="icon" src="images/basket.png" />My Basket</h2>
+    <p class="description">Manage your basket by removing items or changing the quantity.</p>
+    <div class="inner without-padding">
+        <ul>
+            <li ng-repeat="product in products">
+                {{product.name}}
+            </li>
+        </ul>
+    </div>
+</div>

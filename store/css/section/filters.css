@@ -91,6 +91,6 @@ section.filters div.filter p.description label {
     font-size: 12px;
 }
 
-section.filters div.filter div.inner {
+section.filters div.filter div.inner:not(.without-padding) {
     padding: 0 10px;
 }
