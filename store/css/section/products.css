@@ -29,6 +29,13 @@ section.products.modal-open {
     -webkit-filter: blur(2px);
 }
 
+
+section.products.modal-open > *,
+section.products.filters-open > * {
+    pointer-events: none;
+    cursor: default;
+}
+
 section.products div.models {
     font-weight: 100;
     display: inline-block;
