@@ -24,8 +24,16 @@
          */
         $scope.partial = '';
 
+        /**
+         * @property promise
+         * @type {Object|null}
+         * @default null
+         */
+        $scope.promise = null;
+
         // When the "modal/open" event has been broadcast.
         $scope.$on('modal/open', function modalOpen(event, partialName, options) {
+            $timeout.cancel($scope.promise);
             $scope.partial = 'views/' + partialName;
             $scope.options = options;
         });
@@ -49,7 +57,7 @@
 
             $scope.$parent.modalOpen = false;
 
-            $timeout(function timeout() {
+            $scope.promise = $timeout(function timeout() {
 
                 // Reset all of the passed in parameters.
                 $scope.partial = '';
