@@ -39,6 +39,10 @@ class Products extends Command {
 	 */
 	public function fire()
 	{
+        if (Cache::get(self::PRODUCTS_CACHE_KEY)) {
+            return;
+        }
+
         ini_set('memory_limit', '2048M');
         Mage::app();
 

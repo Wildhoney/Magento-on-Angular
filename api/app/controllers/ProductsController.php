@@ -14,6 +14,9 @@ class ProductsController extends MageController {
      */
     public function getProducts() {
 
+        // Invoke the products command.
+        Artisan::call('products');
+
         // Respond with the collection from the cache.
         return Cache::get(self::PRODUCTS_CACHE_KEY);
 
