@@ -51,17 +51,19 @@ class MageController extends BaseController {
 
         }
 
+        $friendModel = Mage::getModel('sendfriend/sendfriend');
+
         return array(
             'id'            => $product->getId(),
             'sku'           => $product->getSku(),
             'name'          => $product->getName(),
             'type'          => $product->getTypeId(),
             'quantity'      => $product->getQty(),
+            'friendUrl'     => $friendModel->canEmailToFriend() ? Mage::app()->getHelper('catalog/product')->getEmailToFriendUrl($product) : null,
             'price'         => (float) $product->getPrice(),
             'colour'        => (int) $product->getData('color'),
             'manufacturer'  => (int) $product->getData('manufacturer'),
             'description'   => trim($product->getDescription()),
-//            'largeImage'    => $product->getImageUrl(),
             'largeImage'    => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages(),
