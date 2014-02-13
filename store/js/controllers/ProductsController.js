@@ -18,6 +18,12 @@
         $scope.products = [];
 
         /**
+         * @property sortProperties
+         * @type {Array}
+         */
+        $scope.sortProperties = ['name', 'price'];
+
+        /**
          * @property perPage
          * @type {Number}
          */

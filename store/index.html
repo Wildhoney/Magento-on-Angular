@@ -102,13 +102,11 @@
             <div class="sorting">
                 <label>Sort By:</label>
                 <ul class="properties">
-                    <li>
-                        <a ng-click="setSorting('name')">Name</a>
-                        <span ng-hide="sorting.property != 'name'" class="direction">({{sorting.direction}})</span>
-                    </li>
-                    <li>
-                        <a ng-click="setSorting('price')">Price</a>
-                        <span ng-hide="sorting.property != 'price'" class="direction">({{sorting.direction}})</span>
+                    <li ng-repeat="property in sortProperties">
+                        <a ng-click="setSorting(property)">{{property}}</a>
+                        <span ng-hide="sorting.property != property" class="direction">
+                            ({{sorting.direction}})
+                        </span>
                     </li>
                 </ul>
             </div>

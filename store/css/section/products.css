@@ -91,6 +91,7 @@ section.products div.sorting ul.properties li {
     float: left;
     overflow: hidden;
     padding: 1px 5px 0 5px;
+    text-transform: capitalize;
 }
 
 section.products div.sorting ul.properties li span.direction {
