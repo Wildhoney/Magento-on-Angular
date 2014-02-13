@@ -110,8 +110,7 @@
 
             <ul class="collection">
                 <li ng-repeat="product in products" ng-click="view(product.id, $event)">
-                    <img src="http://media.alexandalexa.com/media/catalog/product/cache/6/mannequin/150x155/9df78eab33525d08d6e5fb8d27136e95/s/u/supt18105-2adr_supt18110-2aha_2-copy_1.jpg" />
-                    <!--<img ng-src="{{product.image}}" alt="{{product.name}}'s image" />-->
+                    <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
                     <h2><a>{{product.name}}</a></h2>
                     <div class="price">
                         {{currency.symbol}}

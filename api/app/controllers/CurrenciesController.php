@@ -21,6 +21,17 @@ class CurrenciesController extends MageController {
 
         }
 
+        if (count($rates) === 0) {
+
+            return Response::json(array(array(
+                'code'   => $baseCode,
+                'symbol' => Mage::app()->getLocale()->currency($baseCode)->getSymbol(),
+                'rate'   => 1,
+                'base'   => true
+            )));
+
+        }
+
         return Response::json($options);
 
     }
