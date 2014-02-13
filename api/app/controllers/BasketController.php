@@ -7,33 +7,17 @@ class BasketController extends MageController {
      * @return string
      */
     public function getItems() {
-
-        Mage::getSingleton('core/session', array('name' => 'frontend'));
-
-        $session    = Mage::getSingleton('checkout/session');
-        $items      = $session->getQuote()->getAllItems();
-        $data       = array();
-
-        foreach ($items as $item) {
-
-            $data[] = array(
-                'id'        => (int) $item->getProduct()->getEntityId(),
-                'quantity'  => (int) $item->getQty()
-            );
-        }
-
-        return Response::json($data);
-
+        return Response::json($this->_getItems());
     }
 
     /**
      * @method addItem
      * @param int $productId
-     * @return void
+     * @return string
      */
     public function addItem($productId) {
 
-        $response = array('success' => true, 'error' => null);
+        $response = array('success' => true, 'error' => null, 'models' => array());
 
         try {
 
@@ -44,6 +28,9 @@ class BasketController extends MageController {
             $basket = Mage::getSingleton('checkout/cart');
             $basket->addProduct($product, 1);
             $basket->save();
+
+            // Fetch the items from the user's basket.
+            $response['models'] = $this->_getItems();
 
         } catch (Exception $e) {
 
@@ -64,6 +51,31 @@ class BasketController extends MageController {
         }
 
         return Response::json($response);
+
+    }
+
+    /**
+     * @method _getItems
+     * @return array
+     * @private
+     */
+    private function _getItems() {
+
+        Mage::getSingleton('core/session', array('name' => 'frontend'));
+
+        $session    = Mage::getSingleton('checkout/session');
+        $items      = $session->getQuote()->getAllItems();
+        $data       = array();
+
+        foreach ($items as $item) {
+
+            $data[] = array(
+                'id'        => (int) $item->getProduct()->getEntityId(),
+                'quantity'  => (int) $item->getQty()
+            );
+        }
+
+        return $data;
 
     }
 

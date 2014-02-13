@@ -24,6 +24,16 @@
         });
 
         /**
+         * @method setBasket
+         * @param items {Array}
+         * @return {void}
+         */
+        service.setBasket = function setBasket(items) {
+            service.items = items;
+            $rootScope.$broadcast('basket/updated', service.items);
+        };
+
+        /**
          * @method itemCount
          * @param items {Array}
          * @return {Number}
