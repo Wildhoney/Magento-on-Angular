@@ -93,8 +93,7 @@ class Products extends Command {
                 'colour'            => (int) $product->getData('color'),
                 'manufacturer'      => (int) $product->getData('manufacturer'),
                 'categories'        => array_unique($ids),
-                'type'              => $type,
-                'specialisation'    => $product->getData('specialisation')
+                'type'              => $type
             );
 
         }
