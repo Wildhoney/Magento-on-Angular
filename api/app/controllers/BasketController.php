@@ -7,7 +7,11 @@ class BasketController extends MageController {
      * @return string
      */
     public function getItems() {
+
+        Mage::getSingleton('core/session', array('name' => 'frontend'));
+
         return Response::json($this->_getItems());
+
     }
 
     /**
@@ -22,6 +26,7 @@ class BasketController extends MageController {
         try {
 
             Mage::getSingleton('core/session', array('name' => 'frontend'));
+            $session = Mage::getSingleton("customer/session");
 
             $product = Mage::getModel('catalog/product')->load((int) $productId);
 
@@ -60,8 +65,6 @@ class BasketController extends MageController {
      * @private
      */
     private function _getItems() {
-
-        Mage::getSingleton('core/session', array('name' => 'frontend'));
 
         $session    = Mage::getSingleton('checkout/session');
         $items      = $session->getQuote()->getAllItems();

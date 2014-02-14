@@ -6,8 +6,8 @@ class MageController extends BaseController {
      * @constructor
      */
     public function __construct() {
-//        Mage::app('default');
         Mage::app();
+        Mage::getSingleton('customer/session')->start();
     }
 
     /**
