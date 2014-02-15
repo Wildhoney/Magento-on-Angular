@@ -82,3 +82,11 @@ div.action-button {
 div.action-button:hover {
     background-color: black;
 }
+
+div.error {
+    background-color: #f4cbd1;
+    color: #502e33;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    padding: 10px 15px;
+}

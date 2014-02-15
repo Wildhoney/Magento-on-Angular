@@ -17,6 +17,23 @@
         $scope.account = null;
 
         /**
+         * @property error
+         * @type {String}
+         */
+        $scope.error = '';
+
+        /**
+         * @constant ERRORS
+         * @type {Object}
+         */
+        $scope.ERRORS = {
+            email_missing: 'You must specify your email address.',
+            exists: 'User already exists in the database.',
+            credentials: 'Invalid email and/or password.',
+            unknown: 'An unknown error occurred.'
+        };
+
+        /**
          * @property registerAccount
          * @type {Object}
          */
@@ -36,8 +53,20 @@
         var _processResponse = function _processResponse(response) {
 
             if (response.success) {
-                $scope.account = response.model;
+
+                // Lovely! No errors whatsoever.
+                $scope.error = '';
+
+                if (response.model) {
+                    // Update the account model if we have one.
+                    $scope.account = response.model;
+                }
+
+                return;
             }
+
+            // Otherwise we have an error, so let's make the customer aware of it.
+            $scope.error = $scope.ERRORS[response.error];
 
         };
 
@@ -55,7 +84,9 @@
          * @param model {Object}
          * @return {void}
          */
-        $scope.register = http.register;
+        $scope.register = function register(model) {
+            http.register(model).then(_processResponse);
+        };
 
         /**
          * @method logout

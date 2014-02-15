@@ -32,3 +32,7 @@ div.filter.account input.submit-button {
     pointer-events: none;
     opacity: 0;
 }
+
+section.non-user div.error {
+    margin: 10px;
+}
