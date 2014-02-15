@@ -26,7 +26,6 @@ class BasketController extends MageController {
         try {
 
             Mage::getSingleton('core/session', array('name' => 'frontend'));
-            $session = Mage::getSingleton("customer/session");
 
             $product = Mage::getModel('catalog/product')->load((int) $productId);
 
@@ -67,19 +66,26 @@ class BasketController extends MageController {
     private function _getItems() {
 
         $session    = Mage::getSingleton('checkout/session');
-        $items      = $session->getQuote()->getAllItems();
+        $quote      = $session->getQuote();
+        $items      = $quote->getAllItems();
         $data       = array();
+
+        // Calculate all of the totals.
+        $totals     = $quote->getTotals();
+        $subTotal   = $totals['subtotal']->getValue();
+        $grandTotal = $totals['grand_total']->getValue();
 
         foreach ($items as $item) {
 
             $data[] = array(
                 'id'        => (int) $item->getProduct()->getEntityId(),
                 'quantity'  => (int) $item->getQty(),
-                'name'      => $item->getProduct()->getName()
+                'name'      => $item->getProduct()->getName(),
+                'price'     => $item->getPrice()
             );
         }
 
-        return $data;
+        return array('subTotal' => $subTotal, 'grandTotal' => $grandTotal, 'items' => $data);
 
     }
 

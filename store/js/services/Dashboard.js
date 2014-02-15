@@ -19,7 +19,7 @@
 
         // Get the items from the customer's basket.
         http.getBasket().then(function then(response) {
-            service.items = response.data;
+            service.items = response.data.items;
             $rootScope.$broadcast('basket/updated', service.items);
         });
 
