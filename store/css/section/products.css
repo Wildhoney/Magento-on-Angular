@@ -132,6 +132,7 @@ section.products ul.collection li img {
 
 section.products ul.collection li h2 {
     line-height: 10px;
+    min-height: 34px;
 }
 
 section.products ul.collection li h2 a {
