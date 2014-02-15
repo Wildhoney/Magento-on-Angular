@@ -27,7 +27,7 @@
          * @type {Object}
          */
         $scope.ERRORS = {
-            email_missing: 'You must specify your email address.',
+            email: 'You must specify your email address.',
             exists: 'User already exists in the database.',
             credentials: 'Invalid email and/or password.',
             unknown: 'An unknown error occurred.'

@@ -110,10 +110,9 @@
 
         /**
          * @method logout
-         * @param model {Object}
          * @return {$q.promise}
          */
-        service.logout = function logout(model) {
+        service.logout = function logout() {
             return service._request(service.url + 'account/logout');
         };
 

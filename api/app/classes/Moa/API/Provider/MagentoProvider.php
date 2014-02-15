@@ -567,7 +567,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
             switch ($e->getMessage()) {
 
                 case 'Customer email is required':
-                    $response['error'] = 'email_missing';
+                    $response['error'] = 'email';
                     break;
 
                 case 'This customer email already exists':
