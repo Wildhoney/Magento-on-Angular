@@ -93,8 +93,15 @@ class BasketController extends MageController {
 
         foreach ($items as $item) {
 
+            if ($item->getProduct()->getTypeId() === 'simple') {
+                $parentIds = Mage::getResourceSingleton('catalog/product_type_configurable')
+                                 ->getParentIdsByChild($item->getProduct()->getEntityId());
+                $parentId = (int) $parentIds[0];
+            }
+
             $data[] = array(
                 'id'        => (int) $item->getProduct()->getEntityId(),
+                'parentId'  => $parentId ?: null,
                 'itemId'    => (int) $item->getItemId(),
                 'quantity'  => (int) $item->getQty(),
                 'name'      => $item->getProduct()->getName(),

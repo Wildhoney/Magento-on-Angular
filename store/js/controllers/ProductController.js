@@ -23,6 +23,7 @@
          */
         $scope.ERRORS = {
             stock: 'Unfortunately the product is currently out of stock.',
+            choose: 'Please choose an option from the product dropdown.',
             unknown: 'Sorry, but an unknown error occurred.'
         };
 
@@ -51,6 +52,14 @@
          * @return {void}
          */
         $scope.addBasket = function addBasket(id) {
+
+            if (!id) {
+
+                // User hasn't selected a simple product from the configurable.
+                $scope.errorMessage = $scope.ERRORS['choose'];
+                return;
+
+            }
 
             $scope.basketAdding = true;
 
