@@ -8,13 +8,13 @@
      * @module Moa
      */
     $moa.constant("config", {
-		"socket": {
-    		"port": "@@socket.port",
-		    "host": "@@socket.host"
-  		},
-  		"api": {
-		    "host": "@@api.host"
-  		}
-	});
+        "socket": {
+            "port": "@@socket.port",
+            "host": "@@socket.host"
+        },
+        "api": {
+            "host": "@@api.host"
+        }
+    });
 
 })(window.moaApp);

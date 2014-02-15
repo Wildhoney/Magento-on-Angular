@@ -70,6 +70,6 @@ module.exports = function(grunt) {
     grunt.registerTask('js-test', ['jshint']);
 //    grunt.registerTask('php-test', ['phpunit']);
     grunt.registerTask('build', ['cssmin', 'replace', 'uglify']);
-    grunt.registerTask('default', ['jshint', 'cssmin', 'replace', 'uglify']);
+    grunt.registerTask('default', ['replace', 'jshint', 'cssmin', 'uglify']);
 
 };
