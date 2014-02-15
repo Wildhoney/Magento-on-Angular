@@ -3,14 +3,14 @@
     <p class="description">Manage your basket by removing items or changing the quantity.</p>
     <div class="inner without-padding">
         <ul>
-            <li ng-repeat="product in products">
+            <li ng-repeat="product in products" ng-click="view(product.parentId || product.id, $event)">
                 <h3>{{product.name}}</h3>
                 <div class="price">
                     {{currency.symbol}}
                     {{product.price | convert: currency | number: 2}}
                 </div>
                 <div class="quantity">Quantity: {{product.quantity}}</div>
-                <div class="remove"><a ng-click="removeItem(product.itemId)">Remove Item</a></div>
+                <div class="remove"><a ng-click="removeItem(product.itemId); $event.stopPropagation()">Remove Item</a></div>
             </li>
         </ul>
     </div>
