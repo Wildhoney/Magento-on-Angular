@@ -127,10 +127,12 @@ section.products ul.collection li {
 
 section.products ul.collection li img {
     max-width: 100%;
+    max-height: 160px;
 }
 
 section.products ul.collection li h2 {
     line-height: 10px;
+    min-height: 34px;
 }
 
 section.products ul.collection li h2 a {

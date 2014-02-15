@@ -1,0 +1,20 @@
+(function($moa) {
+
+    'use strict';
+
+    /**
+     * @service Config
+     * @author Raja Kapur
+     * @module Moa
+     */
+    $moa.constant("config", {
+        "socket": {
+            "port": "@@socket.port",
+            "host": "@@socket.host"
+        },
+        "api": {
+            "host": "@@api.host"
+        }
+    });
+
+})(window.moaApp);

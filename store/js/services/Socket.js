@@ -7,7 +7,7 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.service('socket', ['$window', function socketService($window) {
+    $moa.service('socket', ['$window', 'config', function socketService($window, config) {
 
         var service = {};
 
@@ -15,7 +15,7 @@
          * @property url
          * @type {String}
          */
-        service.url = 'http://localhost:8888/';
+        service.url = 'http://' + config.socket.host + ':' + config.socket.port + '/';
 
         /**
          * @method _getSocket

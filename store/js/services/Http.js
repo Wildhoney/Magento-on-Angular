@@ -7,7 +7,7 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.service('http', ['$q', '$http', function httpService($q, $http) {
+    $moa.service('http', ['$q', '$http', 'config', function httpService($q, $http, config) {
 
         var service = {};
 
@@ -15,7 +15,7 @@
          * @property url
          * @type {String}
          */
-        service.url = '../api/public/';
+        service.url = config.api.host + '/';
 
         /**
          * @method _request

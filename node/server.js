@@ -3,13 +3,14 @@ var io          = {},
     _           = require('underscore'),
     request     = require('request'),
     newRelic    = require('newrelic'),
-    snapshot    = require('node-snapshot');
+    snapshot    = require('node-snapshot'),
+    config      = require('../config.json');
 
 /**
  * @property url
  * @type {String}
  */
-var url = 'http://localhost/Magento-on-Angular/api/public/products';
+var url = config.api.host + '/products';
 
 /**
  * @property products
@@ -21,7 +22,7 @@ var products = '';
 // new connections.
 request(url, function (error, response, body) {
     products = JSON.parse(body);
-    io = require('socket.io').listen(8888);
+    io = require('socket.io').listen(parseInt(config.socket.port));
     beginListening();
 });
 
