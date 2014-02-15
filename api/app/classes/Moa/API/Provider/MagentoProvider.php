@@ -500,11 +500,12 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
     /**
      * @method logout
-     * @return void
+     * @return array
      */
     public function logout() {
         \Mage::getSingleton('customer/session')->logout();
-        return array('success' => true, 'error' => null);
+        $account = $this->getAccount();
+        return array('success' => true, 'error' => null, 'model' => $account['model']);
     }
 
     /**

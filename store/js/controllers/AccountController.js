@@ -29,20 +29,25 @@
         $scope.loginAccount = { email: '', password: '' };
 
         /**
+         * @method _processResponse
+         * @param response {Object}
+         * @private
+         */
+        var _processResponse = function _processResponse(response) {
+
+            if (response.success) {
+                $scope.account = response.model;
+            }
+
+        };
+
+        /**
          * @method login
          * @param model {Object}
          * @return {void}
          */
         $scope.login = function login(model) {
-
-            http.login(model).then(function then(response) {
-
-                if (response.success) {
-                    $scope.account = response.model;
-                }
-
-            });
-
+            http.login(model).then(_processResponse);
         };
 
         /**
@@ -54,27 +59,14 @@
 
         /**
          * @method logout
-         * @param model {Object}
          * @return {void}
          */
-        $scope.logout = function logout(model) {
-
-            http.logout().then(function then(response) {
-                if (response.success) {
-                    $scope.account = null;
-                }
-            });
-
+        $scope.logout = function logout() {
+            http.logout().then(_processResponse);
         };
 
         // Fetch the user if they're already signed into their account.
-        http.getAccount().then(function then(response) {
-
-            if (response.success) {
-                $scope.account = response.model;
-            }
-
-        });
+        http.getAccount().then(_processResponse);
 
     }]);
 
