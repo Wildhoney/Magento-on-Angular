@@ -11,6 +11,24 @@ div.filter.basket ul li {
     margin-bottom: 0;
     cursor: pointer;
     overflow: hidden;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+div.filter.basket ul li:last-child {
+    border-bottom: 0;
+}
+
+div.filter.basket ul li.no-products {
+    font-size: 12px;
+    height: 120px;
+}
+
+div.filter.basket ul li:hover {
+    background-color: rgba(0, 0, 0, .035);
 }
 
 div.filter.basket ul li h3 {
