@@ -7,9 +7,7 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('DashboardController', ['$scope', 'basket',
-
-    function dashboardController($scope, basket) {
+    $moa.controller('DashboardController', [function dashboardController() {
         
     }]);
 
