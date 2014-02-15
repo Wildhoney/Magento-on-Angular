@@ -72,7 +72,6 @@ div.filter.basket div.checkout-button {
     height: 50px;
     line-height: 50px;
     cursor: pointer;
-    border-radius: 3px;
     transition: all .35s;
     -o-transition: all .35s;
     -ms-transition: all .35s;
