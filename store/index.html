@@ -19,7 +19,7 @@
     <script type="text/javascript" src="js/controllers/ProductController.js"></script>
     <script type="text/javascript" src="js/controllers/BasketController.js"></script>
     <script type="text/javascript" src="js/controllers/CurrenciesController.js"></script>
-    <script type="text/javascript" src="js/controllers/DashboardController.js"></script>
+    <script type="text/javascript" src="js/controllers/AccountController.js"></script>
     <script type="text/javascript" src="js/controllers/FiltersController.js"></script>
     <script type="text/javascript" src="js/controllers/ModalController.js"></script>
     <script type="text/javascript" src="js/filters/Convert.js"></script>
@@ -46,11 +46,11 @@
             <section class="tabs" ng-include="'views/tabs.html'"></section>
             <section class="quick-links" ng-include="'views/quick-links.html'"></section>
 
-            <section class="panels">
+            <section class="panels" ng-controller="AccountController">
 
                 <div ng-controller="BasketController">
 
-                    <section ng-controller="DashboardController" class="dashboard">
+                    <section class="dashboard">
                         <img class="avatar" src="https://0.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&r=x&s=440" />
                         <a>
                             <span class="basket-items">{{basketCount}}</span>
@@ -67,6 +67,10 @@
                     </section>
 
                 </div>
+
+                <section data-panel="account" class="account">
+                    <div ng-include="'views/filters/account.html'"></div>
+                </section>
 
                 <section data-panel="basic" class="basic">
                     <div ng-include="'views/filters/search.html'"></div>

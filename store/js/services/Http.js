@@ -19,15 +19,18 @@
 
         /**
          * @method _request
+         * @param path {String}
+         * @param type {String}
+         * @param params {Object}
          * @return {$q.promise}
          * @private
          */
-        service._request = function _request() {
+        service._request = function _request(path, type, params) {
 
             var deferred = $q.defer();
 
             // Fetch the data from the backend, and resolve the promise with `response.data`.
-            $http.get(service.url + 'currencies').then(function then(response) {
+            $http[type || 'get'](path, (params || {})).then(function then(response) {
                 deferred.resolve(response.data);
             });
 
@@ -85,6 +88,24 @@
          */
         service.removeBasket = function removeBasket(id) {
             return $http.get(service.url + 'basket/remove/' + id);
+        };
+
+        /**
+         * @method register
+         * @param model {Object}
+         * @return {$q.promise}
+         */
+        service.register = function register(model) {
+            return service._request(service.url + 'account/register', 'post', model);
+        };
+
+        /**
+         * @method login
+         * @param model {Object}
+         * @return {$q.promise}
+         */
+        service.login = function login(model) {
+            return service._request(service.url + 'account/login', 'post', model);
         };
 
         return service;
