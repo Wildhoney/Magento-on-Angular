@@ -1,6 +1,6 @@
 <?php
 
-class ProductController extends MageController {
+class ProductController extends BaseAPIController {
 
     /**
      * @method getProduct
@@ -8,7 +8,7 @@ class ProductController extends MageController {
      * @return string
      */
     public function getProduct($productId) {
-        return Response::json($this->_getProduct($productId));
+        return Response::json($this->api->getProduct($productId));
     }
 
 }

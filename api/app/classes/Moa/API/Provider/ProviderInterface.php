@@ -31,4 +31,40 @@ interface ProviderInterface {
      */
     public function getProductVariations($productId);
 
+    /**
+     * @method getProductOptions
+     * @param  string $attributeName
+     * @param  bool $processCounts
+     * @return array
+     */
+    public function getProductOptions($attributeName, $processCounts);
+
+    public function getCurrencies();
+
+    /**
+     * @method getCategories
+     * @return array
+     */
+    public function getCategories();
+
+    /**
+     * @method getCartItems
+     * @return array
+     */
+    public function getCartItems();
+
+    /**
+     * @method addCartItem
+     * @param int $productId
+     * @return array
+     */
+    public function addCartItem($productId);
+
+    /**
+     * @method removeCartItem
+     * @param int $id
+     * @return array
+     */
+    public function removeCartItem($id);
+
 }
