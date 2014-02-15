@@ -3,11 +3,11 @@ Moa
 
 <img src="https://travis-ci.org/Wildhoney/Magento-on-Angular.png" />
 
-**Note:** Those updating from 0.2.8 to 0.3.0 need to run: `composer dump-autoload` from `api/`.
+**Note:** Those updating from 0.2.8 to 0.3.0 need to run: `composer dump-autoload` from `api/` and update the new `config.json` file.
 
 Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Moa brings Magento into the 21st century.
 
- * **0.2.8 (Latest)**: https://vimeo.com/86465770
+ * **0.2.8 (Latest Video)**: https://vimeo.com/86465770
  * 0.1.1: https://vimeo.com/85305300
  * 0.1.0: https://vimeo.com/85201798
 
@@ -20,8 +20,8 @@ Getting Started
 
  * Install all dependencies: `npm install`, `bower install`;
  * Install Laravel dependencies: `composer install` from `api/`;
- * Configure a <a href="http://www.magentocommerce.com/wiki/1_-_installation_and_configuration/magento_installation_guide">new Magento store</a>, or specify the URL, and file path to your Magento store by editing the `config.json` file.
- * Update `config.json` with your own paths, and hostnames;
+ * Configure a <a href="http://www.magentocommerce.com/wiki/1_-_installation_and_configuration/magento_installation_guide">new Magento store</a>, or specify the URL, and file path to your existing Magento store by editing the `config.json` file.
+ * Update `config.json.sample` with your own paths, and hostnames; rename `config.json.sample` to `config.json`
  * Run `grunt`
  * (Optionally): Cache products using `php artisan products` from `api/`;
  * Initialise the Node.js instance: `node node/server.js`;
@@ -58,7 +58,6 @@ At first glance the directories may seem over-complicated. However there's metho
 
  * `api` contains the Laravel framework which interfaces with Magento;
  * `dist` contains production-ready minified JS/CSS files for Moa;
- * `magento` contains factory default Magento release;
  * `node` contains Node.js server for delivering products via <a href="https://github.com/Wildhoney/Snapshot.js">Snapshot</a>;
  * `store` contains the actual Angular.js Moa application;
 
