@@ -523,8 +523,12 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
         }
 
+        // Gather the user data, and MD5 the email address for use with Gravatar.
+        $datum = \Mage::helper('customer')->getCustomer()->getData();
+        $datum['gravatar'] = md5($datum['email']);
+
         // Otherwise the user is logged in. Voila!
-        return array('success' => true, 'model' => \Mage::helper('customer')->getCustomer()->getData());
+        return array('success' => true, 'model' => $datum);
 
     }
 

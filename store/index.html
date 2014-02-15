@@ -51,7 +51,7 @@
                 <div ng-controller="BasketController">
 
                     <section class="dashboard">
-                        <img class="avatar" src="https://0.gravatar.com/avatar/82a85370ac6830d7858e785db168576f?d=https%3A%2F%2Fidenticons.github.com%2F0820120327360cf09756c7cf6607c74a.png&r=x&s=440" />
+                        <img class="avatar" ng-src="https://0.gravatar.com/avatar/{{account.gravatar}}" />
                         <a>
                             <span class="basket-items">{{basketCount}}</span>
                             <span class="total-price">
