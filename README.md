@@ -18,13 +18,13 @@ Getting Started
 
  * Install all dependencies: `npm install`, `bower install`;
  * Install Laravel dependencies: `composer install` from `api/`;
- * Configure your Magento `local.xml`: `cp magento/app/etc/local.xml.template magento/app/etc/local.xml`;
- * Update `node/server.js` line 11 to your own host and path;
- * Update `store/js/services/Socket.js` line 18 to your Node.js instance;
+ * Configure a <a href="http://www.magentocommerce.com/wiki/1_-_installation_and_configuration/magento_installation_guide">new Magento store</a>, or specify the URL, and file path to your Magento store by editing the `config.json` file.
+ * Update `config.json` with your own paths, and hostnames;
+ * Run `grunt`
  * (Optionally): Cache products using `php artisan products` from `api/`;
  * Initialise the Node.js instance: `node node/server.js`;
  * Open `example.com/Magento-on-Angular/store/` in your browser;
- * You may need to update the `base_url` in `Magento Admin > Configuration > Web`
+ * You may need to update the `base_url` in `Magento Admin > Configuration > Web` if you did a fresh installation of Magento.
 
 If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much time debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
 
