@@ -12,29 +12,25 @@
         var service = {};
 
         /**
-         * @property items
+         * @property data
          * @type {Array}
          */
-        service.items = [];
+        service.data = [];
 
         // Get the items from the customer's basket.
         http.getBasket().then(function then(response) {
-
-            service.items  = response.data.items;
-            service.totals = response.data.totals;
-
+            service.data = response.data;
             $rootScope.$broadcast('basket/updated', response.data);
-
         });
 
         /**
          * @method setBasket
-         * @param items {Array}
+         * @param data {Object}
          * @return {void}
          */
-        service.setBasket = function setBasket(items) {
-            service.items = items;
-            $rootScope.$broadcast('basket/updated', service.items);
+        service.setBasket = function setBasket(data) {
+            service.data = data;
+            $rootScope.$broadcast('basket/updated', service.data);
         };
 
         /**
