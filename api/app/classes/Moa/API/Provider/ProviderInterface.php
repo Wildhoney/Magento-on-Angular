@@ -67,4 +67,6 @@ interface ProviderInterface {
      */
     public function removeCartItem($id);
 
+    public function getCollectionForCache(callable $infolog = null);
+
 }

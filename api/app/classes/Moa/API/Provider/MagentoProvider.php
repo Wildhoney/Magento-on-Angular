@@ -357,4 +357,54 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         return array('subTotal' => $subTotal, 'grandTotal' => $grandTotal, 'items' => $data);
     }
 
+    public function getCollectionForCache(callable $infolog = null) {
+        $collection = array();
+        $index = 1;
+
+        $products = \Mage::getResourceModel('catalog/product_collection');
+        $products->addAttributeToSelect('*');
+        $products->addAttributeToFilter('visibility', array('neq' => 1));
+        $products->addAttributeToFilter('status', 1);
+        $products->load();
+
+        foreach ($products as $product) {
+            if (!is_null($infolog)) $infolog(sprintf('Resolving model %d/%d', $index++, count($products)));
+
+            $ids         = array();
+            $categoryIds = (int) $product->getCategoryIds();
+            $categoryId  = $categoryIds[0];
+            $type        = \Mage::getModel('catalog/category')->load($categoryId);
+
+            foreach ($product->getCategoryIds() as $id) {
+                array_push($ids, (int) $id);
+
+                // Add any parent IDs as well.
+                $category = \Mage::getModel('catalog/category')->load($id);
+                if ($category->parent_id) {
+                    $parentCategory = \Mage::getModel('catalog/category')->load($category->parent_id);
+
+                    if ($parentCategory->parent_id) {;
+                        array_push($ids, (int) $parentCategory->parent_id);
+                    }
+
+                    array_push($ids, (int) $category->parent_id);
+                }
+            }
+
+            $collection[] = array(
+                'id'                => (int) $product->getId(),
+                'name'              => trim($product->getName()),
+                'ident'             => trim($this->createIdent($product->getName())),
+                'price'             => (float) $product->getPrice(),
+                'image'             => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
+                'colour'            => (int) $product->getData('color'),
+                'manufacturer'      => (int) $product->getData('manufacturer'),
+                'categories'        => array_unique($ids),
+                'type'              => $type
+            );
+        }
+
+        return $collection;
+    }
+
 }
