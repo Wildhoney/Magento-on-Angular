@@ -259,7 +259,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         return $collection;
     }
 
-    private function fontEndSession() {
+    private function frontEndSession() {
         \Mage::getSingleton('core/session', array('name' => 'frontend'));
     }
 
@@ -273,7 +273,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
         try {
 
-            $this->fontEndSession();
+            $this->frontEndSession();
 
             $product = \Mage::getModel('catalog/product')->load((int) $productId);
 
@@ -324,7 +324,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
      * @return array
      */
     public function getCartItems() {
-        $this->fontEndSession();
+        $this->frontEndSession();
 
         $session    = \Mage::getSingleton('checkout/session');
         $quote      = $session->getQuote();
