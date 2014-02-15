@@ -1,6 +1,13 @@
+div.filter.basket ul {
+    max-height: 300px;
+    overflow-y: scroll;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
 div.filter.basket ul li {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
-    padding: 8px 10px;
+    padding: 14px 10px 8px 10px;
     margin-bottom: 0;
     cursor: pointer;
     overflow: hidden;
