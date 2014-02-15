@@ -19,9 +19,10 @@
         <p class="description"></p>
         <div class="inner">
 
-            <form>
+            <form ng-submit="login(loginAccount)">
                 <p><input ng-model="loginAccount.email" class="stretch" type="email" placeholder="Email address..." /></p>
                 <p><input ng-model="loginAccount.password" class="stretch" type="password" placeholder="Password..." /></p>
+                <input type="submit" class="submit-button" />
                 <div class="action-button" ng-click="login(loginAccount)">
                     Sign In
                 </div>
@@ -35,12 +36,13 @@
         <p class="description"></p>
         <div class="inner">
 
-            <form>
+            <form ng-submit="register(registerAccount)">
                 <p class="firstName"><input ng-model="registerAccount.firstName" type="text" placeholder="First name..." /></p>
                 <p class="lastName"><input ng-model="registerAccount.lastName" type="text" placeholder="Last name..." /></p>
                 <p><input class="stretch" ng-model="registerAccount.email" type="email" placeholder="Email address..." /></p>
                 <p><input class="stretch" ng-model="registerAccount.password" type="password" placeholder="Password..." /></p>
-                <div class="action-button" ng-click="register(registerAccount)">
+                <input type="submit" class="submit-button" />
+                <div class="action-button" ng-click="register(registerAccount)"">
                     Create Account
                 </div>
             </form>

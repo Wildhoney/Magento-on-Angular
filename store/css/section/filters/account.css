@@ -22,3 +22,13 @@ div.filter.account div.action-button {
     height: 35px;
     line-height: 35px;
 }
+
+div.filter.account div.inner {
+    position: relative;
+}
+
+div.filter.account input.submit-button {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
