@@ -22,7 +22,7 @@ var products = '';
 // new connections.
 request(url, function (error, response, body) {
     products = JSON.parse(body);
-    io = require('socket.io').listen(8888);
+    io = require('socket.io').listen(parseInt(config.socket.port));
     beginListening();
 });
 
