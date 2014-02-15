@@ -109,6 +109,15 @@
         };
 
         /**
+         * @method logout
+         * @param model {Object}
+         * @return {$q.promise}
+         */
+        service.logout = function logout(model) {
+            return service._request(service.url + 'account/logout');
+        };
+
+        /**
          * @method getAccount
          * @return {$q.promise}
          */

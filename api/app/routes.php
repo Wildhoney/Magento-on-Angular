@@ -28,4 +28,5 @@ Route::get('/currencies', 'CurrenciesController@getCurrencies');
 
 Route::get('/account', 'AccountController@getAccount');
 Route::post('/account/login', 'AccountController@login');
+Route::get('/account/logout', 'AccountController@logout');
 Route::post('/account/register', 'AccountController@register');

@@ -473,9 +473,8 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
             $session = \Mage::getSingleton('customer/session');
             $session->login($email, $password);
 
-            $response['model'] = array(
-                'name' => $session->getCustomer()->getName()
-            );
+            $account = $this->getAccount();
+            $response['model'] = $account['model'];
             
         } catch (\Exception $e) {
 
@@ -500,8 +499,17 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
     }
 
     /**
-     * @method getAccount
+     * @method logout
      * @return void
+     */
+    public function logout() {
+        \Mage::getSingleton('customer/session')->logout();
+        return array('success' => true, 'error' => null);
+    }
+
+    /**
+     * @method getAccount
+     * @return array
      */
     public function getAccount() {
 
@@ -515,7 +523,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         }
 
         // Otherwise the user is logged in. Voila!
-        return array('loggedIn' => true, 'model' => \Mage::helper('customer')->getCustomer()->getData());
+        return array('success' => true, 'model' => \Mage::helper('customer')->getCustomer()->getData());
 
     }
 

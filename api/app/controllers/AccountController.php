@@ -11,6 +11,10 @@ class AccountController extends BaseAPIController {
 
     }
 
+    public function logout() {
+        return Response::json($this->api->logout());
+    }
+
     public function register() {
 
         $firstName = Input::get('firstName');

@@ -33,7 +33,17 @@
          * @param model {Object}
          * @return {void}
          */
-        $scope.login = http.login;
+        $scope.login = function login(model) {
+
+            http.login(model).then(function then(response) {
+
+                if (response.success) {
+                    $scope.account = response.model;
+                }
+
+            });
+
+        };
 
         /**
          * @method register
@@ -42,11 +52,25 @@
          */
         $scope.register = http.register;
 
+        /**
+         * @method logout
+         * @param model {Object}
+         * @return {void}
+         */
+        $scope.logout = function logout(model) {
+
+            http.logout().then(function then(response) {
+                if (response.success) {
+                    $scope.account = null;
+                }
+            });
+
+        };
+
         // Fetch the user if they're already signed into their account.
         http.getAccount().then(function then(response) {
 
-            if (response.loggedIn) {
-                console.log('Here');
+            if (response.success) {
                 $scope.account = response.model;
             }
 
