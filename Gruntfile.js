@@ -18,6 +18,23 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+		replace: {
+			config: {
+				options: {
+					patterns: [
+						{
+							json: grunt.file.readJSON('./config.js')
+						}
+					]
+				},
+				files: [
+					{
+						src: ['store/js/services/Config.template'],
+						dest: 'store/js/services/Config.js'
+					}
+				]
+			}
+		},
         uglify: {
             build: {
                 src: 'store/js/**/*.js',
@@ -43,6 +60,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-phpunit');
+    grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -51,7 +69,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jshint']);
     grunt.registerTask('js-test', ['jshint']);
 //    grunt.registerTask('php-test', ['phpunit']);
-    grunt.registerTask('build', ['cssmin', 'uglify']);
-    grunt.registerTask('default', ['jshint', 'cssmin', 'uglify']);
+    grunt.registerTask('build', ['cssmin', 'replace', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'cssmin', 'replace', 'uglify']);
 
 };
