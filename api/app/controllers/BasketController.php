@@ -7,9 +7,7 @@ class BasketController extends BaseAPIController {
      * @return string
      */
     public function getItems() {
-
         return Response::json($this->api->getCartItems());
-
     }
 
     /**
@@ -18,9 +16,7 @@ class BasketController extends BaseAPIController {
      * @return string
      */
     public function addItem($productId) {
-
         return Response::json($this->api->addCartItem($productId));
-
     }
 
     /**
@@ -29,9 +25,7 @@ class BasketController extends BaseAPIController {
      * @return string
      */
     public function removeItem($id) {
-
         return Response::json($this->api->removeCartItem($id));
-
     }
 
 }

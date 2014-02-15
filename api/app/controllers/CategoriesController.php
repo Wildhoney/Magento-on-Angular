@@ -7,9 +7,7 @@ class CategoriesController extends BaseAPIController {
      * @return string
      */
     public function getCategories() {
-
         return Response::json($this->api->getCategories());
-
     }
 
 }

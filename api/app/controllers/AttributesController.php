@@ -15,10 +15,8 @@ class AttributesController extends BaseAPIController {
      * @return string
      */
     public function getOptions($attributeName) {
-
         $response = $this->api->getProductOptions($attributeName, self::PROCESS_COUNTS);
         return Response::json($response);
-
     }
 
 }
