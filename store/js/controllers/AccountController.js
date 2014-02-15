@@ -26,14 +26,14 @@
          * @param model {Object}
          * @return {void}
          */
-        $scope.login = http.login,
+        $scope.login = http.login;
 
         /**
          * @method register
          * @param model {Object}
          * @return {void}
          */
-        $scope.register = http.register
+        $scope.register = http.register;
 
     }]);
 

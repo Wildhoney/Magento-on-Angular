@@ -4,7 +4,6 @@ var io          = {},
     request     = require('request'),
     newRelic    = require('newrelic'),
     snapshot    = require('node-snapshot'),
-    heapdump    = require('heapdump'),
     config      = require('../config.json');
 
 /**
