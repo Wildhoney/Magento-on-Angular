@@ -44,7 +44,6 @@ class Products extends Command {
         }
 
         ini_set('memory_limit', '2048M');
-        Mage::app();
 
         $collection = array();
         $index = 1;
