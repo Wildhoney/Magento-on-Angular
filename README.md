@@ -27,6 +27,8 @@ Getting Started
  * Initialise the Node.js instance: `node node/server.js`;
  * Open `example.com/Magento-on-Angular/store/` in your browser;
  * You may need to update the `base_url` in `Magento Admin > Configuration > Web` if you did a fresh installation of Magento.
+ 
+Optionally, you may prefer to structure your config and folders in the manner described in this wiki page: https://github.com/Wildhoney/Magento-on-Angular/wiki/Preferred-Folder-Structure-and-Config 
 
 If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much time debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
 
