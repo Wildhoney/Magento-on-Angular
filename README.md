@@ -3,6 +3,8 @@ Moa
 
 <img src="https://travis-ci.org/Wildhoney/Magento-on-Angular.png" />
 
+**Note:** Those updating from 0.2.8 to 0.3.0 need to run: `composer dump-autoload` from `api/`.
+
 Tired of Magento's lack of unit testing? Configuration over convention? Use of Prototype.js? Badly written JavaScript? Untested third-party modules? Likewise! Moa brings Magento into the 21st century.
 
  * **0.2.8 (Latest)**: https://vimeo.com/86465770

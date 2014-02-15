@@ -4,12 +4,12 @@
         "host": "localhost"
     },
     "magento": {
-        "path": "/var/www/magento",
+        "path": "/Users/Wildhoney/Webroot/magento",
         "host": "http://localhost/magento",
         "store": 0
     },
     "api": {
-        "host": "http://localhost/api/public",
+        "host": "http://localhost/Magento-on-Angular/api/public",
         "provider": "magento"
     }
 }
