@@ -1,4 +1,4 @@
 <?php
 
-return json_decode(file_get_contents('../config.js'), true);
+return json_decode(file_get_contents('../../config.json'), true);
 

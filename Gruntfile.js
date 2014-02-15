@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 				options: {
 					patterns: [
 						{
-							json: grunt.file.readJSON('./config.js')
+							json: grunt.file.readJSON('./config.json')
 						}
 					]
 				},

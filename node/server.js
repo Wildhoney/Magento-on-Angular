@@ -3,13 +3,14 @@ var io          = {},
     _           = require('underscore'),
     request     = require('request'),
     newRelic    = require('newrelic'),
-    snapshot    = require('node-snapshot');
+    snapshot    = require('node-snapshot'),
+    config      = require('../config.json');
 
 /**
  * @property url
  * @type {String}
  */
-var url = 'http://localhost/Magento-on-Angular/api/public/products';
+var url = config.api.host + '/products';
 
 /**
  * @property products
