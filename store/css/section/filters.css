@@ -2,6 +2,7 @@
 @import 'filters/colours.css';
 @import 'filters/prices.css';
 @import 'filters/brands.css';
+@import 'filters/account.css';
 @import 'filters/quick-links.css';
 
 section.filters {

@@ -1,0 +1,24 @@
+div.filter.create-account form p.firstName,
+div.filter.create-account form p.lastName {
+    width: 48%;
+    margin-right: 4%;
+    float: left;
+    overflow: hidden;
+}
+
+div.filter.create-account form p.lastName {
+    margin-right: 0;
+}
+
+div.filter.account form p input {
+    margin-bottom: 0;
+}
+
+div.filter.account form p input.stretch {
+    width: 100%;
+}
+
+div.filter.account div.action-button {
+    height: 35px;
+    line-height: 35px;
+}
