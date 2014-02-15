@@ -3,11 +3,11 @@
     "use strict";
 
     /**
-     * @service Dashboard
+     * @service Basket
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.service('dashboard', ['$rootScope', 'http', function dashboardService($rootScope, http) {
+    $moa.service('basket', ['$rootScope', 'http', function basketService($rootScope, http) {
 
         var service = {};
 
@@ -19,8 +19,12 @@
 
         // Get the items from the customer's basket.
         http.getBasket().then(function then(response) {
-            service.items = response.data.items;
-            $rootScope.$broadcast('basket/updated', service.items);
+
+            service.items  = response.data.items;
+            service.totals = response.data.totals;
+
+            $rootScope.$broadcast('basket/updated', response.data);
+
         });
 
         /**

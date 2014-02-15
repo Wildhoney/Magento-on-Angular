@@ -2,4 +2,33 @@ div.filter.basket ul li {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
     padding: 8px 10px;
     margin-bottom: 0;
+    overflow: hidden;
+}
+
+div.filter.basket ul li h3 {
+    font-weight: normal;
+    font-size: 12px;
+    padding: 0;
+    margin: 0 0 2px 0;
+}
+
+div.filter.basket ul li div.quantity {
+    font-size: 11px;
+    color: rgba(0, 0, 0, .5);
+    margin: 0 8px;
+    float: left;
+    overflow: hidden;
+}
+
+div.filter.basket ul li div.price {
+    font-size: 11px;
+    color: rgba(0, 0, 0, .75);
+    font-weight: 400;
+    float: left;
+    overflow: hidden;
+}
+
+div.filter.basket ul li div.remove a {
+    cursor: pointer;
+    font-size: 11px;
 }

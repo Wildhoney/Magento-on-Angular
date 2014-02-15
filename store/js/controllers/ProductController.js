@@ -7,9 +7,9 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('ProductController', ['$scope', 'http', 'dashboard',
+    $moa.controller('ProductController', ['$scope', 'http', 'basket',
 
-    function ProductController($scope, http, dashboard) {
+    function ProductController($scope, http, basket) {
 
         /**
          * @property productId
@@ -69,7 +69,7 @@
                 $scope.basketAdding = false;
 
                 // Update the user's basket!
-                dashboard.setBasket(response.data.models);
+                basket.setBasket(response.data.models);
 
             });
 

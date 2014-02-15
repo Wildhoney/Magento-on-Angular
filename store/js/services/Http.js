@@ -78,6 +78,15 @@
             return $http.get(service.url + 'basket/add/' + id);
         };
 
+        /**
+         * @method removeBasket
+         * @param id {Number}
+         * @return {$q.promise}
+         */
+        service.removeBasket = function removeBasket(id) {
+            return $http.get(service.url + 'basket/remove/' + id);
+        };
+
         return service;
 
     }]);

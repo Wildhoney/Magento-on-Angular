@@ -59,6 +59,22 @@ class BasketController extends MageController {
     }
 
     /**
+     * @method removeItem
+     * @param int $id
+     * @return string
+     */
+    public function removeItem($id) {
+
+        Mage::getSingleton('checkout/cart')->getQuote()->removeItem($id)->save();
+
+        return Response::json(array(
+            'success' => Mage::getModel('checkout/cart')->save(),
+            'models'  => $this->_getItems()
+        ));
+
+    }
+
+    /**
      * @method _getItems
      * @return array
      * @private
@@ -79,6 +95,7 @@ class BasketController extends MageController {
 
             $data[] = array(
                 'id'        => (int) $item->getProduct()->getEntityId(),
+                'itemId'    => (int) $item->getItemId(),
                 'quantity'  => (int) $item->getQty(),
                 'name'      => $item->getProduct()->getName(),
                 'price'     => $item->getPrice()
