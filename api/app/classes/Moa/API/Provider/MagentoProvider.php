@@ -6,11 +6,13 @@ namespace Moa\API\Provider;
  * Magento API provider for Laravel
  *
  * @author Raja Kapur <raja.kapur@gmail.com>
+ * @author Adam Timberlake <adam.timberlake@gmail.com>
  */
 class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
     /**
-     * Initialize the Mage environment
+     * Initialize the Mage environment.
+     * @constructor
      */
     public function __construct($config) {
         umask(0);
@@ -20,7 +22,10 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
     }
 
     /**
-     * Start sessions for Magento
+     * Start sessions for Magento.
+     *
+     * @method startSession
+     * @return void
      */
     public function startSession() {
         session_start();
@@ -29,12 +34,16 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
     /**
      * Returns product information for one product.
+     *
      * @method getProduct
      * @param int $productId
      * @return array
      */
     public function getProduct($productId) {
+
+        /** @var \Mage_Catalog_Model_Product $product */
         $product    = \Mage::getModel('catalog/product')->load((int) $productId);
+
         $products   = array();
         $models     = array();
 
@@ -51,6 +60,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
         }
 
+        /** @var \Mage_Sendfriend_Model_Sendfriend $friendModel */
         $friendModel = \Mage::getModel('sendfriend/sendfriend');
 
         return array(
@@ -79,10 +89,17 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
      * @return array
      */
     public function getProductVariations($productId) {
-        $product    = \Mage::getModel('catalog/product')->load((int) $productId);
-        $children   = \Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $product);
+
+        /** @var \Mage_Catalog_Model_Product $product */
+        $product = \Mage::getModel('catalog/product')->load((int) $productId);
+
+        /** @var \Mage_Catalog_Model_Product $children */
+        $children = \Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $product);
+
+        /** @var \Mage_Catalog_Model_Product $attributes */
         $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
-        $products   = array('label' => null, 'collection' => array());
+
+        $products = array('label' => null, 'collection' => array());
 
         foreach ($children as $child) {
 
@@ -112,8 +129,8 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
     /**
      * @method getProductOptions
-     * @param  string $attributeName
-     * @param  bool $processCounts
+     * @param string $attributeName
+     * @param bool $processCounts
      * @return string
      */
     public function getProductOptions($attributeName, $processCounts) {
@@ -158,6 +175,10 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         return $response;
     }
 
+    /**
+     * @method getCurrencies
+     * @return array
+     */
     public function getCurrencies() {
         $baseCode = \Mage::app()->getBaseCurrencyCode();
         $options  = array();
@@ -259,16 +280,13 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         return $collection;
     }
 
-    private function frontEndSession() {
-        \Mage::getSingleton('core/session', array('name' => 'frontend'));
-    }
-
     /**
      * @method addCartItem
      * @param int $productId
      * @return array
      */
     public function addCartItem($productId) {
+
         $response = array('success' => true, 'error' => null, 'models' => array());
 
         try {
@@ -284,7 +302,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
             // Fetch the items from the user's basket.
             $response['models'] = $this->getCartItems();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             $response['success'] = false;
 
@@ -357,6 +375,11 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         return array('subTotal' => $subTotal, 'grandTotal' => $grandTotal, 'items' => $data);
     }
 
+    /**
+     * @method getCollectionForCache
+     * @param callable $infolog
+     * @return array
+     */
     public function getCollectionForCache(callable $infolog = null) {
         $collection = array();
         $index = 1;
@@ -368,7 +391,10 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         $products->load();
 
         foreach ($products as $product) {
-            if (!is_null($infolog)) $infolog(sprintf('Resolving model %d/%d', $index++, count($products)));
+
+            if (!is_null($infolog)) {
+                $infolog(sprintf('Resolving model %d/%d', $index++, count($products)));
+            }
 
             $ids         = array();
             $categoryIds = (int) $product->getCategoryIds();
@@ -380,6 +406,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
                 // Add any parent IDs as well.
                 $category = \Mage::getModel('catalog/category')->load($id);
+
                 if ($category->parent_id) {
                     $parentCategory = \Mage::getModel('catalog/category')->load($category->parent_id);
 
@@ -405,6 +432,166 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
         }
 
         return $collection;
+    }
+
+    /**
+     * @method getCustomerModel
+     * @return Mage_Customer_Model_Customer
+     * @private
+     */
+    private function getCustomerModel() {
+
+        // Gather the website and store preferences.
+        $websiteId = \Mage::app()->getWebsite()->getId();
+        $store     = \Mage::app()->getStore();
+
+        // Update the customer model to reflect the current user.
+        $customer = \Mage::getModel('customer/customer');
+        $customer->website_id = $websiteId;
+        $customer->setStore($store);
+
+        return $customer;
+
+    }
+
+    /**
+     * @method login
+     * @param string $email
+     * @param string $password
+     * @return array
+     */
+    public function login($email, $password) {
+
+        $response = array('success' => true, 'error' => null, 'model' => array());
+
+        $customer = $this->getCustomerModel();
+        $customer->loadByEmail($email);
+
+        try {
+
+            // Attempt the login procedure.
+            $session = \Mage::getSingleton('customer/session');
+            $session->login($email, $password);
+
+            $account = $this->getAccount();
+            $response['model'] = $account['model'];
+            
+        } catch (\Exception $e) {
+
+            $response['success'] = false;
+
+            switch ($e->getMessage()) {
+
+                case 'Invalid login or password.':
+                    $response['error'] = 'credentials';
+                    break;
+
+                default:
+                    $response['error'] = 'unknown';
+                    break;
+
+            }
+
+        }
+
+        return $response;
+
+    }
+
+    /**
+     * @method logout
+     * @return array
+     */
+    public function logout() {
+        \Mage::getSingleton('customer/session')->logout();
+        $account = $this->getAccount();
+        return array('success' => true, 'error' => null, 'model' => $account['model']);
+    }
+
+    /**
+     * @method getAccount
+     * @return array
+     */
+    public function getAccount() {
+
+        $isLoggedIn = \Mage::getSingleton('customer/session')->isLoggedIn();
+
+        if (!$isLoggedIn) {
+
+            // User isn't logged in.
+            return array('loggedIn' => false, 'model' => array());
+
+        }
+
+        // Gather the user data, and MD5 the email address for use with Gravatar.
+        $datum = \Mage::helper('customer')->getCustomer()->getData();
+        $datum['gravatar'] = md5($datum['email']);
+
+        // Otherwise the user is logged in. Voila!
+        return array('success' => true, 'model' => $datum);
+
+    }
+
+    /**
+     * @method register
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $email
+     * @param string $password
+     * @return array
+     */
+    public function register($firstName, $lastName, $email, $password) {
+
+        $response = array('success' => true, 'error' => null, 'model' => array());
+        $customer = $this->getCustomerModel();
+
+        try {
+
+            // If new, save customer information
+            $customer->firstname     = $firstName;
+            $customer->lastname      = $lastName;
+            $customer->email         = $email;
+            $customer->password_hash = md5($password);
+            $customer->save();
+
+            // Log in the newly created user.
+            $this->login($email, $password);
+
+            $account = $this->getAccount();
+            $response['model'] = $account['model'];
+
+        } catch (\Exception $e) {
+
+            $response['success'] = false;
+
+            switch ($e->getMessage()) {
+
+                case 'Customer email is required':
+                    $response['error'] = 'email';
+                    break;
+
+                case 'This customer email already exists':
+                    $response['error'] = 'exists';
+                    break;
+
+                default:
+                    $response['error'] = 'unknown';
+                    break;
+
+            }
+
+        }
+
+        return $response;
+
+    }
+
+    /**
+     * @method frontEndSession
+     * @return void
+     */
+    private function frontEndSession() {
+        \Mage::getSingleton('core/session', array('name' => 'frontend'));
     }
 
 }

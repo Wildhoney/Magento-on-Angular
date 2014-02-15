@@ -64,21 +64,3 @@ div.filter.basket div.bottom {
     width: 100%;
     padding: 10px 20px;
 }
-
-div.filter.basket div.checkout-button {
-    margin: 0 auto;
-    background-color: lightseagreen;
-    color: white;
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    transition: all .35s;
-    -o-transition: all .35s;
-    -ms-transition: all .35s;
-    -moz-transition: all .35s;
-    -webkit-transition: all .35s;
-}
-
-div.filter.basket div.checkout-button:hover {
-    background-color: black;
-}

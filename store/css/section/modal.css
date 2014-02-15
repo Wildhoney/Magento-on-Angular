@@ -129,9 +129,4 @@ section.modal-window p.description {
 
 section.modal-window div.error {
     margin: 20px 0;
-    background-color: #f4cbd1;
-    color: #502e33;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 300;
-    padding: 10px 15px;
 }
