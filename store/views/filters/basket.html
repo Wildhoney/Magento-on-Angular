@@ -2,6 +2,7 @@
     <h2><img class="icon" src="images/basket.png" />My Basket</h2>
     <p class="description">Manage your basket by removing items or changing the quantity.</p>
     <div class="inner without-padding">
+
         <ul>
             <li ng-repeat="product in products | orderBy: 'name'" ng-click="view(product.parentId || product.id, $event)">
                 <h3>{{product.name}}</h3>
@@ -13,5 +14,14 @@
                 <div class="remove"><a ng-click="removeItem(product.itemId); $event.stopPropagation()">Remove Item</a></div>
             </li>
         </ul>
+
+        <div class="bottom">
+
+            <div class="checkout-button">
+                Begin Checkout!
+            </div>
+
+        </div>
+
     </div>
 </div>
