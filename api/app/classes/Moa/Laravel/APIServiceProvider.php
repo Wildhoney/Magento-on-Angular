@@ -25,13 +25,13 @@ class APIServiceProvider extends ServiceProvider
      */
     public function register()
     {
-		$this->app->bind('Moa\API\Provider\ProviderInterface', function($app) {
-        	$provider = $app['config']->get('moa.api.provider');
-	        $config   = $app['config']->get('moa.' . $provider);
-			$class    = studly_case($provider) . 'Provider';
-			$ns_class = '\Moa\API\Provider\\' . $class;
+        $this->app->bind('Moa\API\Provider\ProviderInterface', function($app) {
+            $provider = $app['config']->get('moa.api.provider');
+            $config   = $app['config']->get('moa.' . $provider);
+            $class    = studly_case($provider) . 'Provider';
+            $ns_class = '\Moa\API\Provider\\' . $class;
 
-			$api = new $ns_class($config);
+            $api = new $ns_class($config);
             return $api;
         });
     }

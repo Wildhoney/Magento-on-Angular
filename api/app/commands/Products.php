@@ -31,18 +31,18 @@ class Products extends Command {
      * @constructor
      * @return \Products
      */
-	public function __construct(ProviderInterface $api)
-	{
+    public function __construct(ProviderInterface $api)
+    {
         $this->api = $api;
-		parent::__construct();
-	}
+        parent::__construct();
+    }
 
-	/**
+    /**
      * @method fire
-	 * @return void
-	 */
-	public function fire()
-	{
+     * @return void
+     */
+    public function fire()
+    {
         if (Cache::get(self::PRODUCTS_CACHE_KEY)) {
             return;
         }
@@ -54,7 +54,7 @@ class Products extends Command {
 
         // Cache the results of the collection for 30 days (43200 hours).
         Cache::put(self::PRODUCTS_CACHE_KEY, json_encode($collection), 43200);
-	}
+    }
 
     /**
      * @method _createIdent
@@ -71,22 +71,22 @@ class Products extends Command {
 
     }
 
-	/**
+    /**
      * @method getArguments
-	 * @return array
-	 */
-	protected function getArguments()
-	{
+     * @return array
+     */
+    protected function getArguments()
+    {
         return array();
-	}
+    }
 
-	/**
+    /**
      * @method getOptions
-	 * @return array
-	 */
-	protected function getOptions()
-	{
+     * @return array
+     */
+    protected function getOptions()
+    {
         return array();
-	}
+    }
 
 }
