@@ -225,7 +225,7 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
             // Begin constructing the response by placing the name of the category into the array.
             $current = array(
                 'id'            => (int) $category->getId(),
-                'ident'         => $this->_createIdent($category->getName()),
+                'ident'         => $this->createIdent($category->getName()),
                 'name'          => $category->getName(),
                 'productCount'  => $productCount($category->getId()),
                 'children'      => array()
