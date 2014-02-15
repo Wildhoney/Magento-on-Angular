@@ -1,4 +1,5 @@
 <?php
 
-return json_decode(file_get_contents('../../config.json'), true);
+$file = file_exists('../config.json') ? '../config.json' : '../../config.json';
+return json_decode(file_get_contents($file), true);
 
