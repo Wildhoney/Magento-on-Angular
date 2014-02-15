@@ -554,6 +554,12 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
             $customer->password_hash = md5($password);
             $customer->save();
 
+            // Log in the newly created user.
+            $this->login($email, $password);
+
+            $account = $this->getAccount();
+            $response['model'] = $account['model'];
+
         } catch (\Exception $e) {
 
             $response['success'] = false;
