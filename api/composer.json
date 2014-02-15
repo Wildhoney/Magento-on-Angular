@@ -12,11 +12,9 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
+			"app/classes",
 			"app/tests/TestCase.php"
-		],
-        "psr-0": {
-            "Mage": "../magento/app"
-        }
+		]
 	},
 	"scripts": {
 		"post-install-cmd": [

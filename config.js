@@ -10,6 +10,7 @@
     'store': 0
   },
   'api': {
-    'host': 'http://localhost/api'
+    'host': 'http://localhost/api',
+    'provider': 'magento'
   }
 }
