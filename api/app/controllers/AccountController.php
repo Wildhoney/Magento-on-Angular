@@ -22,4 +22,8 @@ class AccountController extends BaseAPIController {
 
     }
 
+    public function getAccount() {
+        return Response::json($this->api->getAccount());
+    }
+
 }

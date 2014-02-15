@@ -500,6 +500,26 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
     }
 
     /**
+     * @method getAccount
+     * @return void
+     */
+    public function getAccount() {
+
+        $isLoggedIn = \Mage::getSingleton('customer/session')->isLoggedIn();
+
+        if (!$isLoggedIn) {
+
+            // User isn't logged in.
+            return array('loggedIn' => false, 'model' => array());
+
+        }
+
+        // Otherwise the user is logged in. Voila!
+        return array('loggedIn' => true, 'model' => \Mage::helper('customer')->getCustomer()->getData());
+
+    }
+
+    /**
      * @method register
      * @param string $firstName
      * @param string $lastName

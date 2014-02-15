@@ -108,6 +108,14 @@
             return service._request(service.url + 'account/login', 'post', model);
         };
 
+        /**
+         * @method getAccount
+         * @return {$q.promise}
+         */
+        service.getAccount = function getAccount() {
+            return service._request(service.url + 'account');
+        };
+
         return service;
 
     }]);

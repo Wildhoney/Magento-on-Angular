@@ -10,6 +10,13 @@
     $moa.controller('AccountController', ['$scope', 'http', function accountController($scope, http) {
 
         /**
+         * @property account
+         * @type {Object|null}
+         * @default null
+         */
+        $scope.account = null;
+
+        /**
          * @property registerAccount
          * @type {Object}
          */
@@ -34,6 +41,16 @@
          * @return {void}
          */
         $scope.register = http.register;
+
+        // Fetch the user if they're already signed into their account.
+        http.getAccount().then(function then(response) {
+
+            if (response.loggedIn) {
+                console.log('Here');
+                $scope.account = response.model;
+            }
+
+        });
 
     }]);
 

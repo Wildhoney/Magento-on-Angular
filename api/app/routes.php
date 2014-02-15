@@ -26,5 +26,6 @@ Route::get('/basket/remove/{id}', 'BasketController@removeItem');
 
 Route::get('/currencies', 'CurrenciesController@getCurrencies');
 
+Route::get('/account', 'AccountController@getAccount');
 Route::post('/account/login', 'AccountController@login');
 Route::post('/account/register', 'AccountController@register');

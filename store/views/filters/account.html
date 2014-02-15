@@ -1,33 +1,53 @@
-<div class="filter account sign-in">
-    <h2><img class="icon" src="images/login.png" />Sign In</h2>
-    <p class="description">Login into your account.</p>
-    <div class="inner">
+<section class="user" ng-show="account">
 
-        <form>
-            <p><input ng-model="loginAccount.email" class="stretch" type="email" placeholder="Email address..." /></p>
-            <p><input ng-model="loginAccount.password" class="stretch" type="password" placeholder="Password..." /></p>
-            <div class="action-button" ng-click="login(loginAccount)">
-                Sign In
-            </div>
-        </form>
+    <div class="filter account sign-in">
+        <h2><img class="icon" src="images/login.png" />My Account</h2>
+        <p class="description">Welcome to Moa, {{account.firstname}}!</p>
+        <div class="inner">
 
+                <div class="action-button" ng-click="logout()">
+                    Sign Out
+                </div>
+
+        </div>
     </div>
-</div>
 
-<div class="filter account create-account">
-    <h2><img class="icon" src="images/account.png" />Create Account</h2>
-    <p class="description">Register a new account with us.</p>
-    <div class="inner">
+</section>
 
-        <form>
-            <p class="firstName"><input ng-model="registerAccount.firstName" type="text" placeholder="First name..." /></p>
-            <p class="lastName"><input ng-model="registerAccount.lastName" type="text" placeholder="Last name..." /></p>
-            <p><input class="stretch" ng-model="registerAccount.email" type="email" placeholder="Email address..." /></p>
-            <p><input class="stretch" ng-model="registerAccount.password" type="password" placeholder="Password..." /></p>
-            <div class="action-button" ng-click="register(registerAccount)">
-                Create Account
-            </div>
-        </form>
+<section class="non-user" ng-hide="account">
 
+    <div class="filter account sign-in">
+        <h2><img class="icon" src="images/login.png" />Sign In</h2>
+        <p class="description">Login into your account.</p>
+        <div class="inner">
+
+            <form>
+                <p><input ng-model="loginAccount.email" class="stretch" type="email" placeholder="Email address..." /></p>
+                <p><input ng-model="loginAccount.password" class="stretch" type="password" placeholder="Password..." /></p>
+                <div class="action-button" ng-click="login(loginAccount)">
+                    Sign In
+                </div>
+            </form>
+
+        </div>
     </div>
-</div>
+
+    <div class="filter account create-account">
+        <h2><img class="icon" src="images/account.png" />Create Account</h2>
+        <p class="description">Register a new account with us.</p>
+        <div class="inner">
+
+            <form>
+                <p class="firstName"><input ng-model="registerAccount.firstName" type="text" placeholder="First name..." /></p>
+                <p class="lastName"><input ng-model="registerAccount.lastName" type="text" placeholder="Last name..." /></p>
+                <p><input class="stretch" ng-model="registerAccount.email" type="email" placeholder="Email address..." /></p>
+                <p><input class="stretch" ng-model="registerAccount.password" type="password" placeholder="Password..." /></p>
+                <div class="action-button" ng-click="register(registerAccount)">
+                    Create Account
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</section>
