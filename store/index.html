@@ -92,7 +92,7 @@
                     {{statistics.models.current}}/{{statistics.models.total}} in {{statistics.responseTime}}ms
                 </div>
 
-                <section class="currencies" ng-controller="CurrenciesController">
+                <section class="currencies" ng-controller="CurrenciesController" ng-hide="currencies.length <= 1">
                     <h3>Currencies</h3>
                     <ul>
                         <li ng-repeat="model in currencies | orderBy: 'code'" ng-class="{active: currency == model}">

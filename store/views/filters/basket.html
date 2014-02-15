@@ -3,7 +3,7 @@
     <p class="description">Manage your basket by removing items or changing the quantity.</p>
     <div class="inner without-padding">
         <ul>
-            <li ng-repeat="product in products" ng-click="view(product.parentId || product.id, $event)">
+            <li ng-repeat="product in products | orderBy: 'name'" ng-click="view(product.parentId || product.id, $event)">
                 <h3>{{product.name}}</h3>
                 <div class="price">
                     {{currency.symbol}}
