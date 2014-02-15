@@ -52,23 +52,8 @@ class Products extends Command {
         ini_set('memory_limit', '2048M');
         $collection = $this->api->getCollectionForCache($log);
 
-        // Cache the results of the collection for 30 days (43200 hours).
+        // Cache the results of the collection for 30 days (43200 min).
         Cache::put(self::PRODUCTS_CACHE_KEY, json_encode($collection), 43200);
-    }
-
-    /**
-     * @method _createIdent
-     * @param string $name
-     * @return string
-     */
-    private function _createIdent($name) {
-
-        $name   = strtolower($name);
-        $name   = preg_replace('~[^A-Z0-9\s]~i', '', $name);
-        $name   = str_replace(' ', '-', $name);
-
-        return $name;
-
     }
 
     /**
