@@ -127,6 +127,7 @@ section.products ul.collection li {
 
 section.products ul.collection li img {
     max-width: 100%;
+    max-height: 160px;
 }
 
 section.products ul.collection li h2 {
