@@ -66,13 +66,20 @@ At first glance the directories may seem over-complicated. However there's metho
 Laravel API
 ---------
 
-If you prefer to use another JS framework such as Ember or Meteor, then you're more than welcome to use the API in isolation. Below we've documented the URLs and their purposes:
+If you prefer to use another JS framework such as Ember or Meteor, then you're more than welcome to use the API in isolation. Below we've documented <a href="https://github.com/Wildhoney/Magento-on-Angular/blob/master/api/app/routes.php">the URLs</a> and their purposes:
 
  * `/products` &ndash; fetch all the products;
  * `/product/5` &ndash; fetch a product with the ID of 5;
  * `/categories` &ndash; fetch all the categories and their sub-categories;
  * `/basket` &ndash; fetch all of the items in the basket;
  * `/basket/add/2` &ndash; add an item to the basket with product ID 2;
+ * `/basket/remove/2` &ndash; Remove an item from the basket;
+ * `/attributes/color` &ndash; fetch attributes by name;
+ * `/currencies` &ndash; fetch a list of currencies and their conversion rates;
+ * `/account` &ndash; fetch details of currently logged in user;
+ * `/account/login` &ndash; login a user;
+ * `/account/logout` &ndash; logout a user;
+ * `/account/register` &ndash; create a new user account;
 
 Specification
 ---------
