@@ -17,4 +17,5 @@
 /newrelic_agent.log
 /store/js/services/Config.js
 /config.json
-/dist/*
+/dist/*.css
+/dist/*.js
