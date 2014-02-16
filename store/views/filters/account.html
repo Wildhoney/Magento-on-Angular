@@ -4,8 +4,9 @@
         <h2><img class="icon" src="images/login.png" />My Account</h2>
         <p class="description">Welcome to Moa, {{account.firstname}}!</p>
         <div class="inner">
-            <div class="action-button" ng-click="logout()">
-                Sign Out
+            <div class="action-button" ng-click="logout()" ng-class="{loading: loading}">
+                <span ng-hide="loading">Sign Out</span>
+                <span ng-show="loading">Signing Out...</span>
             </div>
         </div>
     </div>
@@ -25,8 +26,9 @@
                 <p><input ng-model="loginAccount.email" class="stretch" type="email" placeholder="Email address..." /></p>
                 <p><input ng-model="loginAccount.password" class="stretch" type="password" placeholder="Password..." /></p>
                 <input type="submit" class="submit-button" />
-                <div class="action-button" ng-click="login(loginAccount)">
-                    Sign In
+                <div class="action-button" ng-click="login(loginAccount)" ng-class="{loading: loading}">
+                    <span ng-hide="loading">Sign In</span>
+                    <span ng-show="loading">Signing In...</span>
                 </div>
             </form>
 
@@ -44,8 +46,9 @@
                 <p><input class="stretch" ng-model="registerAccount.email" type="email" placeholder="Email address..." /></p>
                 <p><input class="stretch" ng-model="registerAccount.password" type="password" placeholder="Password..." /></p>
                 <input type="submit" class="submit-button" />
-                <div class="action-button" ng-click="register(registerAccount)"">
-                    Create Account
+                <div class="action-button" ng-click="register(registerAccount)" ng-class="{loading: loading}">
+                    <span ng-hide="loading">Create Account</span>
+                    <span ng-show="loading">Creating Account...</span>
                 </div>
             </form>
 

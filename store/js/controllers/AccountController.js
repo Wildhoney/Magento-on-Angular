@@ -19,6 +19,13 @@
         $scope.account = null;
 
         /**
+         * @property loading
+         * @type {Boolean}
+         * @default null
+         */
+        $scope.loading = false;
+
+        /**
          * @property error
          * @type {String}
          */
@@ -54,6 +61,8 @@
          */
         var _processResponse = function _processResponse(response) {
 
+            $scope.loading = false;
+
             if (response.success) {
 
                 // Lovely! No errors whatsoever.
@@ -79,6 +88,7 @@
          */
         $scope.login = function login(model) {
 
+            $scope.loading = true;
             http.login(model).then(function then(response) {
                 _processResponse(response);
                 basket.updateBasket();
@@ -92,6 +102,7 @@
          * @return {void}
          */
         $scope.register = function register(model) {
+            $scope.loading = true;
             http.register(model).then(_processResponse);
         };
 
@@ -100,6 +111,7 @@
          * @return {void}
          */
         $scope.logout = function logout() {
+            $scope.loading = true;
             http.logout().then(_processResponse);
         };
 

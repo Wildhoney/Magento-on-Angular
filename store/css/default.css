@@ -39,7 +39,7 @@ header h1 span {
     font-weight: 400;
 }
 
-div.loading {
+div.loading-apple {
     background: transparent url('../images/apple-loading.gif') 0 8px no-repeat;
     height: 50px;
     display: block;
@@ -77,6 +77,11 @@ div.action-button {
     -ms-transition: all .35s;
     -moz-transition: all .35s;
     -webkit-transition: all .35s;
+}
+
+div.action-button.loading {
+    opacity: .65;
+    background-color: #a9a9a9;
 }
 
 div.action-button:hover {
