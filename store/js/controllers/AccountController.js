@@ -7,7 +7,9 @@
      * @author Adam Timberlake
      * @module Moa
      */
-    $moa.controller('AccountController', ['$scope', 'http', function accountController($scope, http) {
+    $moa.controller('AccountController', ['$scope', 'http', 'basket',
+
+    function accountController($scope, http, basket) {
 
         /**
          * @property account
@@ -76,7 +78,12 @@
          * @return {void}
          */
         $scope.login = function login(model) {
-            http.login(model).then(_processResponse);
+
+            http.login(model).then(function then(response) {
+                _processResponse(response);
+                basket.updateBasket();
+            });
+
         };
 
         /**

@@ -17,11 +17,19 @@
          */
         service.data = [];
 
+        /**
+         * @method updateBasket
+         * @return {void}
+         */
+        service.updateBasket = function updateBasket() {
+            http.getBasket().then(function then(response) {
+                service.data = response.data;
+                $rootScope.$broadcast('basket/updated', response.data);
+            });
+        };
+
         // Get the items from the customer's basket.
-        http.getBasket().then(function then(response) {
-            service.data = response.data;
-            $rootScope.$broadcast('basket/updated', response.data);
-        });
+        service.updateBasket();
 
         /**
          * @method setBasket
