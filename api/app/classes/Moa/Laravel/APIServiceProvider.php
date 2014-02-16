@@ -19,7 +19,8 @@ class APIServiceProvider extends ServiceProvider
     protected $defer = false;
 
     /**
-     * Register the service provider.
+     * Binds the API provider specified in config.json@moa.api.provider to
+     * Moa\API\Provider\ProviderInterface.
      *
      * @return void
      */
