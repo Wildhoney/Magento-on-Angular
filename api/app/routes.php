@@ -21,7 +21,7 @@ Route::get('/categories', 'CategoriesController@getCategories');
 Route::get('/attributes/{name}', 'AttributesController@getOptions');
 
 Route::get('/basket', 'BasketController@getItems');
-Route::get('/basket/add/{id}', 'BasketController@addItem');
+Route::get('/basket/add/{id}/{quantity}', 'BasketController@addItem');
 Route::get('/basket/remove/{id}', 'BasketController@removeItem');
 
 Route::get('/currencies', 'CurrenciesController@getCurrencies');

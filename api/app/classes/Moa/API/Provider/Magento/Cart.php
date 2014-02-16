@@ -12,9 +12,10 @@ trait Cart {
     /**
      * @method addCartItem
      * @param int $productId
+     * @param int $quantity
      * @return array
      */
-    public function addCartItem($productId)
+    public function addCartItem($productId, $quantity)
     {
         $response = array('success' => true, 'error' => null, 'models' => array());
 
@@ -25,7 +26,7 @@ trait Cart {
             $product = \Mage::getModel('catalog/product')->load((int) $productId);
 
             $basket = \Mage::getSingleton('checkout/cart');
-            $basket->addProduct($product, 1);
+            $basket->addProduct($product, $quantity ?: 1);
             $basket->save();
 
             // Fetch the items from the user's basket.

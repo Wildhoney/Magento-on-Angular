@@ -75,10 +75,11 @@
         /**
          * @method addBasket
          * @param id {Number}
+         * @param quantity {Number}
          * @return {$q.promise}
          */
-        service.addBasket = function addBasket(id) {
-            return $http.get(service.url + 'basket/add/' + id);
+        service.addBasket = function addBasket(id, quantity) {
+            return $http.get(service.url + 'basket/add/' + id + '/' + quantity);
         };
 
         /**

@@ -95,6 +95,16 @@ section.modal-window div.header select {
     margin-bottom: 10px;
 }
 
+section.modal-window div.header input.quantity {
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin-right: 5px;
+    text-align: center;
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    width: 45px;
+}
+
 section.modal-window div.header div.btn {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;

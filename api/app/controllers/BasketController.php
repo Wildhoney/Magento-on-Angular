@@ -13,10 +13,11 @@ class BasketController extends BaseAPIController {
     /**
      * @method addItem
      * @param int $productId
+     * @param int $quantity
      * @return string
      */
-    public function addItem($productId) {
-        return Response::json($this->api->addCartItem($productId));
+    public function addItem($productId, $quantity) {
+        return Response::json($this->api->addCartItem($productId, $quantity));
     }
 
     /**

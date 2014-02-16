@@ -18,6 +18,12 @@
         $scope.productId = null;
 
         /**
+         * @property quantity
+         * @type {Number}
+         */
+        $scope.quantity = 1;
+
+        /**
          * @constant ERRORS
          * @type {Object}
          */
@@ -49,9 +55,10 @@
         /**
          * @method addBasket
          * @param id {Number}
+         * @param quantity {Number}
          * @return {void}
          */
-        $scope.addBasket = function addBasket(id) {
+        $scope.addBasket = function addBasket(id, quantity) {
 
             if (!id) {
 
@@ -63,7 +70,8 @@
 
             $scope.basketAdding = true;
 
-            http.addBasket(id).then(function then(response) {
+            // Add the item to the basket with the selected quantity.
+            http.addBasket(id, quantity).then(function then(response) {
 
                 if (response.data.error) {
 

@@ -23,7 +23,8 @@
             <option value="">Please select a product...</option>
         </select>
 
-        <div class="btn" ng-class="{selectable: (productId || !basketAdding)}" ng-click="addBasket(productId)">
+        <input type="number" class="quantity" ng-model="quantity" />
+        <div class="btn" ng-class="{selectable: (productId || !basketAdding)}" ng-click="addBasket(productId, quantity)">
             <span ng-show="basketAdding">Adding...</span>
             <span ng-show="!basketAdding">Add to Basket</span>
         </div>

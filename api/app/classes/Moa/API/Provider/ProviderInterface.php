@@ -69,9 +69,10 @@ interface ProviderInterface {
     /**
      * @method addCartItem
      * @param int $productId
+     * @param int $quantity
      * @return array
      */
-    public function addCartItem($productId);
+    public function addCartItem($productId, $quantity);
 
     /**
      * @method removeCartItem
