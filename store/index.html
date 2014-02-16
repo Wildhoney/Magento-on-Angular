@@ -132,6 +132,10 @@
                         {{product.price | convert: currency | number: 2}}
                     </div>
                 </li>
+                <li class="loading" ng-show="!loaded">
+                    <img src="images/loading.gif" alt="Loading" />
+                    <label>We're loading the products...&hellip;</label>
+                </li>
             </ul>
 
         </section>

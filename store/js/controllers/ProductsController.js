@@ -18,6 +18,12 @@
         $scope.products = [];
 
         /**
+         * @property loaded
+         * @type {Boolean}
+         */
+        $scope.loaded = false;
+
+        /**
          * @property sortProperties
          * @type {Array}
          */
@@ -142,6 +148,7 @@
 
             $scope.$apply(function() {
 
+                $scope.loaded = true;
                 $scope.statistics = statistics;
                 $scope.products = gateway.resolve(models);
 
