@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider;
 
 /**
@@ -15,14 +14,12 @@ abstract class AbstractProvider {
      * @return string
      * @protected
      */
-    protected function createIdent($name) {
-
-        $name   = strtolower($name);
-        $name   = preg_replace('~[^A-Z0-9\s]~i', '', $name);
-        $name   = str_replace(' ', '-', $name);
-
+    protected function createIdent($name)
+    {
+        $name = strtolower($name);
+        $name = preg_replace('~[^A-Z0-9\s]~i', '', $name);
+        $name = str_replace(' ', '-', $name);
         return $name;
-
     }
 
 }

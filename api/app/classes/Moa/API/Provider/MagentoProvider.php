@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider;
 
 /**
@@ -20,7 +19,8 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
      * Initialize the Mage environment.
      * @constructor
      */
-    public function __construct($config) {
+    public function __construct($config)
+    {
         umask(0);
         chdir($config['path']);
         require_once $config['path'] . '/app/Mage.php';
@@ -33,7 +33,8 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
      * @method startSession
      * @return void
      */
-    public function startSession() {
+    public function startSession()
+    {
         session_start();
         \Mage::getSingleton('customer/session')->start();
     }
@@ -42,7 +43,8 @@ class MagentoProvider extends AbstractProvider implements ProviderInterface {
      * @method frontEndSession
      * @return void
      */
-    private function frontEndSession() {
+    private function frontEndSession()
+    {
         \Mage::getSingleton('core/session', array('name' => 'frontend'));
     }
 
