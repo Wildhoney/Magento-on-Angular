@@ -125,7 +125,8 @@ section.products ul.collection li {
     cursor: pointer;
 }
 
-section.products ul.collection li.loading {
+section.products ul.collection li.loading,
+section.products ul.collection li.all-gone {
     width: 100%;
     font-family: "Source Sans Pro", sans-serif;
 }
@@ -134,7 +135,8 @@ section.products ul.collection li.loading img {
     margin-top: -3px;
 }
 
-section.products ul.collection li.loading label {
+section.products ul.collection li.loading label,
+section.products ul.collection li.all-gone label {
     font-weight: 200;
     padding-left: 6px;
 }

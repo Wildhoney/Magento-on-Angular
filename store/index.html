@@ -136,6 +136,9 @@
                     <img src="images/loading.gif" alt="Loading" />
                     <label>We're loading the products...&hellip;</label>
                 </li>
+                <li class="all-gone" ng-show="loaded && products.length == 0">
+                    <label>Bravo! You've filtered all of the products.</label>
+                </li>
             </ul>
 
         </section>
