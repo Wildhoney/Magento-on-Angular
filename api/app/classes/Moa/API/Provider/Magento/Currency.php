@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider\Magento;
 
 /**
@@ -14,7 +13,8 @@ trait Currency {
      * @method getCurrencies
      * @return array
      */
-    public function getCurrencies() {
+    public function getCurrencies()
+    {
         $baseCode = \Mage::app()->getBaseCurrencyCode();
         $options  = array();
 

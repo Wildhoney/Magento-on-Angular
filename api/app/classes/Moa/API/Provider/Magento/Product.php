@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider\Magento;
 
 /**
@@ -17,8 +16,8 @@ trait Product {
      * @param int $productId
      * @return array
      */
-    public function getProduct($productId) {
-
+    public function getProduct($productId)
+    {
         /** @var \Mage_Catalog_Model_Product $product */
         $product    = \Mage::getModel('catalog/product')->load((int) $productId);
 
@@ -62,12 +61,13 @@ trait Product {
 
     /**
      * Returns product information for child SKUs of product (colors, sizes, etc).
+     * 
      * @method getProductVariations
      * @param int $productId
      * @return array
      */
-    public function getProductVariations($productId) {
-
+    public function getProductVariations($productId)
+    {
         /** @var \Mage_Catalog_Model_Product $product */
         $product = \Mage::getModel('catalog/product')->load((int) $productId);
 
@@ -111,7 +111,8 @@ trait Product {
      * @param bool $processCounts
      * @return string
      */
-    public function getProductOptions($attributeName, $processCounts) {
+    public function getProductOptions($attributeName, $processCounts)
+    {
         /**
          * @method getCount
          * @param number $value
@@ -158,7 +159,8 @@ trait Product {
      * @param callable $infolog
      * @return array
      */
-    public function getCollectionForCache(callable $infolog = null) {
+    public function getCollectionForCache(callable $infolog = null)
+    {
         $collection = array();
         $index = 1;
 

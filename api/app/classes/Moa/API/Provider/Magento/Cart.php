@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider\Magento;
 
 /**
@@ -15,8 +14,8 @@ trait Cart {
      * @param int $productId
      * @return array
      */
-    public function addCartItem($productId) {
-
+    public function addCartItem($productId)
+    {
         $response = array('success' => true, 'error' => null, 'models' => array());
 
         try {
@@ -58,7 +57,8 @@ trait Cart {
      * @param int $id
      * @return array
      */
-    public function removeCartItem($id) {
+    public function removeCartItem($id)
+    {
         \Mage::getSingleton('checkout/cart')->getQuote()->removeItem($id)->save();
 
         return array(
@@ -71,7 +71,8 @@ trait Cart {
      * @method getCartItems
      * @return array
      */
-    public function getCartItems() {
+    public function getCartItems()
+    {
         $this->frontEndSession();
 
         $session    = \Mage::getSingleton('checkout/session');

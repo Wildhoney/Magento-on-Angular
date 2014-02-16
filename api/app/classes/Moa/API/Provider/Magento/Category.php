@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider\Magento;
 
 /**
@@ -14,8 +13,8 @@ trait Category {
      * @method getCategories
      * @return array
      */
-    public function getCategories() {
-
+    public function getCategories()
+    {
         $categories = \Mage::helper('catalog/category')->getStoreCategories();
         $collection = array();
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\API\Provider\Magento;
 
 /**
@@ -15,8 +14,8 @@ trait Account {
      * @return Mage_Customer_Model_Customer
      * @private
      */
-    private function getCustomerModel() {
-
+    private function getCustomerModel()
+    {
         // Gather the website and store preferences.
         $websiteId = \Mage::app()->getWebsite()->getId();
         $store     = \Mage::app()->getStore();
@@ -36,8 +35,8 @@ trait Account {
      * @param string $password
      * @return array
      */
-    public function login($email, $password) {
-
+    public function login($email, $password)
+    {
         $response = array('success' => true, 'error' => null, 'model' => array());
 
         $customer = $this->getCustomerModel();
@@ -71,14 +70,14 @@ trait Account {
         }
 
         return $response;
-
     }
 
     /**
      * @method logout
      * @return array
      */
-    public function logout() {
+    public function logout()
+    {
         \Mage::getSingleton('customer/session')->logout();
         $account = $this->getAccount();
         return array('success' => true, 'error' => null, 'model' => $account['model']);
@@ -88,8 +87,8 @@ trait Account {
      * @method getAccount
      * @return array
      */
-    public function getAccount() {
-
+    public function getAccount()
+    {
         $isLoggedIn = \Mage::getSingleton('customer/session')->isLoggedIn();
 
         if (!$isLoggedIn) {
@@ -105,7 +104,6 @@ trait Account {
 
         // Otherwise the user is logged in. Voila!
         return array('success' => true, 'model' => $datum);
-
     }
 
     /**
@@ -116,8 +114,8 @@ trait Account {
      * @param string $password
      * @return array
      */
-    public function register($firstName, $lastName, $email, $password) {
-
+    public function register($firstName, $lastName, $email, $password)
+    {
         $response = array('success' => true, 'error' => null, 'model' => array());
         $customer = $this->getCustomerModel();
 
@@ -159,7 +157,6 @@ trait Account {
         }
 
         return $response;
-
     }
 
 }
