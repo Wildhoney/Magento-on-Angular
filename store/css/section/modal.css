@@ -108,7 +108,7 @@ section.modal-window div.header input.quantity {
 section.modal-window div.header div.btn {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
-    background: black none;
+    background: #20b2aa none;
     text-shadow: none;
     color: white;
     border: 0;
@@ -120,6 +120,16 @@ section.modal-window div.header div.btn {
     -ms-transition: all .35s;
     -moz-transition: all .35s;
     -webkit-transition: all .35s;
+}
+
+section.modal-window div.header div.btn.selectable:hover {
+    background-color: black;
+}
+
+section.modal-window div.header div.btn.adding {
+    opacity: .65;
+    background: #a9a9a9 none;
+    pointer-events: none;
 }
 
 section.modal-window div.header div.btn.selectable {
