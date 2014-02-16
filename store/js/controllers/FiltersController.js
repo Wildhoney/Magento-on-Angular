@@ -12,6 +12,12 @@
     function filtersController($scope, $timeout, gateway, basket) {
 
         /**
+         * @property name
+         * @type {String}
+         */
+        $scope.name = '';
+
+        /**
          * @property price
          * @type {Object}
          */
@@ -41,6 +47,26 @@
         $scope.$on('basket/updated', function basketUpdated(event, model) {
             $scope.basketCount = basket.itemCount(model.items);
         });
+
+        /**
+         * @method resetName
+         * @return {void}
+         */
+        $scope.resetName = function resetName() {
+            $scope.name = '';
+            $scope.setName('');
+        };
+
+        /**
+         * @method resetAll
+         * @return {void}
+         */
+        $scope.resetAll = function resetAll() {
+            $scope.setBatch('brand', 'selectAll');
+            $scope.setBatch('colour', 'selectAll');
+            $scope.resetPrices();
+            $scope.resetName();
+        };
 
         /**
          * @method setBatch

@@ -1,10 +1,10 @@
 <div class="filter product-name">
     <h2><img class="icon" src="images/name.png" />Name</h2>
     <ul class="more-links">
-        <li ng-click="name = ''; setName('')"><a>Reset Search</a></li>
+        <li ng-click="resetName()"><a>Reset Search</a></li>
     </ul>
     <p class="description">Search for a product by its name.</p>
     <div class="inner">
-        <input type="text" id="name" ng-model="name" placeholder="'red coat', 'blue football', etc..." ng-change="setName(name)" />
+        <input type="text" id="name" ng-model="$parent.$parent.name" placeholder="'red coat', 'blue football', etc..." ng-change="setName($parent.$parent.name)" />
     </div>
 </div>

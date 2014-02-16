@@ -82,6 +82,7 @@ div.action-button {
 div.action-button.loading {
     opacity: .65;
     background-color: #a9a9a9;
+    pointer-events: none;
 }
 
 div.action-button:hover {
