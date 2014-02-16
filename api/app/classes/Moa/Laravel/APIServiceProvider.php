@@ -1,5 +1,4 @@
 <?php
-
 namespace Moa\Laravel; 
 
 use Illuminate\Support\ServiceProvider;
