@@ -57,18 +57,10 @@ section.modal-window ul.links li {
     cursor: pointer;
 }
 
-/*section.modal-window ul.links li img {*/
-    /*opacity: .5;*/
-    /*transition: all .35s;*/
-    /*-o-transition: all .35s;*/
-    /*-ms-transition: all .35s;*/
-    /*-moz-transition: all .35s;*/
-    /*-webkit-transition: all .35s;*/
-/*}*/
-
-/*section.modal-window ul.links li:hover img {*/
-    /*opacity: 1;*/
-/*}*/
+section.modal-window div.header {
+    display: relative;
+    overflow: hidden;
+}
 
 section.modal-window div.header h2 {
     font-family: "Source Sans Pro", sans-serif;
@@ -83,6 +75,15 @@ section.modal-window div.header div.price {
     font-weight: 300;
     font-size: 18px;
     margin-bottom: 8px;
+}
+
+section.modal-window div.header div.quantity {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    float: left;
+    padding: 6px 0 0 10px;
+    overflow: hidden;
 }
 
 section.modal-window div.header img.product {
@@ -110,6 +111,7 @@ section.modal-window div.header div.btn {
     font-weight: 400;
     background: #20b2aa none;
     text-shadow: none;
+    float: left;
     color: white;
     border: 0;
     border-radius: 0;

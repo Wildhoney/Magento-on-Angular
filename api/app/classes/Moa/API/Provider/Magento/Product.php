@@ -40,12 +40,15 @@ trait Product {
         /** @var \Mage_Sendfriend_Model_Sendfriend $friendModel */
         $friendModel = \Mage::getModel('sendfriend/sendfriend');
 
+        /** @var Mage_CatalogInventory_Model_Stock_Item $stockModel */
+        $stockModel = \Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
+
         return array(
             'id'            => $product->getId(),
             'sku'           => $product->getSku(),
             'name'          => $product->getName(),
             'type'          => $product->getTypeId(),
-            'quantity'      => $product->getQty(),
+            'quantity'      => (int) $stockModel->getQty(),
             'friendUrl'     => $friendModel->canEmailToFriend() ? \Mage::app()->getHelper('catalog/product')->getEmailToFriendUrl($product) : null,
             'price'         => (float) $product->getPrice(),
             'colour'        => (int) $product->getData('color'),

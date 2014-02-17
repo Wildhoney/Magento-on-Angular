@@ -12,10 +12,16 @@
     function ProductController($scope, http, basket) {
 
         /**
-         * @property productId
+         * @property product
+         * @type {Object}
+         */
+        $scope.product = {};
+
+        /**
+         * @property selectedProductId
          * @type {Number}
          */
-        $scope.productId = null;
+        $scope.selectedProductId = null;
 
         /**
          * @property quantity
@@ -110,7 +116,7 @@
             if (!product) {
 
                 // User decided to de-select their product selection.
-                $scope.productId = null;
+                $scope.selectedProductId = null;
                 return;
 
             }
@@ -118,7 +124,7 @@
             if (product.type !== 'configurable') {
 
                 // Setup the product ID if the product being added isn't a configurable.
-                $scope.productId = product.id;
+                $scope.selectedProductId = product.id;
 
             }
 
