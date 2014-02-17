@@ -89,7 +89,7 @@ section.modal-window div.header div.quantity {
 section.modal-window div.header img.product {
     width: 150px;
     float: left;
-    margin-right: 20px;
+    margin: 20px 20px 0 0;
 }
 
 section.modal-window div.header select {

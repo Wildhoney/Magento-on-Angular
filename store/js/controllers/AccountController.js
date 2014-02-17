@@ -1,4 +1,4 @@
-(function($moa) {
+(function($moa, $localStorage) {
 
     "use strict";
 
@@ -52,7 +52,7 @@
          * @property loginAccount
          * @type {Object}
          */
-        $scope.loginAccount = { email: '', password: '' };
+        $scope.loginAccount = { email: $localStorage.getItem('email'), password: '' };
 
         /**
          * @method _processResponse
@@ -71,6 +71,10 @@
                 if (response.model) {
                     // Update the account model if we have one.
                     $scope.account = response.model;
+
+                    if (response.model.email) {
+                        $localStorage.setItem('email', response.model.email);
+                    }
                 }
 
                 return;
@@ -90,6 +94,7 @@
 
             $scope.loading = true;
             http.login(model).then(function then(response) {
+                $scope.loginAccount.password = '';
                 _processResponse(response);
                 basket.updateBasket();
             });
@@ -120,4 +125,4 @@
 
     }]);
 
-})(window.moaApp);
+})(window.moaApp, window.localStorage);
