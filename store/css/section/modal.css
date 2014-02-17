@@ -24,7 +24,7 @@ section.modal-window.modal-open a.close {
     opacity: 1;
 }
 
-section.modal-window div.loading {
+section.modal-window div.loading-apple {
     padding-top: 15px;
     position: absolute;
     width: 100%;
