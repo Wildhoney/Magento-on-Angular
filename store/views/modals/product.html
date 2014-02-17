@@ -1,5 +1,7 @@
 <section class="product" ng-controller="ProductController" ng-init="product = options.model; setProduct(product)">
 
+    <!--<div class="loading-apple" ng-show="!options.model">Loading...</div>-->
+
     <ul class="links">
         <li ng-click="close()"><img src="images/back.png" alt="Close" /></li>
         <li ng-show="product.friendUrl.length"><img src="images/email.png" alt="Email to a Friend" /></li>

@@ -25,6 +25,29 @@
         $scope.modalOpen = false;
 
         /**
+         * @method openModal
+         * @param partial {String}
+         * @param options {Object}
+         * @return {void}
+         */
+        $scope.openModal = function openModal(partial, options) {
+            $scope.modalOpen = true;
+            $rootScope.$broadcast('modal/open', partial, options);
+        };
+
+        /**
+         * @method closeModal
+         * @return {void}
+         */
+        $scope.closeModal = function closeModal() {
+
+            if ($scope.modalOpen) {
+                $rootScope.$broadcast('modal/close');
+            }
+
+        };
+
+        /**
          * @method keyUp
          * @param event {Object}
          * @return {void}
