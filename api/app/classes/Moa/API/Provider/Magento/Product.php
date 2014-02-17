@@ -50,7 +50,7 @@ trait Product {
             'price'         => (float) $product->getPrice(),
             'colour'        => (int) $product->getData('color'),
             'manufacturer'  => (int) $product->getData('manufacturer'),
-            'description'   => trim($product->getDescription()),
+            'description'   => nl2br(trim($product->getDescription())),
             'largeImage'    => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages(),

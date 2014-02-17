@@ -137,13 +137,13 @@ section.modal-window div.header div.btn.selectable {
     pointer-events: all;
 }
 
-section.modal-window p.description {
+section.modal-window div.description {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
-    padding-top: 20px;
-    text-align: justify;
+    padding-top: 10px;
+    overflow-y: auto;
+    max-height: 300px;
     clear: both;
-    overflow: hidden;
     font-size: 14px;
 }
 
