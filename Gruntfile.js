@@ -67,6 +67,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('config', ['replace']);
     grunt.registerTask('js-test', ['jshint']);
 //    grunt.registerTask('php-test', ['phpunit']);
     grunt.registerTask('build', ['cssmin', 'replace', 'uglify']);
