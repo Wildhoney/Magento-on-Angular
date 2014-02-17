@@ -58,7 +58,6 @@
                                 {{currency.symbol}}
                                 {{subTotal | convert: currency | number: 2}}
                             </span>
-                            <img class="checkout" src="images/checkout.png" alt="Checkout" />
                         </a>
                     </section>
 
@@ -124,7 +123,7 @@
             </div>
 
             <ul class="collection">
-                <li ng-repeat="product in products" ng-click="view(product.id, $event)">
+                <li ng-repeat="product in products" ng-click="openProduct(product.id, $event)">
                     <img ng-src="{{product.image}}" alt="{{product.name}}'s image" />
                     <h2><a>{{product.name}}</a></h2>
                     <div class="price">
@@ -143,7 +142,7 @@
 
         </section>
 
-        <section data-sidebar class="modal-window" ng-controller="ModalController" ng-class="{'modal-open': modalOpen}">
+        <section data-sidebar class="modal-window {{className}}" ng-controller="ModalController" ng-class="{ 'modal-open': modalOpen }">
             <div class="loading-apple" ng-show="!options.model">Loading...</div>
             <div class="view" ng-include="partial"></div>
         </section>

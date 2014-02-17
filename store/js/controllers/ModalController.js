@@ -34,8 +34,9 @@
         // When the "modal/open" event has been broadcast.
         $scope.$on('modal/open', function modalOpen(event, partialName, options) {
             $timeout.cancel($scope.promise);
-            $scope.partial = 'views/' + partialName;
-            $scope.options = options;
+            $scope.className = partialName.replace(/\..+/i, '');
+            $scope.partial   = 'views/' + partialName;
+            $scope.options   = options;
         });
 
         // When the "modal/close" event has been broadcast.

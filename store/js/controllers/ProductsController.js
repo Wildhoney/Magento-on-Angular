@@ -78,12 +78,23 @@
         $scope.immutableStatistics = null;
 
         /**
-         * @method view
+         * @method openModal
+         * @param partial {String}
+         * @param options {Object}
+         * @return {void}
+         */
+        $scope.openModal = function openModal(partial, options) {
+            $scope.modalOpen = true;
+            $rootScope.$broadcast('modal/open', partial, options);
+        };
+
+        /**
+         * @method openProduct
          * @param productId {Number}
          * @param event {Object}
          * @return {void}
          */
-        $scope.view = function view(productId, event) {
+        $scope.openProduct = function openProduct(productId, event) {
 
             if (event) {
                 event.stopPropagation();
@@ -93,9 +104,11 @@
             $rootScope.$broadcast('modal/reset');
 
             http.getProduct(productId).then(function then(response) {
-                $rootScope.$broadcast('modal/open', 'product.html', {
+
+                $scope.openModal('product.html', {
                     model: response.data
                 });
+
             });
 
         };
@@ -117,9 +130,7 @@
          * @return {void}
          */
         $scope.closeFilters = function() {
-
             $rootScope.$broadcast('filters/close');
-
         };
 
         /**

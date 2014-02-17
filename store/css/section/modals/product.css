@@ -1,0 +1,119 @@
+section.modal-window.product ul.links {
+    text-align: left;
+    height: 25px;
+    position: absolute;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: .5;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+}
+
+section.modal-window.product ul.links li {
+    height: 25px;
+    width: 45px;
+    border-right: 1px solid rgba(0, 0, 0, .25);
+    line-height: 25px;
+    text-align: center;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+section.modal-window.product div.header {
+    display: relative;
+    overflow: hidden;
+}
+
+section.modal-window.product div.header h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    padding-top: 10px;
+    color: rgba(0, 0, 0, .75);
+}
+
+section.modal-window.product div.header div.price {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+section.modal-window.product div.header div.quantity {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    float: left;
+    padding: 6px 0 0 10px;
+    overflow: hidden;
+}
+
+section.modal-window.product div.header img.product {
+    width: 150px;
+    float: left;
+    margin: 20px 20px 0 0;
+}
+
+section.modal-window.product div.header select {
+    margin-bottom: 10px;
+}
+
+section.modal-window.product div.header input.quantity {
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin-right: 5px;
+    text-align: center;
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    width: 45px;
+}
+
+section.modal-window.product div.header div.btn {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    background: #20b2aa none;
+    text-shadow: none;
+    float: left;
+    color: white;
+    border: 0;
+    border-radius: 0;
+    opacity: .25;
+    pointer-events: none;
+    transition: all .35s;
+    -o-transition: all .35s;
+    -ms-transition: all .35s;
+    -moz-transition: all .35s;
+    -webkit-transition: all .35s;
+}
+
+section.modal-window.product div.header div.btn.selectable:hover {
+    background-color: black;
+}
+
+section.modal-window.product div.header div.btn.adding {
+    opacity: .65;
+    background: #a9a9a9 none;
+    pointer-events: none;
+}
+
+section.modal-window.product div.header div.btn.selectable {
+    opacity: 1;
+    pointer-events: all;
+}
+
+section.modal-window.product div.description {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    padding-top: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+    clear: both;
+    font-size: 14px;
+}
+
+section.modal-window.product div.error {
+    margin: 20px 0;
+}

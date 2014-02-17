@@ -72,7 +72,7 @@ If you prefer to use another JS framework such as Ember or Meteor, then you're m
  * `/product/5` &ndash; fetch a product with the ID of 5;
  * `/categories` &ndash; fetch all the categories and their sub-categories;
  * `/basket` &ndash; fetch all of the items in the basket;
- * `/basket/add/2` &ndash; add an item to the basket with product ID 2;
+ * `/basket/add/2/4` &ndash; add an item to the basket with product ID 2 and quantity 4;
  * `/basket/remove/2` &ndash; Remove an item from the basket;
  * `/attributes/color` &ndash; fetch attributes by name;
  * `/currencies` &ndash; fetch a list of currencies and their conversion rates;
