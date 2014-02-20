@@ -37,3 +37,9 @@ section.filters div.filter.brands ul.filter-container li label {
     top: 0;
     left: 0;
 }
+
+section.filters div.filter.brands ul.filter-container li div.count {
+    position: absolute;
+    right: 10px;
+    color: rgba(0, 0, 0, .35);
+}
