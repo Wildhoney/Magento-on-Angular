@@ -74,10 +74,16 @@
 
                 /**
                  * @method getCount
-                 * @return {Number}
+                 * @return {Object}
                  */
                 scope.getCount = function getCount(model) {
+
+                    if (!scope.counts) {
+                        return { value: '' };
+                    }
+
                     return _.findWhere(scope.counts, { key: model.id });
+
                 };
 
                 /**
