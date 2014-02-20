@@ -45,6 +45,7 @@ var beginListening = function beginListening() {
         $snapshot.setPerPage(15);
         $snapshot.setSortBy('name', 'asc');
         $snapshot.setRanges(['price']);
+        $snapshot.setGroups(['manufacturer']);
         $snapshot.setCollection(products, ['id', 'name', 'colour', 'price', 'manufacturer']);
 
         socket.on('snapshot/products/colours', function colours(ids) {
