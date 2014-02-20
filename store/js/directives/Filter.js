@@ -13,6 +13,7 @@
             restrict: 'A',
             scope: {
                 batched: '=batch',
+                counts: '=counts',
                 update: '&'
             },
             templateUrl: 'views/filter.html',
@@ -70,6 +71,14 @@
                     });
 
                 });
+
+                /**
+                 * @method getCount
+                 * @return {Number}
+                 */
+                scope.getCount = function getCount(model) {
+                    return _.findWhere(scope.counts, { key: model.id });
+                };
 
                 /**
                  * @method initiateUpdate

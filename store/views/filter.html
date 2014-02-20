@@ -1,6 +1,7 @@
 <ul class="filter-container">
-    <li ng-repeat="model in models">
+    <li ng-repeat="model in models" ng-show="getCount(model)">
         <input id="{{model.label}}" type="checkbox" ng-change="initiateUpdate(selected)" ng-model="selected[model.id]" />
         <label for="{{model.label}}">{{model.label}}</label>
+        <div class="count">{{getCount(model).value}}</div>
     </li>
 </ul>

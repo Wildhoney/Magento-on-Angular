@@ -24,6 +24,12 @@
         $scope.loaded = false;
 
         /**
+         * @property groupStatistics
+         * @type {Object}
+         */
+        $scope.groupStatistics = {};
+
+        /**
          * @property sortProperties
          * @type {Array}
          */
@@ -139,6 +145,7 @@
                 $scope.loaded = true;
                 $scope.statistics = statistics;
                 $scope.products = gateway.resolve(models);
+                $scope.groupStatistics = statistics.groups;
 
                 if (!$scope.immutableStatistics) {
 
