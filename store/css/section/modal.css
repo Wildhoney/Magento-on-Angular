@@ -1,5 +1,6 @@
 @import "modals/product.css";
 @import "modals/checkout.css";
+@import "modals/addresses.css";
 
 section.modal-window {
     position: fixed;

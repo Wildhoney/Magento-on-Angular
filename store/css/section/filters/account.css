@@ -21,6 +21,7 @@ div.filter.account form p input.stretch {
 div.filter.account div.action-button {
     height: 35px;
     line-height: 35px;
+    margin-bottom: 10px;
 }
 
 div.filter.account div.inner {
