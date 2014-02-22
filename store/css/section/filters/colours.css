@@ -6,14 +6,14 @@ section.filters div.filter.colours ul.filter-container li {
     float: left;
     overflow: hidden;
     position: relative;
-    width: 75px;
+    width: 100px;
     padding: 5px;
 }
 
 section.filters div.filter.colours ul.filter-container li input {
-    pointer-events: none;
     float: left;
     margin: 3px 0 0 10px;
+    pointer-events: none;
 }
 
 section.filters div.filter.colours ul.filter-container li label {
@@ -24,4 +24,10 @@ section.filters div.filter.colours ul.filter-container li label {
     left: 0;
     top: 0;
     width: 100%;
+}
+
+section.filters div.filter.colours ul.filter-container li div.count {
+    font-weight: 200;
+    float: right;
+    color: rgba(0, 0, 0, .5);
 }
