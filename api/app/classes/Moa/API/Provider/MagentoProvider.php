@@ -9,6 +9,12 @@ namespace Moa\API\Provider;
  */
 class MagentoProvider extends AbstractProvider implements ProviderInterface {
 
+    /**
+     * @constant IMAGE_PATH
+     * @type string
+     */
+    const IMAGE_PATH = 'localhost';
+
     use Magento\Account,
         Magento\Cart,
         Magento\Category,

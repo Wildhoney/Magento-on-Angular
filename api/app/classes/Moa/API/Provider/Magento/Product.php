@@ -54,7 +54,7 @@ trait Product {
             'colour'        => (int) $product->getData('color'),
             'manufacturer'  => (int) $product->getData('manufacturer'),
             'description'   => nl2br(trim($product->getDescription())),
-            'largeImage'    => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
+            'largeImage'    => (string) str_replace('localhost', self::IMAGE_PATH, $product->getMediaConfig()->getMediaUrl($product->getData('image'))),
             'similar'       => $product->getRelatedProductIds(),
             'gallery'       => $product->getMediaGalleryImages(),
             'products'      => $products,
@@ -206,12 +206,13 @@ trait Product {
                 'name'              => trim($product->getName()),
                 'ident'             => trim($this->createIdent($product->getName())),
                 'price'             => (float) $product->getPrice(),
-                'image'             => (string) $product->getMediaConfig()->getMediaUrl($product->getData('image')),
+                'image'             => (string) str_replace('localhost', self::IMAGE_PATH, $product->getMediaConfig()->getMediaUrl($product->getData('image'))),
                 'colour'            => (int) $product->getData('color'),
                 'manufacturer'      => (int) $product->getData('manufacturer'),
                 'categories'        => array_unique($ids),
                 'type'              => $type
             );
+
         }
 
         return $collection;

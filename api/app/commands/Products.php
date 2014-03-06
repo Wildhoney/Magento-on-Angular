@@ -8,6 +8,12 @@ use Moa\API\Provider\ProviderInterface;
 class Products extends Command {
 
     /**
+     * @const IMAGE_PATH
+     * @type string
+     */
+    const IMAGE_PATH = 'localhost';
+
+    /**
      * @const PRODUCTS_CACHE_KEY
      * @type string
      */
@@ -25,6 +31,10 @@ class Products extends Command {
      */
     protected $description = 'Generate a cache of the products in the Magento database.';
 
+    /**
+     * @property $api
+     * @var Moa\API\Provider\ProviderInterface
+     */
     private $api;
 
     /**
