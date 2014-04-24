@@ -4,7 +4,7 @@
 /store/sass/.sass-cache
 /.sass-cache
 /.grunt
-/bower_components
+/store/bower_components
 /node_modules
 /magento/var/cache/*
 /magento/var/session/*
