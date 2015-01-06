@@ -1,0 +1,7 @@
+box: precise64
+vagrant_memory: 2048
+vagrant_cpus: 4
+vagrant_port_ssh: 2222
+vagrant_port_http: 8080
+playbooks:
+  - nfs
