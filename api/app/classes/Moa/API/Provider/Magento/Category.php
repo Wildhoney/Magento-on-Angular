@@ -65,7 +65,7 @@ trait Category {
                 // Prepare the model for appending to the collection.
                 $model = array(
                     'id'            => (int) $subCategory->getId(),
-                    'ident'         => $this->_createIdent($subCategory->getName()),
+                    'ident'         => $this->createIdent($subCategory->getName()),
                     'name'          => $subCategory->getName(),
                     'productCount'  => $productCount($subCategory->getId()),
                 );
