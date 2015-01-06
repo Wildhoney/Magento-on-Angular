@@ -1,0 +1,13 @@
+---
+- hosts: all
+  name: NFS
+
+  tasks:
+
+    - name: Install NFS-Common Module
+      apt: pkg=nfs-common state=installed update_cache=true
+      sudo: yes
+
+    - name: Install Portmap Module
+      apt: pkg=portmap state=installed update_cache=true
+      sudo: yes
