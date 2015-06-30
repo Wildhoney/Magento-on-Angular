@@ -20,10 +20,16 @@ var products = '';
 
 // Retrieve the products so we'll always have a fresh copy to serve to
 // new connections.
-request(url, function (error, response, body) {
-    products = JSON.parse(body);
-    io = require('socket.io').listen(parseInt(config.socket.port));
-    beginListening();
+request({url:url,headers:{"Accept": "application/json"}}, function (error, response, body) {
+    if ((error) || (response.statusCode!=200)){
+        console.log("Error connecting to magento: "+(error || response.body));
+        process.exit();
+    }
+    else{
+        products = JSON.parse(body);
+        io = require('socket.io').listen(parseInt(config.socket.port));
+        beginListening();
+    }
 });
 
 /**
