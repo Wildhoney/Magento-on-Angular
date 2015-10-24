@@ -1,0 +1,22 @@
+{
+  "name": "wildhoney/magento-on-angular",
+  "description": "Angular.js application using Magento as the backend API",
+  "license": "BSD3",
+  "authors": [
+    {
+      "name": "Adam Timberlake",
+      "email": "adam.timberlake@gmail.com",
+      "homepage": "https://github.com/Wildhoney",
+      "role": "Owner"
+    },
+    {
+      "name": "Vallabh Kansagara",
+      "email": "vrkansagara@gmail.com",
+      "homepage": "http://vrkansagara.in",
+      "role": "Active Maintainer and Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+  }
+}

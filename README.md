@@ -1,5 +1,5 @@
-Moa
-=========
+Magento on Angular ( Moa )
+===========================
 
 <img src="https://travis-ci.org/Wildhoney/Magento-on-Angular.png" />
 
@@ -16,7 +16,7 @@ Tired of Magento's lack of unit testing? Configuration over convention? Use of P
 Heapshots: Moa uses <a href="https://github.com/bnoordhuis/node-heapdump">HeapDump</a> to take memory snapshots. Send a `kill -USR2 <pid>` where `<pid>` is your Node.js process ID.
 
 Getting Started
----------
+---------------
 
  * Install all dependencies: `npm install`, `bower install`;
  * Install Laravel dependencies: `composer install` from `api/`;
@@ -33,7 +33,7 @@ Optionally, you may prefer to structure your config and folders in the manner de
 If things are not working correctly, take a look at `api/public/attributes/color` for any Laravel/Magento issues. Please don't spend too much time debugging &ndash; <a href="https://github.com/Wildhoney/Magento-on-Angular/issues">file a bug</a>!
 
 Unit Testing
----------
+------------
 
 All unit tests for both JavaScript and PHP can be run from the terminal: `grunt test`.
 
@@ -43,7 +43,7 @@ All unit tests for both JavaScript and PHP can be run from the terminal: `grunt 
  * JavaScript specific unit tests are available via the URL `/store/tests/`;
 
 Generating Products
----------
+-------------------
 
 Since your product collection might be a little slow because of Magento's EAV database structure, Moa allows you to create a cache key via the terminal instead &ndash; however a cached copy will still be generated if you access it via your browser.
 
@@ -54,7 +54,7 @@ In order to generate a cache for the product collection, you can run `php artisa
 Please note that by default the cache is using plain old file cache. If you want to use Redis, change the configuration on line 18 of `api/app/config/cache.php` from `file` to `redis`. More information on the cache configuration is available on http://laravel.com/docs/cache#configuration.
 
 Directory Structure
----------
+-------------------
 
 At first glance the directories may seem over-complicated. However there's method in all of the madness!
 
@@ -64,7 +64,7 @@ At first glance the directories may seem over-complicated. However there's metho
  * `store` contains the actual Angular.js Moa application;
 
 Laravel API
----------
+-----------
 
 If you prefer to use another JS framework such as Ember or Meteor, then you're more than welcome to use the API in isolation. Below we've documented <a href="https://github.com/Wildhoney/Magento-on-Angular/blob/master/api/app/routes.php">the URLs</a> and their purposes:
 
@@ -82,7 +82,7 @@ If you prefer to use another JS framework such as Ember or Meteor, then you're m
  * `/account/register` &ndash; create a new user account;
 
 Specification
----------
+-------------
 
  * Angular.js front-end for one-page functionality;
  * Laravel API for interacting with Magento;
