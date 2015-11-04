@@ -21,7 +21,6 @@
     "classmap": [
       "database",
       "app/commands",
-      "app/controllers",
       "app/classes",
       "tests/TestCase.php"
     ],
