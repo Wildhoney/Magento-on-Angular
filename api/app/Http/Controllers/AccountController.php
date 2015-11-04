@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers;
 class AccountController extends BaseAPIController {
 
     public function login() {

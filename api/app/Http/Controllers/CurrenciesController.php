@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers;
 class CurrenciesController extends BaseAPIController {
 
     public function getCurrencies() {

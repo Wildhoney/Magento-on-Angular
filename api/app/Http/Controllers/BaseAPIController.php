@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 use Moa\API\Provider\ProviderInterface;
 
 class BaseAPIController extends BaseController {

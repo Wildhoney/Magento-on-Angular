@@ -1,6 +1,7 @@
 <?php
-
-class ProductsController extends BaseAPIController {
+namespace App\Http\Controllers;
+class ProductsController extends BaseAPIController
+{
 
     /**
      * @const PRODUCTS_CACHE_KEY
@@ -12,7 +13,8 @@ class ProductsController extends BaseAPIController {
      * @method getProducts
      * @return string
      */
-    public function getProducts() {
+    public function getProducts()
+    {
         Artisan::call('products');
         return Cache::get(self::PRODUCTS_CACHE_KEY);
     }

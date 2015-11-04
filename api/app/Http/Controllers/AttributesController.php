@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers;
 class AttributesController extends BaseAPIController {
 
     /**
