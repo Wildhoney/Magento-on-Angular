@@ -22,11 +22,8 @@
       "database",
       "app/commands",
       "app/controllers",
-      "app/models",
-      "app/database/migrations",
-      "app/database/seeds",
       "app/classes",
-      "app/tests/TestCase.php"
+      "tests/TestCase.php"
     ],
     "psr-4": {
       "App\\": "app/"
