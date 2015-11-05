@@ -11,6 +11,15 @@
 |
 */
 
+/**
+ * Laravel Application routing.
+ *
+ * @author Raja Kapur <raja.kapur@gmail.com>
+ * @author Adam Timberlake <adam.timberlake@gmail.com>
+ * @author Vallabh Kansagara <vrkansagara@gmail.com>
+ */
+
+
 Route::get(
     '/', function () {
     return view('welcome');

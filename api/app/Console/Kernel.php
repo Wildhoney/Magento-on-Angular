@@ -8,24 +8,27 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 class Kernel extends ConsoleKernel
 {
     /**
-     * The Artisan commands provided by your application.
+     * Artisan Product Cached using console command.
      *
+     * @author Vallabh Kansagara <vrkansagara@gmail.com>
      * @var array
      */
-    protected $commands = [
-        \App\Console\Commands\Inspire::class,
-        \App\Console\Commands\Products::class,
-    ];
+    protected $commands
+        = [
+            \App\Console\Commands\Inspire::class,
+            \App\Console\Commands\Products::class,
+        ];
 
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     *
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('inspire')
-                 ->hourly();
+            ->hourly();
     }
 }

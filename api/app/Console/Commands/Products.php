@@ -2,6 +2,12 @@
 
 namespace App\Console\Commands;
 
+/**
+ * Magento Products Caching Class
+ *
+ * @author Vallabh Kansagara <vrkansagara@gmail.com>
+ */
+
 use Illuminate\Console\Command;
 use Cache;
 use Symfony\Component\Console\Input\InputOption;
