@@ -1,11 +1,15 @@
 <?php
 
+namespace App\Console\Commands;
+
 use Illuminate\Console\Command;
+use Cache;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Moa\API\Provider\ProviderInterface;
 
-class Products extends Command {
+class Products extends Command
+{
 
     /**
      * @const IMAGE_PATH
@@ -19,11 +23,20 @@ class Products extends Command {
      */
     const PRODUCTS_CACHE_KEY = 'products';
 
+
     /**
-     * @property string $name
-     * @type string
+     * @property $api
+     * @var Moa\API\Provider\ProviderInterface
      */
-    protected $name = 'products';
+    private $api;
+
+
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'products';
 
     /**
      * @property string $description
@@ -31,11 +44,6 @@ class Products extends Command {
      */
     protected $description = 'Generate a cache of the products in the Magento database.';
 
-    /**
-     * @property $api
-     * @var Moa\API\Provider\ProviderInterface
-     */
-    private $api;
 
     /**
      * @constructor
@@ -48,10 +56,11 @@ class Products extends Command {
     }
 
     /**
-     * @method fire
-     * @return void
+     * Execute the console command.
+     *
+     * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         if (Cache::get(self::PRODUCTS_CACHE_KEY)) {
             return;
@@ -66,9 +75,11 @@ class Products extends Command {
         Cache::put(self::PRODUCTS_CACHE_KEY, json_encode($collection), 43200);
     }
 
+
     /**
      * @method getArguments
      * @return array
+     * @todo get console arguments
      */
     protected function getArguments()
     {
@@ -78,10 +89,12 @@ class Products extends Command {
     /**
      * @method getOptions
      * @return array
+     * @todo get more option for the artisan commands.
      */
     protected function getOptions()
     {
         return array();
     }
+
 
 }
