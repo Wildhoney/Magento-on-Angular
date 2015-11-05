@@ -1,5 +1,9 @@
 <?php
 namespace App\Http\Controllers;
+
+use Cache;
+use Illuminate\Support\Facades\Artisan;
+
 class ProductsController extends BaseAPIController
 {
 

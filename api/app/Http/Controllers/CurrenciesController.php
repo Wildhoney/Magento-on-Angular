@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers;
-class CurrenciesController extends BaseAPIController {
+class CurrenciesController extends BaseAPIController
+{
 
-    public function getCurrencies() {
+    public function getCurrencies()
+    {
         $options = $this->api->getCurrencies();
-        return Response::json($options);
+        return \Response::json($options);
     }
 
 }
