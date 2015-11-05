@@ -1,12 +1,12 @@
 <?php
-namespace Moa\Laravel; 
+namespace Moa\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
  * Backend store API service provider
  *
- * @author Raja Kapur <raja.kapur@gmail.com> 
+ * @author Raja Kapur <raja.kapur@gmail.com>
  */
 class APIServiceProvider extends ServiceProvider
 {
