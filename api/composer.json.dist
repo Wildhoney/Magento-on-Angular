@@ -20,9 +20,6 @@
   "autoload": {
     "classmap": [
       "database",
-      "app/commands",
-      "app/classes",
-      "tests/TestCase.php"
     ],
     "psr-4": {
       "App\\": "app/"
