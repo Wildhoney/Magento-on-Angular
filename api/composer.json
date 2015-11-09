@@ -21,7 +21,6 @@
   "autoload": {
     "classmap": [
       "database",
-      "app/commands",
       "app/classes",
       "tests/TestCase.php"
     ],
