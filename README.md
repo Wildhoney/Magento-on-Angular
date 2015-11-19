@@ -1,6 +1,17 @@
 Moa
 =========
 
+
+> ## Abandoned! Or, rather, rebranded!
+>
+> vrkansagara/Magento-on-Angular has moved to the KNOWARTH organization as
+> [Magento-on-Angular](https://github.com/KNOWARTH/Magento-on-Angular)
+>
+> Please use that package instead, and contribute issues and pull requests
+> against it I have closed issues and pull requests against vrkansagara/Magento-on-Angular at this
+> time.
+
+
 <img src="https://travis-ci.org/Wildhoney/Magento-on-Angular.png" />
 
 **Note:** Those updating from 0.2.8 to 0.3.0 need to run: `composer dump-autoload` from `api/` and update the new `config.json` file.
