@@ -7,7 +7,7 @@
     "url": "git://git@github.com:Wildhoney/Magento-on-Angular.git"
   },
   "dependencies": {
-    "jquery": "~1.8.3",
+    "jquery": "~3.5.0",
     "jasmine-node": "~1.11.0",
     "crossfilter": "~1.2.0",
     "socket.io": "~0.9.16",
